@@ -102,8 +102,8 @@ end
 # suffix array for array of integers or string
 def suffix_array(s, upper = nil)
   if not upper then
-  	case s
-  	when Array
+    case s
+    when Array
       # compression
       n = s.size
       idx = (0 ... n).sort_by{ |i| s[i] }
