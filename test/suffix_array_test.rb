@@ -59,6 +59,6 @@ class SuffixArrayTest < Minitest::Test
   end
 
   def test_mississippi
-    assert_equal suffix_array("mississippi"), suffix_array_naive("mississippi")
+    assert_equal suffix_array("mississippi"), [10,7,4,1,0,9,8,6,3,5,2]
   end
 end
