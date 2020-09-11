@@ -3,13 +3,16 @@
 # Fenwick Tree
 class FenwickTree
   def initialize(arg)
-    if arg.is_a?(Array)
+    case arg
+    when Array
       @size = arg.size
       @data = Array.new(@size + 1) { 0 }
       arg.each.with_index(1) { |e, i| add(i, e) }
-    elsif arg.is_a?(Integer)
+    when Integer
       @size = arg
       @data = Array.new(@size + 1) { 0 }
+    else
+      raise ArgumentError
     end
   end
 

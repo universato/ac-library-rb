@@ -2,15 +2,16 @@
 
 # Segment Tree
 class Segtree
-  def initialize(arg, e)
-    if arg.is_a?(Integer)
+  def initialize(arg, e, &block)
+    case arg
+    when Integer
       v = Array.new(arg) { e }
-    elsif arg.is_a?(Array)
+    when Array
       v = arg
     end
 
     @e  = e
-    @op = proc { |x, y| yield(x, y) }
+    @op = proc(&block)
 
     @n = v.size
     @log = ceil_pow2(@n)
@@ -56,10 +57,10 @@ class Segtree
     d[1]
   end
 
-  def max_right(l)
+  def max_right(l, &block)
     return @n if l == @n
 
-    f = proc { |v| yield(v) }
+    f = proc(&block)
 
     l += @leaf_size
     sm = @e

@@ -12,10 +12,11 @@ st = Segtree.new(a, -INF) { |x, y| [x, y].max }
 q.times do
   query = gets.to_s.split.map(&:to_i)
 
-  if query[0] == 1
+  case query[0]
+  when 1
     _, x, v = query
     st.set(x - 1, v)
-  elsif query[0] == 2
+  when 2
     _, l, r = query
     puts st.prod(l - 1, r)
   else
