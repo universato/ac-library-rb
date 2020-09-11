@@ -10,6 +10,7 @@ class SCCGraph
   # add directed edge
   def add_edge(from, to)
     raise "invalid params" unless (0...@n).include? from and (0...@n).include? to
+
     @edges << [from, to]
   end
 
@@ -38,11 +39,11 @@ class SCCGraph
       (start[v]...start[v + 1]).each do |i|
         to = elist[i]
         low[v] = if ord[to] == -1
-          dfs.(to)
-          [low[v], low[to]].min
-        else
-          [low[v], ord[to]].min
-        end
+                   dfs.(to)
+                   [low[v], low[to]].min
+                 else
+                   [low[v], ord[to]].min
+                 end
       end
       if low[v] == ord[v]
         loop do
@@ -71,3 +72,8 @@ class SCCGraph
     [start, elist]
   end
 end
+
+# class alias
+StronglyConnectedComponents = SCCGraph
+SCC  = SCCGraph
+SCCG = SCCGraph
