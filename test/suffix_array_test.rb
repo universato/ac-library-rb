@@ -36,6 +36,20 @@ class SuffixArrayTest < Minitest::Test
     }
   end
 
+  def test_random_array_calculated_upper
+    maxA = 100
+    20.times{
+      a = (0 ... 100).map{ rand(maxA + 1) }
+      assert_equal suffix_array(a, a.max), suffix_array_naive(a)
+    }
+  end
+
+  def test_wrong_given_upper
+    assert_raises(ArgumentError){
+      suffix_array([*0 .. 1_000_000], 999_999)
+    }
+  end
+
   def test_random_string
     maxA = ?~.ord - ?\s.ord + 1
     20.times{
