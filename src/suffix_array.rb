@@ -119,6 +119,10 @@ def suffix_array(s, upper = nil)
       upper = 255
       s = s.bytes
     end
+  else
+    s.each{ |s|
+      raise ArgumentError if s<0 || upper<s
+    }
   end
   return sa_is(s, upper)
 end
