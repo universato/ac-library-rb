@@ -10,7 +10,7 @@ class Segtree
     end
 
     @e  = e
-    @op = proc { yield(_1, _2) }
+    @op = proc { |x, y| yield(x, y) }
 
     @n = v.size
     @log = ceil_pow2(@n)
@@ -59,7 +59,7 @@ class Segtree
   def max_right(l)
     return @n if l == @n
 
-    f = proc { yield(_1) }
+    f = proc { |v| yield(v) }
 
     l += @leaf_size
     sm = @e

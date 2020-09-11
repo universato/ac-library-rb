@@ -7,7 +7,7 @@ INF = (1 << 60) - 1
 _, q = gets.to_s.split.map(&:to_i)
 a    = gets.to_s.split.map(&:to_i)
 
-st = Segtree.new(a, -INF) { [_1, _2].max }
+st = Segtree.new(a, -INF) { |x, y| [x, y].max }
 
 q.times do
   query = gets.to_s.split.map(&:to_i)
@@ -20,6 +20,6 @@ q.times do
     puts st.prod(l - 1, r)
   else
     _, x, v = query
-    puts st.max_right(x - 1) { _1 < v } + 1
+    puts st.max_right(x - 1) { |t| t < v } + 1
   end
 end
