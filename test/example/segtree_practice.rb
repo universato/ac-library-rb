@@ -1,0 +1,25 @@
+# frozen_string_literal: true
+
+require_relative '../../src/segtree.rb'
+
+INF = (1 << 60) - 1
+
+_, q = gets.to_s.split.map(&:to_i)
+a    = gets.to_s.split.map(&:to_i)
+
+st = Segtree.new(a, -INF) { [_1, _2].max }
+
+q.times do
+  query = gets.to_s.split.map(&:to_i)
+
+  if query[0] == 1
+    _, x, v = query
+    st.set(x - 1, v)
+  elsif query[0] == 2
+    _, l, r = query
+    puts st.prod(l - 1, r)
+  else
+    _, x, v = query
+    puts st.max_right(x - 1) { _1 < v } + 1
+  end
+end
