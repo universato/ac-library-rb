@@ -11,11 +11,13 @@ See below for ACL.
 # Ruby version
 
 Currently, the Ruby version in AtCoder is 2.7.1.
+
 Therefore, 2.7.1 is recommended and may not work with other versions.
 
 # More information
 
 We have a slack channnel "atcoder" in [ruby-jp](https://ruby-jp.github.io/).
+
 Please join it.
 
 # Other language
