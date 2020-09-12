@@ -59,4 +59,8 @@ class SuffixArrayTest < Minitest::Test
   def test_mississippi
     assert_equal [10,7,4,1,0,9,8,6,3,5,2], suffix_array("mississippi")
   end
+
+  def test_abracadabra
+    assert_equal [10,7,0,3,5,8,1,4,6,9,2], suffix_array("abracadabra")
+  end
 end
