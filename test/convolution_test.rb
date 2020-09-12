@@ -57,7 +57,7 @@ class ConvolutionTest < Minitest::Test
   def test_random_array_modulo_NTT_friendly_not_given_proot
     max = 10**18
     [998244353, 1012924417, 924844033].each{ |mod|
-      conv = Convolution.new(mod, nil)
+      conv = Convolution.new(mod)
       20.times{
         a = (0 ... 100).map{ rand(max) }
         b = (0 ... 100).map{ rand(max) }
@@ -69,7 +69,7 @@ class ConvolutionTest < Minitest::Test
   def test_random_array_small_modulo_limit_length
     max = 10**18
     [641, 769].each{ |mod|
-      conv = Convolution.new(mod, nil)
+      conv = Convolution.new(mod)
       limlen = 1
       limlen *= 2 while (mod-1)%limlen == 0
       limlen /= 2
@@ -86,7 +86,7 @@ class ConvolutionTest < Minitest::Test
   def test_small_modulo_over_limit_length
     max = 10**18
     [641, 769].each{ |mod|
-      conv = Convolution.new(mod, nil)
+      conv = Convolution.new(mod)
       limlen = 1
       limlen *= 2 while (mod-1)%limlen == 0
       limlen /= 2

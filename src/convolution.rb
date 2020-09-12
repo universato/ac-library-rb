@@ -1,11 +1,17 @@
 # frozen_string_literal: true
 
+# usage :
+#
+# conv = Convolution.new(mod, [primitive_root])
+# conv.convolution(a, b) #=> convolution a and b modulo mod.
+#
+
 class Convolution
-  def initialize(mod = 998244353, primitive_root = 3)
+  def initialize(mod = 998244353, primitive_root = nil)
     @mod = mod
 
     cnt2 = bsf(@mod - 1)
-    e = primitive_root.pow((@mod-1) >> cnt2, @mod)
+    e = (primitive_root||calc_primitive_root(mod)).pow((@mod-1) >> cnt2, @mod)
     ie = e.pow(@mod - 2, @mod)
     
     es = [0]*(cnt2-1)
@@ -18,9 +24,9 @@ class Convolution
     }
     now = inow = 1
 
-    @sum_e = [0]*(cnt2-2)
-    @sum_ie = [0]*(cnt2-2)
-    (cnt2-2).times{ |i|
+    @sum_e = [0]*cnt2
+    @sum_ie = [0]*cnt2
+    (cnt2-1).times{ |i|
       @sum_e[i] = es[i]*now % @mod
       now = now*ies[i] % @mod
       @sum_ie[i] = ies[i]*inow % @mod
@@ -34,6 +40,7 @@ class Convolution
     return [] if n==0 || m==0
 
     h = (n+m-2).bit_length
+    raise ArgumentError if h > @sum_e.size
     z = 1 << h
 
     a = a+[0]*(z-n)
@@ -89,5 +96,30 @@ class Convolution
   def bsf(x)
     (x & -x).bit_length - 1
   end
-  protected :batterfly, :batterfly_inv, :bsf
+
+  def calc_primitive_root(mod)
+    return 1 if mod == 2
+    return 3 if mod == 998244353
+
+    divs = [2]
+    x = (mod-1) / 2
+    x/=2 while x.even?
+    i = 3
+    while i*i <= x
+      if x%i == 0 then
+        divs << i
+        x/=i while x%i == 0
+      end
+      i += 1
+    end
+    divs << x if x > 1
+
+    g = 2
+    loop{
+      return g if divs.none?{ |d| g.pow((mod-1)/d, mod) == 1 }
+      g += 1
+    }
+  end
+
+  private :batterfly, :batterfly_inv, :bsf, :calc_primitive_root
 end
