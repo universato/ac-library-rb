@@ -21,7 +21,7 @@ class LcpArrayTest < Minitest::Test
     maxA = 10
     20.times{
       a = (0 ... 100).map{ rand(maxA) }
-      assert_equal lcp_array(a, suffix_array(a)), lcp_array_naive(a)
+      assert_equal lcp_array_naive(a), lcp_array(a, suffix_array(a))
     }
   end
 
@@ -29,7 +29,7 @@ class LcpArrayTest < Minitest::Test
     maxA = 10**18
     20.times{
       a = (0 ... 100).map{ rand(maxA) }
-      assert_equal lcp_array(a, suffix_array(a)), lcp_array_naive(a)
+      assert_equal lcp_array_naive(a), lcp_array(a, suffix_array(a))
     }
   end
 
@@ -37,11 +37,15 @@ class LcpArrayTest < Minitest::Test
     maxA = ?~.ord - ?\s.ord + 1
     20.times{
       s = (0 ... 100).map{ (rand(maxA) + ?\s.ord).chr }.join
-      assert_equal lcp_array(s, suffix_array(s)), lcp_array_naive(s)
+      assert_equal lcp_array_naive(s), lcp_array(s, suffix_array(s))
     }
   end
 
   def test_mississippi
-    assert_equal lcp_array("mississippi", suffix_array("mississippi")), lcp_array_naive("mississippi")
+    assert_equal lcp_array_naive("mississippi"), lcp_array("mississippi", suffix_array("mississippi"))
+  end
+
+  def test_abracadabra
+    assert_equal lcp_array_naive("abracadabra"), lcp_array("abracadabra", suffix_array("abracadabra"))
   end
 end
