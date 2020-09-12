@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# induce sort (internal routine)
+# induce sort (internal method)
 def sa_is_induce(s, ls, sum_l, sum_s, lms)
   n = s.size
   sa = [-1]*n
@@ -34,7 +34,7 @@ def sa_is_induce(s, ls, sum_l, sum_s, lms)
   return sa
 end
 
-# SA-IS (internal routine)
+# SA-IS (internal method)
 def sa_is(s, upper)
   n = s.size
 
