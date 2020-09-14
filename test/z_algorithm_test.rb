@@ -17,15 +17,15 @@ end
 class ZAlgorithmTest < Minitest::Test
   def test_random_string
     20.times{
-      s = (0 ... 100).map{ rand(' '.ord..'~'.ord).chr }.join
+      s = (0 ... 100).map{ rand(' '.ord .. '~'.ord).chr }.join
       assert_equal z_algorithm_naive(s), z_algorithm(s)
     }
   end
 
   def test_random_array_of_small_integer
-    max_num = 10
+    max_num = 5
     20.times{
-      a = (0 ... 100).map{ rand(max_num) }
+      a = (0 ... 100).map{ rand(-max_num .. max_num) }
       assert_equal z_algorithm_naive(a), z_algorithm(a)
     }
   end
@@ -33,14 +33,14 @@ class ZAlgorithmTest < Minitest::Test
   def test_random_array_of_large_integer
     max_num = 10**18
     20.times{
-      a = (0 ... 100).map{ rand(max_num) }
+      a = (0 ... 100).map{ rand(-max_num .. max_num) }
       assert_equal z_algorithm_naive(a), z_algorithm(a)
     }
   end
 
   def test_random_array_of_char
     20.times{
-      a = (0 ... 100).map{ rand(' '.ord..'~'.ord).chr }
+      a = (0 ... 100).map{ rand(' '.ord .. '~'.ord).chr }
       assert_equal z_algorithm_naive(a), z_algorithm(a)
     }
   end
@@ -65,7 +65,7 @@ class ZAlgorithmTest < Minitest::Test
   def test_unique_array
     max_num = 10**18
     20.times{
-      a = (0 ... 10**5).map{ rand(max_num) }.uniq
+      a = (0 ... 10**5).map{ rand(-max_num .. max_num) }.uniq
       assert_equal [a.size]+[0]*(a.size-1), z_algorithm(a)
     }
   end
