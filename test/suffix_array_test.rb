@@ -13,33 +13,33 @@ end
 
 class SuffixArrayTest < Minitest::Test
   def test_random_array_small_elements
-    maxA = 10
+    max_num = 5
     20.times{
-      a = (0 ... 100).map{ rand(maxA) }
+      a = (0 ... 100).map{ rand(-max_num .. max_num) }
       assert_equal suffix_array_naive(a), suffix_array(a)
     }
   end
 
   def test_random_array_big_elements
-    maxA = 10**18
+    max_num = 10**18
     20.times{
-      a = (0 ... 100).map{ rand(maxA) }
+      a = (0 ... 100).map{ rand(-max_num .. max_num) }
       assert_equal suffix_array_naive(a), suffix_array(a)
     }
   end
 
   def test_random_array_given_upper
-    maxA = 100
+    max_num = 100
     20.times{
-      a = (0 ... 100).map{ rand(maxA + 1) }
-      assert_equal suffix_array_naive(a), suffix_array(a, maxA)
+      a = (0 ... 100).map{ rand(0 .. max_num) }
+      assert_equal suffix_array_naive(a), suffix_array(a, max_num)
     }
   end
 
   def test_random_array_calculated_upper
-    maxA = 100
+    max_num = 100
     20.times{
-      a = (0 ... 100).map{ rand(maxA + 1) }
+      a = (0 ... 100).map{ rand(0 .. max_num) }
       assert_equal suffix_array_naive(a), suffix_array(a, a.max)
     }
   end
@@ -49,9 +49,8 @@ class SuffixArrayTest < Minitest::Test
   end
 
   def test_random_string
-    maxA = ?~.ord - ?\s.ord + 1
     20.times{
-      s = (0 ... 100).map{ (rand(maxA) + ?\s.ord).chr }.join
+      s = (0 ... 100).map{ rand(' '.ord .. '~'.ord).chr }.join
       assert_equal suffix_array_naive(s), suffix_array(s)
     }
   end
