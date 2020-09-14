@@ -14,11 +14,10 @@ def floor_sum(n, m, a, b)
   end
 
   y_max = (a * n + b) / m
-  x_max = (y_max * m - b)
 
   return res if y_max == 0
 
-  res += (n - (x_max + a - 1) / a) * y_max
-  res += floor_sum(y_max, a, m, (a - x_max % a) % a)
+  x_max = (m * y_max - b + a - 1) / a
+  res += (n - x_max) * y_max + floor_sum(y_max, a, m, a * x_max - m * y_max + b)
   res
 end
