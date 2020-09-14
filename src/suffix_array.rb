@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-# induce sort (internal routine)
+# induce sort (internal method)
 def sa_is_induce(s, ls, sum_l, sum_s, lms)
   n = s.size
   sa = [-1]*n
 
-  buf = *sum_s # deep copy
+  buf = sum_s.dup
   lms.each{ |lms|
     if lms != n then
       sa[buf[s[lms]]] = lms
@@ -13,7 +13,7 @@ def sa_is_induce(s, ls, sum_l, sum_s, lms)
     end
   }
 
-  buf = *sum_l # deep copy
+  buf = sum_l.dup
   sa[buf[s[-1]]] = n-1
   buf[s[-1]] += 1
   sa.each{ |v|
@@ -23,7 +23,7 @@ def sa_is_induce(s, ls, sum_l, sum_s, lms)
     end
   }
 
-  buf = *sum_l # deep copy
+  buf = sum_l.dup
   sa.reverse_each{ |v|
     if v>=1 && ls[v-1] then
       buf[s[v-1]+1] -= 1
@@ -34,7 +34,7 @@ def sa_is_induce(s, ls, sum_l, sum_s, lms)
   return sa
 end
 
-# SA-IS (internal routine)
+# SA-IS (internal method)
 def sa_is(s, upper)
   n = s.size
 
