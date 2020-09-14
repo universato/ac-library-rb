@@ -66,7 +66,9 @@ class ZAlgorithmTest < Minitest::Test
     max_num = 10**18
     20.times{
       a = (0 ... 10**5).map{ rand(-max_num .. max_num) }.uniq
-      assert_equal [a.size]+[0]*(a.size-1), z_algorithm(a)
+      n = a.size
+      # [n, 0, 0, ..., 0]
+      assert_equal [n]+[0]*(n-1), z_algorithm(a)
     }
   end
 end
