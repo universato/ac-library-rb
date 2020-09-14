@@ -30,25 +30,25 @@ class ConvolutionTest < Minitest::Test
     max_num = 10**18
     conv = Convolution.new
     20.times{
-      a = (0 .. rand(100)).map{ rand(max_num) }
-      b = (0 .. rand(100)).map{ rand(max_num) }
+      a = (0 .. rand(100)).map{ rand(-max_num .. max_num) }
+      b = (0 .. rand(100)).map{ rand(-max_num .. max_num) }
       assert_equal convolution_naive(a, b, 998244353), conv.convolution(a, b)
     }
   end
 
   def test_random_array_modulo_NTT_friendly_given_proot
     max_num = 10**18
-    [[ 998244353,          5],
+    [[ 998244353,          5], # [mod, primitive_root]
      [ 998244353,  100000005],
-     [ 998244353,  998244350], # [mod, primitive_root]
+     [ 998244353,  998244350],
      [1012924417,          5],
      [1012924417, 1012924412],
      [ 924844033,          5],
      [ 924844033,  924844028]].each{ |mod, proot|
       conv = Convolution.new(mod, proot)
       20.times{
-        a = (0 ... 100).map{ rand(max_num) }
-        b = (0 ... 100).map{ rand(max_num) }
+        a = (0 ... 100).map{ rand(-max_num .. max_num) }
+        b = (0 ... 100).map{ rand(-max_num .. max_num) }
         assert_equal convolution_naive(a, b, mod), conv.convolution(a, b)
       }
     }
@@ -59,8 +59,8 @@ class ConvolutionTest < Minitest::Test
     [998244353, 1012924417, 924844033].each{ |mod|
       conv = Convolution.new(mod)
       20.times{
-        a = (0 ... 100).map{ rand(max_num) }
-        b = (0 ... 100).map{ rand(max_num) }
+        a = (0 ... 100).map{ rand(-max_num .. max_num) }
+        b = (0 ... 100).map{ rand(-max_num .. max_num) }
         assert_equal convolution_naive(a, b, mod), conv.convolution(a, b)
       }
     }
@@ -76,8 +76,8 @@ class ConvolutionTest < Minitest::Test
       20.times{
         len_a = rand(limlen) + 1
         len_b = limlen - len_a + 1 # len_a + len_b - 1 == limlen
-        a = (0 ... len_a).map{ rand(max_num) }
-        b = (0 ... len_b).map{ rand(max_num) }
+        a = (0 ... len_a).map{ rand(-max_num .. max_num) }
+        b = (0 ... len_b).map{ rand(-max_num .. max_num) }
         assert_equal convolution_naive(a, b, mod), conv.convolution(a, b)
       }
     }
