@@ -18,34 +18,35 @@ end
 
 class LcpArrayTest < Minitest::Test
   def test_random_array_small_elements
-    maxA = 10
+    max_num = 10
     20.times{
-      a = (0 ... 100).map{ rand(maxA) }
+      a = (0 ... 100).map{ rand(max_num) }
       assert_equal lcp_array_naive(a), lcp_array(a, suffix_array(a))
     }
   end
 
   def test_random_array_big_elements
-    maxA = 10**18
+    max_num = 10**18
     20.times{
-      a = (0 ... 100).map{ rand(maxA) }
+      a = (0 ... 100).map{ rand(max_num) }
       assert_equal lcp_array_naive(a), lcp_array(a, suffix_array(a))
     }
   end
 
   def test_random_string
-    maxA = ?~.ord - ?\s.ord + 1
     20.times{
-      s = (0 ... 100).map{ (rand(maxA) + ?\s.ord).chr }.join
+      s = (0 ... 100).map{ rand(' '.ord..'~'.ord).chr }.join
       assert_equal lcp_array_naive(s), lcp_array(s, suffix_array(s))
     }
   end
 
   def test_mississippi
-    assert_equal lcp_array_naive("mississippi"), lcp_array("mississippi", suffix_array("mississippi"))
+    s = "mississippi"
+    assert_equal lcp_array_naive(s), lcp_array(s, suffix_array(s))
   end
 
   def test_abracadabra
-    assert_equal lcp_array_naive("abracadabra"), lcp_array("abracadabra", suffix_array("abracadabra"))
+    s = "abracadabra"
+    assert_equal lcp_array_naive(s), lcp_array(s, suffix_array(s))
   end
 end
