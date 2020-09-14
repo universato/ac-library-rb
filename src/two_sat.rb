@@ -30,4 +30,9 @@ class TwoSAT
     end
     true
   end
+  alias satisfiable? satisfiable
 end
+
+Twosat = TwoSAT
+TwoSat = TwoSAT
+TwoSatisfiability = TwoSAT
