@@ -18,6 +18,33 @@ def solve(two_sat, count, distance, x, y)
 end
 
 class TwoSATTest < Minitest::Test
+  def test_empty
+    ts0 = TwoSAT.new
+    assert_equal true, ts0.satisfiable
+    assert_equal [], ts0.answer
+
+    ts1 = TwoSAT.new(0)
+    assert_equal true, ts1.satisfiable
+    assert_equal [], ts1.answer
+  end
+
+  def test_one
+    ts = TwoSAT.new(1)
+    ts.add_clause(0, true, 0, true)
+    ts.add_clause(0, false, 0, false)
+    assert_equal false, ts.satisfiable
+
+    ts = TwoSAT.new(1)
+    ts.add_clause(0, true, 0, true)
+    assert_equal true, ts.satisfiable
+    assert_equal [true], ts.answer
+
+    ts = TwoSAT.new(1)
+    ts.add_clause(0, false, 0, false)
+    assert_equal true, ts.satisfiable
+    assert_equal [false], ts.answer
+  end
+
   # https://atcoder.jp/contests/practice2/tasks/practice2_h
   def test_atcoder_library_practice_contest_case_one
     count, distance = 3, 2
@@ -36,5 +63,15 @@ class TwoSATTest < Minitest::Test
     two_sat = solve(TwoSAT.new(count), count, distance, x, y)
 
     assert_equal false, two_sat.satisfiable
+  end
+
+  def test_alias_satisfiable?
+    ts0 = TwoSAT.new
+    assert_equal true, ts0.satisfiable?
+    assert_equal [], ts0.answer
+
+    ts1 = TwoSAT.new(0)
+    assert_equal true, ts1.satisfiable?
+    assert_equal [], ts1.answer
   end
 end
