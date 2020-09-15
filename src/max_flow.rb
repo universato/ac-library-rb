@@ -44,6 +44,13 @@ class MaxFlow
     end
   end
 
+  def change_edge(i, new_cap, new_flow)
+    _e  = @g[@pos[i][0]][@pos[i][1]]
+    _re = @g[_e[0]][_e[1]]
+    _e[2]  = new_cap - new_flow
+    _re[2] = new_flow
+  end
+
   def flow(s, t, flow_limit = 1 << 64)
     level = Array.new(@n)
     iter  = Array.new(@n)
