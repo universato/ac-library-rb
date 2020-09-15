@@ -42,13 +42,14 @@ n頂点, 0辺の無向グラフを生成します。
 
 `DSU`, `DisjointSetUnion`, `UnionFind`, `UnionFindTree`
 
-## merge(a, b)
+## merge(a, b) -> Integer
 
 ```rb
 d.merge(a, b)
 ```
 
 頂点aと頂点bを連結させます。
+a, bが既に連結だった場合はその代表元、非連結だった場合は連結させたあとの新たな代表元を返します。
 
 計算量 ならしO(α(n))
 
@@ -83,7 +84,6 @@ d.leader(a)
 計算量 ならしO(α(n))
 
 **エイリアス**
-
 
 `leader`, `root`, `find`
 
