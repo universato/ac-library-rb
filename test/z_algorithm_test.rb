@@ -16,33 +16,31 @@ end
 
 class ZAlgorithmTest < Minitest::Test
   def test_random_string
-    maxA = ?~.ord - ?\s.ord + 1
     20.times{
-      s = (0 ... 100).map{ (rand(maxA) + ?\s.ord).chr }.join
+      s = (0 ... 100).map{ rand(' '.ord .. '~'.ord).chr }.join
       assert_equal z_algorithm_naive(s), z_algorithm(s)
     }
   end
 
   def test_random_array_of_small_integer
-    maxA = 10
+    max_num = 5
     20.times{
-      a = (0 ... 100).map{ rand(maxA) }
+      a = (0 ... 100).map{ rand(-max_num .. max_num) }
       assert_equal z_algorithm_naive(a), z_algorithm(a)
     }
   end
 
   def test_random_array_of_large_integer
-    maxA = 10**18
+    max_num = 10**18
     20.times{
-      a = (0 ... 100).map{ rand(maxA) }
+      a = (0 ... 100).map{ rand(-max_num .. max_num) }
       assert_equal z_algorithm_naive(a), z_algorithm(a)
     }
   end
 
   def test_random_array_of_char
-    maxA = ?~.ord - ?\s.ord + 1
     20.times{
-      a = (0 ... 100).map{ (rand(maxA) + ?\s.ord).chr }
+      a = (0 ... 100).map{ rand(' '.ord .. '~'.ord).chr }
       assert_equal z_algorithm_naive(a), z_algorithm(a)
     }
   end
@@ -56,18 +54,21 @@ class ZAlgorithmTest < Minitest::Test
   end
 
   def test_repeated_string
+    max_n = 10**5
     20.times{
-      n = rand(10**5)+1
-      s = ?A*n
+      n = rand(1..max_n)
+      s = 'A'*n
       assert_equal [*1 .. n].reverse, z_algorithm(s)
     }
   end
 
   def test_unique_array
-    maxA = 10**18
+    max_num = 10**18
     20.times{
-      a = (0 ... 10**5).map{ rand(maxA) }.uniq
-      assert_equal [a.size]+[0]*(a.size-1), z_algorithm(a)
+      a = (0 ... 10**5).map{ rand(-max_num .. max_num) }.uniq
+      n = a.size
+      # [n, 0, 0, ..., 0]
+      assert_equal [n]+[0]*(n-1), z_algorithm(a)
     }
   end
 end
