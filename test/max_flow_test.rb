@@ -93,6 +93,34 @@ class MaxFlowTest < Minitest::Test
     assert_equal [1, 2, 1, 0], g.edge(2)
   end
 
+  def test_typical_mistake
+    n = 100
+    g = MaxFlow.new(n)
+    s, a, b, c, t = *0..4
+    uv = [5, 6]
+
+    g.add_edge(s, a, 1)
+    g.add_edge(s, b, 2)
+    g.add_edge(b, a, 2)
+    g.add_edge(c, t, 2)
+    uv.each { |x| g.add_edge(a, x, 3) }
+
+    loop do
+      next_uv = uv.map { |x| x + 2 }
+      break if next_uv[1] >= n
+
+      uv.each  do |x|
+        next_uv.each do |y|
+          g.add_edge(x, y, 3)
+        end
+      end
+      uv = next_uv
+    end
+    uv.each { |x| g.add_edge(x, c, 3) }
+
+    assert_equal 2, g.max_flow(s, t)
+  end
+
   # https://github.com/atcoder/ac-library/issues/1
   # https://twitter.com/Mi_Sawa/status/1303170874938331137
   def test_self_loop

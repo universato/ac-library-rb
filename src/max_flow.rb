@@ -37,10 +37,10 @@ class MaxFlow
   alias edge []
 
   def edges
-    @pos.map do |(to, rev)|
-      _e  = @g[to][rev]
+    @pos.map do |(from, id)|
+      _e  = @g[from][id]
       _re = @g[_e[0]][_e[1]]
-      [to, _e[0], _e[-1] + _re[-1], _re[-1]]
+      [from, _e[0], _e[-1] + _re[-1], _re[-1]]
     end
   end
 
@@ -115,17 +115,20 @@ class MaxFlow
     res = 0
     level_v = level[v]
 
-    iter[v].upto(@g[v].size - 1) do |i|
+    while iter[v] < @g[v].size
+      i = iter[v]
       e = @g[v][i]
-      next if level_v <= level[e[0]] || @g[e[0]][e[1]][2] == 0
-
-      d = dfs(e[0], [up - res, @g[e[0]][e[1]][2]].min, s, level, iter)
-      next if d <= 0
-
-      @g[v][i][2] += d
-      @g[e[0]][e[1]][2] -= d
-      res += d
-      break if res == up
+      cap = @g[e[0]][e[1]][2]
+      if level_v > level[e[0]] && cap > 0
+        d = dfs(e[0], (up - res < cap ? up - res : cap), s, level, iter)
+        if d > 0
+          @g[v][i][2] += d
+          @g[e[0]][e[1]][2] -= d
+          res += d
+          break if res == up
+        end
+      end
+      iter[v] += 1
     end
 
     res
