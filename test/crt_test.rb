@@ -43,7 +43,7 @@ class ConvolutionTest < Minitest::Test
     max_num = 10**18
     20.times{
       ans = rand(max_ans)
-      m = (0 ... 100).map{ rand(1 .. max_num) }
+      m = (0 ... 1000).map{ rand(1 .. max_num) }
       r = m.map{ |m| ans % m }
       mod = m.reduce :lcm
       assert_equal [ans % mod, mod], crt(r, m)
