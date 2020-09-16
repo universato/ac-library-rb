@@ -37,7 +37,7 @@ class MaxFlow
   alias edge []
 
   def edges
-    @pos.map do |(to, rev, _cap)|
+    @pos.map do |(to, rev)|
       _e  = @g[to][rev]
       _re = @g[_e[0]][_e[1]]
       [to, _e[0], _e[-1] + _re[-1], _re[-1]]
