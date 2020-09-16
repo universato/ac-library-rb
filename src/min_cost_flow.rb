@@ -38,10 +38,10 @@ class MinCostFlow
   alias [] get_edge
 
   def edges
-    @pos.map do |(to, rev)|
-      _e  = @g[to][rev]
+    @pos.map do |(from, id)|
+      _e  = @g[from][id]
       _re = @g[_e.to][_e.rev]
-      [to, _e.to, _e.cap + _re.cap, _re.cap, _e.cost]
+      [from, _e.to, _e.cap + _re.cap, _re.cap, _e.cost]
     end
   end
 
@@ -55,7 +55,7 @@ class MinCostFlow
     @pe.fill(-1)
     vis = Array.new(@n, false)
 
-    que = PriorityQueue.new{ |par, chi| par[0] < chi[0] }
+    que = PriorityQueue.new { |par, chi| par[0] < chi[0] }
     dist[s] = 0
     que.push([0, s])
 
