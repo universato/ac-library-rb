@@ -2,7 +2,7 @@
 
 require_relative '../../src/crt.rb'
 
-# Warning: This sample is a solutio of the following problem:
+# Warning: This sample is a solution of the following problem:
 #   https://yukicoder.me/problems/no/187
 
 gets
