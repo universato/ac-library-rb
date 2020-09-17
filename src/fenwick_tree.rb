@@ -6,11 +6,11 @@ class FenwickTree
     case arg
     when Array
       @size = arg.size
-      @data = Array.new(@size + 1) { 0 }
+      @data = Array.new(@size + 1, 0)
       arg.each.with_index(1) { |e, i| add(i, e) }
     when Integer
       @size = arg
-      @data = Array.new(@size + 1) { 0 }
+      @data = Array.new(@size + 1, 0)
     else
       raise ArgumentError
     end
@@ -31,7 +31,7 @@ class FenwickTree
     res = 0
     while i > 0
       res += @data[i]
-      i -= (i & -i)
+      i &= i - 1
     end
     res
   end
