@@ -110,7 +110,7 @@ class Convolution
         divs << i
         x/=i while x%i == 0
       end
-      i += 1
+      i += 2
     end
     divs << x if x > 1
 
