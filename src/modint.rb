@@ -1,56 +1,77 @@
 class ModInt < Numeric
 
   def self.set_mod(mod)
-    raise ArgumentError unless mod.is_a? Integer and 1 <= mod
-    @@mod, @@bt = mod, Barrett.new(mod)
+    raise ArgumentError unless mod.kind_of? Integer and 1 <= mod
+    @@mod, @@bt, @@is_prime = mod, Barrett.new(mod), ModInt.is_prime(mod)
   end
 
-  attr_reader :val, :mod
+  def self.mod=(mod)
+    set_mod mod
+  end
+
+  def self.mod
+    @@mod
+  end
+
+  attr_accessor :val, :mod, :is_prime
   alias to_i val
 
   def self.raw(val, mod = @@mod, is_prime = false)
     x = allocate
     x.val, x.mod, x.is_prime = val, mod, is_prime
+    return x
   end
 
-  def initialize(val = 0, mod = @@mod)
+  def self.[](val = 0, mod = nil)
+    return new(val, mod)
+  end
+
+  def initialize(val = 0, mod = nil)
     val = 1 if true == val
     val = 0 if false == val
-    raise ArgumentError unless val.is_a? Integer
-    @val, @mod, @is_prime = val % mod, mod, ModInt.is_prime(mod)
+    raise ArgumentError unless val.kind_of? Integer
+    if mod
+      bt, is_prime = Barrett.new(mod), ModInt.is_prime(mod)
+    else
+      mod, bt, is_prime = @@mod, @@bt, @@is_prime
+    end
+    @val, @mod, @is_prime, @bt = val % mod, mod, is_prime, bt
   end
 
-  def succ!
+  def inc!
     @val += 1
     @val = 0 if @val == @mod
     return self
   end
 
-  def pred!
+  def dec!
     @val = @mod if @val == 0
     @val -= 1
     return self
   end
 
   def add!(rhs)
+    rhs = of_val(rhs) unless rhs.kind_of? ModInt
     @val += rhs.to_i
     @val -= @mod if @val >= @mod
     return self
   end
 
   def sub!(rhs)
-    @val -= rhs.to_i
-    @val -= @mod if @val >= @mod
+    rhs = of_val(rhs) unless rhs.kind_of? ModInt
+    @val = (@val - rhs.to_i) % @mod
     return self
   end
 
   def mul!(rhs)
-    @val = @val * rhs.to_i % @mod
+    rhs = of_val(rhs) unless rhs.kind_of? ModInt
+    @val = @bt.mul(@val, rhs.to_i)
     return self
   end
 
   def div!(rhs)
-    @val = @val * rhs.inv
+    rhs = of_val(rhs) unless rhs.kind_of? ModInt
+    mul! rhs.inv
     return self
   end
 
@@ -59,12 +80,13 @@ class ModInt < Numeric
   end
 
   def -@
-    return of_val(0).sub! self
+    return of_val(-self.to_i)
   end
 
   def **(n)
-    raise ArgumentError unless n.is_a? Integer and 0 <= n
-    x, r = self, of_val(1)
+    n = n.to_i
+    raise ArgumentError unless 0 <= n
+    x, r = dup, of_val(1)
     while 0 < n
       r.mul! x if (n & 1) == 1
       x.mul! x
@@ -79,13 +101,13 @@ class ModInt < Numeric
       return self ** (@mod - 2)
     else
       g, x = ModInt.inv_gcd(@val, @mod)
-      raise RangeError if 1 == g
+      raise RangeError unless 1 == g
       return of_val(x)
     end
   end
 
   def coerce(other)
-    [self, of_val(other % @mod)]
+    [of_val(other % @mod), self]
   end
 
   def +(rhs)
@@ -118,16 +140,13 @@ class ModInt < Numeric
 
   private
 
-  attr_writer :val, :mod, :is_prime
-
   def of_val(val)
     x = dup
-    x.val = val
+    x.val = val % @mod
     return x
   end
 
   class Barrett
-    FULL32 = 0xffffffff
     FULL64 = 0xffffffffffffffff
 
     def initialize(m)
@@ -137,10 +156,9 @@ class ModInt < Numeric
     attr_reader :umod
 
     def mul(a, b)
-      z = a & FULL64
-      z *= b
-      x = z * @im >> 64
-      v = z - x * @umod & FULL32
+      z = a * b & FULL64
+      x = z * @im >> 64 & FULL64
+      v = z - x * @umod & FULL64
       v += @umod if @umod <= v
       return v
     end
@@ -166,7 +184,7 @@ class ModInt < Numeric
     end
 
     def inv_gcd(a, b)
-      a %= b # ruby's mod is safe
+      a %= b
       return [b, 0] if 0 == a
       s, t = b, a
       m0, m1 = 0, 1
