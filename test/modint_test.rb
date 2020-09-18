@@ -59,15 +59,22 @@ class ModIntTest < Minitest::Test
     end
   end
 
-  def test_inv
+  def test_inv_div
     xs = [ModInt[2, 125], ModInt[3, 65536], ModInt[20, 111111], ModInt[99, 100]]
     ns = [1, 2, 3, 4, 2357, 2**64]
     mods = [5, 17, 119 * 2**23 + 1, 10**9 + 7]
+    ys = [0, 1, 10, 27, 1000, 128, 2357]
     ns.product(mods) { |(n, mod)| xs << ModInt[n, mod] }
     xs.each do |x|
       ac = x.to_i.to_bn.mod_inverse(x.mod)
       wj = x.inv.to_i
       assert_equal ac, wj
+
+      ys.each do |y|
+        ac = (y.to_i * x.to_i.to_bn.mod_inverse(x.mod)).to_i % x.mod
+        wj = (y / x).to_i
+        assert_equal ac, wj
+      end
     end
   end
 end
