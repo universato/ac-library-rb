@@ -17,6 +17,7 @@ class ModInt < Numeric
   alias to_i val
 
   def self.raw(val, mod = @@mod, is_prime = false)
+    raise ArgumentError unless val.kind_of? Integer
     x = allocate
     x.val, x.mod, x.is_prime = val, mod, is_prime
     return x
@@ -134,9 +135,14 @@ class ModInt < Numeric
     return Object.instance_method(:dup).bind(self).call
   end
 
+  def inspect
+    "#{val} mod #{mod}"
+  end
+
   private
 
   def of_val(val)
+    raise ArgumentError unless val.kind_of? Integer
     x = dup
     x.val = val % @mod
     return x
