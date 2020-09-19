@@ -71,4 +71,16 @@ class ModIntTest < Minitest::Test
       end
     end
   end
+
+  def test_to_modint
+    ModInt.mod = 10**9 + 7
+    testcases = ["10", "100000000000000000", "1000000007", 123]
+    testcases.each do |x|
+      ac = x.to_i % ModInt.mod
+      assert_equal ac, x.to_modint.to_i
+      assert_equal ac, x.to_m.to_i
+
+      assert_equal x.to_i % 17, x.to_modint(17).to_i
+    end
+  end
 end

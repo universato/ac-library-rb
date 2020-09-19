@@ -200,3 +200,17 @@ end
 def ModInt(val = 0, mod = nil)
   return ModInt.new(val, mod)
 end
+
+class Integer
+  def to_modint(mod = nil)
+    ModInt.new(self, mod)
+  end
+  alias to_m to_modint
+end
+
+class String
+  def to_modint(mod = nil)
+    ModInt.new(to_i, mod)
+  end
+  alias to_m to_modint
+end
