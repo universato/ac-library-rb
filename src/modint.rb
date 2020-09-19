@@ -22,10 +22,6 @@ class ModInt < Numeric
     return x
   end
 
-  def self.[](val = 0, mod = nil)
-    return new(val, mod)
-  end
-
   def initialize(val = 0, mod = nil)
     val = 1 if true == val
     val = 0 if false == val
@@ -199,4 +195,8 @@ class ModInt < Numeric
       return [s, m0]
     end
   end
+end
+
+def ModInt(val = 0, mod = nil)
+  return ModInt.new(val, mod)
 end
