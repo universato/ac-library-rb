@@ -50,28 +50,28 @@ class ModInt < Numeric
     return self
   end
 
-  def add!(rhs)
-    rhs = of_val(rhs) unless rhs.kind_of? ModInt
-    @val += rhs.to_i
+  def add!(other)
+    other = of_val(other) unless other.kind_of? ModInt
+    @val += other.to_i
     @val -= @mod if @val >= @mod
     return self
   end
 
-  def sub!(rhs)
-    rhs = of_val(rhs) unless rhs.kind_of? ModInt
-    @val = (@val - rhs.to_i) % @mod
+  def sub!(other)
+    other = of_val(other) unless other.kind_of? ModInt
+    @val = (@val - other.to_i) % @mod
     return self
   end
 
-  def mul!(rhs)
-    rhs = of_val(rhs) unless rhs.kind_of? ModInt
-    @val = @bt.mul(@val, rhs.to_i)
+  def mul!(other)
+    other = of_val(other) unless other.kind_of? ModInt
+    @val = @bt.mul(@val, other.to_i)
     return self
   end
 
-  def div!(rhs)
-    rhs = of_val(rhs) unless rhs.kind_of? ModInt
-    mul! rhs.inv
+  def div!(other)
+    other = of_val(other) unless other.kind_of? ModInt
+    mul! other.inv
     return self
   end
 
@@ -110,20 +110,20 @@ class ModInt < Numeric
     [of_val(other % @mod), self]
   end
 
-  def +(rhs)
-    return dup.add! rhs
+  def +(other)
+    return dup.add! other
   end
 
-  def -(rhs)
-    return dup.sub! rhs
+  def -(other)
+    return dup.sub! other
   end
 
-  def *(rhs)
-    return dup.mul! rhs
+  def *(other)
+    return dup.mul! other
   end
 
-  def /(rhs)
-    return dup.div! rhs
+  def /(other)
+    return dup.div! other
   end
 
   def ==(rhs)
