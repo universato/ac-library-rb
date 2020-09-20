@@ -2,7 +2,7 @@ class ModInt < Numeric
   class << self
     def set_mod(mod)
       raise ArgumentError unless mod.kind_of? Integer and 1 <= mod
-      @@mod, @@bt, @@is_prime = mod, Barrett.new(mod), ModInt.prime?(mod)
+      @@mod, @@is_prime = mod, ModInt.prime?(mod)
     end
 
     def mod=(mod)
@@ -64,11 +64,11 @@ class ModInt < Numeric
     val = 0 if false == val
     raise ArgumentError unless val.kind_of? Integer
     if mod
-      bt, is_prime = Barrett.new(mod), ModInt.prime?(mod)
+      is_prime = ModInt.prime?(mod)
     else
-      mod, bt, is_prime = @@mod, @@bt, @@is_prime
+      mod, is_prime = @@mod, @@is_prime
     end
-    @val, @mod, @is_prime, @bt = val % mod, mod, is_prime, bt
+    @val, @mod, @is_prime = val % mod, mod, is_prime
   end
 
   def inc!
@@ -85,8 +85,7 @@ class ModInt < Numeric
 
   def add!(other)
     other = of_val(other) unless other.kind_of? ModInt
-    @val += other.to_i
-    @val -= @mod if @val >= @mod
+    @val = (@val + other.to_i) % @mod
     return self
   end
 
@@ -98,7 +97,7 @@ class ModInt < Numeric
 
   def mul!(other)
     other = of_val(other) unless other.kind_of? ModInt
-    @val = @bt.mul(@val, other.to_i)
+    @val = @val * other.to_i % @mod
     return self
   end
 
@@ -182,24 +181,6 @@ class ModInt < Numeric
     x = dup
     x.val = val % @mod
     return x
-  end
-
-  class Barrett
-    FULL64 = 0xffffffffffffffff
-
-    def initialize(m)
-      @umod, @im = m, FULL64 / m + 1
-    end
-
-    attr_reader :umod
-
-    def mul(a, b)
-      z = a * b & FULL64
-      x = z * @im >> 64 & FULL64
-      v = z - x * @umod & FULL64
-      v += @umod if @umod <= v
-      return v
-    end
   end
 end
 
