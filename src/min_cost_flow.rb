@@ -4,44 +4,54 @@ require_relative '../src/priority_queue.rb'
 
 # Min Cost Flow Grapsh
 class MinCostFlow
-  Edge = Struct.new(:to, :rev, :cap, :cost)
-
   def initialize(n)
-    @n    = n
-    @pos  = []
-    @g    = Array.new(n) { [] }
-    @pv   = Array.new(n)
-    @pe   = Array.new(n)
-    @dual = Array.new(n) { 0 }
+    @n      = n
+    @pos    = []
+    @g_to   = Array.new(n) { [] }
+    @g_rev  = Array.new(n) { [] }
+    @g_cap  = Array.new(n) { [] }
+    @g_cost = Array.new(n) { [] }
+    @pv     = Array.new(n)
+    @pe     = Array.new(n)
+    @dual   = Array.new(n) { 0 }
   end
 
   def add_edge(from, to, cap, cost)
     edge_number = @pos.size
 
-    @pos << [from, @g[from].size]
+    @pos << [from, @g_to[from].size]
 
-    from_id = @g[from].size
-    to_id   = @g[to].size
+    from_id = @g_to[from].size
+    to_id   = @g_to[to].size
     to_id += 1 if from == to
-    @g[from] << Edge.new(to, to_id, cap, cost)
-    @g[to]   << Edge.new(from, from_id, 0, -cost)
+
+    @g_to[from]   << to
+    @g_rev[from]  << to_id
+    @g_cap[from]  << cap
+    @g_cost[from] << cost
+
+    @g_to[to]     << from
+    @g_rev[to]    << from_id
+    @g_cap[to]    << 0
+    @g_cost[to]   << -cost
 
     edge_number
   end
 
   def get_edge(i)
-    _e = @g[@pos[i][0]][@pos[i][1]]
-    _re = @g[_e.to][_e.rev]
-    [@pos[i][0], _e.to, _e.cap + _re.cap, _re.cap, _e.cost]
+    from, id = @pos[i]
+    to = @g_to[from][id]
+    rid = @g_rev[from][id]
+    [from, to, @g_cap[from][id]+@g_cap[to][rid], @g_cap[to][rid], @g_cost[from][id]]
   end
   alias edge get_edge
   alias [] get_edge
 
   def edges
     @pos.map do |(from, id)|
-      _e  = @g[from][id]
-      _re = @g[_e.to][_e.rev]
-      [from, _e.to, _e.cap + _re.cap, _re.cap, _e.cost]
+      to = @g_to[from][id]
+      rid = @g_rev[from][id]
+      [from, to, @g_cap[from][id]+@g_cap[to][rid], @g_cap[to][rid], @g_cost[from][id]]
     end
   end
 
@@ -67,17 +77,17 @@ class MinCostFlow
       vis[v] = true
       break if v == t
 
-      @g[v].size.times do |i|
-        e = @g[v][i]
-        next if vis[e.to] || e.cap == 0
+      @g_to[v].size.times do |i|
+        to = @g_to[v][i]
+        next if vis[to] || @g_cap[v][i] == 0
 
-        cost = e.cost - @dual[e.to] + @dual[v]
-        next unless dist[e.to] - dist[v] > cost
+        cost = @g_cost[v][i] - @dual[to] + @dual[v]
+        next unless dist[to] - dist[v] > cost
 
-        dist[e.to] = dist[v] + cost
-        @pv[e.to] = v
-        @pe[e.to] = i
-        que.push([dist[e.to], e.to])
+        dist[to] = dist[v] + cost
+        @pv[to] = v
+        @pe[to] = i
+        que.push([dist[to], to])
       end
     end
 
@@ -104,16 +114,17 @@ class MinCostFlow
       c = flow_limit - flow
       v = t
       while v != s
-        c = @g[@pv[v]][@pe[v]].cap if c > @g[@pv[v]][@pe[v]].cap
+        c = @g_cap[@pv[v]][@pe[v]] if c > @g_cap[@pv[v]][@pe[v]]
         v = @pv[v]
       end
 
       v = t
       while v != s
-        e = @g[@pv[v]][@pe[v]]
-        e.cap -= c
-        @g[v][e.rev].cap += c
-        v = @pv[v]
+        nv = @pv[v]
+        id = @pe[v]
+        @g_cap[nv][id] -= c
+        @g_cap[v][@g_rev[nv][id]] += c
+        v = nv
       end
 
       d = -@dual[s]
