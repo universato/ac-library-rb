@@ -8,14 +8,14 @@ class LazySegtree
   def initialize(v, e, id, op, mapping, composition)
     v = Array.new(v, e) if v.is_a?(Integer)
 
-    @n  = v.size.to_i
+    @n  = v.size
     @e  = e
     @id = id
     @op = op
     @mapping = mapping
     @composition = composition
 
-    @log  = (@n - 1).bit_length.to_i
+    @log  = (@n - 1).bit_length
     @size = 1 << @log
     @d    = Array.new(2 * @size, e)
     @lz   = Array.new(@size, id)
