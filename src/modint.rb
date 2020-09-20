@@ -1,34 +1,70 @@
 class ModInt < Numeric
+  class << self
+    def set_mod(mod)
+      raise ArgumentError unless mod.kind_of? Integer and 1 <= mod
+      @@mod, @@bt, @@is_prime = mod, Barrett.new(mod), ModInt.prime?(mod)
+    end
 
-  def self.set_mod(mod)
-    raise ArgumentError unless mod.kind_of? Integer and 1 <= mod
-    @@mod, @@bt, @@is_prime = mod, Barrett.new(mod), ModInt.is_prime(mod)
-  end
+    def mod=(mod)
+      set_mod mod
+    end
 
-  def self.mod=(mod)
-    set_mod mod
-  end
+    def mod
+      @@mod
+    end
 
-  def self.mod
-    @@mod
+    def raw(val, mod = @@mod, is_prime = false)
+      raise ArgumentError unless val.kind_of? Integer
+      x = allocate
+      x.val, x.mod, x.is_prime = val, mod, is_prime
+      return x
+    end
+
+    def prime?(n)
+      return false if n <= 1
+      return true if n == 2 or n == 7 or n == 61
+      return false if (n & 1) == 0
+      d = n - 1
+      d >>= 1 while (d & 1) == 0
+      [2, 7, 61].each do |a|
+        t = d
+        y = a.pow(t, n)
+        while t != n - 1 and y != 1 and y != n - 1
+          y = y * y % n
+          t <<= 1
+        end
+        return false if y != n - 1 and (t & 1) == 0
+      end
+      return true
+    end
+
+    def inv_gcd(a, b)
+      a %= b
+      return [b, 0] if 0 == a
+      s, t = b, a
+      m0, m1 = 0, 1
+      while 0 != t
+        u = s / t
+        s -= t * u
+        m0 -= m1 * u
+        s, t = t, s
+        m0, m1 = m1, m0
+      end
+      m0 += b / s if m0 < 0
+      return [s, m0]
+    end
   end
 
   attr_accessor :val, :mod, :is_prime
-  alias to_i val
 
-  def self.raw(val, mod = @@mod, is_prime = false)
-    raise ArgumentError unless val.kind_of? Integer
-    x = allocate
-    x.val, x.mod, x.is_prime = val, mod, is_prime
-    return x
-  end
+  alias to_i val
 
   def initialize(val = 0, mod = nil)
     val = 1 if true == val
     val = 0 if false == val
     raise ArgumentError unless val.kind_of? Integer
     if mod
-      bt, is_prime = Barrett.new(mod), ModInt.is_prime(mod)
+      bt, is_prime = Barrett.new(mod), ModInt.prime?(mod)
     else
       mod, bt, is_prime = @@mod, @@bt, @@is_prime
     end
@@ -163,42 +199,6 @@ class ModInt < Numeric
       v = z - x * @umod & FULL64
       v += @umod if @umod <= v
       return v
-    end
-  end
-
-  class << self
-    def is_prime(n)
-      return false if n <= 1
-      return true if n == 2 or n == 7 or n == 61
-      return false if (n & 1) == 0
-      d = n - 1
-      d >>= 1 while (d & 1) == 0
-      [2, 7, 61].each do |a|
-        t = d
-        y = a.pow(t, n)
-        while t != n - 1 and y != 1 and y != n - 1
-          y = y * y % n
-          t <<= 1
-        end
-        return false if y != n - 1 and (t & 1) == 0
-      end
-      return true
-    end
-
-    def inv_gcd(a, b)
-      a %= b
-      return [b, 0] if 0 == a
-      s, t = b, a
-      m0, m1 = 0, 1
-      while 0 != t
-        u = s / t
-        s -= t * u
-        m0 -= m1 * u
-        s, t = t, s
-        m0, m1 = m1, m0
-      end
-      m0 += b / s if m0 < 0
-      return [s, m0]
     end
   end
 end
