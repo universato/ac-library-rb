@@ -170,6 +170,10 @@ class ModInt < Numeric
     return Object.instance_method(:dup).bind(self).call
   end
 
+  def to_s
+    "#{val}"
+  end
+
   def inspect
     "#{val} mod #{mod}"
   end
