@@ -28,7 +28,7 @@ class Segtree
   end
 
   def get(q)
-    d[leaf_size + q]
+    @d[@leaf_size + q]
   end
 
   def prod(l, r)
