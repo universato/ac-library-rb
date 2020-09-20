@@ -17,7 +17,7 @@ class ModInt < Numeric
       raise ArgumentError unless val.kind_of? Integer
       x = allocate
       x.val, x.mod, x.is_prime = val, mod, is_prime
-      return x
+      x
     end
 
     def prime?(n)
@@ -35,7 +35,7 @@ class ModInt < Numeric
         end
         return false if y != n - 1 and (t & 1) == 0
       end
-      return true
+      true
     end
 
     def inv_gcd(a, b)
@@ -51,7 +51,7 @@ class ModInt < Numeric
         m0, m1 = m1, m0
       end
       m0 += b / s if m0 < 0
-      return [s, m0]
+      [s, m0]
     end
   end
 
@@ -74,45 +74,45 @@ class ModInt < Numeric
   def inc!
     @val += 1
     @val = 0 if @val == @mod
-    return self
+    self
   end
 
   def dec!
     @val = @mod if @val == 0
     @val -= 1
-    return self
+    self
   end
 
   def add!(other)
     other = of_val(other) unless other.kind_of? ModInt
     @val = (@val + other.to_i) % @mod
-    return self
+    self
   end
 
   def sub!(other)
     other = of_val(other) unless other.kind_of? ModInt
     @val = (@val - other.to_i) % @mod
-    return self
+    self
   end
 
   def mul!(other)
     other = of_val(other) unless other.kind_of? ModInt
     @val = @val * other.to_i % @mod
-    return self
+    self
   end
 
   def div!(other)
     other = of_val(other) unless other.kind_of? ModInt
     mul! other.inv
-    return self
+    self
   end
 
   def +@
-    return self
+    self
   end
 
   def -@
-    return of_val(-self.to_i)
+    of_val(-self.to_i)
   end
 
   def **(n)
@@ -124,17 +124,17 @@ class ModInt < Numeric
       x.mul! x
       n >>= 1
     end
-    return r
+    r
   end
 
   def inv
     if @is_prime
       raise RangeError if 0 == @val
-      return self ** (@mod - 2)
+      self ** (@mod - 2)
     else
       g, x = ModInt.inv_gcd(@val, @mod)
       raise RangeError unless 1 == g
-      return of_val(x)
+      of_val(x)
     end
   end
 
@@ -143,31 +143,31 @@ class ModInt < Numeric
   end
 
   def +(other)
-    return dup.add! other
+    dup.add! other
   end
 
   def -(other)
-    return dup.sub! other
+    dup.sub! other
   end
 
   def *(other)
-    return dup.mul! other
+    dup.mul! other
   end
 
   def /(other)
-    return dup.div! other
+    dup.div! other
   end
 
   def ==(rhs)
-    return @val == rhs.val
+    @val == rhs.val
   end
 
   def !=(rhs)
-    return @val != rhs.val
+    @val != rhs.val
   end
 
   def dup
-    return Object.instance_method(:dup).bind(self).call
+    Object.instance_method(:dup).bind(self).call
   end
 
   def to_s
@@ -184,18 +184,19 @@ class ModInt < Numeric
     raise ArgumentError unless val.kind_of? Integer
     x = dup
     x.val = val % @mod
-    return x
+    x
   end
 end
 
 def ModInt(val = 0, mod = nil)
-  return ModInt.new(val, mod)
+  ModInt.new(val, mod)
 end
 
 class Integer
   def to_modint(mod = nil)
     ModInt.new(self, mod)
   end
+
   alias to_m to_modint
 end
 
@@ -203,5 +204,6 @@ class String
   def to_modint(mod = nil)
     ModInt.new(to_i, mod)
   end
+  
   alias to_m to_modint
 end
