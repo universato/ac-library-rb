@@ -27,8 +27,8 @@ class Segtree
     1.upto(@log) { |i| update(q >> i) }
   end
 
-  def get(q)
-    d[leaf_size + q]
+  def get(pos)
+    @d[@leaf_size + pos]
   end
 
   def prod(l, r)
