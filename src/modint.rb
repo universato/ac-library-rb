@@ -101,7 +101,6 @@ class ModInt < Numeric
   def div!(other)
     other = of_val(other) unless other.kind_of? ModInt
     mul! other.inv
-    self
   end
 
   def +@
@@ -109,7 +108,7 @@ class ModInt < Numeric
   end
 
   def -@
-    of_val(-self.to_i)
+    ModInt.raw(@mod - @val, @mod, @is_prime)
   end
 
   def **(n)
@@ -130,7 +129,7 @@ class ModInt < Numeric
   end
 
   def coerce(other)
-    [of_val(other % @mod), self]
+    [of_val(other), self]
   end
 
   def +(other)
