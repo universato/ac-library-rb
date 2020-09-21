@@ -47,7 +47,6 @@ class DSU
   alias root leader
   alias find leader
   alias unite merge
-  alias union merge
   alias same? same
 end
 
