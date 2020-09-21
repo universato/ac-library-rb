@@ -118,19 +118,13 @@ class ModInt < Numeric
   def **(n)
     n = n.to_i
     raise ArgumentError unless 0 <= n
-    x, r = dup, of_val(1)
-    while 0 < n
-      r.mul! x if (n & 1) == 1
-      x.mul! x
-      n >>= 1
-    end
-    r
+    of_val(@val.pow(n, @mod))
   end
 
   def inv
     if @is_prime
       raise RangeError if 0 == @val
-      self ** (@mod - 2)
+      of_val(@val.pow(@mod - 2, @mod))
     else
       g, x = ModInt.inv_gcd(@val, @mod)
       raise RangeError unless 1 == g
@@ -204,6 +198,6 @@ class String
   def to_modint(mod = nil)
     ModInt.new(to_i, mod)
   end
-  
+
   alias to_m to_modint
 end
