@@ -84,19 +84,16 @@ class ModInt < Numeric
   end
 
   def add!(other)
-    other = of_val(other) unless other.kind_of? ModInt
     @val = (@val + other.to_i) % @mod
     self
   end
 
   def sub!(other)
-    other = of_val(other) unless other.kind_of? ModInt
     @val = (@val - other.to_i) % @mod
     self
   end
 
   def mul!(other)
-    other = of_val(other) unless other.kind_of? ModInt
     @val = @val * other.to_i % @mod
     self
   end
@@ -165,7 +162,7 @@ class ModInt < Numeric
   end
 
   def to_s
-    "#{val}"
+    val.to_s
   end
 
   def inspect
@@ -176,9 +173,7 @@ class ModInt < Numeric
 
   def of_val(val)
     raise ArgumentError unless val.kind_of? Integer
-    x = dup
-    x.val = val % @mod
-    x
+    ModInt.raw(val % @mod, @mod, @is_prime)
   end
 end
 
