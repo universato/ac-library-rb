@@ -158,7 +158,7 @@ class ModInt < Numeric
   end
 
   def dup
-    Object.instance_method(:dup).bind(self).call
+    ModInt.raw(@val, @mod, @is_prime)
   end
 
   def to_s
