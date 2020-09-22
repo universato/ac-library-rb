@@ -99,8 +99,7 @@ class ModInt < Numeric
   end
 
   def div!(other)
-    other = of_val(other) unless other.kind_of? ModInt
-    mul! other.inv
+    mul! inv_internal(other.to_i)
   end
 
   def +@
@@ -118,14 +117,7 @@ class ModInt < Numeric
   end
 
   def inv
-    if @is_prime
-      raise RangeError if 0 == @val
-      of_val(@val.pow(@mod - 2, @mod))
-    else
-      g, x = ModInt.inv_gcd(@val, @mod)
-      raise RangeError unless 1 == g
-      of_val(x)
-    end
+    of_val(inv_internal(@val))
   end
 
   def coerce(other)
@@ -173,6 +165,17 @@ class ModInt < Numeric
   def of_val(val)
     raise ArgumentError unless val.kind_of? Integer
     ModInt.raw(val % @mod, @mod, @is_prime)
+  end
+
+  def inv_internal(a)
+    if @is_prime
+      raise RangeError if 0 == a
+      a.pow(@mod - 2, @mod)
+    else
+      g, x = ModInt.inv_gcd(a, @mod)
+      raise RangeError unless 1 == g
+      x
+    end
   end
 end
 
