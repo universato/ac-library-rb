@@ -14,7 +14,7 @@ class Segtree
     @op = proc(&block)
 
     @n = v.size
-    @log = ceil_pow2(@n)
+    @log = (@n - 1).bit_length
     @leaf_size = 1 << @log
     @d = Array.new(@leaf_size * 2) { e }
     v.each_with_index { |v_i, i| @d[@leaf_size + i] = v_i }
@@ -105,9 +105,3 @@ end
 
 SegTree     = Segtree
 SegmentTree = Segtree
-
-def ceil_pow2(n)
-  x = 0
-  x += 1 while (1 << x) < n
-  x
-end
