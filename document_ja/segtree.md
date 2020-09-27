@@ -5,7 +5,7 @@
 ## コンストラクタ
 
 ```rb
-seg = Segtree(arg, e) { |x, y| ... }
+seg = Segtree.new(arg, e) { |x, y| ... }
 ```
 
 第1引数は、`Integer`または`Array`です。
@@ -24,13 +24,13 @@ seg = Segtree(arg, e) { |x, y| ... }
 n   = 10**5
 inf = (1 << 60) - 1 
 
-Segtree(n, 0) { |x, y| x.gcd y } # gcd
-Segtree(n, 1) { |x, y| x.lcm y } # lcm
-Segtree(n, -inf) { |x, y| [x, y].max } # max
-Segtree(n,  inf) { |x, y| [x, y].min } # min
-Segtree(n, 0) { |x, y| x | y } # or
-Segtree(n, 1) { |x, y| x * y } # prod
-Segtree(n, 0) { |x, y| x + y } # sum
+Segtree.new(n, 0) { |x, y| x.gcd y } # gcd
+Segtree.new(n, 1) { |x, y| x.lcm y } # lcm
+Segtree.new(n, -inf) { |x, y| [x, y].max } # max
+Segtree.new(n,  inf) { |x, y| [x, y].min } # min
+Segtree.new(n, 0) { |x, y| x | y } # or
+Segtree.new(n, 1) { |x, y| x * y } # prod
+Segtree.new(n, 0) { |x, y| x + y } # sum
 ```
 
 </details>
