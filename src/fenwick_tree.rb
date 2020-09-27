@@ -2,12 +2,19 @@
 
 # Fenwick Tree
 class FenwickTree
-  def initialize(arg)
+  attr_reader :data, :size
+
+  def initialize(arg = 0)
     case arg
     when Array
       @size = arg.size
-      @data = Array.new(@size + 1, 0)
-      arg.each.with_index(1) { |e, i| add(i, e) }
+      @data = [0].concat(arg)
+      (1 ... @size).each do |i|
+        up = i + (i & -i)
+        next if up > @size
+
+        @data[up] += @data[i]
+      end
     when Integer
       @size = arg
       @data = Array.new(@size + 1, 0)
@@ -17,6 +24,7 @@ class FenwickTree
   end
 
   def add(i, x)
+    i += 1
     while i <= @size
       @data[i] += x
       i += (i & -i)
@@ -38,4 +46,5 @@ class FenwickTree
 end
 
 FeTree            = FenwickTree
+Fetree            = FenwickTree
 BinaryIndexedTree = FenwickTree
