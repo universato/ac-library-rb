@@ -65,6 +65,7 @@ fw._sum(pos)
 ## Verified
 
 [B \- Fenwick Tree](https://atcoder.jp/contests/practice2/tasks/practice2_b)
+
 https://atcoder.jp/contests/practice2/submissions/17074108 (1272ms)
 
 ## 開発者、内部実装を読みたい人向け
