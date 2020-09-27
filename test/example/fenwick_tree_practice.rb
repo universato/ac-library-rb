@@ -11,7 +11,7 @@ q.times do
   t, u, v = gets.split.map(&:to_i)
 
   if t == 0
-    ft.add(u + 1, v)
+    ft.add(u, v)
   else
     puts ft.sum(u, v)
   end
