@@ -54,7 +54,7 @@ class Segtree
   end
 
   def all_prod
-    d[1]
+    @d[1]
   end
 
   def max_right(l, &block)

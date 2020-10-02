@@ -16,6 +16,7 @@ class SegtreeTest < Minitest::Test
     assert_equal 3, st.max_right(2 - 1) { |v| v < 3 } + 1
     st.set(3 - 1, 1)
     assert_equal 2, st.get(1)
+    assert_equal 2, st.all_prod
     assert_equal 2, st.prod(2 - 1, 4)
     assert_equal 6, st.max_right(1 - 1) { |v| v < 3 } + 1
   end
