@@ -125,6 +125,10 @@ class ModInt < Numeric
     of_val(@val.pow(n, @mod))
   end
 
+  def pow(other)
+    of_val(@val.to_i.pow(other, @mod))
+  end
+
   def inv
     of_val(inv_internal(@val))
   end

@@ -37,6 +37,7 @@ class ModIntTest < Minitest::Test
     assert_equal 10, a # 10 mod 11
 
     assert_equal 5, ModInt(2)**4 # 5 mod 11
+    assert_equal 5, ModInt(2).pow(4) # 5 mod 11
 
     assert_output("10\n") { puts a } # 10
     assert_output("10 mod 11\n") { p a } # 10 mod 11
