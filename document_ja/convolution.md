@@ -56,3 +56,7 @@ c = conv.convolution(a, b)
 - `m = 1012924417` https://atcoder.jp/contests/atc001/submissions/17193829 (1272 ms)
 
 - `m = 1125900443713537` https://atcoder.jp/contests/atc001/submissions/17193739 (2448 ms)
+
+# 参考
+
+[本家 ACL のドキュメント Convolution](https://atcoder.github.io/ac-library/master/document_ja/convolution.html)
