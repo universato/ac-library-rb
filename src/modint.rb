@@ -1,7 +1,11 @@
+# frozen_string_literal: true
+
+# ModInt
 class ModInt < Numeric
   class << self
     def set_mod(mod)
-      raise ArgumentError unless mod.kind_of? Integer and 1 <= mod
+      raise ArgumentError unless mod.is_a? Integer and 1 <= mod
+
       @@mod, @@is_prime = mod, ModInt.prime?(mod)
     end
 
@@ -14,7 +18,8 @@ class ModInt < Numeric
     end
 
     def raw(val, mod = @@mod, is_prime = false)
-      raise ArgumentError unless val.kind_of? Integer
+      raise ArgumentError unless val.is_a? Integer
+
       x = allocate
       x.val, x.mod, x.is_prime = val, mod, is_prime
       x
@@ -24,6 +29,7 @@ class ModInt < Numeric
       return false if n <= 1
       return true if n == 2 or n == 7 or n == 61
       return false if (n & 1) == 0
+
       d = n - 1
       d >>= 1 while (d & 1) == 0
       [2, 7, 61].each do |a|
@@ -41,6 +47,7 @@ class ModInt < Numeric
     def inv_gcd(a, b)
       a %= b
       return [b, 0] if 0 == a
+
       s, t = b, a
       m0, m1 = 0, 1
       while 0 != t
@@ -62,7 +69,8 @@ class ModInt < Numeric
   def initialize(val = 0, mod = nil)
     val = 1 if true == val
     val = 0 if false == val
-    raise ArgumentError unless val.kind_of? Integer
+    raise ArgumentError unless val.is_a? Integer
+
     if mod
       is_prime = ModInt.prime?(mod)
     else
@@ -110,10 +118,15 @@ class ModInt < Numeric
     ModInt.raw(@mod - @val, @mod, @is_prime)
   end
 
-  def **(n)
-    n = n.to_i
+  def **(other)
+    n = other.to_i
     raise ArgumentError unless 0 <= n
+
     of_val(@val.pow(n, @mod))
+  end
+
+  def pow(other)
+    of_val(@val.to_i.pow(other, @mod))
   end
 
   def inv
@@ -140,12 +153,12 @@ class ModInt < Numeric
     dup.div! other
   end
 
-  def ==(rhs)
-    @val == rhs.val
+  def ==(other)
+    @val == other.to_i
   end
 
-  def !=(rhs)
-    @val != rhs.val
+  def !=(other)
+    @val != other.to_i
   end
 
   def dup
@@ -163,17 +176,20 @@ class ModInt < Numeric
   private
 
   def of_val(val)
-    raise ArgumentError unless val.kind_of? Integer
+    raise ArgumentError unless val.is_a? Integer
+
     ModInt.raw(val % @mod, @mod, @is_prime)
   end
 
   def inv_internal(a)
     if @is_prime
       raise RangeError if 0 == a
+
       a.pow(@mod - 2, @mod)
     else
       g, x = ModInt.inv_gcd(a, @mod)
       raise RangeError unless 1 == g
+
       x
     end
   end
