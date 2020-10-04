@@ -5,8 +5,8 @@
 ## convolution
 
 ```ruby
-1. conv = Convolution.new(m = 998244353)
-2. conv = Convolution.new(m, primitive_root)
+(1) conv = Convolution.new(m = 998244353)
+(2) conv = Convolution.new(m, primitive_root)
 ```
 
 畳み込みを`mod m`で計算するためのオブジェクトを作成します。
@@ -19,7 +19,7 @@
 
 - `m`は素数
 
-- (2.のみ)`primitive_root`は法`m`に対する原始根
+- ((2)のみ) `primitive_root`は法`m`に対する原始根
 
 **計算量**
 
