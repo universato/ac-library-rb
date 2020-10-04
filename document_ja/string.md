@@ -100,4 +100,4 @@ https://atcoder.jp/contests/abc135/submissions/16656965 (1076 ms)
 
 # 参考
 
-[本家ACLのドキュメントString](https://atcoder.github.io/ac-library/master/document_ja/string.html)
+[本家ACLのドキュメント String](https://atcoder.github.io/ac-library/master/document_ja/string.html)
