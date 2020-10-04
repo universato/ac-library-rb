@@ -4,12 +4,9 @@
 
 ## convolution
 
-1. ```ruby
-conv = Convolution.new(m = 998244353)
-```
-
-2. ```ruby
-conv = Convolution.new(m, primitive_root)
+```ruby
+1. conv = Convolution.new(m = 998244353)
+2. conv = Convolution.new(m, primitive_root)
 ```
 
 畳み込みを`mod m`で計算するためのオブジェクトを作成します。
@@ -40,26 +37,22 @@ c = conv.convolution(a, b)
 
 **制約**
 
-- `2^c|(m-1)`かつ`N+M-1<=2^c`なる`c`が存在する
+- `2^c|(m-1)`かつ`|a|+|b|-1<=2^c`なる`c`が存在する
 
 **計算量**
 
-`O((N+M) log (N+M))`
+`O((|a|+|b|) log (|a|+|b|))`
 
 ## convolution_ll
 
-`m`として大きな素数を用いれば、`convolution`で対応できます。
+`convolution`の`m`として十分大きな素数を用いることで対応できます。
 
-`1e15`を超える`NTT-friendly`な素数の1例として、`1125900443713537 = 2^29×2097153+1`があります。
+`1e15`を超える`NTT-Friendly`な素数の1例として、`1125900443713537 = 2^29×2097153+1`があります。
 
 # Verified
 
 [C - 高速フーリエ変換](https://atcoder.jp/contests/atc001/tasks/fft_c)
 
-- `m = 1012924417`
+- `m = 1012924417` https://atcoder.jp/contests/atc001/submissions/17193829 (1272 ms)
 
-https://atcoder.jp/contests/atc001/submissions/17193829 (1272 ms)
-
-- `m = 1125900443713537`
-
-https://atcoder.jp/contests/atc001/submissions/17193739 (2448 ms)
+- `m = 1125900443713537` https://atcoder.jp/contests/atc001/submissions/17193739 (2448 ms)
