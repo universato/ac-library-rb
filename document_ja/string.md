@@ -12,7 +12,7 @@
 
 長さ`n`の文字列`s`に対し、Suffix Arrayとして長さ`n`の`Integer`の配列を返します。
 
-Suffix Array `sa`は`0 ... n`の順列であって、各`i=0,1,...,n-2`について`s[sa[i]..n)<s[sa[i+1]..n)`を満たします。
+Suffix Array `sa`は`0 ... n`の順列であって、各`i`について`s[sa[i]..n) < s[sa[i+1]..n)`を満たします。
 
 このSuffix Arrayの概念は一般の列にも適用でき、`<=>`演算子で比較可能な要素の配列`a`に対しても動作します。
 
@@ -30,7 +30,7 @@ Suffix Array `sa`は`0 ... n`の順列であって、各`i=0,1,...,n-2`につい
 
 2. `suffix_array(a)`
 
-内部で圧縮を行います。要素は大小関係を保ったまま正の整数に変換されます。
+内部で、いわゆる座標圧縮を行います。要素は大小関係を保ったまま非負整数に変換されます。
 
 **制約**
 
@@ -38,7 +38,7 @@ Suffix Array `sa`は`0 ... n`の順列であって、各`i=0,1,...,n-2`につい
 
 **計算量**
 
-要素の比較を`O(|a| log |a|)`
+要素の比較が定数時間で行えるとして、`O(|a| log |a|)`
 
 3. `suffix_array(a, upper)`
 
@@ -51,10 +51,6 @@ Suffix Array `sa`は`0 ... n`の順列であって、各`i=0,1,...,n-2`につい
 **計算量**
 
 `O(|a| + upper)`
-
-### 内部実装
-
-`suffix_array`が呼び出すメソッドとして`sa_is`と`sa_is_induce`が定義されています。
 
 ## lcp_array
 
@@ -69,6 +65,8 @@ lcp_array(s, sa)
 **制約**
 
 - `sa`は`s`のSuffix Array
+
+- (`s`が文字列の場合) `s`は文字コード255以下の文字のみからなる
 
 **計算量**
 
@@ -92,22 +90,14 @@ z_algorithm(s)
 
 # Verified
 
-- suffix_array, lcp_array
-
-[I - Number of Substrings](https://atcoder.jp/contests/practice2/tasks/practice2_i)
+- suffix_array, lcp_array [I - Number of Substrings](https://atcoder.jp/contests/practice2/tasks/practice2_i)
 
 https://atcoder.jp/contests/practice2/submissions/17194669 (1362 ms)
 
-- z_algorithm
-
-[ABC135 F - Strings of Eternity](https://atcoder.jp/contests/abc135/tasks/abc135_f)
+- z_algorithm [ABC135 F - Strings of Eternity](https://atcoder.jp/contests/abc135/tasks/abc135_f)
 
 https://atcoder.jp/contests/abc135/submissions/16656965 (1076 ms)
 
 # 参考
 
 [本家ACLのドキュメントString](https://atcoder.github.io/ac-library/master/document_ja/string.html)
-
-# 実装について
-
-`lcp_array`の第一引数が文字列の場合、内部で`bytes`メソッドにより文字コードの配列に変換します。これには少しの高速化のほかに、`suffix_array`が返す配列と合わせる意味があります。
