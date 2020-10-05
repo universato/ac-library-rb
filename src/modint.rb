@@ -169,7 +169,7 @@ class ModInt < Numeric
   end
 end
 
-def ModInt(val = 0)
+def ModInt(val)
   ModInt.new(val)
 end
 
