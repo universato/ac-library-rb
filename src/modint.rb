@@ -141,20 +141,12 @@ class ModInt < Numeric
     @val == other.to_i
   end
 
-  def !=(other)
-    @val != other.to_i
-  end
-
   def dup
     ModInt.raw(@val)
   end
 
   def to_int
     @val
-  end
-
-  def zero?
-    @val.zero?
   end
 
   def to_s
