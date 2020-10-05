@@ -17,11 +17,10 @@ class ModInt < Numeric
       @@mod
     end
 
-    def raw(val, mod = @@mod, is_prime = false)
+    def raw(val)
       raise ArgumentError unless val.is_a? Integer
-
       x = allocate
-      x.val, x.mod, x.is_prime = val, mod, is_prime
+      x.val = val
       x
     end
 
@@ -62,47 +61,39 @@ class ModInt < Numeric
     end
   end
 
-  attr_accessor :val, :mod, :is_prime
+  attr_accessor :val
 
   alias to_i val
 
-  def initialize(val = 0, mod = nil)
-    val = 1 if true == val
-    val = 0 if false == val
+  def initialize(val = 0)
     raise ArgumentError unless val.is_a? Integer
-
-    if mod
-      is_prime = ModInt.prime?(mod)
-    else
-      mod, is_prime = @@mod, @@is_prime
-    end
-    @val, @mod, @is_prime = val % mod, mod, is_prime
+    @val = val % @@mod
   end
 
   def inc!
     @val += 1
-    @val = 0 if @val == @mod
+    @val = 0 if @val == @@mod
     self
   end
 
   def dec!
-    @val = @mod if @val == 0
+    @val = @@mod if @val == 0
     @val -= 1
     self
   end
 
   def add!(other)
-    @val = (@val + other.to_i) % @mod
+    @val = (@val + other.to_i) % @@mod
     self
   end
 
   def sub!(other)
-    @val = (@val - other.to_i) % @mod
+    @val = (@val - other.to_i) % @@mod
     self
   end
 
   def mul!(other)
-    @val = @val * other.to_i % @mod
+    @val = @val * other.to_i % @@mod
     self
   end
 
@@ -115,18 +106,18 @@ class ModInt < Numeric
   end
 
   def -@
-    ModInt.raw(@mod - @val, @mod, @is_prime)
+    ModInt.raw(@@mod - @val)
   end
 
   def **(other)
     n = other.to_i
     raise ArgumentError unless 0 <= n
 
-    of_val(@val.pow(n, @mod))
+    of_val(@val.pow(n, @@mod))
   end
 
   def pow(other)
-    of_val(@val.to_i.pow(other, @mod))
+    of_val(@val.to_i.pow(other, @@mod))
   end
 
   def inv
@@ -162,54 +153,61 @@ class ModInt < Numeric
   end
 
   def dup
-    ModInt.raw(@val, @mod, @is_prime)
+    ModInt.raw(@val)
+  end
+
+  def to_int
+    @val
+  end
+
+  def zero?
+    @val.zero?
   end
 
   def to_s
-    val.to_s
+    @val.to_s
   end
 
   def inspect
-    "#{val} mod #{mod}"
+    "#{@val} mod #{@@mod}"
   end
 
   private
 
   def of_val(val)
     raise ArgumentError unless val.is_a? Integer
-
-    ModInt.raw(val % @mod, @mod, @is_prime)
+    ModInt.raw(val % @@mod)
   end
 
   def inv_internal(a)
-    if @is_prime
-      raise RangeError if 0 == a
+    if @@is_prime
+      raise RangeError, 'no inverse' if 0 == a
 
-      a.pow(@mod - 2, @mod)
+      a.pow(@@mod - 2, @@mod)
     else
-      g, x = ModInt.inv_gcd(a, @mod)
-      raise RangeError unless 1 == g
+      g, x = ModInt.inv_gcd(a, @@mod)
+      raise RangeError, 'no inverse' unless 1 == g
 
       x
     end
   end
 end
 
-def ModInt(val = 0, mod = nil)
-  ModInt.new(val, mod)
+def ModInt(val = 0)
+  ModInt.new(val)
 end
 
 class Integer
-  def to_modint(mod = nil)
-    ModInt.new(self, mod)
+  def to_modint
+    ModInt.new(self)
   end
 
   alias to_m to_modint
 end
 
 class String
-  def to_modint(mod = nil)
-    ModInt.new(to_i, mod)
+  def to_modint
+    ModInt.new(to_i)
   end
 
   alias to_m to_modint
