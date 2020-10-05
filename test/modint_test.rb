@@ -9,9 +9,9 @@ require_relative '../src/modint.rb'
 # test ModInt
 class ModIntTest < Minitest::Test
   def setup
-    @mods = [1, 2, 3, 10, 17, 2**16, 119 * 2**23 + 1, 10**9 + 7]
-    @primes = [2, 3, 5, 7, 11, 13, 17, 10**9 + 7]
-    @values = [-10**5, -23, -2, -1, 0, 1, 2, 5, 10, 100, 1000, 27, 128, 2357, 10**7, 10**100]
+    @mods = [1, 2, 3, 6, 10, 11, 2**16, 119 * 2**23 + 1, 10**9 + 7]
+    @primes = [2, 3, 5, 7, 11, 10**9 + 7]
+    @values = [-10**5, -6, -2, -1, 0, 1, 2, 3, 6, 10**100]
   end
 
   def test_example
@@ -123,10 +123,34 @@ class ModIntTest < Minitest::Test
     end
   end
 
+  def test_equal
+    @mods.each do |mod|
+      ModInt.mod = mod
+
+      @values.each do |value|
+        assert_equal true, (value % mod) == value.to_m
+        assert_equal true, value.to_m == (value % mod)
+        assert_equal true, value.to_m == value.to_m
+      end
+    end
+  end
+
+  def test_not_equal
+    @mods.each do |mod|
+      ModInt.mod = mod
+
+      @values.each do |value|
+        assert_equal false, (value % mod) != value.to_m
+        assert_equal false, value.to_m != (value % mod)
+        assert_equal false, value.to_m != value.to_m
+      end
+    end
+  end
+
   def test_pow
     mods = [1, 2, 3, 10, 17, 2**16, 119 * 2**23 + 1, 10**9 + 7]
-    xs = [-2, -1, 0, 1, 2, 100, 1000]
-    ys = [0, 1, 10, 27, 5, 1000, 128, 2357]
+    xs = [-6, -2, -1, 0, 1, 2, 6, 100]
+    ys = [0, 1, 2, 3, 6, 100]
 
     mods.each do |mod|
       ModInt.mod = mod
@@ -141,8 +165,8 @@ class ModIntTest < Minitest::Test
 
   def test_pow_method
     mods = [2, 3, 10, 17, 2**16, 119 * 2**23 + 1, 10**9 + 7]
-    xs = [-2, -1, 0, 1, 2, 100, 1000]
-    ys = [0, 1, 10, 27, 5, 1000, 128, 2357, 10**9, 10**100]
+    xs = [-6, -2, -1, 0, 1, 2, 6, 100, 10**9 + 7]
+    ys = [0, 1, 2, 3, 6, 10, 10**9, 10**100]
 
     mods.each do |mod|
       ModInt.mod = mod
@@ -153,6 +177,18 @@ class ModIntTest < Minitest::Test
         assert_equal expected, x.to_m.pow(y)
       end
     end
+  end
+
+  def test_pow_in_the_case_mod_is_one
+    # Ruby 2.7.1 may have a bug: i.pow(0, 1) #=> 1 if i is a Integer
+    # this returns should be 0
+    ModInt.mod = 1
+    assert_equal 0, ModInt(-1).pow(0)
+    assert_equal 0, ModInt(0).pow(0)
+    assert_equal 0, ModInt(1).pow(0)
+    assert_equal 0, ModInt(-1)**0
+    assert_equal 0, ModInt(-1)**0
+    assert_equal 0, ModInt(-1)**0
   end
 
   def test_inv_in_the_case_that_mod_is_prime
