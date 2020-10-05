@@ -108,22 +108,22 @@ class ModInt < Numeric
   end
 
   def **(other)
-    n = other.to_i
-    raise ArgumentError unless 0 <= n
+    return 0 if $mod == 1
 
-    of_val(@val.pow(n, $mod))
+    ModInt.raw(@val.pow(other, $mod))
   end
 
   def pow(other)
-    of_val(@val.to_i.pow(other, $mod))
+    return 0 if $mod == 1
+    ModInt.raw(@val.pow(other, $mod))
   end
 
   def inv
-    of_val(inv_internal(@val))
+    ModInt.raw(inv_internal(@val) % $mod)
   end
 
   def coerce(other)
-    [of_val(other), self]
+    [ModInt(other), self]
   end
 
   def +(other)
@@ -171,10 +171,6 @@ class ModInt < Numeric
   end
 
   private
-
-  def of_val(val)
-    ModInt.raw(val.to_int % $mod)
-  end
 
   def inv_internal(a)
     if $is_prime

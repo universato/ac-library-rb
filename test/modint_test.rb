@@ -124,10 +124,11 @@ class ModIntTest < Minitest::Test
   end
 
   def test_pow
+    mods = [1, 2, 3, 10, 17, 2**16, 119 * 2**23 + 1, 10**9 + 7]
     xs = [-2, -1, 0, 1, 2, 100, 1000]
     ys = [0, 1, 10, 27, 5, 1000, 128, 2357]
 
-    @mods.each do |mod|
+    mods.each do |mod|
       ModInt.mod = mod
 
       xs.product(ys) do |(x, y)|
