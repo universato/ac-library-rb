@@ -6,7 +6,8 @@ class ModInt < Numeric
     def set_mod(mod)
       raise ArgumentError unless mod.is_a? Integer and 1 <= mod
 
-      $mod, $is_prime = mod, ModInt.prime?(mod)
+      $_mod = mod
+      $_mod_is_prime = ModInt.prime?(mod)
     end
 
     def mod=(mod)
@@ -14,12 +15,12 @@ class ModInt < Numeric
     end
 
     def mod
-      $mod
+      $_mod
     end
 
     def raw(val)
       x = allocate
-      x.val = val.to_int
+      x.val = val.to_i
       x
     end
 
@@ -65,33 +66,33 @@ class ModInt < Numeric
   alias to_i val
 
   def initialize(val = 0)
-    @val = val.to_int % $mod
+    @val = val.to_i % $_mod
   end
 
   def inc!
     @val += 1
-    @val = 0 if @val == $mod
+    @val = 0 if @val == $_mod
     self
   end
 
   def dec!
-    @val = $mod if @val == 0
+    @val = $_mod if @val == 0
     @val -= 1
     self
   end
 
   def add!(other)
-    @val = (@val + other.to_i) % $mod
+    @val = (@val + other.to_i) % $_mod
     self
   end
 
   def sub!(other)
-    @val = (@val - other.to_i) % $mod
+    @val = (@val - other.to_i) % $_mod
     self
   end
 
   def mul!(other)
-    @val = @val * other.to_i % $mod
+    @val = @val * other.to_i % $_mod
     self
   end
 
@@ -104,22 +105,16 @@ class ModInt < Numeric
   end
 
   def -@
-    ModInt.raw($mod - @val)
+    ModInt.raw($_mod - @val)
   end
 
   def **(other)
-    return 0 if $mod == 1
-
-    ModInt.raw(@val.pow(other, $mod))
+    $_mod == 1 ? 0 : ModInt.raw(@val.pow(other, $_mod))
   end
-
-  def pow(other)
-    return 0 if $mod == 1
-    ModInt.raw(@val.pow(other, $mod))
-  end
+  alias pow **
 
   def inv
-    ModInt.raw(inv_internal(@val) % $mod)
+    ModInt.raw(inv_internal(@val) % $_mod)
   end
 
   def coerce(other)
@@ -167,21 +162,17 @@ class ModInt < Numeric
   end
 
   def inspect
-    "#{@val} mod #{$mod}"
+    "#{@val} mod #{$_mod}"
   end
 
   private
 
   def inv_internal(a)
-    if $is_prime
-      raise RangeError, 'no inverse' if 0 == a
-
-      a.pow($mod - 2, $mod)
+    if $_mod_is_prime
+      a != 0 ? a.pow($_mod - 2, $_mod) : raise(RangeError, 'no inverse')
     else
-      g, x = ModInt.inv_gcd(a, $mod)
-      raise RangeError, 'no inverse' unless 1 == g
-
-      x
+      g, x = ModInt.inv_gcd(a, $_mod)
+      g == 1 ? x : raise(RangeError, 'no inverse')
     end
   end
 end
@@ -190,18 +181,18 @@ def ModInt(val = 0)
   ModInt.new(val)
 end
 
+# Integer
 class Integer
   def to_modint
     ModInt.new(self)
   end
-
   alias to_m to_modint
 end
 
+# String
 class String
   def to_modint
     ModInt.new(to_i)
   end
-
   alias to_m to_modint
 end
