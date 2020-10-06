@@ -182,12 +182,12 @@ class ModIntTest < Minitest::Test
     # Ruby 2.7.1 may have a bug: i.pow(0, 1) #=> 1 if i is a Integer
     # this returns should be 0
     ModInt.mod = 1
-    assert_equal 0, ModInt(-1).pow(0)
-    assert_equal 0, ModInt(0).pow(0)
-    assert_equal 0, ModInt(1).pow(0)
-    assert_equal 0, ModInt(-1)**0
-    assert_equal 0, ModInt(-1)**0
-    assert_equal 0, ModInt(-1)**0
+    assert_equal 0, ModInt(-1).pow(0), "corner case when modulo is one"
+    assert_equal 0, ModInt(0).pow(0), "corner case when modulo is one"
+    assert_equal 0, ModInt(1).pow(0), "corner case when modulo is one"
+    assert_equal 0, ModInt(-5)**0, "corner case when modulo is one"
+    assert_equal 0, ModInt(0)**0, "corner case when modulo is one"
+    assert_equal 0, ModInt(5)**0, "corner case when modulo is one"
   end
 
   def test_inv_in_the_case_that_mod_is_prime
