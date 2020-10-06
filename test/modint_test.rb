@@ -8,6 +8,12 @@ require_relative '../src/modint.rb'
 
 # test ModInt
 class ModIntTest < Minitest::Test
+  def setup
+    @mods = [1, 2, 3, 6, 10, 11, 2**16, 119 * 2**23 + 1, 10**9 + 7]
+    @primes = [2, 3, 5, 7, 11, 10**9 + 7]
+    @values = [-10**5, -6, -2, -1, 0, 1, 2, 3, 6, 10**100]
+  end
+
   def test_example
     ModInt.set_mod(11) # equals `ModInt.mod = 11`
     assert_equal 11, ModInt.mod
@@ -41,8 +47,6 @@ class ModIntTest < Minitest::Test
 
     assert_output("10\n") { puts a } # 10
     assert_output("10 mod 11\n") { p a } # 10 mod 11
-
-    assert_equal 11, a.mod # 11
 
     assert_equal 3, ModInt.raw(3) # 3 mod 11
   end
@@ -80,89 +84,275 @@ class ModIntTest < Minitest::Test
     assert_equal 7, -ModInt.new(4)
   end
 
-  def test_add_sub
-    ns = [2, 100, 0, 1000, -1]
-    mods = [17, 119 * 2**23 + 1, 10**9 + 7, 10, 2**16, 3]
-    ys = [0, 1, 10, 27, ModInt(5, 3), 10**7, 128, 2357, -23, -10**5, 10**100]
-    ns.product(mods) do |(n, mod)|
-      x = ModInt(n, mod)
-      ys.each do |y|
-        ac = (x.to_i + y.to_i) % x.mod
-        wj = (x + y).to_i
-        assert_equal ac, wj
+  def test_add
+    @mods.each do |mod|
+      ModInt.mod = mod
 
-        ac = (x.to_i - y.to_i) % x.mod
-        wj = (x - y).to_i
-        assert_equal ac, wj
+      @values.product(@values) do |(x, y)|
+        expected = (x + y) % mod
+        assert_equal expected, x.to_m + y
+        assert_equal expected, x + y.to_m
+        assert_equal expected, x.to_m + y.to_m
+      end
+    end
+  end
+
+  def test_sub
+    @mods.each do |mod|
+      ModInt.mod = mod
+
+      @values.product(@values) do |(x, y)|
+        expected = (x - y) % mod
+        assert_equal expected, x.to_m - y
+        assert_equal expected, x - y.to_m
+        assert_equal expected, x.to_m - y.to_m
       end
     end
   end
 
   def test_mul
-    ns = [2, 100, 0, 1000, -1]
-    mods = [17, 119 * 2**23 + 1, 10**9 + 7, 10, 2**16, 3]
-    ys = [0, 1, 10, 27, ModInt(5, 3), 10**7, 128, 2357, -23, -10**5, 10**100]
-    ns.product(mods) do |(n, mod)|
-      x = ModInt(n, mod)
-      ys.each do |y|
-        ac = (x.to_i * y.to_i) % x.mod
-        wj = (x * y).to_i
-        assert_equal ac, wj
+    @mods.each do |mod|
+      ModInt.mod = mod
+
+      @values.product(@values) do |(x, y)|
+        expected = (x * y) % mod
+        assert_equal expected, x.to_m * y
+        assert_equal expected, x * y.to_m
+        assert_equal expected, x.to_m * y.to_m
+      end
+    end
+  end
+
+  def test_equal
+    @mods.each do |mod|
+      ModInt.mod = mod
+
+      @values.each do |value|
+        assert_equal true, (value % mod) == value.to_m
+        assert_equal true, value.to_m == (value % mod)
+        assert_equal true, value.to_m == value.to_m
+      end
+    end
+  end
+
+  def test_not_equal
+    @mods.each do |mod|
+      ModInt.mod = mod
+
+      @values.each do |value|
+        assert_equal false, (value % mod) != value.to_m
+        assert_equal false, value.to_m != (value % mod)
+        assert_equal false, value.to_m != value.to_m
       end
     end
   end
 
   def test_pow
-    ns = [2, 100, 0, 1000, -1]
-    mods = [17, 119 * 2**23 + 1, 10**9 + 7, 10, 2**16, 3]
-    ys = [0, 1, 10, 27, ModInt(5, 3), 1000, 128, 2357]
-    ns.product(mods) do |(n, mod)|
-      x = ModInt(n, mod)
-      ys.each do |y|
-        ac = x.to_i.pow(y.to_i, x.mod)
-        wj = (x**y).to_i
-        assert_equal ac, wj
+    xs = [-6, -2, -1, 0, 1, 2, 6, 100]
+    ys = [0, 1, 2, 3, 6, 100]
+
+    @mods.each do |mod|
+      ModInt.mod = mod
+
+      xs.product(ys) do |(x, y)|
+        expected = (x**y) % mod
+        assert_equal expected, x.to_m**y
+        assert_equal expected, x.to_m.pow(y)
       end
     end
   end
 
-  def test_inv_div
-    ns = [1, 2, 3, 4, 2357, 2**64]
-    mods = [5, 17, 119 * 2**23 + 1, 10**9 + 7]
-    xs = [ModInt(2, 125), ModInt(3, 65_536), ModInt(20, 111_111), ModInt(99, 100)]
-    xs += ns.product(mods).map { |(n, mod)| ModInt(n, mod) }
-    ys = [0, 1, 10, 27, 1000, 128, 2357]
-    xs.each do |x|
-      ac = x.to_i.to_bn.mod_inverse(x.mod)
-      wj = x.inv.to_i
-      assert_equal ac, wj
+  def test_pow_method
+    mods = [2, 3, 10, 17, 2**16, 119 * 2**23 + 1, 10**9 + 7]
+    xs = [-6, -2, -1, 0, 1, 2, 6, 100, 10**9 + 7]
+    ys = [0, 1, 2, 3, 6, 10, 10**9, 10**100]
 
-      ys.each do |y|
-        ac = (y.to_i * x.to_i.to_bn.mod_inverse(x.mod)).to_i % x.mod
-        wj = (y / x).to_i
-        assert_equal ac, wj
+    mods.each do |mod|
+      ModInt.mod = mod
+
+      xs.product(ys) do |(x, y)|
+        expected = x.pow(y, mod)
+        assert_equal expected, x.to_m**y
+        assert_equal expected, x.to_m.pow(y)
       end
     end
   end
 
-  def test_to_modint
-    ModInt.mod = 10**9 + 7
-    testcases = ["10", "100000000000000000", "1000000007", 123]
-    testcases.each do |x|
-      ac = x.to_i % ModInt.mod
-      assert_equal ac, x.to_modint.to_i
-      assert_equal ac, x.to_m.to_i
+  def test_pow_in_the_case_mod_is_one
+    # Ruby 2.7.1 may have a bug: i.pow(0, 1) #=> 1 if i is a Integer
+    # this returns should be 0
+    ModInt.mod = 1
+    assert_equal 0, ModInt(-1).pow(0), "corner case when modulo is one"
+    assert_equal 0, ModInt(0).pow(0), "corner case when modulo is one"
+    assert_equal 0, ModInt(1).pow(0), "corner case when modulo is one"
+    assert_equal 0, ModInt(-5)**0, "corner case when modulo is one"
+    assert_equal 0, ModInt(0)**0, "corner case when modulo is one"
+    assert_equal 0, ModInt(5)**0, "corner case when modulo is one"
+  end
 
-      assert_equal x.to_i % 17, x.to_modint(17).to_i
+  def test_inv_in_the_case_that_mod_is_prime
+    @primes.each do |prime_mod|
+      ModInt.mod = prime_mod
+
+      values = Array.new(30) { rand(-10**100...10**100) }
+      values.concat(Array(-6..6))
+      values.each do |value|
+        next if (value % prime_mod).zero?
+
+        expected = value.to_bn.mod_inverse(prime_mod).to_i
+        assert_equal expected, value.to_m.inv
+        assert_equal expected, 1 / value.to_m
+        assert_equal expected, 1.to_m / value
+        assert_equal expected, 1.to_m / value.to_m
+      end
     end
   end
 
-  def test_output
+  def test_inv_in_the_random_mod_case
+    mods = Array.new(30) { rand(2..10**100) }
+    mods.concat(Array(2..30))
+
+    mods.each do |mod|
+      ModInt.mod = mod
+
+      assert_equal 1,  1.to_m.inv
+      assert_equal 1,  1 / 1.to_m
+      assert_equal 1,  1.to_m / 1
+
+      assert_equal mod - 1, (mod - 1).to_m.inv
+      assert_equal mod - 1, 1 / (mod - 1).to_m
+      assert_equal mod - 1, 1.to_m / (mod - 1)
+      assert_equal mod - 1, 1.to_m / (mod - 1).to_m
+    end
+  end
+
+  def test_div_in_the_case_that_mod_is_prime
+    @primes.each do |prime_mod|
+      ModInt.mod = prime_mod
+
+      values = Array.new(30) { rand(-10**100...10**100) }
+      values.concat(Array(-6..6))
+      values.product(values) do |(x, y)|
+        next if (y % prime_mod).zero?
+
+        expected = (x * y.to_bn.mod_inverse(prime_mod).to_i) % prime_mod
+
+        assert_equal expected, x.to_m / y
+        assert_equal expected, x / y.to_m
+        assert_equal expected, x.to_m / y.to_m
+      end
+    end
+  end
+
+  def test_inv_in_the_case_that_mod_is_not_prime
+    mods = { 4 => [1, 3], 6 => [1, 5], 8 => [1, 3, 5, 7], 9 => [2, 4, 7, 8], 10 => [3, 7, 9] }
+    mods.each do |(mod, numbers)|
+      ModInt.mod = mod
+
+      @values.product(numbers) do |(x, y)|
+        expected = (x * y.to_bn.mod_inverse(mod).to_i) % mod
+
+        assert_equal expected, x.to_m / y
+        assert_equal expected, x / y.to_m
+        assert_equal expected, x.to_m / y.to_m
+      end
+    end
+  end
+
+  def test_to_i
+    @mods.each do |mod|
+      ModInt.mod = mod
+
+      @values.each do |value|
+        expected =  value % mod
+        actual   =  value.to_m.to_i
+
+        assert actual.is_a?(Integer)
+        assert_equal expected, actual
+      end
+    end
+  end
+
+  def test_to_int
+    @mods.each do |mod|
+      ModInt.mod = mod
+
+      @values.each do |value|
+        expected =  value % mod
+        actual   =  value.to_m.to_int
+
+        assert actual.is_a?(Integer)
+        assert_equal expected, actual
+      end
+    end
+  end
+
+  def test_zero?
+    @mods.each do |mod|
+      ModInt.mod = mod
+
+      @values.each do |value|
+        expected = (value % mod).zero?
+        actual   =  value.to_m.zero?
+
+        assert_equal expected, actual
+      end
+    end
+  end
+
+  def test_integer_to_modint
     ModInt.mod = 10**9 + 7
-    testcases = [[10, "10"], [-1, "1000000006"], [10**14, "999300007"], [10**9 + 7, "0"]]
-    testcases.each do |(n, ac)|
-      assert_output("#{ac} mod #{ModInt.mod}\n") { p ModInt(n) }
-      assert_output("#{ac}\n") { puts ModInt(n) }
+
+    @values.each do |value|
+      expected = ModInt(value)
+      assert_equal expected, value.to_m
+      assert_equal expected, value.to_modint
+    end
+  end
+
+  def test_string_to_modint
+    ModInt.mod = 10**9 + 7
+    values = ['-100', '-1', '-2', '0', '1', '2', '10', '123', '100000000000000', '1000000007']
+    values.concat(values.map { |str| "#{str}\n" })
+
+    values.each do |value|
+      expected = ModInt(value.to_i)
+      assert_equal expected, value.to_m
+      assert_equal expected, value.to_modint
+    end
+  end
+
+  def test_output_by_p_method
+    ModInt.mod = 10**9 + 7
+    assert_output("1000000006 mod 1000000007\n") { p(-1.to_m) }
+    assert_output("1000000006 mod 1000000007\n") { p (10**9 + 6).to_m }
+    assert_output("0 mod 1000000007\n") { p (10**9 + 7).to_m }
+    assert_output("1 mod 1000000007\n") { p (10**9 + 8).to_m }
+
+    @mods.each do |mod|
+      ModInt.mod = mod
+
+      @values.each do |n|
+        expected = "#{n % mod} mod #{mod}\n"
+        assert_output(expected) { p n.to_m }
+      end
+    end
+  end
+
+  def test_output_by_puts_method
+    ModInt.mod = 10**9 + 7
+    assert_output("1000000006\n") { puts(-1.to_m) }
+    assert_output("1000000006\n") { puts (10**9 + 6).to_m }
+    assert_output("0\n") { puts (10**9 + 7).to_m }
+    assert_output("1\n") { puts (10**9 + 8).to_m }
+
+    @mods.each do |mod|
+      ModInt.mod = mod
+
+      @values.each do |n|
+        expected = "#{n % mod}\n"
+        assert_output(expected) { puts n.to_m }
+      end
     end
   end
 end
