@@ -23,3 +23,4 @@ Please join it.
 # Other language
 
 [README 日本語バージョン](README.ja.md)
+- [ライブラリ目次: index.md](https://github.com/universato/ac-library-rb/blob/master/document_ja/index.md)
