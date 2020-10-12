@@ -3,7 +3,7 @@
 require 'minitest'
 require 'minitest/autorun'
 
-require_relative '../src/lazy_segtree.rb'
+require_relative '../lib/lazy_segtree.rb'
 
 # Test for Segment tree with lazy propagation
 class LazySegtreeTest < Minitest::Test

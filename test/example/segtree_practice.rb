@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../../src/segtree.rb'
+require_relative '../../lib/segtree.rb'
 
 INF = (1 << 60) - 1
 

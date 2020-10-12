@@ -3,7 +3,7 @@
 require 'minitest'
 require 'minitest/autorun'
 
-require_relative '../src/scc.rb'
+require_relative '../lib/scc.rb'
 
 class SCCGraphTest < Minitest::Test
   def test_empty
