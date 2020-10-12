@@ -3,7 +3,7 @@
 require 'minitest'
 require 'minitest/autorun'
 
-require_relative '../src/dsu.rb'
+require_relative '../lib/dsu.rb'
 
 class UnionFindTest < Minitest::Test
   def test_zero

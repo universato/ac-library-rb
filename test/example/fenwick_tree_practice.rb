@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../../src/fenwick_tree.rb'
+require_relative '../../lib/fenwick_tree.rb'
 
 _, q = gets.split.map(&:to_i)
 a    = gets.split.map(&:to_i)

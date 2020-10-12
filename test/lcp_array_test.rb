@@ -3,8 +3,8 @@
 require 'minitest'
 require 'minitest/autorun'
 
-require_relative '../src/suffix_array.rb'
-require_relative '../src/lcp_array.rb'
+require_relative '../lib/suffix_array.rb'
+require_relative '../lib/lcp_array.rb'
 
 def lcp_array_naive(s)
   s = s.bytes if s === String

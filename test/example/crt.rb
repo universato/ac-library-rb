@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../../src/crt.rb'
+require_relative '../../lib/crt.rb'
 
 # Warning: This sample is a solution of the following problem:
 #   https://yukicoder.me/problems/no/187

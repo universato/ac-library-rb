@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../../src/floor_sum.rb'
+require_relative '../../lib/floor_sum.rb'
 
 t = gets.to_s.to_i
 

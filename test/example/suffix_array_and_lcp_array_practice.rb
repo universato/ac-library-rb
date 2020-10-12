@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require_relative '../../src/suffix_array.rb'
-require_relative '../../src/lcp_array.rb'
+require_relative '../../lib/suffix_array.rb'
+require_relative '../../lib/lcp_array.rb'
 
 s = gets.chomp
 lcp = lcp_array(s, suffix_array(s))
