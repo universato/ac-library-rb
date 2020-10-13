@@ -3,7 +3,7 @@
 require 'minitest'
 require 'minitest/autorun'
 
-require_relative '../src/fenwick_tree.rb'
+require_relative '../lib/fenwick_tree.rb'
 
 class FenwickTreeTest < Minitest::Test
   def test_practice_contest

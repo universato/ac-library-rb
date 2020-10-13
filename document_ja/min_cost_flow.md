@@ -79,7 +79,7 @@ graph.edges
 ## 参考リンク
 
 - 当ライブラリ
-  - [当ライブラリの実装コード min_cost_flow.rb](https://github.com/universato/ac-library-rb/blob/master/src/min_cost_flow.rb)
+  - [当ライブラリの実装コード min_cost_flow.rb](https://github.com/universato/ac-library-rb/blob/master/lib/min_cost_flow.rb)
   - [当ライブラリのテストコード min_cost_flow_test.rb](https://github.com/universato/ac-library-rb/blob/master/test/min_cost_flow_test.rb)
 - 本家ライブラリ 
   - [本家ライブラリのドキュメント mincostflow.md(GitHub)](https://github.com/atcoder/ac-library/blob/master/document_ja/mincostflow.md)

@@ -22,7 +22,7 @@ Chinese remainder theorem
 
 ## 参考リンク
 
-- [当ライブラリの実装コード crt.rb](https://github.com/universato/ac-library-rb/blob/master/src/crt.rb)
+- [当ライブラリの実装コード crt.rb](https://github.com/universato/ac-library-rb/blob/master/lib/crt.rb)
 - 本家
   - [本家ライブラリの実装コード math.hpp](https://github.com/atcoder/ac-library/blob/master/atcoder/math.hpp)
   - [本家ライブラリのドキュメント math.md](https://github.com/atcoder/ac-library/blob/master/document_ja/math.md)
@@ -44,7 +44,7 @@ $\sum_{i = 0}^{n - 1} \mathrm{floor}(\frac{a \times i + b}{m})$
 
 ## 参考リンク
 
-- [当ライブラリの実装コード floor_sum.rb](https://github.com/universato/ac-library-rb/blob/master/src/floor_sum.rb)
+- [当ライブラリの実装コード floor_sum.rb](https://github.com/universato/ac-library-rb/blob/master/lib/floor_sum.rb)
 - 本家
   - [本家ライブラリの実装コード math.hpp](https://github.com/atcoder/ac-library/blob/master/atcoder/math.hpp)
   - [本家ライブラリのドキュメント math.md](https://github.com/atcoder/ac-library/blob/master/document_ja/math.md)

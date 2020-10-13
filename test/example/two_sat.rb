@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../../src/two_sat.rb'
+require_relative '../../lib/two_sat.rb'
 
 n, d = gets.split.map(&:to_i)
 x, y = n.times.map { gets.split.map(&:to_i) }.transpose

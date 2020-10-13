@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../../src/priority_queue.rb'
+require_relative '../../lib/priority_queue.rb'
 
 # Warning: This sample is a solution of the following problem:
 #   https://onlinejudge.u-aizu.ac.jp/problems/ALDS1_9_C

@@ -3,7 +3,7 @@
 require 'minitest'
 require 'minitest/autorun'
 
-require_relative '../src/two_sat.rb'
+require_relative '../lib/two_sat.rb'
 
 def solve(two_sat, count, distance, x, y)
   count.times do |i|
