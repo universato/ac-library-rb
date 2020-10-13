@@ -3,7 +3,7 @@
 require 'minitest'
 require 'minitest/autorun'
 
-require_relative '../lib/crt.rb'
+require_relative '../src/crt.rb'
 
 class ConvolutionTest < Minitest::Test
   def test_two_elements

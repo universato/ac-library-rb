@@ -212,8 +212,8 @@ p 12.to_m == 1 #=> true
 ## 参考リンク
 
 - 当ライブラリ
-  - [当ライブラリのコード modint.rb(GitHub)](https://github.com/universato/ac-library-rb/blob/master/lib/modint.rb)
-  - [当ライブラリのコード modint_test.rb(GitHub)](https://github.com/universato/ac-library-rb/blob/master/lib/modint.rb)
+  - [当ライブラリのコード modint.rb(GitHub)](https://github.com/universato/ac-library-rb/blob/master/src/modint.rb)
+  - [当ライブラリのコード modint_test.rb(GitHub)](https://github.com/universato/ac-library-rb/blob/master/src/modint.rb)
 - 本家ライブラリ
   - [本家の実装コード modint.hpp(GitHub)](https://github.com/atcoder/ac-library/blob/master/atcoder/modint.hpp)
   - [本家のテストコード modint_test.hpp(GitHub)](https://github.com/atcoder/ac-library/blob/master/atcoder/modint.hpp)

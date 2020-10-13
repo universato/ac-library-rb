@@ -4,7 +4,7 @@ require 'minitest'
 require 'minitest/autorun'
 require 'openssl'
 
-require_relative '../lib/modint.rb'
+require_relative '../src/modint.rb'
 
 # test ModInt
 class ModIntTest < Minitest::Test

@@ -3,7 +3,7 @@
 require 'minitest'
 require 'minitest/autorun'
 
-require_relative '../lib/convolution.rb'
+require_relative '../src/convolution.rb'
 
 def convolution_naive(a, b, mod)
   n = a.size

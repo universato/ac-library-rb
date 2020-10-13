@@ -3,7 +3,7 @@
 require 'minitest'
 require 'minitest/autorun'
 
-require_relative '../lib/suffix_array.rb'
+require_relative '../src/suffix_array.rb'
 
 def suffix_array_naive(s)
   s = s.bytes if s === String

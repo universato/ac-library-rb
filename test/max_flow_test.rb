@@ -3,7 +3,7 @@
 require 'minitest'
 require 'minitest/autorun'
 
-require_relative '../lib/max_flow.rb'
+require_relative '../src/max_flow.rb'
 
 class MaxFlowTest < Minitest::Test
   def test_simple

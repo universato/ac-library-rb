@@ -3,7 +3,7 @@
 require 'minitest'
 require 'minitest/autorun'
 
-require_relative '../lib/z_algorithm.rb'
+require_relative '../src/z_algorithm.rb'
 
 def z_algorithm_naive(s)
   n = s.size

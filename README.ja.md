@@ -15,7 +15,7 @@ ACLの詳細は、以下をご覧ください.
 
 [ライブラリ目次: index.md](https://github.com/universato/ac-library-rb/blob/master/document_ja/index.md)
 
-`lib`ディレクトリにコードがあります。
+`src`ディレクトリにコードがあります。(`lib`ディレクトリに変更予定)
 
 現状、この中から探してもらい、コピペして使って下さい。
 

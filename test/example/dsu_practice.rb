@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../../lib/dsu.rb'
+require_relative '../../src/dsu.rb'
 
 n, q = gets.split.map(&:to_i)
 

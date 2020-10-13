@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../lib/priority_queue.rb'
+require_relative '../src/priority_queue.rb'
 
 # Min Cost Flow Grapsh
 class MinCostFlow

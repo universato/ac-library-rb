@@ -111,7 +111,7 @@ seg.range_apply(l, r, val)
 
 ## 参考リンク
 
-- [当ライブラリの実装コード lazy_segtree.rb](https://github.com/universato/ac-library-rb/blob/master/lib/lazy_segtree.rb)
+- [当ライブラリの実装コード lazy_segtree.rb](https://github.com/universato/ac-library-rb/blob/master/src/lazy_segtree.rb)
 - 本家
   - [本家ライブラリのドキュメント lazysegtree.md(GitHub)](https://github.com/atcoder/ac-library/blob/master/document_ja/lazysegtree.md)
   - [本家のドキュメント appendix.md(GitHub)](https://github.com/atcoder/ac-library/blob/master/document_ja/appendix.md)
