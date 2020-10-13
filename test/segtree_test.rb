@@ -3,7 +3,7 @@
 require 'minitest'
 require 'minitest/autorun'
 
-require_relative '../lib/segtree.rb'
+require_relative '../src/segtree.rb'
 
 class SegtreeTest < Minitest::Test
   INF = (1 << 60) - 1

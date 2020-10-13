@@ -55,7 +55,7 @@ graph.scc
 # 参考リンク
 
 - 当ライブラリ
-  - [当ライブラリの実装コード scc\.rb](https://github.com/universato/ac-library-rb/blob/master/lib/scc.rb)
+  - [当ライブラリの実装コード scc\.rb](https://github.com/universato/ac-library-rb/blob/master/src/scc.rb)
   - [当ライブラリの実装コード scc_test\.rb](https://github.com/universato/ac-library-rb/blob/master/test/scc_test.rb)
 - 本家ライブラリ
   - [本家ライブラリの実装コード scc\.hpp](https://github.com/atcoder/ac-library/blob/master/atcoder/scc.hpp)

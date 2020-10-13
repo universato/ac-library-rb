@@ -3,7 +3,7 @@
 require 'minitest'
 require 'minitest/autorun'
 
-require_relative '../lib/floor_sum.rb'
+require_relative '../src/floor_sum.rb'
 
 def floor_sum_naive(n, m, a, b)
   res = 0

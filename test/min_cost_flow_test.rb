@@ -3,7 +3,7 @@
 require 'minitest'
 require 'minitest/autorun'
 
-require_relative '../lib/min_cost_flow.rb'
+require_relative '../src/min_cost_flow.rb'
 
 # Test for MinCostFlow
 class MinCostFlowTest < Minitest::Test
