@@ -21,6 +21,9 @@ ACLの詳細は、以下をご覧ください.
 
 目次(および進捗情報)は、[index.md](https://github.com/universato/ac-library-rb/blob/master/document_ja/index.md)をご覧ください。
 
+また、コピペ以外の方法として、バンドルツール[expander-rb]
+(https://github.com/surpace/expander-rb)(by surpaceさん)を利用する方法もあります。
+
 ## Rubyバージョン
 
 現在、AtCoderのRubyバージョンは、2.7.1です。
