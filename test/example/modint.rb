@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../../src/modint.rb'
+require_relative '../../lib/modint.rb'
 
 ModInt.set_mod(11)
 ModInt.mod # 11

@@ -3,7 +3,7 @@
 require 'minitest'
 require 'minitest/autorun'
 
-require_relative '../src/priority_queue.rb'
+require_relative '../lib/priority_queue.rb'
 
 class PriorityQueueTest < Minitest::Test
   # https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/all/ALDS1_9_C
