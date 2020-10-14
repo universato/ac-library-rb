@@ -1,5 +1,7 @@
 # Segment Tree
 class Segtree
+  attr_reader :d, :op, :n, :leaf_size, :log
+
   def initialize(arg, e, &block)
     case arg
     when Integer
@@ -30,6 +32,8 @@ class Segtree
   end
 
   def prod(l, r)
+    return @e if l == r
+
     sml = @e
     smr = @e
     l += @leaf_size
@@ -72,8 +76,10 @@ class Segtree
             l += 1
           end
         end
+
         return l - @leaf_size
       end
+
       sm = @op.call(sm, @d[l])
       l += 1
       break if (l & -l) == l
@@ -82,13 +88,42 @@ class Segtree
     @n
   end
 
+  def min_left(r, &block)
+    return 0 if r == 0
+
+    f = proc(&block)
+
+    r += @leaf_size
+    sm = @e
+    loop do
+      r -= 1
+      r /= 2 while r > 1 && r.odd?
+      unless f.call(@op.call(@d[r], sm))
+        while r < @leaf_size
+          r = r * 2 + 1
+          if f.call(@op.call(@d[r], sm))
+            sm = @op.call(@d[r], sm)
+            r -= 1
+          end
+        end
+
+        return r + 1 - @leaf_size
+      end
+
+      sm = @op.call(@d[r], sm)
+      break if (r & -r) == r
+    end
+
+    0
+  end
+
   def update(k)
     @d[k] = @op.call(@d[2 * k], @d[2 * k + 1])
   end
 
   def inspect
     t = 0
-    res = "SegmentTree\n  "
+    res = "SegmentTree @e = #{@e}, @n = #{@n}, @leaf_size = #{@leaf_size} @op = #{@op}\n  "
     a = @d[1, @d.size - 1]
     a.each_with_index do |e, i|
       res << e.to_s << ' '
