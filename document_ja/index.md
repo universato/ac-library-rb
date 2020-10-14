@@ -11,7 +11,7 @@
 | C  | D |   |
 | :--- | :--- | --- |
 | [◎](https://github.com/universato/ac-library-rb/blob/master/lib/fenwick_tree.rb) | [◎G](https://github.com/universato/ac-library-rb/blob/master/document_ja/fenwick_tree.md)   |FenwickTree(BIT)|
-| [○](https://github.com/universato/ac-library-rb/blob/master/lib/segtree.rb) | [○G](https://github.com/universato/ac-library-rb/blob/master/document_ja/segtree.md) |Segtree|
+| [◎](https://github.com/universato/ac-library-rb/blob/master/lib/segtree.rb) | [◎G](https://github.com/universato/ac-library-rb/blob/master/document_ja/segtree.md) |Segtree|
 | [○](https://github.com/universato/ac-library-rb/blob/master/lib/lazy_segtree.rb) | [○G](https://github.com/universato/ac-library-rb/blob/master/document_ja/lazy_segtree.md)   |LazySegtree|
 | [◎](https://github.com/universato/ac-library-rb/blob/master/lib/priority_queue.rb) | [◎G](https://github.com/universato/ac-library-rb/blob/master/document_ja/priority_queue.md)  |PriorityQueue|
 | [◎](https://github.com/universato/ac-library-rb/blob/master/lib/suffix_array.rb) | [◎G](https://github.com/universato/ac-library-rb/blob/master/document_ja/string.md)  |suffix_array|
