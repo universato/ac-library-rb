@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # MaxFlowGraph
 class MaxFlow
   def initialize(n = 0)

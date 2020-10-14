@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # Segment tree with Lazy propagation
 class LazySegtree
   attr_reader   :d, :lz

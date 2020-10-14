@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # Segment Tree
 class Segtree
   def initialize(arg, e, &block)

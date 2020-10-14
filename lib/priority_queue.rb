@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # Priority Queue
 # Reference: https://github.com/python/cpython/blob/master/Lib/heapq.py
 class PriorityQueue

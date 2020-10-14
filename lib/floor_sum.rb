@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 def floor_sum(n, m, a, b)
   res = 0
 

@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # Fenwick Tree
 class FenwickTree
   attr_reader :data, :size

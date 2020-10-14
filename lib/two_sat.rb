@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require_relative './scc.rb'
 
 # TwoSAT
@@ -33,6 +31,4 @@ class TwoSAT
   alias satisfiable? satisfiable
 end
 
-Twosat = TwoSAT
 TwoSat = TwoSAT
-TwoSatisfiability = TwoSAT
