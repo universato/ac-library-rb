@@ -56,6 +56,7 @@ class MinCostFlow
   def flow(s, t, flow_limit = Float::MAX)
     slope(s, t, flow_limit).last
   end
+  alias min_cost_max_flow flow
 
   def dual_ref(s, t)
     dist = Array.new(@n, Float::MAX)
@@ -135,6 +136,7 @@ class MinCostFlow
 
     result
   end
+  alias min_cost_slop slop
 end
 
 MCF      = MinCostFlow
