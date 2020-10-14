@@ -2,7 +2,9 @@
 
 セグメント木です。
 
-## コンストラクタ
+## 特異メソッド
+
+### new(arg, e, &op) -> Segtree
 
 ```rb
 seg = Segtree.new(arg, e) { |x, y| ... }
@@ -35,7 +37,9 @@ Segtree.new(n, 0) { |x, y| x + y } # sum
 
 </details>
 
-## set
+## インスタンスメソッド
+
+### set
 
 ```rb
 seg.set(pos, x)
@@ -45,8 +49,7 @@ seg.set(pos, x)
 
 **計算量** `O(logn)`
 
-
-## get
+### get
 
 ```rb
 seg.get(pos)
@@ -56,8 +59,7 @@ seg.get(pos)
 
 **計算量** `O(1)`
 
-
-## prod
+### prod
 
 ```rb
 seg.prod(l, r)
@@ -69,7 +71,7 @@ seg.prod(l, r)
 
 **計算量** `O(logn)`
 
-## all_prod
+### all_prod
 
 ```rb
 seg.all_prod
@@ -79,7 +81,7 @@ seg.all_prod
 
 **計算量** `O(1)`
 
-## max_right
+### max_right(l, &f) -> Integer
 
 ```ruby
 seg.max_right(l, &f)
@@ -87,7 +89,7 @@ seg.max_right(l, &f)
 
 Segtree上で二分探索をします。
 
-## min_left
+### min_left(r, &f) -> Integer
 
 ```ruby
 seg.min_left(r, &f)
@@ -119,7 +121,7 @@ Segtree上で二分探索をします。
 
 内部実装に関しても、変数`@d`の0番目の要素には必ず単位元`@e`が入ります。
 
-## 変数名の違い
+### 変数名の違い
 
 Rubyには`p`メソッドがあるので、引数`p`について、`p`ではなくpositionの`pos`を変数名として使いました。
 
