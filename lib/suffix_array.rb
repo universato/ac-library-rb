@@ -41,7 +41,7 @@ def sa_is(s, upper)
 
   ls = [false]*n
   (n-2).downto(0){ |i|
-    ls[i] = s[i]==s[i+1] ? ls[i+1] : s[i]<s[i+1]
+    ls[i] = (s[i] == s[i+1] ? ls[i+1] : s[i] < s[i+1])
   }
 
   sum_l = [0]*(upper+1)
@@ -55,11 +55,11 @@ def sa_is(s, upper)
   }
   0.upto(upper){ |i|
     sum_s[i] += sum_l[i]
-    sum_l[i+1] += sum_s[i] if i<upper
+    sum_l[i+1] += sum_s[i] if i < upper
   }
 
   lms = (1 ... n).select{ |i| !ls[i-1] && ls[i] }
-  m=lms.size
+  m = lms.size
   lms_map = [-1]*(n+1)
   lms.each_with_index{ |lms, id| lms_map[lms] = id }
 
@@ -122,5 +122,6 @@ def suffix_array(s, upper = nil)
       raise ArgumentError if s<0 || upper<s
     }
   end
+
   return sa_is(s, upper)
 end

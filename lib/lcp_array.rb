@@ -18,5 +18,6 @@ def lcp_array(s, sa)
     h += 1 while j+h<n && i+h<n && s[j+h]==s[i+h]
     lcp[rnk[i]-1] = h
   }
+
   return lcp
 end

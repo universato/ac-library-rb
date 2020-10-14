@@ -39,12 +39,13 @@ def inv_gcd(a, b)
 
   s, t = b, a
   m0, m1 = 0, 1
-  while t>0 do
+  while t > 0
     u, s = s.divmod(t)
     m0 -= m1*u
     s, t = t, s
     m0, m1 = m1, m0
   end
   m0 += b/s if m0 < 0
+
   return [s, m0]
 end
