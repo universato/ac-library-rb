@@ -16,14 +16,18 @@ class DSU
     @parent_or_size[y] = x
     x
   end
+  alias unite merge
 
   def same(a, b)
     leader(a) == leader(b)
   end
+  alias same? same
 
   def leader(a)
     @parent_or_size[a] < 0 ? a : (@parent_or_size[a] = leader(@parent_or_size[a]))
   end
+  alias root leader
+  alias find leader
 
   def size(a)
     -@parent_or_size[leader(a)]
@@ -41,11 +45,6 @@ class DSU
   def groups
     groups_with_leader.values
   end
-
-  alias root leader
-  alias find leader
-  alias unite merge
-  alias same? same
 end
 
 UnionFind        = DSU

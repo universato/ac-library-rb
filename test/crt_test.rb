@@ -26,7 +26,7 @@ class ConvolutionTest < Minitest::Test
       [*-5 .. 5].repeated_permutation(3){ |d, e, f|
         rem, mod = crt([d, e, f], [a, b, c])
         lcm = [a, b, c].reduce :lcm
-        if mod == 0 then
+        if mod == 0
           assert (0 ... lcm).none?{ |x| x%a == d && x%b == e && x%c == f }
         else
           assert_equal lcm, mod
