@@ -75,6 +75,9 @@ class SegtreeTest < Minitest::Test
     end
     s = Segtree.new(0, '$', &op)
     assert_equal '$', s.all_prod
+
+    s = Segtree.new('$', &op)
+    assert_equal '$', s.all_prod
   end
 
   def test_one

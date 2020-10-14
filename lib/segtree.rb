@@ -2,7 +2,7 @@
 class Segtree
   attr_reader :d, :op, :n, :leaf_size, :log
 
-  def initialize(arg, e, &block)
+  def initialize(arg = 0, e, &block)
     case arg
     when Integer
       v = Array.new(arg) { e }
