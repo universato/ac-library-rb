@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # induce sort (internal method)
 def sa_is_induce(s, ls, sum_l, sum_s, lms)
   n = s.size
@@ -7,7 +5,7 @@ def sa_is_induce(s, ls, sum_l, sum_s, lms)
 
   buf = sum_s.dup
   lms.each{ |lms|
-    if lms != n then
+    if lms != n
       sa[buf[s[lms]]] = lms
       buf[s[lms]] += 1
     end
@@ -17,7 +15,7 @@ def sa_is_induce(s, ls, sum_l, sum_s, lms)
   sa[buf[s[-1]]] = n-1
   buf[s[-1]] += 1
   sa.each{ |v|
-    if v>=1 && !ls[v-1] then
+    if v>=1 && !ls[v-1]
       sa[buf[s[v-1]]] = v-1
       buf[s[v-1]] += 1
     end
@@ -25,7 +23,7 @@ def sa_is_induce(s, ls, sum_l, sum_s, lms)
 
   buf = sum_l.dup
   sa.reverse_each{ |v|
-    if v>=1 && ls[v-1] then
+    if v>=1 && ls[v-1]
       buf[s[v-1]+1] -= 1
       sa[buf[s[v-1]+1]] = v-1
     end
@@ -49,7 +47,7 @@ def sa_is(s, upper)
   sum_l = [0]*(upper+1)
   sum_s = [0]*(upper+1)
   n.times{ |i|
-    if ls[i] then
+    if ls[i]
       sum_l[s[i]+1] += 1
     else
       sum_s[s[i]] += 1
@@ -78,10 +76,10 @@ def sa_is(s, upper)
     end_l = lms[lms_map[l]+1]||n
     end_r = lms[lms_map[r]+1]||n
     same = true
-    if end_l-l != end_r-r then
+    if end_l-l != end_r-r
       same = false
     else
-      while l < end_l do
+      while l < end_l
         break if s[l] != s[r]
         l+=1
         r+=1
@@ -101,7 +99,7 @@ end
 
 # suffix array for array of integers or string
 def suffix_array(s, upper = nil)
-  if not upper then
+  if not upper
     case s
     when Array
       # compression

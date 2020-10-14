@@ -1,21 +1,19 @@
-# frozen_string_literal: true
-
 # return [rem, mod] or [0, 0] (if no solution)
 def crt(r, m)
   raise ArgumentError if r.size != m.size
-  
+
   n = r.size
   r0, m0 = 0, 1
   n.times{ |i|
     raise ArgumentError if m[i] < 1
 
     r1, m1 = r[i]%m[i], m[i]
-    if m0 < m1 then
+    if m0 < m1
       r0, r1 = r1, r0
       m0, m1 = m1, m0
     end
 
-    if m0%m1 == 0 then
+    if m0%m1 == 0
       return [0, 0] if r0%m1 != r1
       next
     end

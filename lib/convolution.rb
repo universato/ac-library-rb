@@ -1,11 +1,8 @@
-# frozen_string_literal: true
-
 # usage :
 #
 # conv = Convolution.new(mod, [primitive_root])
 # conv.convolution(a, b) #=> convolution a and b modulo mod.
 #
-
 class Convolution
   def initialize(mod = 998244353, primitive_root = nil)
     @mod = mod
@@ -13,7 +10,7 @@ class Convolution
     cnt2 = bsf(@mod - 1)
     e = (primitive_root||calc_primitive_root(mod)).pow((@mod-1) >> cnt2, @mod)
     ie = e.pow(@mod - 2, @mod)
-    
+
     es = [0]*(cnt2-1)
     ies = [0]*(cnt2-1)
     cnt2.downto(2){ |i|
@@ -41,6 +38,7 @@ class Convolution
 
     h = (n+m-2).bit_length
     raise ArgumentError if h > @sum_e.size
+
     z = 1 << h
 
     a = a+[0]*(z-n)
@@ -106,7 +104,7 @@ class Convolution
     x/=2 while x.even?
     i = 3
     while i*i <= x
-      if x%i == 0 then
+      if x%i == 0
         divs << i
         x/=i while x%i == 0
       end

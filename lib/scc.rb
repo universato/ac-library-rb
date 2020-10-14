@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # Strongly Connected Components
 class SCCGraph
   # initialize graph with n vertices

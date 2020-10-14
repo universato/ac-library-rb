@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # lcp array for array of integers or string
 def lcp_array(s, sa)
   s = s.bytes if s === String
@@ -15,6 +13,7 @@ def lcp_array(s, sa)
   n.times{ |i|
     h -= 1 if h > 0
     next if rnk[i] == 0
+
     j = sa[rnk[i]-1]
     h += 1 while j+h<n && i+h<n && s[j+h]==s[i+h]
     lcp[rnk[i]-1] = h

@@ -10,7 +10,7 @@ class ConvolutionTest < Minitest::Test
     [*1 .. 20].repeated_permutation(2){ |a, b|
       [*-10 .. 10].repeated_permutation(2){ |c, d|
         rem, mod = crt([c, d], [a, b])
-        if mod == 0 then
+        if mod == 0
           assert (0 ... a.lcm(b)).none?{ |x| x%a == c && x%b == d }
         else
           assert_equal a.lcm(b), mod

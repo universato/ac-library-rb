@@ -8,7 +8,7 @@
 
 **エイリアス**
 
-`TwoSAT`, `Twosat`, `TwoSat`, `TwoSatisfiability`
+`TwoSAT`, `TwoSat`
 
 <hr>
 

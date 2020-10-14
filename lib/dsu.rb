@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # Disjoint Set Union
 class DSU
   def initialize(n = 0)
