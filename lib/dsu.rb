@@ -3,7 +3,7 @@ class DSU
   def initialize(n = 0)
     # root node: -1 * component size
     # otherwise: parent
-    @parent_or_size = Array.new(n) { -1 }
+    @parent_or_size = Array.new(n, -1)
   end
 
   def merge(a, b)
@@ -36,7 +36,7 @@ class DSU
   def groups_with_leader
     h = Hash.new { |hash, key| hash[key] = [] }
     @parent_or_size.each_with_index do |parent_or_size, i|
-      leader = parent_or_size < 0 ? i : parent_or_size
+      leader = (parent_or_size < 0 ? i : parent_or_size)
       h[leader] << i
     end
     h
