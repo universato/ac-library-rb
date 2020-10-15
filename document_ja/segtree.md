@@ -2,7 +2,9 @@
 
 セグメント木です。
 
-## コンストラクタ
+## 特異メソッド
+
+### new(arg, e, &op) -> Segtree
 
 ```rb
 seg = Segtree.new(arg, e) { |x, y| ... }
@@ -35,7 +37,9 @@ Segtree.new(n, 0) { |x, y| x + y } # sum
 
 </details>
 
-## set
+## インスタンスメソッド
+
+### set
 
 ```rb
 seg.set(pos, x)
@@ -45,8 +49,7 @@ seg.set(pos, x)
 
 **計算量** `O(logn)`
 
-
-## get
+### get
 
 ```rb
 seg.get(pos)
@@ -56,8 +59,7 @@ seg.get(pos)
 
 **計算量** `O(1)`
 
-
-## prod
+### prod
 
 ```rb
 seg.prod(l, r)
@@ -69,7 +71,7 @@ seg.prod(l, r)
 
 **計算量** `O(logn)`
 
-## all_prod
+### all_prod
 
 ```rb
 seg.all_prod
@@ -78,3 +80,53 @@ seg.all_prod
 `op(a[0], ..., a[n - 1])` を返します。
 
 **計算量** `O(1)`
+
+### max_right(l, &f) -> Integer
+
+```ruby
+seg.max_right(l, &f)
+```
+
+Segtree上で二分探索をします。
+
+### min_left(r, &f) -> Integer
+
+```ruby
+seg.min_left(r, &f)
+```
+
+Segtree上で二分探索をします。
+
+## Verified
+
+[ALPC: J \- Segment Tree](https://atcoder.jp/contests/practice2/tasks/practice2_j)
+
+## 参考リンク
+
+- 当ライブラリ
+  - [当ライブラリの実装コード segtree.rb](https://github.com/universato/ac-library-rb/blob/master/lib/segtree.rb)
+  - [当ライブラリのテストコード segtree.rb](https://github.com/universato/ac-library-rb/blob/master/test/segtree_test.rb)
+- 本家
+  - [本家ライブラリのドキュメント segtree.md(GitHub)](https://github.com/atcoder/ac-library/blob/master/document_ja/segtree.md)
+  - [本家のドキュメント appendix.md(GitHub)](https://github.com/atcoder/ac-library/blob/master/document_ja/appendix.md)
+  - [本家ライブラリの実装コード segtree.hpp(GitHub)](https://github.com/atcoder/ac-library/blob/master/atcoder/segtree.hpp)
+  - [本家ライブラリのテストコード segtree_test.hpp(GitHub)](https://github.com/atcoder/ac-library/blob/master/test/unittest/segtree_test.cpp)
+  - [本家ライブラリのサンプルコード segtree_test.hpp(GitHub)](https://github.com/atcoder/ac-library/tree/master/test/example)
+- セグメントツリーについて
+  - [セグメント木をソラで書きたいあなたに \- hogecoder](https://tsutaj.hatenablog.com/entry/2017/03/29/204841)
+
+## 本家ライブラリとの違い等
+
+基本的に、本家の実装に合わせています。
+
+内部実装に関しても、変数`@d`の0番目の要素には必ず単位元`@e`が入ります。
+
+### 変数名の違い
+
+Rubyには`p`メソッドがあるので、引数`p`について、`p`ではなくpositionの`pos`を変数名として使いました。
+
+同様に、本家の変数`size`を、わかりやすさから`leaf_size`としています。
+
+### `ceil_pow2`ではなく、`bit_length`
+
+本家C++ライブラリは独自定義の`internal::ceil_pow2`関数を用いてますが、本ライブラリではRuby既存のメソッド`Integer#bit_length`を用いています。そちらの方が計測した結果、高速でした。
