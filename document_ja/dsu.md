@@ -1,5 +1,7 @@
 # DSU - Disjoint Set Union
 
+別名: Union Find (むしろ、こちらが有名)
+
 無向グラフに対して、
 
 - 辺の追加(2頂点の連結)
@@ -26,7 +28,9 @@ p d.same?(2, 3) # => true
 p d.size(2)     # => 2
 ```
 
-## new(n = 0) -> DSU
+## 特異メソッド
+
+### new(n = 0) -> DSU
 
 ```rb
 d = DSU.new(n)
@@ -42,7 +46,9 @@ n頂点, 0辺の無向グラフを生成します。
 
 `DSU`, `DisjointSetUnion`, `UnionFind`, `UnionFindTree`
 
-## merge(a, b) -> Integer
+## インスタンスメソッド
+
+### merge(a, b) -> Integer
 
 ```rb
 d.merge(a, b)
@@ -57,9 +63,7 @@ a, bが既に連結だった場合はその代表元、非連結だった場合�
 
 `merge`, `unite`
 
-## same?(a, b) -> bool
-
-### エイリアス
+### same?(a, b) -> bool
 
 ```rb
 d.same?(a, b)
@@ -73,7 +77,7 @@ d.same?(a, b)
 
 `same?`, `same`
 
-## leader(a) -> Integer
+### leader(a) -> Integer
 
 ```rb
 d.leader(a)
@@ -87,13 +91,13 @@ d.leader(a)
 
 `leader`, `root`, `find`
 
-## size(a) -> Integer
+### size(a) -> Integer
 
 頂点aの属する連結成分の頂点数(サイズ)を返します。
 
 計算量 ならしO(α(n))
 
-## groups -> Array(Array(Integer))
+### groups -> Array(Array(Integer))
 
 ```rb
 d.groups
@@ -105,7 +109,49 @@ d.groups
 
 計算量 O(n)
 
-# 参考
+## Verified
 
-[本家ACLのドキュメント dsu.md](https://github.com/atcoder/ac-library/blob/master/document_ja/dsu.md)
+[A \- Disjoint Set Union](https://atcoder.jp/contests/practice2/tasks/practice2_a)
 
+## 参考リンク
+
+- 当ライブラリ
+  - [当ライブラリの実装コード dsu.rb](https://github.com/universato/ac-library-rb/blob/master/lib/dsu.rb)
+  - [当ライブラリのテストコード dsu_test.rb](https://github.com/universato/ac-library-rb/blob/master/test/dsu_test.rb)
+- 本家ライブラリ
+  - [本家ACLのドキュメント dsu.md](https://github.com/atcoder/ac-library/blob/master/document_ja/dsu.md)
+  - [本家ACLのコード dsu.hpp](https://github.com/atcoder/ac-library/blob/master/atcoder/dsu.hpp)
+
+## その他
+
+### DSUよりUnionFindの名称の方が一般的では?
+
+UnionFindの方が一般的だと思いますが、本家ライブラリに合わせています。なお、`UnionFind`をクラスのエイリアスとしています。
+
+https://twitter.com/3SAT_IS_IN_P/status/1310122929284210689 (2020/9/27)
+
+Google Scholar によると
+- "union find": 8,550件
+- "union find data structure": 1,970件
+- "disjoint set union": 1,610 件
+- "disjoint set data structure": 1,030 件
+
+### メソッドのエイリアスについて
+
+本家ライブラリでは`same`ですが、真偽値を返すメソッドなのでRubyらしく`same?`をエイリアスとして持ちます。`same`はdeprecated(非推奨)ですので、`same?`を使って下さい。
+
+本家は`merge`ですが、`unite`もエイリアスに持ちます。`unite`は`UnionFind`に合っているし、蟻本などでも一般的にもよく使われています。
+
+本家は`leader`ですが、`UnionFind`に合っていて一般的であろう`find`や`root`もエイリアスとして持ちます。
+
+### mergeの返り値について
+
+本家ライブラリの実装に合わせて、`merge`メソッドは新たにマージしたか否かにかかわらず、代表元を返しています。
+
+ただ、新たに結合した場合には代表元を返して、そうでない場合は`nil`か`false`を返すような`merge?`(あるいは`merge!`)を入れようという案があります。Rubyに, true/false以外を返す` nonzero?`などもあるので、`merge?`という名称は良いと思います。
+
+### 実装の説明
+
+本家ライブラリに合わせて、内部のデータを`@parent_or_size`というインスタンス変数名で持っています。これは、根(代表元)となる要素の場合は、その連結成分の要素数(サイズ)に-1を乗じた値を返し、それ以外の要素の場合に、その要素の属する連結成分の代表(根)の番号を返します。
+
+なお、インスタンスが初期化され、まだどの頂点どうしも連結されていないときは、全ての頂点が自分自身を代表元とし、サイズ1の連結成分が頂点の数だけできます。そのため、初期化されたときは、内部の配列`@parent_or_size`は、要素が全て-1となります。
