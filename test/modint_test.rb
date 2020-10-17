@@ -84,6 +84,21 @@ class ModIntTest < Minitest::Test
     assert_equal 7, -ModInt.new(4)
   end
 
+  def test_self_prime?
+    assert_equal false, ModInt.prime?(1)
+    assert_equal true,  ModInt.prime?(2)
+    assert_equal true,  ModInt.prime?(3)
+    assert_equal false, ModInt.prime?(4)
+    assert_equal true,  ModInt.prime?(5)
+    assert_equal false, ModInt.prime?(6)
+    assert_equal true,  ModInt.prime?(7)
+    assert_equal false, ModInt.prime?(8)
+    assert_equal false, ModInt.prime?(9)
+    assert_equal false, ModInt.prime?(10)
+    assert_equal true,  ModInt.prime?(11)
+    assert_equal true,  ModInt.prime?(10**9 + 7)
+  end
+
   def test_add
     @mods.each do |mod|
       ModInt.mod = mod

@@ -4,89 +4,89 @@
 # conv.convolution(a, b) #=> convolution a and b modulo mod.
 #
 class Convolution
-  def initialize(mod = 998244353, primitive_root = nil)
+  def initialize(mod = 998_244_353, primitive_root = nil)
     @mod = mod
 
     cnt2 = bsf(@mod - 1)
-    e = (primitive_root||calc_primitive_root(mod)).pow((@mod-1) >> cnt2, @mod)
+    e = (primitive_root || calc_primitive_root(mod)).pow((@mod - 1) >> cnt2, @mod)
     ie = e.pow(@mod - 2, @mod)
 
-    es = [0]*(cnt2-1)
-    ies = [0]*(cnt2-1)
+    es = [0] * (cnt2 - 1)
+    ies = [0] * (cnt2 - 1)
     cnt2.downto(2){ |i|
-      es[i-2] = e
-      ies[i-2] = ie
-      e = e*e % @mod
-      ie = ie*ie % @mod
+      es[i - 2] = e
+      ies[i - 2] = ie
+      e = e * e % @mod
+      ie = ie * ie % @mod
     }
     now = inow = 1
 
-    @sum_e = [0]*cnt2
-    @sum_ie = [0]*cnt2
-    (cnt2-1).times{ |i|
-      @sum_e[i] = es[i]*now % @mod
-      now = now*ies[i] % @mod
-      @sum_ie[i] = ies[i]*inow % @mod
-      inow = inow*es[i] % @mod
+    @sum_e = [0] * cnt2
+    @sum_ie = [0] * cnt2
+    (cnt2 - 1).times{ |i|
+      @sum_e[i] = es[i] * now % @mod
+      now = now * ies[i] % @mod
+      @sum_ie[i] = ies[i] * inow % @mod
+      inow = inow * es[i] % @mod
     }
   end
 
   def convolution(a, b)
     n = a.size
     m = b.size
-    return [] if n==0 || m==0
+    return [] if n == 0 || m == 0
 
-    h = (n+m-2).bit_length
+    h = (n + m - 2).bit_length
     raise ArgumentError if h > @sum_e.size
 
     z = 1 << h
 
-    a = a+[0]*(z-n)
-    b = b+[0]*(z-m)
+    a = a + [0] * (z - n)
+    b = b + [0] * (z - m)
 
     batterfly(a, h)
     batterfly(b, h)
 
-    c = a.zip(b).map{ |a, b| a*b % @mod }
+    c = a.zip(b).map{ |a, b| a * b % @mod }
 
     batterfly_inv(c, h)
 
-    iz = z.pow(@mod-2, @mod)
-    return c[0,n+m-1].map{ |c| c*iz % @mod }
+    iz = z.pow(@mod - 2, @mod)
+    return c[0, n + m - 1].map{ |c| c * iz % @mod }
   end
 
   def batterfly(a, h)
     1.upto(h){ |ph|
-      w = 1 << (ph-1)
-      p = 1 << (h-ph)
+      w = 1 << (ph - 1)
+      p = 1 << (h - ph)
       now = 1
       w.times{ |s|
-        offset = s << (h-ph+1)
-        offset.upto(offset+p-1){ |i|
+        offset = s << (h - ph + 1)
+        offset.upto(offset + p - 1){ |i|
           l = a[i]
-          r = a[i+p]*now % @mod
-          a[i] = l+r
-          a[i+p] = l-r
+          r = a[i + p] * now % @mod
+          a[i] = l + r
+          a[i + p] = l - r
         }
-        now = now*@sum_e[bsf(~s)] % @mod
+        now = now * @sum_e[bsf(~s)] % @mod
       }
     }
   end
 
   def batterfly_inv(a, h)
     h.downto(1){ |ph|
-      w = 1 << (ph-1)
-      p = 1 << (h-ph)
+      w = 1 << (ph - 1)
+      p = 1 << (h - ph)
       inow = 1
       w.times{ |s|
-        offset = s << (h-ph+1)
-        offset.upto(offset+p-1){ |i|
+        offset = s << (h - ph + 1)
+        offset.upto(offset + p - 1){ |i|
           l = a[i]
-          r = a[i+p]
-          a[i] = l+r
-          a[i+p] = (l-r)*inow % @mod
+          r = a[i + p]
+          a[i] = l + r
+          a[i + p] = (l - r) * inow % @mod
         }
-        inow = inow*@sum_ie[bsf(~s)] % @mod
+        inow = inow * @sum_ie[bsf(~s)] % @mod
       }
     }
   end
@@ -97,16 +97,16 @@ class Convolution
 
   def calc_primitive_root(mod)
     return 1 if mod == 2
-    return 3 if mod == 998244353
+    return 3 if mod == 998_244_353
 
     divs = [2]
-    x = (mod-1) / 2
-    x/=2 while x.even?
+    x = (mod - 1) / 2
+    x /= 2 while x.even?
     i = 3
-    while i*i <= x
-      if x%i == 0
+    while i * i <= x
+      if x % i == 0
         divs << i
-        x/=i while x%i == 0
+        x /= i while x % i == 0
       end
       i += 2
     end
@@ -114,7 +114,8 @@ class Convolution
 
     g = 2
     loop{
-      return g if divs.none?{ |d| g.pow((mod-1)/d, mod) == 1 }
+      return g if divs.none?{ |d| g.pow((mod - 1) / d, mod) == 1 }
+
       g += 1
     }
   end

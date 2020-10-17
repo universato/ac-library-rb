@@ -43,11 +43,11 @@ class ModInt < Numeric
 
     def inv_gcd(a, b)
       a %= b
-      return [b, 0] if 0 == a
+      return [b, 0] if a == 0
 
       s, t = b, a
       m0, m1 = 0, 1
-      while 0 != t
+      while t != 0
         u = s / t
         s -= t * u
         m0 -= m1 * u

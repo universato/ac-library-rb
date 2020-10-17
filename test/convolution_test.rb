@@ -8,10 +8,10 @@ require_relative '../lib/convolution.rb'
 def convolution_naive(a, b, mod)
   n = a.size
   m = b.size
-  c = [0]*(n+m-1)
+  c = [0] * (n + m - 1)
   n.times{ |i|
     m.times{ |j|
-      c[i+j] += a[i]*b[j]
+      c[i + j] += a[i] * b[j]
     }
   }
   return c.map{ |c| c % mod }
@@ -32,19 +32,19 @@ class ConvolutionTest < Minitest::Test
     20.times{
       a = (0 .. rand(100)).map{ rand(-max_num .. max_num) }
       b = (0 .. rand(100)).map{ rand(-max_num .. max_num) }
-      assert_equal convolution_naive(a, b, 998244353), conv.convolution(a, b)
+      assert_equal convolution_naive(a, b, 998_244_353), conv.convolution(a, b)
     }
   end
 
   def test_random_array_modulo_NTT_friendly_given_proot
     max_num = 10**18
-    [[ 998244353,          5], # [mod, primitive_root]
-     [ 998244353,  100000005],
-     [ 998244353,  998244350],
-     [1012924417,          5],
-     [1012924417, 1012924412],
-     [ 924844033,          5],
-     [ 924844033,  924844028]].each{ |mod, proot|
+    [[  998_244_353,             5], # [mod, primitive_root]
+     [  998_244_353,   100_000_005],
+     [  998_244_353,   998_244_350],
+     [1_012_924_417,             5],
+     [1_012_924_417, 1_012_924_412],
+     [  924_844_033,             5],
+     [  924_844_033,   924_844_028]].each{ |mod, proot|
       conv = Convolution.new(mod, proot)
       20.times{
         a = (0 ... 100).map{ rand(-max_num .. max_num) }
@@ -56,7 +56,7 @@ class ConvolutionTest < Minitest::Test
 
   def test_random_array_modulo_NTT_friendly_not_given_proot
     max_num = 10**18
-    [998244353, 1012924417, 924844033].each{ |mod|
+    [998_244_353, 1_012_924_417, 924_844_033].each{ |mod|
       conv = Convolution.new(mod)
       20.times{
         a = (0 ... 100).map{ rand(-max_num .. max_num) }
@@ -71,7 +71,7 @@ class ConvolutionTest < Minitest::Test
     [641, 769].each{ |mod|
       conv = Convolution.new(mod)
       limlen = 1
-      limlen *= 2 while (mod-1)%limlen == 0
+      limlen *= 2 while (mod - 1) % limlen == 0
       limlen /= 2
       20.times{
         len_a = rand(limlen) + 1
@@ -87,12 +87,12 @@ class ConvolutionTest < Minitest::Test
     [641, 769].each{ |mod|
       conv = Convolution.new(mod)
       limlen = 1
-      limlen *= 2 while (mod-1)%limlen == 0
+      limlen *= 2 while (mod - 1) % limlen == 0
       limlen /= 2
       # a.size + b.size - 1 == limlen + 1 > limlen
       assert_raises(ArgumentError){ conv.convolution([*0 ... limlen], [0, 0]) }
       assert_raises(ArgumentError){ conv.convolution([0, 0], [*0 ... limlen]) }
-      assert_raises(ArgumentError){ conv.convolution([*0 .. limlen/2], [*0 .. limlen/2]) }
+      assert_raises(ArgumentError){ conv.convolution([*0 .. limlen / 2], [*0 .. limlen / 2]) }
     }
   end
 
@@ -115,8 +115,8 @@ class ConvolutionTest < Minitest::Test
       # ref : https://qiita.com/koshilife/items/ba3a9f7a3ebe85503e4a
       g = conv.send(:calc_primitive_root, prime)
       r = 1
-      assert (1 .. prime-2).all?{
-        r = r*g % prime
+      assert (1 .. prime - 2).all?{
+        r = r * g % prime
         r != 1
       }
     }

@@ -14,5 +14,5 @@ if r == 0 && m == 0
   puts -1
 else
   r = m if r == 0
-  puts r % (10**9+7)
+  puts r % (10**9 + 7)
 end
