@@ -35,7 +35,7 @@ graph.add_edge(0, 1, 5)
 
 内部はほぼ`slope`メソッドで、`slop`メソッドの返り値の最後の要素を取得しているだけ。制約・計算量は`slope`メソッドと同じ。
 
-[TODO]本家ライブラリは`min_cost_max_flow`という関数名なので、これはエイリアスとして必要かもしれない。なお、本家ライブラリでは`MaxFlow`の関数名が`flow`。
+**エイリアス** `flow`, `min_cost_max_flow`
 
 ### slope(s, t,  flow_limit = Float::MAX) -> [[flow, cost]]
 
@@ -45,7 +45,7 @@ graph.slop(0, 3)
 
 **計算量** `O(F(n + m) log n)` ※ Fは流量、mは辺数
 
-[TODO]本家ライブラリでは`min_cost_slope`という関数名なので、こちらでも同じエイリアスが必要かも。
+**エイリアス** `slope`, `min_cost_slope`
 
 ### get_edge(i) -> [from, to, cap, flow, cost]
 
@@ -87,6 +87,10 @@ graph.edges
   - [本家ライブラリのテストコード mincostflow_test.hpp(GitHub)](https://github.com/atcoder/ac-library/blob/master/test/unittest/mincostflow_test.cpp)
 
 ## Q&A
+
+### エイリアスの意図は
+
+本家ライブラリの最小費用流の方のメソッド名が長いので、エイリアスを持たせています。本家ライブラリの最大流の方のメソッド名は短いので、不思議です。
 
 ### `Float::INFINITY`ではなく、`Float::MAX`を使う意図とは
 
