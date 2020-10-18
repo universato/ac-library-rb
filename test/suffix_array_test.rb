@@ -6,7 +6,7 @@ require 'minitest/autorun'
 require_relative '../lib/suffix_array.rb'
 
 def suffix_array_naive(s)
-  s = s.bytes if s === String
+  s = s.bytes if s.is_a?(String)
   n = s.size
   return (0 ... n).sort_by{ |i| s[i..-1] }
 end

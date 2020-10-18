@@ -5,7 +5,7 @@
 
 require_relative '../../lib/convolution.rb'
 
-_, a, b = $<.map{ |e| e.split.map &:to_i }
+_, a, b = $<.map{ |e| e.split.map(&:to_i) }
 
 conv = Convolution.new
 puts conv.convolution(a, b).join("\s")

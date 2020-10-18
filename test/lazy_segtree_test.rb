@@ -28,7 +28,7 @@ class LazySegtreeTest < Minitest::Test
 
     n = 1
     seg = LazySegtree.new(n, e, id, op, mapping, composition)
-    assert_equal 2147483647, seg.prod(0, 0 + 1)
+    assert_equal 2_147_483_647, seg.prod(0, 0 + 1)
     seg.range_apply(0, 0 + 1, 5)
     assert_equal 5, seg.prod(0, 0 + 1)
   end
@@ -37,9 +37,9 @@ class LazySegtreeTest < Minitest::Test
   def test_aizu_dsl_2_g
     e = [0, 1]
     id = 0
-    op = Proc.new{ |(ch1, ch1s), (ch2, ch2s)| [ch1 + ch2, ch1s + ch2s] }
-    mapping = Proc.new{ |f, (s, sz)| [s + f * sz, sz] }
-    composition =  Proc.new{ |fl, fr| fl + fr }
+    op = proc{ |(ch1, ch1s), (ch2, ch2s)| [ch1 + ch2, ch1s + ch2s] }
+    mapping = proc{ |f, (s, sz)| [s + f * sz, sz] }
+    composition = proc{ |fl, fr| fl + fr }
 
     n = 3
     seg = LazySegtree.new(n, e, id, op, mapping, composition)
