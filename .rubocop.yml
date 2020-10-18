@@ -1,30 +1,115 @@
 AllCops:
   NewCops: enable
+Layout/ExtraSpacing:
+  AutoCorrect: false
+  Exclude:
+    - 'test/convolution_test.rb'
 Layout/SpaceBeforeBlockBraces:
   Enabled: false
+Layout/SpaceInsideArrayLiteralBrackets:
+  AutoCorrect: false
+  Exclude:
+    - 'test/convolution_test.rb'
 Layout/SpaceInsideRangeLiteral:
   Enabled: false
+Lint/BinaryOperatorWithIdenticalOperands:
+  Enabled: false
+Lint/MissingSuper:
+  AutoCorrect: false
+  Exclude:
+    - 'lib/modint.rb'
+Lint/ShadowingOuterLocalVariable:
+  AutoCorrect: false
+  Exclude:
+    - 'lib/convolution.rb'
+    - 'lib/lcp_array.rb'
+    - 'lib/suffix_array.rb'
+    - 'test/convolution_test.rb'
+Metrics/AbcSize:
+  Max: 47
+  Exclude:
+    - 'lib/suffix_array.rb'
+Metrics/ClassLength:
+  Max: 334
+Metrics/CyclomaticComplexity:
+  Max: 13
+  Exclude:
+    - 'lib/suffix_array.rb'
+Metrics/MethodLength:
+  Max: 120
+Metrics/ParameterLists:
+  Exclude:
+    - 'lib/lazy_segtree.rb'
+Metrics/PerceivedComplexity:
+  Max: 13
+  Exclude:
+    - 'lib/suffix_array.rb'
+Naming/AccessorMethodName:
+  Exclude:
+    - 'lib/modint.rb'
+Naming/MethodName:
+  Exclude:
+    - 'lib/modint.rb'
+    - 'test/convolution_test.rb'
 Naming/MethodParameterName:
   Enabled: false
 Style/AndOr:
   Enabled: false
+Style/ArrayCoercion:
+  Enabled: false
+Style/BlockDelimiters:
+  AutoCorrect: false
+  Exclude:
+    - 'lib/convolution.rb'
+    - 'lib/lcp_array.rb'
+    - 'lib/suffix_array.rb'
+    - 'test/convolution_test.rb'
+    - 'test/crt_test.rb'
+Style/GlobalVars:
+  AutoCorrect: false
+  Exclude:
+    - 'lib/modint.rb'
 Style/FrozenStringLiteralComment:
   Enabled: false
 Style/Lambda:
   Enabled: false
 Style/LambdaCall:
   Enabled: false
+Style/MultipleComparison:
+  Enabled: false
 Style/NumericPredicate:
   Enabled: false
+Style/OptionalArguments:
+  AutoCorrect: false
+  Exclude:
+    - 'lib/segtree.rb'
 Style/ParallelAssignment:
   Enabled: false
 Style/RedundantFileExtensionInRequire:
+  Enabled: false
+Style/RedundantReturn:
+  AutoCorrect: false
+  Exclude:
+    - 'lib/convolution.rb'
+    - 'lib/crt.rb'
+    - 'lib/lcp_array.rb'
+    - 'lib/suffix_array.rb'
+    - 'lib/z_algorithm.rb'
+    - 'test/convolution_test.rb'
+Style/SelfAssignment:
+  AutoCorrect: false
+  Exclude:
+    - 'lib/convolution.rb'
+Style/Semicolon:
+  Exclude:
+    - 'lib/lazy_segtree.rb'
+Style/SlicingWithRange:
   Enabled: false
 Style/StringLiterals:
   Enabled: false
 Style/TrailingCommaInArrayLiteral:
   Enabled: false
-Metrics/MethodLength:
-  Max: 29
-Metrics/AbcSize:
-  Max: 43
+Style/WhileUntilModifier:
+  Enabled: false
+Style/YodaCondition:
+  Enabled: false

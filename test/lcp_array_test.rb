@@ -7,11 +7,11 @@ require_relative '../lib/suffix_array.rb'
 require_relative '../lib/lcp_array.rb'
 
 def lcp_array_naive(s)
-  s = s.bytes if s === String
+  s = s.bytes if s.is_a?(String)
   n = s.size
   return (0 ... n).map{ |i| s[i..-1] }.sort.each_cons(2).map{ |s, t|
     lcp = 0
-    lcp += 1 while lcp<s.size && lcp<t.size && s[lcp]==t[lcp]
+    lcp += 1 while lcp < s.size && lcp < t.size && s[lcp] == t[lcp]
     lcp
   }
 end

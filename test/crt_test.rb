@@ -11,11 +11,11 @@ class ConvolutionTest < Minitest::Test
       [*-10 .. 10].repeated_permutation(2){ |c, d|
         rem, mod = crt([c, d], [a, b])
         if mod == 0
-          assert (0 ... a.lcm(b)).none?{ |x| x%a == c && x%b == d }
+          assert (0 ... a.lcm(b)).none?{ |x| x % a == c && x % b == d }
         else
           assert_equal a.lcm(b), mod
-          assert_equal c%a, rem%a
-          assert_equal d%b, rem%b
+          assert_equal c % a, rem % a
+          assert_equal d % b, rem % b
         end
       }
     }
@@ -27,12 +27,12 @@ class ConvolutionTest < Minitest::Test
         rem, mod = crt([d, e, f], [a, b, c])
         lcm = [a, b, c].reduce :lcm
         if mod == 0
-          assert (0 ... lcm).none?{ |x| x%a == d && x%b == e && x%c == f }
+          assert (0 ... lcm).none?{ |x| x % a == d && x % b == e && x % c == f }
         else
           assert_equal lcm, mod
-          assert_equal d%a, rem%a
-          assert_equal e%b, rem%b
-          assert_equal f%c, rem%c
+          assert_equal d % a, rem % a
+          assert_equal e % b, rem % b
+          assert_equal f % c, rem % c
         end
       }
     }
@@ -63,11 +63,11 @@ class ConvolutionTest < Minitest::Test
     # different size
     assert_raises(ArgumentError){ crt([], [1]) }
     assert_raises(ArgumentError){ crt([1], []) }
-    assert_raises(ArgumentError){ crt([*1 .. 10**5], [*1 .. 10**5-1]) }
-    assert_raises(ArgumentError){ crt([*1 .. 10**5-1], [*1 .. 10**5]) }
+    assert_raises(ArgumentError){ crt([*1 .. 10**5], [*1 .. 10**5 - 1]) }
+    assert_raises(ArgumentError){ crt([*1 .. 10**5 - 1], [*1 .. 10**5]) }
 
     # modulo 0
     assert_raises(ArgumentError){ crt([0], [0]) }
-    assert_raises(ArgumentError){ crt([0]*5, [2, 3, 5, 7, 0]) }
+    assert_raises(ArgumentError){ crt([0] * 5, [2, 3, 5, 7, 0]) }
   end
 end
