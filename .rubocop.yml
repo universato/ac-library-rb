@@ -12,12 +12,27 @@ Layout/SpaceInsideArrayLiteralBrackets:
     - 'test/convolution_test.rb'
 Layout/SpaceInsideRangeLiteral:
   Enabled: false
+Lint/AmbiguousOperator:
+  AutoCorrect: false
+  Exclude:
+    - 'test/lazy_segtree_test.rb'
+    - 'test/example/crt.rb'
+Lint/AmbiguousBlockAssociation:
+  AutoCorrect: false
+  Exclude:
+    - 'test/convolution_test.rb'
+    - 'test/crt_test.rb'
 Lint/BinaryOperatorWithIdenticalOperands:
   Enabled: false
 Lint/MissingSuper:
   AutoCorrect: false
   Exclude:
     - 'lib/modint.rb'
+Lint/ParenthesesAsGroupedExpression:
+  AutoCorrect: false
+  Exclude:
+    - 'test/convolution_test.rb'
+    - 'test/crt_test.rb'
 Lint/ShadowingOuterLocalVariable:
   AutoCorrect: false
   Exclude:
@@ -25,10 +40,28 @@ Lint/ShadowingOuterLocalVariable:
     - 'lib/lcp_array.rb'
     - 'lib/suffix_array.rb'
     - 'test/convolution_test.rb'
+    - 'test/crt_test.rb'
+    - 'test/lcp_array_test.rb'
+    - 'test/example/suffix_array_and_lcp_array_practice.rb'
+Lint/UnderscorePrefixedVariableName:
+  AutoCorrect: false
+  Exclude:
+    - 'lib/max_flow.rb'
+Lint/Void:
+  AutoCorrect: false
+  Exclude:
+    - 'test/example/*'
 Metrics/AbcSize:
-  Max: 47
+  Max: 49
   Exclude:
     - 'lib/suffix_array.rb'
+    - 'test/modint_test.rb'
+Metrics/BlockLength:
+  Exclude:
+    - 'test/segtree_test.rb'
+Metrics/BlockNesting:
+  Exclude:
+    - 'lib/max_flow.rb'
 Metrics/ClassLength:
   Max: 334
 Metrics/CyclomaticComplexity:
@@ -65,18 +98,33 @@ Style/BlockDelimiters:
     - 'lib/suffix_array.rb'
     - 'test/convolution_test.rb'
     - 'test/crt_test.rb'
+    - 'test/lcp_array_test.rb'
+    - 'test/suffix_array_test.rb'
+    - 'test/z_algorithm_test.rb'
 Style/GlobalVars:
   AutoCorrect: false
   Exclude:
     - 'lib/modint.rb'
 Style/FrozenStringLiteralComment:
   Enabled: false
+Style/InverseMethods:
+  AutoCorrect: false
+  Exclude:
+    - 'lib/suffix_array.rb'
 Style/Lambda:
   Enabled: false
 Style/LambdaCall:
   Enabled: false
 Style/MultipleComparison:
   Enabled: false
+Style/NegatedIf:
+  AutoCorrect: false
+  Exclude:
+    - 'lib/suffix_array.rb'
+Style/Not:
+  AutoCorrect: false
+  Exclude:
+    - 'lib/suffix_array.rb'
 Style/NumericPredicate:
   Enabled: false
 Style/OptionalArguments:
@@ -96,6 +144,9 @@ Style/RedundantReturn:
     - 'lib/suffix_array.rb'
     - 'lib/z_algorithm.rb'
     - 'test/convolution_test.rb'
+    - 'test/lcp_array_test.rb'
+    - 'test/suffix_array_test.rb'
+    - 'test/z_algorithm_test.rb'
 Style/SelfAssignment:
   AutoCorrect: false
   Exclude:
@@ -105,6 +156,11 @@ Style/Semicolon:
     - 'lib/lazy_segtree.rb'
 Style/SlicingWithRange:
   Enabled: false
+Style/SpecialGlobalVars:
+  AutoCorrect: false
+  Exclude:
+    - 'test/example/convolution_practice.rb'
+    - 'test/example/crt.rb'
 Style/StringLiterals:
   Enabled: false
 Style/TrailingCommaInArrayLiteral:

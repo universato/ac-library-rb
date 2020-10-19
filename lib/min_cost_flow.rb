@@ -40,7 +40,7 @@ class MinCostFlow
     from, id = @pos[i]
     to = @g_to[from][id]
     rid = @g_rev[from][id]
-    [from, to, @g_cap[from][id]+@g_cap[to][rid], @g_cap[to][rid], @g_cost[from][id]]
+    [from, to, @g_cap[from][id] + @g_cap[to][rid], @g_cap[to][rid], @g_cost[from][id]]
   end
   alias edge get_edge
   alias [] get_edge
@@ -49,7 +49,7 @@ class MinCostFlow
     @pos.map do |(from, id)|
       to = @g_to[from][id]
       rid = @g_rev[from][id]
-      [from, to, @g_cap[from][id]+@g_cap[to][rid], @g_cap[to][rid], @g_cost[from][id]]
+      [from, to, @g_cap[from][id] + @g_cap[to][rid], @g_cap[to][rid], @g_cost[from][id]]
     end
   end
 
