@@ -17,6 +17,8 @@ class InvModTest < Minitest::Test
     assert_equal 7, inv_mod(8, 11)
     assert_equal 5, inv_mod(9, 11)
     assert_equal 10, inv_mod(10, 11)
+    assert_equal 1, inv_mod(12, 11)
+    assert_equal 6, inv_mod(13, 11)
 
     (1 .. 10).each do |i|
       assert_equal i.pow(11 - 2, 11), inv_mod(i, 11)
@@ -28,6 +30,11 @@ class InvModTest < Minitest::Test
     assert_equal 7, inv_mod(3, 10)
     assert_equal 3, inv_mod(7, 10)
     assert_equal 9, inv_mod(9, 10)
+
+    assert_equal 1, inv_mod(11, 10)
+    assert_equal 7, inv_mod(13, 10)
+    assert_equal 3, inv_mod(17, 10)
+    assert_equal 9, inv_mod(19, 10)
   end
 
   def test_inv_hand
