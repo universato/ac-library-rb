@@ -99,7 +99,7 @@ graph.edges
 - 本家ライブラリ
   - 本家のコード 
     - [本家の実装コード maxflow.hpp(GitHub)](https://github.com/atcoder/ac-library/blob/master/atcoder/maxflow.hpp)
-    - [本家のテストコード maxflow_test.hpp(GitHub)](https://github.com/atcoder/ac-library/blob/master/test/unittest/maxflow_test.cpp)
+    - [本家のテストコード maxflow_test.cpp(GitHub)](https://github.com/atcoder/ac-library/blob/master/test/unittest/maxflow_test.cpp)
   - 本家ドキュメント
     - [本家のドキュメント maxflow.md(GitHub)](https://github.com/atcoder/ac-library/blob/master/document_ja/maxflow.md)
     - [本家のドキュメント appendix.md(GitHub)](https://github.com/atcoder/ac-library/blob/master/document_ja/appendix.md)

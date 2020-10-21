@@ -110,8 +110,8 @@ Segtree上で二分探索をします。
   - [本家ライブラリのドキュメント segtree.md(GitHub)](https://github.com/atcoder/ac-library/blob/master/document_ja/segtree.md)
   - [本家のドキュメント appendix.md(GitHub)](https://github.com/atcoder/ac-library/blob/master/document_ja/appendix.md)
   - [本家ライブラリの実装コード segtree.hpp(GitHub)](https://github.com/atcoder/ac-library/blob/master/atcoder/segtree.hpp)
-  - [本家ライブラリのテストコード segtree_test.hpp(GitHub)](https://github.com/atcoder/ac-library/blob/master/test/unittest/segtree_test.cpp)
-  - [本家ライブラリのサンプルコード segtree_test.hpp(GitHub)](https://github.com/atcoder/ac-library/tree/master/test/example)
+  - [本家ライブラリのテストコード segtree_test.cpp(GitHub)](https://github.com/atcoder/ac-library/blob/master/test/unittest/segtree_test.cpp)
+  - [本家ライブラリのサンプルコード segtree_practice.cpp(GitHub)](https://github.com/atcoder/ac-library/blob/master/test/example/segtree_practice.cpp)
 - セグメントツリーについて
   - [セグメント木をソラで書きたいあなたに \- hogecoder](https://tsutaj.hatenablog.com/entry/2017/03/29/204841)
 

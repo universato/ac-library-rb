@@ -102,12 +102,12 @@ seg.range_apply(l, r, val)
 ## Verified
 
 問題のリンクです。コードはないですが、Verified済みです。
-[AIZU ONLINE JUDGE DSL\_2\_F RMQ and RUQ](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_F)
-[AIZU ONLINE JUDGE DSL\_2\_G RSQ and RAQ](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_G)
+- [AIZU ONLINE JUDGE DSL\_2\_F RMQ and RUQ](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_F)
+- [AIZU ONLINE JUDGE DSL\_2\_G RSQ and RAQ](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_G)
 
 以下の問題は、Rubyでは実行時間が厳しくTLEになりACできてないです。
-[ALPC: K \- Range Affine Range Sum](https://atcoder.jp/contests/practice2/tasks/practice2_k)
-[ALPC: L \- Lazy Segment Tree](https://atcoder.jp/contests/practice2/tasks/practice2_l)
+- [ALPC: K \- Range Affine Range Sum](https://atcoder.jp/contests/practice2/tasks/practice2_k)
+- [ALPC: L \- Lazy Segment Tree](https://atcoder.jp/contests/practice2/tasks/practice2_l)
 
 ## 参考リンク
 
@@ -118,7 +118,7 @@ seg.range_apply(l, r, val)
   - [本家ライブラリのドキュメント lazysegtree.md(GitHub)](https://github.com/atcoder/ac-library/blob/master/document_ja/lazysegtree.md)
   - [本家のドキュメント appendix.md(GitHub)](https://github.com/atcoder/ac-library/blob/master/document_ja/appendix.md)
   - [本家ライブラリの実装コード lazysegtree.hpp(GitHub)](https://github.com/atcoder/ac-library/blob/master/atcoder/lazysegtree.hpp)
-  - [本家ライブラリのテストコード lazysegtree_test.hpp(GitHub)](https://github.com/atcoder/ac-library/blob/master/test/unittest/lazysegtree_test.cpp)
+  - [本家ライブラリのテストコード lazysegtree_test.cpp(GitHub)](https://github.com/atcoder/ac-library/blob/master/test/unittest/lazysegtree_test.cpp)
 - セグメントツリーについて
   - [セグメント木をソラで書きたいあなたに \- hogecoder](https://tsutaj.hatenablog.com/entry/2017/03/29/204841)
   - [遅延評価セグメント木をソラで書きたいあなたに \- hogecoder](https://tsutaj.hatenablog.com/entry/2017/03/30/224339)
