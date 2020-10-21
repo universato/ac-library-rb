@@ -17,6 +17,8 @@
 | [◎](https://github.com/universato/ac-library-rb/blob/master/lib/suffix_array.rb) | [◎G](https://github.com/universato/ac-library-rb/blob/master/document_ja/string.md)  |suffix_array|
 | [◎](https://github.com/universato/ac-library-rb/blob/master/lib/lcp_array.rb) | [◎G](https://github.com/universato/ac-library-rb/blob/master/document_ja/string.md)  |lcp_array|
 | [◎](https://github.com/universato/ac-library-rb/blob/master/lib/z_algorithm.rb) | [◎G](https://github.com/universato/ac-library-rb/blob/master/document_ja/string.md)  |z_algorithm|
+| [◎](https://github.com/universato/ac-library-rb/blob/master/lib/pow_mod.rb) | [◎G](https://github.com/universato/ac-library-rb/blob/master/document_ja/math.md)  |pow_mod|
+| [◎](https://github.com/universato/ac-library-rb/blob/master/lib/inv_mod.rb) | [◎G](https://github.com/universato/ac-library-rb/blob/master/document_ja/math.md)  |inv_mod|
 | [◎](https://github.com/universato/ac-library-rb/blob/master/lib/crt.rb) | [◎G](https://github.com/universato/ac-library-rb/blob/master/document_ja/math.md)  |crt(中国剰余定理)|
 | [◎](https://github.com/universato/ac-library-rb/blob/master/lib/floor_sum.rb) | [◎G](https://github.com/universato/ac-library-rb/blob/master/document_ja/math.md) |floor_sum|
 | [◎](https://github.com/universato/ac-library-rb/blob/master/lib/convolution.rb) | [◎G](https://github.com/universato/ac-library-rb/blob/master/document_ja/convolution.md) |convolution|
@@ -45,6 +47,8 @@
 ### 数学
 
 - math
+  - [pow_mod.rb](https://github.com/universato/ac-library-rb/blob/master/lib/pow_mod.rb)
+  - [inv_mod.rb](https://github.com/universato/ac-library-rb/blob/master/lib/inv_mod.rb)
   - [crt.rb](https://github.com/universato/ac-library-rb/blob/master/lib/crt.rb)
   - [floor_sum.rb](https://github.com/universato/ac-library-rb/blob/master/lib/floor_sum.rb)
 - [convolution.rb](https://github.com/universato/ac-library-rb/blob/master/lib/convolution.rb)
@@ -68,11 +72,13 @@
 [dsu.rb](https://github.com/universato/ac-library-rb/blob/master/lib/dsu.rb)
 [fenwick_tree.rb](https://github.com/universato/ac-library-rb/blob/master/lib/fenwick_tree.rb)
 [floor_sum.rb](https://github.com/universato/ac-library-rb/blob/master/lib/floor_sum..rb)
+[inv_mod.rb](https://github.com/universato/ac-library-rb/blob/master/lib/inv_mod.rb)
 [lazy_segtree.rb](https://github.com/universato/ac-library-rb/blob/master/lib/lazy_segtree.rb)
 [lcp_array.rb](https://github.com/universato/ac-library-rb/blob/master/lib/lcp_array.rb)
 [max_flow.rb](https://github.com/universato/ac-library-rb/blob/master/lib/max_flow.rb)
 [min_cost_flow.rb](https://github.com/universato/ac-library-rb/blob/master/lib/min_cost_flow.rb)
 [modint.rb](https://github.com/universato/ac-library-rb/blob/master/lib/modint.rb)
+[pow_mod.rb](https://github.com/universato/ac-library-rb/blob/master/lib/pow_mod.rb)
 [priority_queue.rb](https://github.com/universato/ac-library-rb/blob/master/lib/priority_queue.rb)
 [scc.rb](https://github.com/universato/ac-library-rb/blob/master/lib/scc.rb)
 [segtree.rb](https://github.com/universato/ac-library-rb/blob/master/lib/segtree.rb)
