@@ -216,7 +216,7 @@ p 12.to_m == 1 #=> true
   - [当ライブラリのコード modint_test.rb(GitHub)](https://github.com/universato/ac-library-rb/blob/master/lib/modint.rb)
 - 本家ライブラリ
   - [本家の実装コード modint.hpp(GitHub)](https://github.com/atcoder/ac-library/blob/master/atcoder/modint.hpp)
-  - [本家のテストコード modint_test.hpp(GitHub)](https://github.com/atcoder/ac-library/blob/master/atcoder/modint.hpp)
+  - [本家のテストコード modint_test.cpp(GitHub)](https://github.com/atcoder/ac-library/blob/master/atcoder/modint.hpp)
   - [本家のドキュメント modint.md(GitHub)](https://github.com/atcoder/ac-library/blob/master/document_ja/modint.md)
 - Rubyリファレンスマニュアル
   - [class Numeric \(Ruby 2\.7\.0 リファレンスマニュアル\)](https://docs.ruby-lang.org/ja/latest/class/Numeric.html)

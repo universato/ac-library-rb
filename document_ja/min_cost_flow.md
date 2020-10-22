@@ -84,7 +84,7 @@ graph.edges
 - 本家ライブラリ 
   - [本家ライブラリのドキュメント mincostflow.md(GitHub)](https://github.com/atcoder/ac-library/blob/master/document_ja/mincostflow.md)
   - [本家ライブラリの実装コード mincostflow.hpp(GitHub)](https://github.com/atcoder/ac-library/blob/master/atcoder/mincostflow.hpp)
-  - [本家ライブラリのテストコード mincostflow_test.hpp(GitHub)](https://github.com/atcoder/ac-library/blob/master/test/unittest/mincostflow_test.cpp)
+  - [本家ライブラリのテストコード mincostflow_test.cpp(GitHub)](https://github.com/atcoder/ac-library/blob/master/test/unittest/mincostflow_test.cpp)
 
 ## Q&A
 
