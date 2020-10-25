@@ -41,6 +41,25 @@ class UnionFindTest < Minitest::Test
     assert_equal 1, uf.groups.size
   end
 
+  def test_groups
+    d = DSU.new(4)
+    groups = d.groups.map(&:sort).sort
+    assert_equal 4, groups.size
+    assert_equal [[0], [1], [2], [3]], groups
+
+    d.merge(0, 1)
+    d.merge(2, 3)
+    groups = d.groups.map(&:sort).sort
+    assert_equal 2, groups.size
+    assert_equal [0, 1], groups[0]
+    assert_equal [2, 3], groups[1]
+
+    d.merge(0, 2)
+    groups = d.groups.map(&:sort).sort
+    assert_equal 1, groups.size, "[PR #64]"
+    assert_equal [0, 1, 2, 3], groups[0], "[PR #64]"
+  end
+
   def test_atcoder_typical_true
     uft = UnionFind.new(8)
     query = [[0, 1, 2], [0, 3, 2], [1, 1, 3], [0, 2, 4], [1, 4, 1], [0, 4, 2], [0, 0, 0], [1, 0, 0]]
