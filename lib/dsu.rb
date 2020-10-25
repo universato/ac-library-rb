@@ -35,9 +35,8 @@ class DSU
 
   def groups_with_leader
     h = Hash.new { |hash, key| hash[key] = [] }
-    @parent_or_size.each_with_index do |parent_or_size, i|
-      leader = (parent_or_size < 0 ? i : parent_or_size)
-      h[leader] << i
+    @parent_or_size.size.times do |i|
+      h[leader(i)] << i
     end
     h
   end
