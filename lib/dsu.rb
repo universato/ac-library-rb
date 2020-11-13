@@ -6,6 +6,8 @@ class DSU
     @parent_or_size = Array.new(n, -1)
   end
 
+  attr_accessor :parent_or_size
+
   def merge(a, b)
     x = leader(a)
     y = leader(b)
@@ -33,16 +35,8 @@ class DSU
     -@parent_or_size[leader(a)]
   end
 
-  def groups_with_leader
-    h = Hash.new { |hash, key| hash[key] = [] }
-    @parent_or_size.size.times do |i|
-      h[leader(i)] << i
-    end
-    h
-  end
-
   def groups
-    groups_with_leader.values
+    (0 ... @parent_or_size.size).group_by{ |i| leader(i) }.values
   end
 end
 
