@@ -162,7 +162,8 @@ class SegtreeTest < Minitest::Test
   end
 
   def test_sum
-    seg = Segtree.new((1..10).to_a, 0){ |x, y| x + y }
+    a = (1..10).to_a
+    seg = Segtree.new(a, 0){ |x, y| x + y }
 
     assert_equal 1, seg.get(0)
     assert_equal 10, seg.get(9)
@@ -191,5 +192,17 @@ class SegtreeTest < Minitest::Test
     assert_equal 0, seg.prod(1, 1)
     assert_equal 0, seg.prod(2, 2)
     assert_equal 0, seg.prod(4, 4)
+  end
+
+  # AtCoder ABC185 F - Range Xor Query
+  # https://atcoder.jp/contests/abc185/tasks/abc185_f
+  def test_xor_abc185f
+    a = [1, 2, 3]
+    st = Segtree.new(a, 0){ |x, y| x ^ y }
+    assert_equal 0, st.prod(1 - 1, 3 - 1 + 1)
+    assert_equal 1, st.prod(2 - 1, 3 - 1 + 1)
+
+    st.set(2 - 1, st.get(2 - 1) ^ 3)
+    assert_equal 2, st.prod(2 - 1, 3 - 1 + 1)
   end
 end

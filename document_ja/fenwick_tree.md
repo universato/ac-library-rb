@@ -17,11 +17,11 @@ fw = FenwickTree.new(arg)
 
 引数は`Integer`または`Array`です。
 
-1. 引数が`Integer`クラスの`n`のとき、長さ`n`の全ての要素が`0`で初期化された配列を作ります。 
+1. 引数が`Integer`クラスの`n`のとき、長さ`n`の全ての要素が`0`で初期化された配列を作ります。
 2. 引数が長さ`n`の`Array`クラスの配列`a`のとき、`a`で初期化された配列を作ります。
 
 配列の添字は、0-based indexです。
- 
+
 **計算量** `O(n)` (引数が`Array`でも同じです)
 
 ## add(pos, x)
@@ -64,9 +64,12 @@ fw._sum(pos)
 
 ## Verified
 
-[B \- Fenwick Tree](https://atcoder.jp/contests/practice2/tasks/practice2_b)
+- [AtCoder ALPC B \- Fenwick Tree](https://atcoder.jp/contests/practice2/tasks/practice2_b)
+  [ACコード(17074108)]https://atcoder.jp/contests/practice2/submissions/17074108 (1272ms)
+- [F \- Range Xor Query](https://atcoder.jp/contests/abc185/tasks/abc185_f)
+  FenwickTree(BIT)をxorに改造するだけでも解けます。
+  [ACコード(821ms)](https://atcoder.jp/contests/abc185/submissions/18769200)。FenwickTree(BIT)のxor改造版です。
 
-https://atcoder.jp/contests/practice2/submissions/17074108 (1272ms)
 
 ## 開発者、内部実装を読みたい人向け
 
