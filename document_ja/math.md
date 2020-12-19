@@ -30,11 +30,15 @@ inv_mod(x, n, m)
 
 `xy ≡ 1 (mod m)`なる`y`のうち、`0 ≦ y < m`を満たすものを返します。
 
-mが素数のときは、フェルマーの小定理より`x.pow(m - 2, m)`と書けるので、そちらを利用して下さい。
+mが素数のとき、フェルマーの小定理より`x.pow(m - 2, m)`を使えます。
 
 **制約** `gcd(x, m) = 1`, `1 ≦ m`
 
 **計算量** `O(log m)`
+
+### Verified
+- [ABC186 E - Throne](https://atcoder.jp/contests/abc186/tasks/abc186_e)
+  [ACコード(59ms) 2020/12/20](https://atcoder.jp/contests/abc186/submissions/18898186)
 
 ## crt(r, m) -> [rem , mod] or [0, 0]
 
@@ -74,12 +78,12 @@ $\sum_{i = 0}^{n - 1} \mathrm{floor}(\frac{a \times i + b}{m})$
 ## 参考リンク
 
 - 当ライブラリ
-  - 当ライブラリの実装コード 
+  - 当ライブラリの実装コード
     - [当ライブラリの実装コード pow_mod.rb](https://github.com/universato/ac-library-rb/blob/master/lib/pow_mod.rb)
     - [当ライブラリの実装コード inv_mod.rb](https://github.com/universato/ac-library-rb/blob/master/lib/inv_mod.rb)
     - [当ライブラリの実装コード crt.rb](https://github.com/universato/ac-library-rb/blob/master/lib/crt.rb)
     - [当ライブラリの実装コード floor_sum.rb](https://github.com/universato/ac-library-rb/blob/master/lib/floor_sum.rb)
-  - テストコード 
+  - テストコード
     - [当ライブラリのテストコード pow_mod_test.rb](https://github.com/universato/ac-library-rb/blob/master/test/pow_mod.rb)
     - [当ライブラリのテストコード inv_mod_test.rb](https://github.com/universato/ac-library-rb/blob/master/test/inv_mod.rb)
     - [当ライブラリのテストコード crt_test.rb](https://github.com/universato/ac-library-rb/blob/master/test/crt.rb)
