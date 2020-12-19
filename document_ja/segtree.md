@@ -24,7 +24,7 @@ seg = Segtree.new(arg, e) { |x, y| ... }
 
 ```rb
 n   = 10**5
-inf = (1 << 60) - 1 
+inf = (1 << 60) - 1
 
 Segtree.new(n, 0) { |x, y| x.gcd y } # gcd
 Segtree.new(n, 1) { |x, y| x.lcm y } # lcm
@@ -99,13 +99,19 @@ Segtree上で二分探索をします。
 
 ## Verified
 
-[ALPC: J \- Segment Tree](https://atcoder.jp/contests/practice2/tasks/practice2_j)
+- [ALPC: J \- Segment Tree](https://atcoder.jp/contests/practice2/tasks/practice2_j)
+
+- [F \- Range Xor Query](https://atcoder.jp/contests/abc185/tasks/abc185_f)
+  xorのセグメントツリーの基本的な典型問題です。FenwickTree(BIT)をxorに改造するだけでも解けます。
+  [ACコード(1538ms)](https://atcoder.jp/contests/abc185/submissions/18746817)
+  [ACコード(821ms)](https://atcoder.jp/contests/abc185/submissions/18769200)。FenwickTree(BIT)のxor改造版です。
 
 ## 参考リンク
 
 - 当ライブラリ
   - [当ライブラリの実装コード segtree.rb](https://github.com/universato/ac-library-rb/blob/master/lib/segtree.rb)
   - [当ライブラリのテストコード segtree.rb](https://github.com/universato/ac-library-rb/blob/master/test/segtree_test.rb)
+    テストコードも具体的な使い方として役に立つかもしれまん。
 - 本家
   - [本家ライブラリのドキュメント segtree.md(GitHub)](https://github.com/atcoder/ac-library/blob/master/document_ja/segtree.md)
   - [本家のドキュメント appendix.md(GitHub)](https://github.com/atcoder/ac-library/blob/master/document_ja/appendix.md)

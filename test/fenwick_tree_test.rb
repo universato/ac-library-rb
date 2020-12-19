@@ -43,8 +43,8 @@ class FenwickTreeTest < Minitest::Test
   end
 
   def test_init
-    n = 100
-    a = Array.new(n) { rand(1..n) }
+    n = 10
+    a = Array.new(n) { |i| i }
 
     fwa = FenwickTree.new(a)
 
