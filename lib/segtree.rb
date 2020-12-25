@@ -66,7 +66,7 @@ class Segtree
 
     l += @leaf_size
     sm = @e
-    loop do
+    while true
       l /= 2 while l.even?
       unless f.call(@op.call(sm, @d[l]))
         while l < @leaf_size
@@ -95,7 +95,7 @@ class Segtree
 
     r += @leaf_size
     sm = @e
-    loop do
+    while true
       r -= 1
       r /= 2 while r > 1 && r.odd?
       unless f.call(@op.call(@d[r], sm))

@@ -110,7 +110,7 @@ class LazySegtree
     @log.downto(1) { |i| push(l >> i) }
     sm = @e
 
-    loop do
+    while true
       while l.even?
         l >>= 1
       end

@@ -107,6 +107,8 @@ Style/GlobalVars:
     - 'lib/modint.rb'
 Style/FrozenStringLiteralComment:
   Enabled: false
+Style/InfiniteLoop:
+  Enabled: false
 Style/InverseMethods:
   AutoCorrect: false
   Exclude:

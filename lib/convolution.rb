@@ -113,11 +113,11 @@ class Convolution
     divs << x if x > 1
 
     g = 2
-    loop{
+    while true
       return g if divs.none?{ |d| g.pow((mod - 1) / d, mod) == 1 }
 
       g += 1
-    }
+    end
   end
 
   private :batterfly, :batterfly_inv, :bsf, :calc_primitive_root

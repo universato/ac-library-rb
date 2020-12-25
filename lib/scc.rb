@@ -44,7 +44,7 @@ class SCCGraph
                  end
       end
       if low[v] == ord[v]
-        loop do
+        while true
           u = visited.pop
           ord[u] = @n
           ids[u] = group_num
