@@ -1,11 +1,13 @@
 # this implementation is different from ACL because of calculation time
 # ref : https://snuke.hatenablog.com/entry/2014/12/03/214243
-# ACL  implementation : https://atcoder.jp/contests/abc135/submissions/16656972 (1320 ms)
-# this implementation : https://atcoder.jp/contests/abc135/submissions/16656965 (1076 ms)
+# ACL  implementation : https://atcoder.jp/contests/abc135/submissions/18836384 (731ms)
+# this implementation : https://atcoder.jp/contests/abc135/submissions/18836378 (525ms)
 
 def z_algorithm(s)
   n = s.size
   return [] if n == 0
+
+  s = s.codepoints if s.is_a?(String)
 
   z = [0] * n
   z[0] = n
