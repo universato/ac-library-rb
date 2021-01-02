@@ -107,4 +107,9 @@ class UnionFindTest < Minitest::Test
       assert !uft.same?(a, b)
     end
   end
+
+  def test_merge
+    uft = UnionFind.new(2)
+    assert_equal 0, uft.merge(0, 1)
+  end
 end

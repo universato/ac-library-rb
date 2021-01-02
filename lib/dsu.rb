@@ -16,7 +16,6 @@ class DSU
     x, y = y, x if -@parent_or_size[x] < -@parent_or_size[y]
     @parent_or_size[x] += @parent_or_size[y]
     @parent_or_size[y] = x
-    x
   end
   alias unite merge
 
