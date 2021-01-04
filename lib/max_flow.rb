@@ -73,7 +73,7 @@ class MaxFlow
   alias max_flow flow
 
   def min_cut(s)
-    visited = Array.new(@n) { false }
+    visited = Array.new(@n, false)
     que = [s]
     while (q = que.shift)
       visited[q] = true
