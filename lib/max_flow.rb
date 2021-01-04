@@ -56,7 +56,7 @@ class MaxFlow
 
     flow = 0
     while flow < flow_limit
-      bfs(level, que, s, t)
+      bfs(s, t, level, que)
       break if level[t] == -1
 
       iter.fill(0)
@@ -89,7 +89,7 @@ class MaxFlow
 
   private
 
-  def bfs(level, que, s, t)
+  def bfs(s, t, level, que)
     level.fill(-1)
     level[s] = 0
     que.clear
