@@ -136,7 +136,7 @@ class MinCostFlow
 
     result
   end
-  alias min_cost_slop slop
+  alias min_cost_slop slope
 end
 
 MCF      = MinCostFlow
