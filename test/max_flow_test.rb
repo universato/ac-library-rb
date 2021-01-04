@@ -130,12 +130,24 @@ class MaxFlowTest < Minitest::Test
   end
 
   def test_aizu_grl6
-    g = MaxFlow.new(4)
+    g = MaxFlow.new(5)
     assert_equal 0, g.add_edge(0, 1, 2)
     assert_equal 1, g.add_edge(0, 2, 1)
     assert_equal 2, g.add_edge(1, 2, 1)
     assert_equal 3, g.add_edge(1, 3, 1)
     assert_equal 4, g.add_edge(2, 3, 2)
     assert_equal 3, g.max_flow(0, 4 - 1)
+  end
+
+  def test_arihon_antsbook_3_5
+    g = MaxFlow.new(5)
+    assert_equal 0, g.add_edge(0, 1, 10)
+    assert_equal 1, g.add_edge(0, 2, 2)
+    assert_equal 2, g.add_edge(1, 2, 6)
+    assert_equal 3, g.add_edge(1, 3, 6)
+    assert_equal 4, g.add_edge(2, 4, 5)
+    assert_equal 5, g.add_edge(3, 2, 3)
+    assert_equal 6, g.add_edge(3, 4, 8)
+    assert_equal 11, g.max_flow(0, 4)
   end
 end
