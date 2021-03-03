@@ -1,12 +1,12 @@
 # Use `x.pow(m - 2, m)` instead of `inv_mod(x, m)` if m is a prime number.
 def inv_mod(x, m)
-  z = inv_gcd(x, m)
+  z = _inv_gcd(x, m)
   raise ArgumentError unless z.first == 1
 
   z[1]
 end
 
-def inv_gcd(a, b)
+def _inv_gcd(a, b)
   a %= b # safe_mod
 
   s, t = b, a
