@@ -5,7 +5,7 @@ require 'minitest/autorun'
 
 require_relative '../lib/crt.rb'
 
-class ConvolutionTest < Minitest::Test
+class CrtTest < Minitest::Test
   def test_two_elements
     [*1 .. 20].repeated_permutation(2){ |a, b|
       [*-10 .. 10].repeated_permutation(2){ |c, d|

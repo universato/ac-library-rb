@@ -12,7 +12,7 @@ def naive_pow_mod(x, n, mod)
   z
 end
 
-class InvModTest < Minitest::Test
+class PowModTest < Minitest::Test
   def test_prime_mod
     (-10 .. 10).each do |a|
       (0 .. 10).each do |b|
