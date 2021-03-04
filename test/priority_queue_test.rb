@@ -27,7 +27,7 @@ class PriorityQueueTest < Minitest::Test
     assert_equal 2, q.pop
     assert_equal 1, q.pop
     assert_equal true, q.empty?
-    assert_equal nil, q.top
+    assert_nil q.top
   end
 
   def test_asc_order

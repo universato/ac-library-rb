@@ -11,6 +11,6 @@ jobs:
       - uses: actions/checkout@v2
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 2.7
+          ruby-version: 2.7.1
       - name: run unittests
         run: ruby test/*.rb
