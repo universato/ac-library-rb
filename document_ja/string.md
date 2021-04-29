@@ -88,16 +88,18 @@ z_algorithm(s)
 
 `O(|s|)`
 
-# Verified
+<hr>
 
-- suffix_array, lcp_array [I - Number of Substrings](https://atcoder.jp/contests/practice2/tasks/practice2_i)
+## Verified
 
-https://atcoder.jp/contests/practice2/submissions/17194669 (1362 ms)
+- suffix_array, lcp_array
+  - [I - Number of Substrings](https://atcoder.jp/contests/practice2/tasks/practice2_i)
+    - [AC 1362 ms](https://atcoder.jp/contests/practice2/submissions/17194669)
 
-- z_algorithm [ABC135 F - Strings of Eternity](https://atcoder.jp/contests/abc135/tasks/abc135_f)
+- z_algorithm
+  - [ABC135 F - Strings of Eternity](https://atcoder.jp/contests/abc135/tasks/abc135_f)
+    - [AC 1076 ms](https://atcoder.jp/contests/abc135/submissions/16656965)
 
-https://atcoder.jp/contests/abc135/submissions/16656965 (1076 ms)
+## 参考
 
-# 参考
-
-[本家ACLのドキュメント String](https://atcoder.github.io/ac-library/master/document_ja/string.html)
+- [本家ACLのドキュメント String](https://atcoder.github.io/ac-library/master/document_ja/string.html)

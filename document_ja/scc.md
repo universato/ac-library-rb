@@ -1,6 +1,7 @@
 # SCC
 
 Strongly Connected Components
+
 有向グラフを強連結成分分解します。
 
 ## 特異メソッド
@@ -11,7 +12,7 @@ Strongly Connected Components
 graph = SCC.new(6)
 ```
 
-n頂点0辺の有向グラフを作ります。
+`n` 頂点 `0` 辺の有向グラフを作ります。
 
 頂点番号は、0-based indexです。
 
@@ -27,13 +28,13 @@ n頂点0辺の有向グラフを作ります。
 graph.add_edge(1, 4)
 ```
 
-頂点`from`から頂点`to`へ有向辺を足します。
+頂点 `from` から頂点 `to` へ有向辺を足します。
 
 **制約** `0 ≦ from < n`, `0 ≦ to < n`
 
 **計算量** `ならしO(1)`
 
-### scc -> Array(Array(Integer))
+### scc -> Array[Array[Integer]]
 
 ```ruby
 graph.scc
@@ -45,7 +46,7 @@ graph.scc
 
 また、グループの順番は、トポロジカルソートとなっており、頂点uから頂点vに一方的に到達できるとき、頂点uに属するグループは頂点vに属するグループよりも先頭に来ます。
 
-**計算量** `O(n + m)` ※ mは辺数です。
+**計算量** `O(n + m)` ※ `m` は辺数です。
 
 ## Verified
 

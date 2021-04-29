@@ -67,7 +67,9 @@ pq.pop # => 100
 pq.get # => 10
 ```
 
-最も優先度の高い要素を**取り除くことなく**、その値を返します。キューが空のときは `nil` を返します。
+最も優先度の高い要素を**取り除くことなく**、その値を返します。
+
+キューが空のときは `nil` を返します。
 
 **エイリアス** `top`
 
@@ -93,8 +95,8 @@ pq.heap
 
 ## Verified
 
-[Aizu Online Judge ALDS1_9_C Priority Queue](https://onlinejudge.u-aizu.ac.jp/problems/ALDS1_9_C)
-[[code](https://onlinejudge.u-aizu.ac.jp/solutions/problem/ALDS1_9_C/review/4835681/qsako6/Ruby)]
+- [Aizu Online Judge ALDS1_9_C Priority Queue](https://onlinejudge.u-aizu.ac.jp/problems/ALDS1_9_C)
+  - [code](https://onlinejudge.u-aizu.ac.jp/solutions/problem/ALDS1_9_C/review/4835681/qsako6/Ruby)
 
 ## 参考
 

@@ -43,7 +43,7 @@ c = conv.convolution(a, b)
 
 **計算量**
 
-`O((|a|+|b|) log (|a|+|b|))`
+- `O((|a|+|b|) log (|a|+|b|))`
 
 ## convolution_ll
 
@@ -53,12 +53,12 @@ c = conv.convolution(a, b)
 
 # Verified
 
-[C - 高速フーリエ変換](https://atcoder.jp/contests/atc001/tasks/fft_c)
-
-- `m = 1012924417` https://atcoder.jp/contests/atc001/submissions/17193829 (1272 ms)
-
-- `m = 1125900443713537` https://atcoder.jp/contests/atc001/submissions/17193739 (2448 ms)
+- [C - 高速フーリエ変換](https://atcoder.jp/contests/atc001/tasks/fft_c)
+  - `m = 1012924417`
+    [1272ms](https://atcoder.jp/contests/atc001/submissions/17193829)
+  - `m = 1125900443713537`
+    [2448 ms](https://atcoder.jp/contests/atc001/submissions/17193739)
 
 # 参考
 
-[本家 ACL のドキュメント Convolution](https://atcoder.github.io/ac-library/master/document_ja/convolution.html)
+- [本家 ACL のドキュメント Convolution](https://atcoder.github.io/ac-library/master/document_ja/convolution.html)

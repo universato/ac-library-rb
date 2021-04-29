@@ -2,7 +2,10 @@
 
 数学的アルゴリズムの詰め合わせです。
 
-`pow_mod`, `inv_mod`, `crt`, `floor_sum`について記述します。
+- `pow_mod`
+- `inv_mod`
+- `crt`
+- `floor_sum`
 
 ## pow_mod
 
@@ -10,17 +13,22 @@
 pow_mod(x, n, m)
 ```
 
-`(x**n) % m`を返します。
+`(x**n) % m` を返します。
 
-Rubyには、もともと`Integer#pow`があるため、そちらを利用した方がいいです。
+Rubyには、もともと `Integer#pow` があるため、そちらを利用した方がいいです。
 
-基本的に、`pow_mod(x, n, m)`は、`x.pow(n, m)`と等しいです。
+基本的に、`pow_mod(x, n, m)` は、 `x.pow(n, m)`と等しいです。
 
-ただ、Ruby 2.7.1の時点で、`Integer#pow`は、`x.pow(0, 1)`で「mod 1」なのに`1`を返す小さなバグがあります。
+ただ、Ruby 2.7.1の時点で、`Integer#pow` は、`x.pow(0, 1)`で「mod 1」なのに `1` を返す小さなバグがあります。
 
-**制約** 引数は、整数で、次の条件を満たします。`0 ≦ n`, `1 ≦ m`
+**制約**
 
-**計算量** `O(log n)`
+- 引数`n`, `m`は、整数。
+- `0 ≦ n`, `1 ≦ m`
+
+**計算量**
+
+- `O(log n)`
 
 ## inv_mod
 
@@ -28,13 +36,17 @@ Rubyには、もともと`Integer#pow`があるため、そちらを利用した
 inv_mod(x, n, m)
 ```
 
-`xy ≡ 1 (mod m)`なる`y`のうち、`0 ≦ y < m`を満たすものを返します。
+`xy ≡ 1 (mod m)` なる `y` のうち、`0 ≦ y < m` を満たすものを返します。
 
-mが素数のとき、フェルマーの小定理より`x.pow(m - 2, m)`を使えます。
+mが素数のとき、フェルマーの小定理より `x.pow(m - 2, m)` を使えます。
 
-**制約** `gcd(x, m) = 1`, `1 ≦ m`
+**制約**
 
-**計算量** `O(log m)`
+- `gcd(x, m) = 1`, `1 ≦ m`
+
+**計算量**
+
+- `O(log m)`
 
 ### Verified
 - [ABC186 E - Throne](https://atcoder.jp/contests/abc186/tasks/abc186_e)
@@ -55,10 +67,10 @@ Chinese remainder theorem
 
 答えがないとき、`[0, 0]`を返します。
 
-## Verified
+### Verified
 
 問題
-[No\.187 中華風 \(Hard\) \- yukicoder](https://yukicoder.me/problems/no/187)
+- [No\.187 中華風 \(Hard\) \- yukicoder](https://yukicoder.me/problems/no/187)
 
 ## floor_sum(n, m, a, b)
 
@@ -68,9 +80,11 @@ $\sum_{i = 0}^{n - 1} \mathrm{floor}(\frac{a \times i + b}{m})$
 
 を計算量を工夫して計算して返します。
 
-**計算量** `O(log(n + m + a + b))`
+**計算量**
 
-## Verified
+- `O(log(n + m + a + b))`
+
+### Verified
 
 [ALPC: C \- Floor Sum](https://atcoder.jp/contests/practice2/tasks/practice2_c)
  - [ACコード 426ms 2020/9/14](https://atcoder.jp/contests/practice2/submissions/16735215)

@@ -8,13 +8,14 @@
 
 **エイリアス**
 
-`TwoSAT`, `TwoSat`
+- `TwoSAT`
+- `TwoSat`
 
 <hr>
 
-**特異メソッド**
+## 特異メソッド
 
-## new(n = 0) -> TwoSAT
+### new(n = 0) -> TwoSAT
 
 ```ruby
 ts = TwoSAT.new(n)
@@ -24,13 +25,13 @@ n 変数の 2-SAT を作ります。
 
 **計算量**
 
-O(n)
+- `O(n)`
 
 <hr>
 
-**インスタンスメソッド**
+## インスタンスメソッド
 
-## add_clause(i, f, j, g) -> nil
+### add_clause(i, f, j, g) -> nil
 
 `i: Integer`, `f: bool`, `j: Integer`, `g: bool`
 
@@ -42,9 +43,9 @@ ts.add_clause(i, true, j, false)
 
 **計算量**
 
-ならし O(1)
+- ならし `O(1)`
 
-## satisfiable? -> bool
+### satisfiable? -> bool
 
 ```ruby
 ts.satisfiable?
@@ -54,13 +55,14 @@ ts.satisfiable?
 
 **エイリアス**
 
-`satisfiable?`, `satisfiable`
+- `satisfiable?`
+- `satisfiable`
 
 **計算量**
 
-足した制約の個数を m として O(n + m)
+- 足した制約の個数を `m` として `O(n + m)`
 
-## answer -> Array(bool)
+### answer -> Array[bool]
 
 ```ruby
 ts.answer
@@ -69,12 +71,17 @@ ts.answer
 最後に呼んだ `satisfiable?` のクローズを満たす割当を返します。
 `satisfiable?` を呼ぶ前や、`satisfiable?` で割当が存在しなかったときにこの関数を呼ぶと、長さ n の意味のない配列を返します。
 
-# Verified
+**計算量**
 
-[H - Two SAT](https://atcoder.jp/contests/practice2/tasks/practice2_h)
+- `O(n)`
 
-https://atcoder.jp/contests/practice2/submissions/16655036 (163 ms)
+<hr>
 
-# 参考
+## Verified
+
+- [H - Two SAT](https://atcoder.jp/contests/practice2/tasks/practice2_h)
+  - [163 ms](https://atcoder.jp/contests/practice2/submissions/16655036)
+
+## 参考
 
 [本家 ACL のドキュメント 2-SAT](https://atcoder.github.io/ac-library/master/document_ja/twosat.html)

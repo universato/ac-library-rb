@@ -19,47 +19,48 @@ seg = Segtree.new(arg, e) { |x, y| ... }
 
 **計算量** `O(n)`
 
-<details>
-<summary>モノイドの設定コード例</summary>
+### モノイドの設定コード例
 
-```rb
+```ruby
 n   = 10**5
 inf = (1 << 60) - 1
 
-Segtree.new(n, 0) { |x, y| x.gcd y } # gcd
-Segtree.new(n, 1) { |x, y| x.lcm y } # lcm
+Segtree.new(n, 0) { |x, y| x.gcd y }       # gcd
+Segtree.new(n, 1) { |x, y| x.lcm y }       # lcm
 Segtree.new(n, -inf) { |x, y| [x, y].max } # max
 Segtree.new(n,  inf) { |x, y| [x, y].min } # min
-Segtree.new(n, 0) { |x, y| x | y } # or
-Segtree.new(n, 1) { |x, y| x * y } # prod
-Segtree.new(n, 0) { |x, y| x + y } # sum
+Segtree.new(n, 0) { |x, y| x | y }         # or
+Segtree.new(n, 1) { |x, y| x * y }         # prod
+Segtree.new(n, 0) { |x, y| x + y }         # sum
 ```
-
-</details>
 
 ## インスタンスメソッド
 
-### set
+### set(pos, x)
 
 ```rb
 seg.set(pos, x)
 ```
 
-`a[pos] に x`を代入します。
+`a[pos]` に `x` を代入します。
 
-**計算量** `O(logn)`
+**計算量**
 
-### get
+- `O(logn)`
+
+### get(pos)
 
 ```rb
 seg.get(pos)
 ```
 
-`a[pos]`を返します。
+`a[pos]` を返します。
 
-**計算量** `O(1)`
+**計算量**
 
-### prod
+- `O(1)`
+
+### prod(l, r)
 
 ```rb
 seg.prod(l, r)
@@ -67,9 +68,13 @@ seg.prod(l, r)
 
 `op(a[l], ..., a[r - 1])` を返します。
 
-**制約** `0 ≦ l ≦ r ≦ n`
+**制約**
 
-**計算量** `O(logn)`
+- `0 ≦ l ≦ r ≦ n`
+
+**計算量**
+
+- `O(logn)`
 
 ### all_prod
 
@@ -79,7 +84,9 @@ seg.all_prod
 
 `op(a[0], ..., a[n - 1])` を返します。
 
-**計算量** `O(1)`
+**計算量**
+
+- `O(1)`
 
 ### max_right(l, &f) -> Integer
 
@@ -102,16 +109,16 @@ Segtree上で二分探索をします。
 - [ALPC: J \- Segment Tree](https://atcoder.jp/contests/practice2/tasks/practice2_j)
 
 - [F \- Range Xor Query](https://atcoder.jp/contests/abc185/tasks/abc185_f)
-  xorのセグメントツリーの基本的な典型問題です。FenwickTree(BIT)をxorに改造するだけでも解けます。
-  [ACコード(1538ms)](https://atcoder.jp/contests/abc185/submissions/18746817)
-  [ACコード(821ms)](https://atcoder.jp/contests/abc185/submissions/18769200)。FenwickTree(BIT)のxor改造版です。
+  - xorのセグメントツリーの基本的な典型問題です。FenwickTree(BIT)をxorに改造するだけでも解けます。
+  - [ACコード(1538ms)](https://atcoder.jp/contests/abc185/submissions/18746817): 通常のSegtree解。
+  - [ACコード(821ms)](https://atcoder.jp/contests/abc185/submissions/18769200): FenwickTree(BIT)のxor改造版。
 
 ## 参考リンク
 
 - 当ライブラリ
   - [当ライブラリの実装コード segtree.rb](https://github.com/universato/ac-library-rb/blob/master/lib/segtree.rb)
   - [当ライブラリのテストコード segtree.rb](https://github.com/universato/ac-library-rb/blob/master/test/segtree_test.rb)
-    テストコードも具体的な使い方として役に立つかもしれまん。
+    - テストコードも具体的な使い方として役に立つかもしれまん。
 - 本家
   - [本家ライブラリのドキュメント segtree.md(GitHub)](https://github.com/atcoder/ac-library/blob/master/document_ja/segtree.md)
   - [本家のドキュメント appendix.md(GitHub)](https://github.com/atcoder/ac-library/blob/master/document_ja/appendix.md)
