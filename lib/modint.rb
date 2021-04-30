@@ -1,3 +1,5 @@
+require_relative './core_ext/modint.rb'
+
 # ModInt
 class ModInt < Numeric
   class << self
@@ -165,24 +167,4 @@ class ModInt < Numeric
       g == 1 ? x : raise(RangeError, 'no inverse')
     end
   end
-end
-
-def ModInt(val)
-  ModInt.new(val)
-end
-
-# Integer
-class Integer
-  def to_modint
-    ModInt.new(self)
-  end
-  alias to_m to_modint
-end
-
-# String
-class String
-  def to_modint
-    ModInt.new(to_i)
-  end
-  alias to_m to_modint
 end

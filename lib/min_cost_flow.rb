@@ -1,4 +1,4 @@
-require_relative '../lib/priority_queue.rb'
+require_relative './priority_queue.rb'
 
 # Min Cost Flow Grapsh
 class MinCostFlow
