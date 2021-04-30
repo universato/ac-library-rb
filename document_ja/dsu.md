@@ -40,7 +40,10 @@ d = DSU.new(n)
 
 頂点の番号は `0` 始まりで数え、`n - 1` までになります。
 
-計算量 O(n)
+**計算量**
+
+- `O(n)`
+
 
 **エイリアス**
 
@@ -114,7 +117,7 @@ d.size(3)
 
 - ならし `O(α(n))`
 
-### groups -> Array(Array(Integer))
+### groups -> [[Integer]]
 
 ```rb
 d.groups
