@@ -16,7 +16,7 @@ Therefore, 2.7.1 is recommended and may not work with other versions.
 
 # More information
 
-We have a slack channnel "atcoder" in [ruby-jp](https://ruby-jp.github.io/).
+We have a slack channel "atcoder" in [ruby-jp](https://ruby-jp.github.io/).
 
 Please join it.
 
