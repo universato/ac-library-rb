@@ -49,7 +49,7 @@ Slackに3000人、atcoderチャンネルに250人以上の登録者がいるの�
 
 ### 他言語のライブラリ
 
-[Unofficial Portings of AtCoder Library](https://docs.google.com/spreadsheets/d/19jMAqUbv98grVkLV_Lt54x5B8ILoTcvBzG8EbSvf5gY/edit#gid=0) (by [notさん](https://twitter.com/not_522/status/1303466197300649984))
+- [Unofficial Portings of AtCoder Library](https://docs.google.com/spreadsheets/d/19jMAqUbv98grVkLV_Lt54x5B8ILoTcvBzG8EbSvf5gY/edit#gid=0) (by [notさん](https://twitter.com/not_522/status/1303466197300649984))
 
 ### 他言語
 

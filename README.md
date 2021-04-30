@@ -1,3 +1,10 @@
+# Other language Japanese version
+
+[README 日本語バージョン(ver. Japanese)](README.ja.md)
+- [ライブラリ目次: index.md](https://github.com/universato/ac-library-rb/blob/master/document_ja/index.md)
+
+<hr>
+
 # ac-library-rb
 
 ac-library-rb is a ruby port of AtCoder Library (ACL).
@@ -14,13 +21,21 @@ Currently, the Ruby version in AtCoder is 2.7.1.
 
 Therefore, 2.7.1 is recommended and may not work with other versions.
 
-# More information
+# Document
 
-We have a slack channel "atcoder" in [ruby-jp](https://ruby-jp.github.io/).
+Please read [index.md](https://github.com/universato/ac-library-rb/blob/master/document_en/index.md).
 
-Please join it.
+## Development
 
-# Other language
+After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
-[README 日本語バージョン](README.ja.md)
+```bash
+$ rake test
+$ rake
+$ ruby test/fenwick_tree_test.rb
+```
+
+# Other language Japanese version
+
+[README 日本語バージョン(ver. Japanese)](README.ja.md)
 - [ライブラリ目次: index.md](https://github.com/universato/ac-library-rb/blob/master/document_ja/index.md)
