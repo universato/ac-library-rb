@@ -77,9 +77,7 @@ module AcLibraryRb
       end_l = lms[lms_map[l] + 1] || n
       end_r = lms[lms_map[r] + 1] || n
       same = true
-      if end_l - l != end_r - r
-        same = false
-      else
+      if end_l - l == end_r - r
         while l < end_l
           break if s[l] != s[r]
 
@@ -87,6 +85,8 @@ module AcLibraryRb
           r += 1
         end
         same = false if l == n || s[l] != s[r]
+      else
+        same = false
       end
       rec_upper += 1 if not same
       rec_s[lms_map[sorted_lms[i]]] = rec_upper
@@ -101,7 +101,11 @@ module AcLibraryRb
 
   # suffix array for array of integers or string
   def suffix_array(s, upper = nil)
-    if not upper
+    if upper
+      s.each{ |s|
+        raise ArgumentError if s < 0 || upper < s
+      }
+    else
       case s
       when Array
         # compression
@@ -119,10 +123,6 @@ module AcLibraryRb
         upper = 255
         s = s.bytes
       end
-    else
-      s.each{ |s|
-        raise ArgumentError if s < 0 || upper < s
-      }
     end
 
     return sa_is(s, upper)

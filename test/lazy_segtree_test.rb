@@ -69,7 +69,7 @@ class LazySegtreeTest < Minitest::Test
     seg.range_apply(0, 3, 5)
     assert_equal 5, seg.all_prod
     seg.apply(2, -10)
-    assert_equal (-5), seg.prod(2, 3)
+    assert_equal -5, seg.prod(2, 3)
     assert_equal 0, seg.prod(2, 4)
   end
 end

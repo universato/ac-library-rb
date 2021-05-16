@@ -162,7 +162,9 @@ module AcLibraryRb
 
     def inv_internal(a)
       if $_mod_is_prime
-        a != 0 ? a.pow($_mod - 2, $_mod) : raise(RangeError, 'no inverse')
+        raise(RangeError, 'no inverse') if a == 0
+
+        a.pow($_mod - 2, $_mod)
       else
         g, x = ModInt.inv_gcd(a, $_mod)
         g == 1 ? x : raise(RangeError, 'no inverse')

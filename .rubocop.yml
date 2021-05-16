@@ -100,6 +100,9 @@ Naming/MethodName:
     - 'test/convolution_test.rb'
 Naming/MethodParameterName:
   Enabled: false
+Naming/VariableNumber:
+  Exclude:
+    - 'test/max_flow_test.rb'
 Style/AndOr:
   Enabled: false
 Style/ArrayCoercion:
@@ -143,6 +146,9 @@ Style/NegatedIf:
   AutoCorrect: false
   Exclude:
     - 'lib/suffix_array.rb'
+# Style/NegatedIfElseCondition:
+#   Exclude:
+#     - 'lib/suffix_array.rb'
 Style/Not:
   AutoCorrect: false
   Exclude:
