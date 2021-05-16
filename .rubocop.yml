@@ -1,9 +1,18 @@
 AllCops:
   NewCops: enable
+  Exclude:
+    - 'lib_lock/ac-library-rb/*.rb'
 Layout/ExtraSpacing:
   AutoCorrect: false
   Exclude:
+    - 'ac-library-rb.gemspec'
     - 'test/convolution_test.rb'
+Layout/LineLength:
+  Exclude:
+    - 'ac-library-rb.gemspec'
+Layout/SpaceAroundOperators:
+  Exclude:
+    - 'ac-library-rb.gemspec'
 Layout/SpaceBeforeBlockBraces:
   Enabled: false
 Layout/SpaceInsideArrayLiteralBrackets:
@@ -52,7 +61,7 @@ Lint/Void:
   Exclude:
     - 'test/example/*'
 Metrics/AbcSize:
-  Max: 49
+  Max: 50
   Exclude:
     - 'lib/suffix_array.rb'
     - 'test/modint_test.rb'
@@ -77,12 +86,17 @@ Metrics/PerceivedComplexity:
   Max: 13
   Exclude:
     - 'lib/suffix_array.rb'
+Naming/FileName:
+  Exclude:
+    - 'lib_lock/ac-library-rb.rb'
 Naming/AccessorMethodName:
   Exclude:
     - 'lib/modint.rb'
 Naming/MethodName:
   Exclude:
+    - 'lib/core_ext/modint.rb'
     - 'lib/modint.rb'
+    - 'lib_lock/ac-library-rb/core_ext/modint.rb'
     - 'test/convolution_test.rb'
 Naming/MethodParameterName:
   Enabled: false
@@ -101,6 +115,8 @@ Style/BlockDelimiters:
     - 'test/lcp_array_test.rb'
     - 'test/suffix_array_test.rb'
     - 'test/z_algorithm_test.rb'
+Style/Documentation:
+  Enabled: false
 Style/GlobalVars:
   AutoCorrect: false
   Exclude:
@@ -115,6 +131,12 @@ Style/Lambda:
   Enabled: false
 Style/LambdaCall:
   Enabled: false
+Style/HashSyntax:
+  Exclude:
+    - 'Rakefile'
+Style/MixinUsage:
+  Exclude:
+    - 'lib_lock/ac-library-rb.rb'
 Style/MultipleComparison:
   Enabled: false
 Style/NegatedIf:
@@ -161,9 +183,14 @@ Style/SpecialGlobalVars:
   Exclude:
     - 'test/example/convolution_practice.rb'
     - 'test/example/crt.rb'
+Style/StringConcatenation:
+  Exclude:
+    - 'bin/lock_lib.rb'
 Style/StringLiterals:
   Enabled: false
 Style/TrailingCommaInArrayLiteral:
+  Enabled: false
+Style/WordArray:
   Enabled: false
 Style/WhileUntilModifier:
   Enabled: false
