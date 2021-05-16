@@ -15,13 +15,88 @@ ACLの詳細は、以下をご覧ください.
 
 [ライブラリ目次: index.md](https://github.com/universato/ac-library-rb/blob/master/document_ja/index.md)
 
-`lib`ディレクトリにコードがあります。
+公式に、ac-library-rbの利用として、以下の方法を想定しています。
+- 直接コピペして使う方法
+  - `lib`ディレクトリに、ac-library-rbのライブラリのコードがあります。
+  - `lib_lock`ディレクトリに、Gem用にモジュール化されたコードがあります。
+    (別途モジュール化するの、ちょっとトリッキーですが……)
+- Gemとして使う方法(詳細は後述)
 
-現状、この中から探してもらい、コピペして使って下さい。
+他に、有志作成のバンドルツール[expander-rb](https://github.com/surpace/expander-rb)(by surpaceさん)を利用する方法もあります。
 
-目次(および進捗情報)は、[index.md](https://github.com/universato/ac-library-rb/blob/master/document_ja/index.md)をご覧ください。
+目次は、[index.md](https://github.com/universato/ac-library-rb/blob/master/document_ja/index.md)をご覧ください。
 
-また、コピペ以外の方法として、バンドルツール[expander-rb](https://github.com/surpace/expander-rb)(by surpaceさん)を利用する方法もあります。
+## Gemとなったac-library-rbを使う方法
+
+コピペ以外にGemとなったac-library-rbを使う方法を紹介します。
+
+### gemのインストール方法
+
+ac-library-rbに限った話ではないですが、一般的な2種類のgemのインストール方法を紹介します。
+
+- Gemとして使う方法
+  - `gem`コマンドにより、`gem install ac-library-rb`
+  - gemのbundlerを用いる方法
+
+#### gemコマンドによるインストール方法
+
+Ruby本体に付属のgemコマンドを用い、そのまま`gem install ac-library-rb`を実行します。
+
+#### gemのbundlerを用いたインストール方法
+
+bundlerをインストールしてない場合は、`gem install bundler`というコマンドを打ちインストールします。
+
+次に、ac-library-rbを使いたいディレクトリ配下にGemfileを置きます。Gemfileという名称のファイルです。  
+このGemfileの中で、次のように書きます。
+```
+gem "ac-library-rb"
+```
+そして、`budnle install`というコマンドにより、Gemfileに書かれたac-library-rbをインストールします。
+
+このとき、bundlerを通してRubyファイルを実行する必要があるため、`bundle exec`コマンドを用います。
+
+`$ bundle exec ruby sample.rb`
+
+### (インストール後の)Rubyファイルでの書き方
+
+#### 一括ロード
+
+Rubyファイル上で一括でac-library-rbのライブラリを使えるようにするには、下記のように書きます。
+
+```ruby
+require "ac-library-rb/all"
+
+dsu = AcLibraryRb::DSU.new
+
+include AcLibraryRb
+dsu = DSU.new
+```
+
+`include AcLibraryRb`とモジュールをインクルードすることで、  
+何度も`AcLibraryRb`といわゆる名前空間を書く必要がなくなります。
+
+また、`/all`なしで`require "ac-library-rb"`とした場合は、`include AcLibraryRb`も同時に実行されます。
+```ruby
+require "ac-library-rb"
+
+dsu = DSU.new
+```
+
+#### 個別ロード
+
+特定のライブラリのみをインストールしたいときは下記のように`ac-library-rb/`のあとにライブラリ名を指定します。
+
+```ruby
+require "ac-library-rb/dsu"
+dsu = AcLibraryRb::DSU.new
+
+require "ac-library-rb/priority_queue"
+pq = AcLibraryRb::PriorityQueue.new
+```
+
+本gem名はハイフン区切りですが、ac-library-rb内のライブラリ名はアンダースコア区切りであるため、注意して下さい。  
+一般的にRubyのライブラリ名はアンダースコアが推奨されていますが、  
+ACL本家のレポジトリ名がac-libraryとハイフン区切りで、それに合わせているため、レポジトリ名・gem名がハイフン区切りとなっています。
 
 ## Rubyバージョン
 
