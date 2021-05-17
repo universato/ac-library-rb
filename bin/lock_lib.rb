@@ -14,7 +14,7 @@ Dir.glob(lib_path) do |file|
   end
 end
 
-# cope library from `lib/core_ext` to `lib_lock/ac-library-rb/core_ext`
+# copy library from `lib/core_ext` to `lib_lock/ac-library-rb/core_ext`
 lib_path = File.expand_path('../lib/core_ext/**', __dir__)
 lock_dir = File.expand_path('../lib_lock/ac-library-rb/core_ext', __dir__)
 Dir.glob(lib_path) do |file|
