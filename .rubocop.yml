@@ -125,6 +125,7 @@ Style/GlobalVars:
   AutoCorrect: false
   Exclude:
     - 'lib/modint.rb'
+    - 'test/lazy_segtree_test.rb'
 Style/FrozenStringLiteralComment:
   Enabled: false
 Style/InverseMethods:
