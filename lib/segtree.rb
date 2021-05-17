@@ -2,21 +2,25 @@
 class Segtree
   attr_reader :d, :op, :n, :leaf_size, :log
 
-  def initialize(arg = 0, e, &block)
-    case arg
-    when Integer
-      v = Array.new(arg) { e }
-    when Array
-      v = arg
+  # new(e){  }
+  # new(v, e){  }
+  # new(v, op, e)
+  def initialize(a0, a1 = nil, a2 = nil, &block)
+    if a1.nil?
+      @e, @op = a0, proc(&block)
+      v = []
+    elsif a2.nil?
+      @e, @op = a1, proc(&block)
+      v = (a0.is_a?(Array) ? a0 : [@e] * a0)
+    else
+      @op, @e = a1, a2
+      v = (a0.is_a?(Array) ? a0 : [@e] * a0)
     end
-
-    @e  = e
-    @op = proc(&block)
 
     @n = v.size
     @log = (@n - 1).bit_length
     @leaf_size = 1 << @log
-    @d = Array.new(@leaf_size * 2) { e }
+    @d = Array.new(@leaf_size * 2, @e)
     v.each_with_index { |v_i, i| @d[@leaf_size + i] = v_i }
     (@leaf_size - 1).downto(1) { |i| update(i) }
   end

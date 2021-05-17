@@ -209,4 +209,19 @@ class SegtreeTest < Minitest::Test
     st.set(2 - 1, st.get(2 - 1) ^ 3)
     assert_equal 2, st.prod(2 - 1, 3 - 1 + 1)
   end
+
+  # AtCoder ABC185 F - Range Xor Query
+  # https://atcoder.jp/contests/abc185/tasks/abc185_f
+  def test_acl_original_argument_order_of_new
+    a = [1, 2, 3]
+    op = ->(x, y){ x ^ y }
+    e = 0
+    st = Segtree.new(a, op, e)
+
+    assert_equal 0, st.prod(1 - 1, 3 - 1 + 1)
+    assert_equal 1, st.prod(2 - 1, 3 - 1 + 1)
+
+    st.set(2 - 1, st.get(2 - 1) ^ 3)
+    assert_equal 2, st.prod(2 - 1, 3 - 1 + 1)
+  end
 end
