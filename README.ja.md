@@ -1,5 +1,7 @@
 # ac-library-rb
 
+[![Gem Version](https://badge.fury.io/rb/ac-library-rb.svg)](https://badge.fury.io/rb/ac-library-rb)
+
 ac-library-rbは、AtCoder Library (ACL)のRuby版です。
 
 ACLの詳細は、以下をご覧ください.

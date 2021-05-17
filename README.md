@@ -7,6 +7,8 @@
 
 # ac-library-rb
 
+[![Gem Version](https://badge.fury.io/rb/ac-library-rb.svg)](https://badge.fury.io/rb/ac-library-rb)
+
 ac-library-rb is a ruby port of AtCoder Library (ACL).
 
 See below for ACL.
