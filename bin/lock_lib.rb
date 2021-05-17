@@ -1,8 +1,8 @@
 require 'pathname'
 
 # copy libraries from `lib` to `lib_lock/ac-library` and add `module AcLibraryRb`
-lib_path = File.expand_path('../../lib/**', __FILE__)
-lock_dir = File.expand_path('../../lib_lock/ac-library-rb', __FILE__)
+lib_path = File.expand_path('../lib/**', __dir__)
+lock_dir = File.expand_path('../lib_lock/ac-library-rb', __dir__)
 Dir.glob(lib_path) do |file|
   next unless FileTest.file?(file)
 
@@ -15,8 +15,8 @@ Dir.glob(lib_path) do |file|
 end
 
 # cope library from `lib/core_ext` to `lib_lock/ac-library-rb/core_ext`
-lib_path = File.expand_path('../../lib/core_ext/**', __FILE__)
-lock_dir = File.expand_path('../../lib_lock/ac-library-rb/core_ext', __FILE__)
+lib_path = File.expand_path('../lib/core_ext/**', __dir__)
+lock_dir = File.expand_path('../lib_lock/ac-library-rb/core_ext', __dir__)
 Dir.glob(lib_path) do |file|
   next unless FileTest.file?(file)
 
