@@ -79,7 +79,11 @@ module AcLibraryRb
       @d[1]
     end
 
-    def apply(pos, f)
+    # apply(pos, f)
+    # apply(l, r, f) -> range_apply(l, r, f)
+    def apply(pos, f, fr = nil)
+      return range_apply(pos, f, fr) if fr
+
       pos += @size
       @log.downto(1) { |i| push(pos >> i) }
       @d[pos] = @mapping.call(f, @d[pos])

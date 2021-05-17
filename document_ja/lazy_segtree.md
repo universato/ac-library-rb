@@ -70,14 +70,19 @@ seg.all_prod
 **計算量** `O(1)`
 
 ### apply(pos, val)
+### apply(s, r, val)
 
 ```ruby
 seg.apply(pos, val)
+seg.apply(l, r, val)
 ```
 
-本家コードで引数が3つのとき実装について、当ライブラリでは`range_apply`という名称で実装しています。予定は未定ですが、`apply`メソッドに2引数と3引数の両方に対応できるようにするかもしれません。意見あったら、Issueを立てるなりよろしくお願いします。
+1. `a[p] = f(a[p])`
+2. 半開区間`i = l..r`について`a[i] = f(a[i])`
 
-**制約** `0 ≦ pos < n`
+**制約** 
+1. `0 ≦ pos < n` 
+2. `0 ≦ l ≦ r ≦ n`
 
 **計算量** `O(log n)`
 
@@ -86,6 +91,9 @@ seg.apply(pos, val)
 ```ruby
 seg.range_apply(l, r, val)
 ```
+
+3引数の`apply`を呼んだときに、内部で呼ばれるメソッド。  
+直接、`range_apply`を呼ぶこともできる。
 
 **制約** `0 ≦ l ≦ r ≦ n`
 

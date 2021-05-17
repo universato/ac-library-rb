@@ -199,4 +199,24 @@ class LazySegtreeTest < Minitest::Test
     l = seg.min_left(i, &g)
     assert_equal 5, r - l
   end
+
+  # AOJ: RMQ and RAQ
+  # https://onlinejudge.u-aizu.ac.jp/problems/DSL_2_H
+  def test_apply_3arguments
+    vector = [0] * 6
+    e = 1_000_000_000
+    id = 0
+
+    seg = LazySegtree.new(vector, e, id){ |x, y| [x, y].min }
+    seg.set_mapping{ |x, y| x + y }
+    seg.set_composition{ |x, y| x + y }
+
+    seg.apply(1, 3 + 1, 1)
+    seg.apply(2, 4 + 1, -2)
+    assert_equal -2, seg.prod(0, 5 + 1)
+    assert_equal 0, seg.prod(0, 1 + 1)
+    seg.apply(3, 5 + 1, 3)
+    assert_equal 1, seg.prod(3, 4 + 1)
+    assert_equal -1, seg.prod(0, 5 + 1)
+  end
 end
