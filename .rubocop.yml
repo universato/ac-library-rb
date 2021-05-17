@@ -91,6 +91,7 @@ Naming/FileName:
     - 'lib_lock/ac-library-rb.rb'
 Naming/AccessorMethodName:
   Exclude:
+    - 'lib/lazy_segtree.rb'
     - 'lib/modint.rb'
 Naming/MethodName:
   Exclude:
@@ -179,6 +180,7 @@ Style/SelfAssignment:
 Style/Semicolon:
   Exclude:
     - 'lib/lazy_segtree.rb'
+    - 'test/lazy_segtree_test.rb'
 Style/SlicingWithRange:
   Enabled: false
 Style/SpecialGlobalVars:

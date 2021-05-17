@@ -53,7 +53,7 @@ seg.get(pos)
 seg.prod(l, r)
 ```
 
-`op(a[l], ..., a[r - 1])` を返します。
+`op(a[l], ..., a[r - 1])` を返します。引数は半開区間です。`l == r`のとき、単位元`e`を返します。
 
 **制約** `0 ≦ l ≦ r ≦ n`
 
@@ -65,7 +65,7 @@ seg.prod(l, r)
 seg.all_prod
 ```
 
-`op(a[0], ..., a[n - 1])` を返します。
+`op(a[0], ..., a[n - 1])` を返します。サイズが0のときは、単位元`e`を返します。
 
 **計算量** `O(1)`
 
@@ -75,7 +75,7 @@ seg.all_prod
 seg.apply(pos, val)
 ```
 
-本家コードで引数が3つのとき実装について、当ライブラリでは`range_apply`という名称で実装しています。実行時間を計測して問題なさそうなら、`apply`メソッドに2引数と3引数の両方に対応できるようにします。
+本家コードで引数が3つのとき実装について、当ライブラリでは`range_apply`という名称で実装しています。予定は未定ですが、`apply`メソッドに2引数と3引数の両方に対応できるようにするかもしれません。意見あったら、Issueを立てるなりよろしくお願いします。
 
 **制約** `0 ≦ pos < n`
 
@@ -101,9 +101,11 @@ seg.range_apply(l, r, val)
 
 ## Verified
 
-問題のリンクです。コードはないですが、Verified済みです。
-- [AIZU ONLINE JUDGE DSL\_2\_F RMQ and RUQ](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_F)
-- [AIZU ONLINE JUDGE DSL\_2\_G RSQ and RAQ](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_G)
+問題のリンクです。Verified済みです。解答はテストコードをご参考ください。
+- [AIZU ONLINE JUDGE DSL\_2\_F RMQ and RUQ](ttps://onlinejudge.u-aizu.ac.jp/problems/DSL_2_F) ([旧DSL_2_F](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_F))
+- [AIZU ONLINE JUDGE DSL\_2\_G RSQ and RAQ](https://onlinejudge.u-aizu.ac.jp/problems/DSL_2_G) ([旧DSL_2_G](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_G))
+- [AIZU ONLINE JUDGE DSL\_2\_H RMQ and RAQ](https://onlinejudge.u-aizu.ac.jp/problems/DSL_2_H) ([旧DSL_2_H](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_H))
+- [AIZU ONLINE JUDGE DSL\_2\_I RSQ and RUQ](https://onlinejudge.u-aizu.ac.jp/problems/DSL_2_I) ([旧DSL_2_I](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_I))
 
 以下の問題は、Rubyでは実行時間が厳しくTLEになりACできてないです。
 - [ALPC: K \- Range Affine Range Sum](https://atcoder.jp/contests/practice2/tasks/practice2_k)
@@ -133,3 +135,10 @@ seg.range_apply(l, r, val)
 ### `ceil_pow2`ではなく、`bit_length`
 
 本家C++ライブラリは独自定義の`internal::ceil_pow2`関数を用いてますが、本ライブラリではRuby既存のメソッド`Integer#bit_length`を用いています。そちらの方が計測した結果、高速でした。
+
+## 問題点
+
+### ミュータブルな単位元
+
+本家ACL同様に、初期化の際に配列でも数値でもいいとなっている。  
+しかし、数値で要素数を指定した際に、ミュータブルなクラスでも同一オブジェクトで要素を作ってしまっている。

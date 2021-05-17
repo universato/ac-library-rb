@@ -64,41 +64,45 @@ class SegtreeTest < Minitest::Test
   INF = (1 << 60) - 1
 
   def test_zero
+    e = '$'
     op = proc do |a, b|
-      if a == '$'
+      if a == e
         b
-      elsif b == '$'
+      elsif b == e
         a
       else
         a + b
       end
     end
-    s = Segtree.new(0, '$', &op)
-    assert_equal '$', s.all_prod
 
-    s = Segtree.new('$', &op)
-    assert_equal '$', s.all_prod
+    s = Segtree.new(0, e, &op)
+    assert_equal e, s.all_prod
+
+    s = Segtree.new(e, &op)
+    assert_equal e, s.all_prod
   end
 
   def test_one
+    e = '$'
     op = proc do |a, b|
-      if a == '$'
+      if a == e
         b
-      elsif b == '$'
+      elsif b == e
         a
       else
         a + b
       end
     end
-    s = Segtree.new(1, '$', &op)
+    s = Segtree.new(1, e, &op)
     assert_equal '$', s.all_prod
     assert_equal '$', s.get(0)
+    assert_equal '$', s[0]
     assert_equal '$', s.prod(0, 1)
     s.set(0, "dummy")
     assert_equal "dummy", s.get(0)
-    assert_equal "$", s.prod(0, 0)
+    assert_equal e, s.prod(0, 0)
     assert_equal "dummy", s.prod(0, 1)
-    assert_equal '$', s.prod(1, 1)
+    assert_equal e, s.prod(1, 1)
   end
 
   def test_compare_naive

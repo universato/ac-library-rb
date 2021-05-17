@@ -27,10 +27,12 @@ module AcLibraryRb
       @d[q] = x
       1.upto(@log) { |i| update(q >> i) }
     end
+    alias []= set
 
     def get(pos)
       @d[@leaf_size + pos]
     end
+    alias [] get
 
     def prod(l, r)
       return @e if l == r

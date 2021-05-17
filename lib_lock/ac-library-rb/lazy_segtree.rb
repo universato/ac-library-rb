@@ -1,16 +1,16 @@
 module AcLibraryRb
   # Segment tree with Lazy propagation
   class LazySegtree
-    attr_reader   :d, :lz
+    attr_reader :d, :lz, :e, :id
     attr_accessor :op, :mapping, :composition
 
-    def initialize(v, e, id, op, mapping, composition)
+    def initialize(v, e, id, op_proc = nil, mapping = nil, composition = nil, &op_block)
       v = Array.new(v, e) if v.is_a?(Integer)
 
       @n  = v.size
       @e  = e
       @id = id
-      @op = op
+      @op = op_proc || op_block
       @mapping = mapping
       @composition = composition
 
@@ -23,18 +23,28 @@ module AcLibraryRb
       (@size - 1).downto(1) { |i| update(i) }
     end
 
+    def set_mapping(&mapping)
+      @mapping = mapping
+    end
+
+    def set_composition(&composition)
+      @composition = composition
+    end
+
     def set(pos, x)
       pos += @size
       @log.downto(1) { |i| push(pos >> i) }
       @d[pos] = x
       1.upto(@log) { |i| update(pos >> i) }
     end
+    alias []= set
 
     def get(pos)
       pos += @size
       @log.downto(1) { |i| push(pos >> i) }
       @d[pos]
     end
+    alias [] get
 
     def prod(l, r)
       return @e if l == r
