@@ -8,8 +8,10 @@ Dir.glob(lib_path) do |file|
 
   path = Pathname.new(lock_dir) + Pathname.new(file).basename
   File.open(path, "w") do |f|
+    library_code = File.readlines(file).map{ |line| line == "\n" ? "\n" : '  ' + line }
+
     f.puts "module AcLibraryRb"
-    f.puts File.readlines(file).map{ |line| line == "\n" ? "\n" : '  ' + line }
+    f.puts library_code
     f.puts "end"
   end
 end
