@@ -159,4 +159,44 @@ class LazySegtreeTest < Minitest::Test
     assert_equal 0, empty_seg.get(0)
     assert_equal 0, empty_seg[0]
   end
+
+  def test_quora2021_skyscraper
+    a = [4, 2, 3, 2, 4, 7, 6, 5]
+
+    e = -(10**18)
+    id = 10**18
+    seg = LazySegtree.new(a, e, id){ |x, y| [x, y].max }
+    seg.set_mapping{ |f, x| f == id ? x : f }
+    seg.set_composition{ |f, g| f == id ? g : f }
+
+    g = proc{ |x| x <= $h }
+
+    i = 3 - 1
+    $h = seg.get(i)
+    r = seg.max_right(i, &g)
+    l = seg.min_left(i, &g)
+    assert_equal 3, r - l
+
+    i = 2 - 1
+    $h = seg.get(i)
+    r = seg.max_right(i, &g)
+    l = seg.min_left(i, &g)
+    assert_equal 1, r - l
+
+    seg.set(3 - 1, 8)
+
+    i = 5 - 1
+    $h = seg.get(i)
+    r = seg.max_right(i, &g)
+    l = seg.min_left(i, &g)
+    assert_equal 2, r - l
+
+    seg.range_apply(5 - 1, 7 - 1 + 1, 1)
+
+    i = 8 - 1
+    $h = seg.get(i)
+    r = seg.max_right(i, &g)
+    l = seg.min_left(i, &g)
+    assert_equal 5, r - l
+  end
 end

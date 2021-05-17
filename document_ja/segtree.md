@@ -96,6 +96,10 @@ seg.max_right(l, &f)
 
 Segtree上で二分探索をします。
 
+**制約**  `0 ≦ l ≦ n`
+
+**計算量** `O(log n)`
+
 ### min_left(r, &f) -> Integer
 
 ```ruby
@@ -103,6 +107,10 @@ seg.min_left(r, &f)
 ```
 
 Segtree上で二分探索をします。
+
+**制約**  `0 ≦ r ≦ n`
+
+**計算量** `O(log n)`
 
 ## Verified
 

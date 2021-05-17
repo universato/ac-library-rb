@@ -105,13 +105,29 @@ seg.range_apply(l, r, val)
 
 - `O(log n)`
 
-### max_right.
+### max_right(l){  } -> Integer
 
-[TODO] Someone with some free time will write.
+It applies binary search on the LazySegtree.
 
-### min_left
+**Constraints**
 
-[TODO] The code side is not implemented yet.
+- `0 ≦ l ≦ n`
+
+**Complexity**
+
+- `O(log n)`
+
+### min_left(r){  } -> Integer
+
+It applies binary search on the LazySegtree.
+
+**Constraints**
+
+- `0 ≦ r ≦ n`
+
+**Complexity**
+
+- `O(log n)`
 
 ## Verified
 

@@ -91,13 +91,21 @@ seg.range_apply(l, r, val)
 
 **計算量** `O(log n)`
 
-### max_right
+### max_right(l){  } -> Integer
 
-[TODO] 暇な誰かが書く。
+LazySegtree上で、二分探索をします。
 
-### min_left
+**制約**  `0 ≦ l ≦ n`
 
-[TODO] コード側の実装ができていないです。
+**計算量** `O(log n)`
+
+### min_left(r){  } -> Integer
+
+LazySegtree上で、二分探索をします。
+
+**制約**  `0 ≦ r ≦ n`
+
+**計算量** `O(log n)`
 
 ## Verified
 
@@ -110,6 +118,9 @@ seg.range_apply(l, r, val)
 以下の問題は、Rubyでは実行時間が厳しくTLEになりACできてないです。
 - [ALPC: K \- Range Affine Range Sum](https://atcoder.jp/contests/practice2/tasks/practice2_k)
 - [ALPC: L \- Lazy Segment Tree](https://atcoder.jp/contests/practice2/tasks/practice2_l)
+
+下記は、ジャッジにだしてないが、サンプルに正解。`max_right`, `min_left`を使う問題。
+- [Quora Programming Challenge 2021: Skyscraper](https://jonathanirvin.gs/files/division2_3d16774b0423.pdf#page=5)
 
 ## 参考リンク
 

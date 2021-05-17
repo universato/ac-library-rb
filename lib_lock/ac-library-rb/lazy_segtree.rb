@@ -143,6 +143,35 @@ module AcLibraryRb
       @n
     end
 
+    def min_left(r, &g)
+      return 0 if r == 0
+
+      r += @size
+      @log.downto(1) { |i| push((r - 1) >> i) }
+      sm = @e
+
+      loop do
+        r -= 1
+        while r > 1 && r.odd?
+          r /= 2
+        end
+        unless g.call(@op.call(@d[r], sm))
+          while r < @size
+            push(r)
+            r = r * 2 + 1
+            if g.call(@op.call(@d[r], sm))
+              sm = @op.call(@d[r], sm)
+              r -= 1
+            end
+          end
+          return r + 1 - @size
+        end
+        sm = @op.call(@d[r], sm)
+        break if (r & -r) == r
+      end
+      0
+    end
+
     def update(k)
       @d[k] = @op.call(@d[2 * k], @d[2 * k + 1])
     end

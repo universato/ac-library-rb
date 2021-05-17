@@ -104,6 +104,14 @@ It returns `op(a[0], ..., a[n - 1])`.
 seg.max_right(l, &f)
 ```
 
+**Constraints**
+
+- `0 ≦ l ≦ n`
+
+**Complexity**
+
+- `O(log n)`
+
 It applies binary search on the segment tree.
 
 ### min_left(r, &f) -> Integer
@@ -113,6 +121,14 @@ seg.min_left(r, &f)
 ```
 
 It applies binary search on the segment tree.
+
+**Constraints**
+
+- `0 ≦ r ≦ n`
+
+**Complexity**
+
+- `O(log n)`
 
 ## Verified
 
