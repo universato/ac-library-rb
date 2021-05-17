@@ -219,4 +219,48 @@ class LazySegtreeTest < Minitest::Test
     assert_equal 1, seg.prod(3, 4 + 1)
     assert_equal -1, seg.prod(0, 5 + 1)
   end
+
+  # AOJ: RMQ and RUQ
+  # https://onlinejudge.u-aizu.ac.jp/problems/DSL_2_G
+  def test_acl_original_order_new1
+    op = proc { |(vx, sx), (vy, sy)| [vx + vy, sx + sy] }
+    e = [0, 1]
+    mapping = proc{ |f, (s, sz)| [s + f * sz, sz] }
+    composition = proc{ |f, g| f + g }
+    id = 0
+
+    n = 3
+    seg = LazySegtree.new(n, op, e, mapping, composition, id)
+    seg.apply(0, 2, 1)
+    seg.apply(1, 3, 2)
+    seg.apply(2, 3, 3)
+    assert_equal 4, seg.prod(0, 2)[0]
+    assert_equal 8, seg.prod(1, 3)[0]
+
+    n = 4
+    seg = LazySegtree.new(n, op, e, mapping, composition, id)
+    assert_equal 0, seg.prod(0, 4)[0]
+    seg.apply(0, 4, 1)
+    assert_equal 4, seg.prod(0, 4)[0]
+  end
+
+  # AOJ: RMQ and RAQ
+  # https://onlinejudge.u-aizu.ac.jp/problems/DSL_2_H
+  def test_acl_original_order_new2
+    vector = [0] * 6
+    op = ->(x, y){ [x, y].min }
+    e = 1_000_000_000
+    mapping = ->(f, x){ f + x }
+    composition = ->(f, g) { f + g }
+    id = 0
+    seg = LazySegtree.new(vector, op, e, mapping, composition, id)
+
+    seg.range_apply(1, 3 + 1, 1)
+    seg.range_apply(2, 4 + 1, -2)
+    assert_equal -2, seg.prod(0, 5 + 1)
+    assert_equal 0, seg.prod(0, 1 + 1)
+    seg.range_apply(3, 5 + 1, 3)
+    assert_equal 1, seg.prod(3, 4 + 1)
+    assert_equal -1, seg.prod(0, 5 + 1)
+  end
 end

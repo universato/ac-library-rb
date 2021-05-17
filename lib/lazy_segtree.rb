@@ -3,15 +3,19 @@ class LazySegtree
   attr_reader :d, :lz, :e, :id
   attr_accessor :op, :mapping, :composition
 
-  def initialize(v, e, id, op_proc = nil, mapping = nil, composition = nil, &op_block)
-    v = Array.new(v, e) if v.is_a?(Integer)
+  # new(v, op, e, mapping, composition, id)
+  # new(v, e, id, op, mapping, composition)
+  # new(v, e, id){  }
+  def initialize(v, a1, a2, a3 = nil, a4 = nil, a5 = nil, &op_block)
+    if a1.is_a?(Proc)
+      @op, @e, @mapping, @composition, @id = a1, a2, a3, a4, a5
+    else
+      @e, @id, @op, @mapping, @composition = a1, a2, a3, a4, a5
+      @op ||= op_block
+    end
+    v = Array.new(v, @e) if v.is_a?(Integer)
 
     @n  = v.size
-    @e  = e
-    @id = id
-    @op = op_proc || op_block
-    @mapping = mapping
-    @composition = composition
 
     @log  = (@n - 1).bit_length
     @size = 1 << @log

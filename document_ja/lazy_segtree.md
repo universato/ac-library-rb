@@ -8,10 +8,10 @@
 
 ## 特異メソッド
 
-### new(v, e, id, op, mapping, composition)
+### new(v, e, id){  }
 
 ```ruby
-seg = LazySegtree.new(v, e, id, op, mapping, compositon)
+seg = LazySegtree.new(v, e, id)
 ```
 
 第1引数は、`Integer`または`Array`です。
@@ -21,7 +21,21 @@ seg = LazySegtree.new(v, e, id, op, mapping, compositon)
 
 第2引数`e`は、単位元です。ブロックで二項演算`op(x, y)`を定義することで、モノイドを定義する必要があります。
 
+また、インスタンス作成後に、`LazySegtree#set_mapping{ }`と`LazySegment#set_composition{ }`を用い、適切にインスタンス変数にprocを設定する必要があります。
+
 **計算量** `O(n)`
+
+### new(v, op, e, mapping, composition, id)
+### new(v, e, id, op, mapping, composition)
+
+```ruby
+seg = LazySegtree.new(v, op, e, mapping, compositon, id)
+seg = LazySegtree.new(v, e, id, op, mapping, compositon)
+```
+
+前者は、本家ライブラリに合わせた引数の順番。  
+後者は、procを後ろにまとめた引数の順番で、これは非推奨。  
+内部で、第2引数がprocかどうかで、場合分けしています。
 
 ## インスタンスメソッド
 
