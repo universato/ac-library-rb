@@ -112,7 +112,7 @@ class SegtreeTest < Minitest::Test
       end
     end
 
-    (0..30).each do |n|
+    (0..20).each do |n|
       seg0 = SegtreeNaive.new(n, '$', &op)
       seg1 = Segtree.new(n, '$', &op)
 

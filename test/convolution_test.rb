@@ -30,8 +30,8 @@ class ConvolutionTest < Minitest::Test
     max_num = 10**18
     conv = Convolution.new
     20.times{
-      a = (0 .. rand(100)).map{ rand(-max_num .. max_num) }
-      b = (0 .. rand(100)).map{ rand(-max_num .. max_num) }
+      a = (0 .. 20).map{ rand(-max_num .. max_num) }
+      b = (0 .. 20).map{ rand(-max_num .. max_num) }
       assert_equal convolution_naive(a, b, 998_244_353), conv.convolution(a, b)
     }
   end
@@ -47,8 +47,8 @@ class ConvolutionTest < Minitest::Test
      [  924_844_033,   924_844_028]].each{ |mod, proot|
       conv = Convolution.new(mod, proot)
       20.times{
-        a = (0 ... 100).map{ rand(-max_num .. max_num) }
-        b = (0 ... 100).map{ rand(-max_num .. max_num) }
+        a = (0 ... 20).map{ rand(-max_num .. max_num) }
+        b = (0 ... 20).map{ rand(-max_num .. max_num) }
         assert_equal convolution_naive(a, b, mod), conv.convolution(a, b)
       }
     }
@@ -59,8 +59,8 @@ class ConvolutionTest < Minitest::Test
     [998_244_353, 1_012_924_417, 924_844_033].each{ |mod|
       conv = Convolution.new(mod)
       20.times{
-        a = (0 ... 100).map{ rand(-max_num .. max_num) }
-        b = (0 ... 100).map{ rand(-max_num .. max_num) }
+        a = (0 ... 20).map{ rand(-max_num .. max_num) }
+        b = (0 ... 20).map{ rand(-max_num .. max_num) }
         assert_equal convolution_naive(a, b, mod), conv.convolution(a, b)
       }
     }

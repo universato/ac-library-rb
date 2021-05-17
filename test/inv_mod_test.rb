@@ -47,8 +47,8 @@ class InvModTest < Minitest::Test
   end
 
   def test_inv_mod
-    (-100 .. 100).each do |a|
-      (1 .. 1000).each do |b|
+    (-10 .. 10).each do |a|
+      (1 .. 30).each do |b|
         next unless 1 == (a % b).gcd(b)
 
         c = inv_mod(a, b)

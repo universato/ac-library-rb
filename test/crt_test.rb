@@ -7,8 +7,8 @@ require_relative '../lib/crt.rb'
 
 class CrtTest < Minitest::Test
   def test_two_elements
-    [*1 .. 20].repeated_permutation(2){ |a, b|
-      [*-10 .. 10].repeated_permutation(2){ |c, d|
+    [*1 .. 5].repeated_permutation(2){ |a, b|
+      [*-4 .. 4].repeated_permutation(2){ |c, d|
         rem, mod = crt([c, d], [a, b])
         if mod == 0
           assert (0 ... a.lcm(b)).none?{ |x| x % a == c && x % b == d }
@@ -22,8 +22,8 @@ class CrtTest < Minitest::Test
   end
 
   def test_three_elements
-    [*1 .. 5].repeated_permutation(3){ |a, b, c|
-      [*-5 .. 5].repeated_permutation(3){ |d, e, f|
+    [*1 .. 4].repeated_permutation(3){ |a, b, c|
+      [*-4 .. 4].repeated_permutation(3){ |d, e, f|
         rem, mod = crt([d, e, f], [a, b, c])
         lcm = [a, b, c].reduce :lcm
         if mod == 0
@@ -43,9 +43,9 @@ class CrtTest < Minitest::Test
     max_num = 10**18
     20.times{
       ans = rand(max_ans)
-      m = (0 ... 1000).map{ rand(1 .. max_num) }
+      m = (0 ... 20).map{ rand(1 .. max_num) }
       r = m.map{ |m| ans % m }
-      mod = m.reduce :lcm
+      mod = m.reduce(:lcm)
       assert_equal [ans % mod, mod], crt(r, m)
     }
   end

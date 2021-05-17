@@ -20,7 +20,7 @@ class LcpArrayTest < Minitest::Test
   def test_random_array_small_elements
     max_num = 5
     20.times{
-      a = (0 ... 100).map{ rand(-max_num .. max_num) }
+      a = (0 ... 30).map{ rand(-max_num .. max_num) }
       assert_equal lcp_array_naive(a), lcp_array(a, suffix_array(a))
     }
   end
@@ -28,14 +28,14 @@ class LcpArrayTest < Minitest::Test
   def test_random_array_big_elements
     max_num = 10**18
     20.times{
-      a = (0 ... 100).map{ rand(-max_num .. max_num) }
+      a = (0 ... 30).map{ rand(-max_num .. max_num) }
       assert_equal lcp_array_naive(a), lcp_array(a, suffix_array(a))
     }
   end
 
   def test_random_string
     20.times{
-      s = (0 ... 100).map{ rand(' '.ord .. '~'.ord).chr }.join
+      s = (0 ... 30).map{ rand(' '.ord .. '~'.ord).chr }.join
       assert_equal lcp_array_naive(s), lcp_array(s, suffix_array(s))
     }
   end

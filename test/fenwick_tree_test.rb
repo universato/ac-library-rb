@@ -29,7 +29,7 @@ class FenwickTreeTest < Minitest::Test
   end
 
   def test_naive
-    (1 .. 50).each do |n|
+    (1 .. 20).each do |n|
       fw = FenwickTree.new(n)
       n.times { |i| fw.add(i, i * i) }
       (0 .. n).each do |l|

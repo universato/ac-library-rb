@@ -26,7 +26,7 @@ class UnionFindTest < Minitest::Test
   end
 
   def test_line
-    n = 500_000
+    n = 30
     uf = DSU.new(n)
     (n - 1).times { |i| uf.merge(i, i + 1) }
     assert_equal n, uf.size(0)
@@ -34,7 +34,7 @@ class UnionFindTest < Minitest::Test
   end
 
   def test_line_reverse
-    n = 500_000
+    n = 30
     uf = DSU.new(n)
     (n - 2).downto(0) { |i| uf.merge(i, i + 1) }
     assert_equal n, uf.size(0)
@@ -97,15 +97,17 @@ class UnionFindTest < Minitest::Test
   end
 
   def test_rand_isoration
-    n = 100
+    n = 30
     uft = UnionFind.new(n)
-    n.times do
-      a = rand(n)
-      b = rand(n)
-      next if a == b
-
-      assert !uft.same?(a, b)
+    values = [0, 1, 2, 3, 5, 10]
+    values.product(values) do |a, b|
+      if a == b
+        assert uft.same?(a, b)
+      else
+        assert !uft.same?(a, b)
+      end
     end
+    assert_equal Array.new(n){ |i| [i] }, uft.groups
   end
 
   def test_merge

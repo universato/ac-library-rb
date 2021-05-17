@@ -9,9 +9,9 @@ require_relative '../lib/modint.rb'
 # test ModInt
 class ModIntTest < Minitest::Test
   def setup
-    @mods = [1, 2, 3, 6, 10, 11, 2**16, 119 * 2**23 + 1, 10**9 + 7]
-    @primes = [2, 3, 5, 7, 11, 10**9 + 7]
-    @values = [-10**5, -6, -2, -1, 0, 1, 2, 3, 6, 10**100]
+    @mods = [1, 2, 3, 6, 10, 11, 1_000_000_007]
+    @primes = [2, 3, 5, 7, 1_000_000_007]
+    @values = [-100_000, -2, -1, 0, 1, 2, 10_000_000_000]
   end
 
   def test_example
@@ -178,9 +178,9 @@ class ModIntTest < Minitest::Test
   end
 
   def test_pow_method
-    mods = [2, 3, 10, 17, 2**16, 119 * 2**23 + 1, 10**9 + 7]
-    xs = [-6, -2, -1, 0, 1, 2, 6, 100, 10**9 + 7]
-    ys = [0, 1, 2, 3, 6, 10, 10**9, 10**100]
+    mods = [2, 3, 10, 1_000_000_007]
+    xs = [-6, -2, -1, 0, 1, 2, 1_000_000_007]
+    ys = [0, 1, 2, 1_000_000_000]
 
     mods.each do |mod|
       ModInt.mod = mod
@@ -209,9 +209,7 @@ class ModIntTest < Minitest::Test
     @primes.each do |prime_mod|
       ModInt.mod = prime_mod
 
-      values = Array.new(30) { rand(-10**100...10**100) }
-      values.concat(Array(-6..6))
-      values.each do |value|
+      @values.each do |value|
         next if (value % prime_mod).zero?
 
         expected = value.to_bn.mod_inverse(prime_mod).to_i
@@ -224,9 +222,7 @@ class ModIntTest < Minitest::Test
   end
 
   def test_inv_in_the_random_mod_case
-    mods = Array.new(30) { rand(2..10**100) }
-    mods.concat(Array(2..30))
-
+    mods = [2, 3, 4, 5, 10, 1_000_000_007]
     mods.each do |mod|
       ModInt.mod = mod
 
@@ -245,9 +241,7 @@ class ModIntTest < Minitest::Test
     @primes.each do |prime_mod|
       ModInt.mod = prime_mod
 
-      values = Array.new(30) { rand(-10**100...10**100) }
-      values.concat(Array(-6..6))
-      values.product(values) do |(x, y)|
+      @values.product(@values) do |(x, y)|
         next if (y % prime_mod).zero?
 
         expected = (x * y.to_bn.mod_inverse(prime_mod).to_i) % prime_mod
@@ -260,7 +254,7 @@ class ModIntTest < Minitest::Test
   end
 
   def test_inv_in_the_case_that_mod_is_not_prime
-    mods = { 4 => [1, 3], 6 => [1, 5], 8 => [1, 3, 5, 7], 9 => [2, 4, 7, 8], 10 => [3, 7, 9] }
+    mods = { 4 => [1, 3], 6 => [1, 5], 9 => [2, 4, 7, 8], 10 => [3, 7, 9] }
     mods.each do |(mod, numbers)|
       ModInt.mod = mod
 

@@ -13,7 +13,7 @@ end
 
 class FloorSumTest < Minitest::Test
   def test_floor_sum
-    k = 20
+    k = 5
     (0..k).each do |n|
       (1..k).each do |m|
         (0..k).each do |a|

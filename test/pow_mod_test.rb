@@ -14,8 +14,8 @@ end
 
 class PowModTest < Minitest::Test
   def test_prime_mod
-    (-10 .. 10).each do |a|
-      (0 .. 10).each do |b|
+    (-5 .. 5).each do |a|
+      (0 .. 5).each do |b|
         (2 .. 10).each do |c|
           assert_equal naive_pow_mod(a, b, c), pow_mod(a, b, c)
           # assert_equal naive_pow_mod(a, b, c), a.pow(b, c)
