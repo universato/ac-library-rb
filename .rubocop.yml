@@ -146,9 +146,6 @@ Style/NegatedIf:
   AutoCorrect: false
   Exclude:
     - 'lib/suffix_array.rb'
-# Style/NegatedIfElseCondition:
-#   Exclude:
-#     - 'lib/suffix_array.rb'
 Style/Not:
   AutoCorrect: false
   Exclude:
