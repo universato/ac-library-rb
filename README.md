@@ -37,7 +37,7 @@ This is not limited to ac-library-rb, but I will show you how to install the two
 - By `gem` command, `gem install ac-library-rb`.
 - By using the gem bundler's commands.
 
-By #### gem command, `gem install ac-library-rb`
+#### By gem command, `gem install ac-library-rb`
 
 Execute `gem install ac-library-rb` by using the gem command included in Ruby itself.
 
