@@ -66,8 +66,8 @@ class LazySegtreeTest < Minitest::Test
     id = 0
 
     seg = LazySegtree.new(vector, e, id){ |x, y| [x, y].min }
-    seg.set_mapping{ |x, y| x + y }
-    seg.set_composition{ |x, y| x + y }
+    seg.set_mapping{ |f, x| f + x }
+    seg.set_composition{ |f, g| f + g }
 
     seg.range_apply(1, 3 + 1, 1)
     seg.range_apply(2, 4 + 1, -2)
@@ -103,8 +103,8 @@ class LazySegtreeTest < Minitest::Test
     e = -1_000_000_000
     id = 0
     op = proc { |x, y| [x, y].max }
-    mapping = proc { |x, y| x + y }
-    composition = proc { |x, y| x + y }
+    mapping = proc { |f, x| f + x }
+    composition = proc { |f, g| f + g }
 
     seg = LazySegtree.new(vector, e, id, op, mapping, composition)
     assert_equal 0, seg.all_prod
@@ -121,8 +121,8 @@ class LazySegtreeTest < Minitest::Test
     id = 0
 
     seg = LazySegtree.new(vector, e, id){ |x, y| [x, y].max }
-    seg.set_mapping{ |x, y| x + y }
-    seg.set_composition{ |x, y| x + y }
+    seg.set_mapping{ |f, x| f + x }
+    seg.set_composition{ |f, g| f + g }
 
     assert_equal 0, seg.all_prod
     seg.range_apply(0, 3, 5)
@@ -138,8 +138,8 @@ class LazySegtreeTest < Minitest::Test
     id = 0
 
     empty_seg = LazySegtree.new(vector, e, id){ |x, y| [x, y].max }
-    empty_seg.set_mapping{ |x, y| x + y }
-    empty_seg.set_composition{ |x, y| x + y }
+    empty_seg.set_mapping{ |f, x| f + x }
+    empty_seg.set_composition{ |f, g| f + g }
 
     assert_equal e, empty_seg.all_prod
   end
@@ -149,15 +149,15 @@ class LazySegtreeTest < Minitest::Test
     e = -1_000_000_000
     id = 0
 
-    empty_seg = LazySegtree.new(vector, e, id){ |x, y| [x, y].max }
-    empty_seg.set_mapping{ |x, y| x + y }
-    empty_seg.set_composition{ |x, y| x + y }
+    seg = LazySegtree.new(vector, e, id){ |x, y| [x, y].max }
+    seg.set_mapping{ |f, x| f + x }
+    seg.set_composition{ |f, g| f + g }
 
-    assert_equal e, empty_seg.prod(0, 0)
-    assert_equal e, empty_seg.prod(1, 1)
-    assert_equal 0, empty_seg.prod(0, 1)
-    assert_equal 0, empty_seg.get(0)
-    assert_equal 0, empty_seg[0]
+    assert_equal e, seg.prod(0, 0)
+    assert_equal e, seg.prod(1, 1)
+    assert_equal 0, seg.prod(0, 1)
+    assert_equal 0, seg.get(0)
+    assert_equal 0, seg[0]
   end
 
   def test_quora2021_skyscraper
@@ -208,8 +208,8 @@ class LazySegtreeTest < Minitest::Test
     id = 0
 
     seg = LazySegtree.new(vector, e, id){ |x, y| [x, y].min }
-    seg.set_mapping{ |x, y| x + y }
-    seg.set_composition{ |x, y| x + y }
+    seg.set_mapping{ |f, x| f + x }
+    seg.set_composition{ |f, g| f + g }
 
     seg.apply(1, 3 + 1, 1)
     seg.apply(2, 4 + 1, -2)
