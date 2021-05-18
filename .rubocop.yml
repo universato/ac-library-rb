@@ -128,6 +128,9 @@ Style/GlobalVars:
     - 'test/lazy_segtree_test.rb'
 Style/FrozenStringLiteralComment:
   Enabled: false
+Style/InfiniteLoop:
+  Exclude:
+    - 'lib/floor_sum.rb'
 Style/InverseMethods:
   AutoCorrect: false
   Exclude:

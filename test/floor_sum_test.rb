@@ -7,7 +7,10 @@ require_relative '../lib/floor_sum.rb'
 
 def floor_sum_naive(n, m, a, b)
   res = 0
-  n.times { |i| res += (a * i + b) / m }
+  n.times do |i|
+    z = a * i + b
+    res += (z - z % m) / m
+  end
   res
 end
 
@@ -16,8 +19,8 @@ class FloorSumTest < Minitest::Test
     k = 5
     (0..k).each do |n|
       (1..k).each do |m|
-        (0..k).each do |a|
-          (0..k).each do |b|
+        (-k..k).each do |a|
+          (-k..k).each do |b|
             assert_equal floor_sum_naive(n, m, a, b), floor_sum(n, m, a, b)
           end
         end
