@@ -116,7 +116,7 @@ Segtree上で二分探索をします。
 
 - [ALPC: J \- Segment Tree](https://atcoder.jp/contests/practice2/tasks/practice2_j)
 
-- [F \- Range Xor Query](https://atcoder.jp/contests/abc185/tasks/abc185_f)
+- [ABC185: F \- Range Xor Query](https://atcoder.jp/contests/abc185/tasks/abc185_f)
   - xorのセグメントツリーの基本的な典型問題です。FenwickTree(BIT)をxorに改造するだけでも解けます。
   - [ACコード(1538ms)](https://atcoder.jp/contests/abc185/submissions/18746817): 通常のSegtree解。
   - [ACコード(821ms)](https://atcoder.jp/contests/abc185/submissions/18769200): FenwickTree(BIT)のxor改造版。

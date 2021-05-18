@@ -5,7 +5,7 @@ class LazySegtree
 
   # new(v, op, e, mapping, composition, id)
   # new(v, e, id, op, mapping, composition)
-  # new(v, e, id){  }
+  # new(v, e, id){ |x, y|  }
   def initialize(v, a1, a2, a3 = nil, a4 = nil, a5 = nil, &op_block)
     if a1.is_a?(Proc)
       @op, @e, @mapping, @composition, @id = a1, a2, a3, a4, a5

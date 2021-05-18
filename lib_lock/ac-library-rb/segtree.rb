@@ -3,8 +3,8 @@ module AcLibraryRb
   class Segtree
     attr_reader :d, :op, :n, :leaf_size, :log
 
-    # new(e){  }
-    # new(v, e){  }
+    # new(e){ |x, y|  }
+    # new(v, e){ |x, y|  }
     # new(v, op, e)
     def initialize(a0, a1 = nil, a2 = nil, &block)
       if a1.nil?
