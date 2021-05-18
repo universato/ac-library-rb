@@ -1,14 +1,18 @@
 # Disjoint Set Union
 class DSU
   def initialize(n = 0)
+    @n = n
+    @parent_or_size = Array.new(n, -1)
     # root node: -1 * component size
     # otherwise: parent
-    @parent_or_size = Array.new(n, -1)
   end
 
   attr_accessor :parent_or_size
 
   def merge(a, b)
+    raise ArgumentError if a < 0 || @n <= a
+    raise ArgumentError if b < 0 || @n <= b
+
     x = leader(a)
     y = leader(b)
     return x if x == y
@@ -20,17 +24,24 @@ class DSU
   alias unite merge
 
   def same(a, b)
+    raise ArgumentError if a < 0 || @n <= a
+    raise ArgumentError if b < 0 || @n <= b
+
     leader(a) == leader(b)
   end
   alias same? same
 
   def leader(a)
+    raise ArgumentError if a < 0 || @n <= a
+
     @parent_or_size[a] < 0 ? a : (@parent_or_size[a] = leader(@parent_or_size[a]))
   end
   alias root leader
   alias find leader
 
   def size(a)
+    raise ArgumentError if a < 0 || @n <= a
+
     -@parent_or_size[leader(a)]
   end
 
