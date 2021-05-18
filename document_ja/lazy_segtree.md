@@ -132,7 +132,7 @@ LazySegtree上で、二分探索をします。
 ## Verified
 
 問題のリンクです。Verified済みです。解答はテストコードをご参考ください。
-- [AIZU ONLINE JUDGE DSL\_2\_F RMQ and RUQ](ttps://onlinejudge.u-aizu.ac.jp/problems/DSL_2_F) ([旧DSL_2_F](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_F))
+- [AIZU ONLINE JUDGE DSL\_2\_F RMQ and RUQ](https://onlinejudge.u-aizu.ac.jp/problems/DSL_2_F) ([旧DSL_2_F](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_F))
 - [AIZU ONLINE JUDGE DSL\_2\_G RSQ and RAQ](https://onlinejudge.u-aizu.ac.jp/problems/DSL_2_G) ([旧DSL_2_G](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_G))
 - [AIZU ONLINE JUDGE DSL\_2\_H RMQ and RAQ](https://onlinejudge.u-aizu.ac.jp/problems/DSL_2_H) ([旧DSL_2_H](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_H))
 - [AIZU ONLINE JUDGE DSL\_2\_I RSQ and RUQ](https://onlinejudge.u-aizu.ac.jp/problems/DSL_2_I) ([旧DSL_2_I](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_I))
