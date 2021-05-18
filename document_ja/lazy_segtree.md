@@ -155,8 +155,10 @@ LazySegtree上で、二分探索をします。
   - [本家ライブラリの実装コード lazysegtree.hpp(GitHub)](https://github.com/atcoder/ac-library/blob/master/atcoder/lazysegtree.hpp)
   - [本家ライブラリのテストコード lazysegtree_test.cpp(GitHub)](https://github.com/atcoder/ac-library/blob/master/test/unittest/lazysegtree_test.cpp)
 - セグメントツリーについて
-  - [2017/3 セグメント木をソラで書きたいあなたに \- hogecoder](https://tsutaj.hatenablog.com/entry/2017/03/29/204841)
-  - [2017/3 遅延評価セグメント木をソラで書きたいあなたに \- hogecoder](https://tsutaj.hatenablog.com/entry/2017/03/30/224339)
+  - [2017/3 hogecoder: セグメント木をソラで書きたいあなたに](https://tsutaj.hatenablog.com/entry/2017/03/29/204841)
+  - [2017/3 hogecoder: 遅延評価セグメント木をソラで書きたいあなたに](https://tsutaj.hatenablog.com/entry/2017/03/30/224339)
+  - [2017/7 はまやんはまやんはまやん: 競技プログラミングにおけるセグメントツリー問題まとめ](https://blog.hamayanhamayan.com/entry/2017/07/08/173120)
+  - [2020/2 ageprocpp Qiita: Segment Treeことはじめ【後編】](https://qiita.com/ageprocpp/items/9ea58ac181d31cfdfe02)
 - AtCooderLibrary(ACL)のLazySegtreeについて
   - [2020/9/22 ARMERIA: 使い方](https://betrue12.hateblo.jp/entry/2020/09/22/194541)
   - [2020/9/23 ARMERIA: チートシート](https://betrue12.hateblo.jp/entry/2020/09/23/005940)

@@ -127,7 +127,7 @@ Segtree上で二分探索をします。
   - [当ライブラリの実装コード segtree.rb](https://github.com/universato/ac-library-rb/blob/master/lib/segtree.rb)
   - [当ライブラリのテストコード segtree.rb](https://github.com/universato/ac-library-rb/blob/master/test/segtree_test.rb)
     - テストコードも具体的な使い方として役に立つかもしれまん。
-- 本家
+- 本家ライブラリ
   - [本家ライブラリのドキュメント segtree.md(GitHub)](https://github.com/atcoder/ac-library/blob/master/document_ja/segtree.md)
   - [本家のドキュメント appendix.md(GitHub)](https://github.com/atcoder/ac-library/blob/master/document_ja/appendix.md)
   - [本家ライブラリの実装コード segtree.hpp(GitHub)](https://github.com/atcoder/ac-library/blob/master/atcoder/segtree.hpp)
@@ -135,8 +135,10 @@ Segtree上で二分探索をします。
   - [本家ライブラリのサンプルコード segtree_practice.cpp(GitHub)](https://github.com/atcoder/ac-library/blob/master/test/example/segtree_practice.cpp)
 - セグメントツリーについて
   - [2017/3 hogecoder: セグメント木をソラで書きたいあなたに](https://tsutaj.hatenablog.com/entry/2017/03/29/204841)
-  - [2017/12 ei1333の日記: ちょっと変わったセグメント木の使い方](https://ei1333.hateblo.jp/entry/2017/12/14/000000)
+  - [2017/7 はまやんはまやんはまやん: 競技プログラミングにおけるセグメントツリー問題まとめ](https://blog.hamayanhamayan.com/entry/2017/07/08/173120)
+  - [2017/12 ei1333の日記: ちょっと変わったセグメント木の使い方](https://ei1333.hateblo.jp/entry/2017/12/14/000000)  
     スライドが二分探索について詳しい
+  - [2020/2 ageprocpp@Qiita: Segment Treeことはじめ【前編](https://qiita.com/ageprocpp/items/f22040a57ad25d04d199)
 
 ## 本家ライブラリとの違い等
 
