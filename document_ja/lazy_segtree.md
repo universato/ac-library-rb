@@ -155,13 +155,13 @@ LazySegtree上で、二分探索をします。
   - [本家ライブラリの実装コード lazysegtree.hpp(GitHub)](https://github.com/atcoder/ac-library/blob/master/atcoder/lazysegtree.hpp)
   - [本家ライブラリのテストコード lazysegtree_test.cpp(GitHub)](https://github.com/atcoder/ac-library/blob/master/test/unittest/lazysegtree_test.cpp)
 - セグメントツリーについて
-  - [セグメント木をソラで書きたいあなたに \- hogecoder](https://tsutaj.hatenablog.com/entry/2017/03/29/204841)
-  - [遅延評価セグメント木をソラで書きたいあなたに \- hogecoder](https://tsutaj.hatenablog.com/entry/2017/03/30/224339)
+  - [2017/3 セグメント木をソラで書きたいあなたに \- hogecoder](https://tsutaj.hatenablog.com/entry/2017/03/29/204841)
+  - [2017/3 遅延評価セグメント木をソラで書きたいあなたに \- hogecoder](https://tsutaj.hatenablog.com/entry/2017/03/30/224339)
 - AtCooderLibrary(ACL)のLazySegtreeについて
-  - [使い方 \- ARMERIA 2020/9/22](https://betrue12.hateblo.jp/entry/2020/09/22/194541)
-  - [チートシート \- ARMERIA 2020/9/23](https://betrue12.hateblo.jp/entry/2020/09/23/005940)
-  - [ACLPC: K–Range Affine Range Sumの解説 \|optのブログ 2020/9/27](https://opt-cp.com/cp/lazysegtree-aclpc-k/)
-  - [ACL 基礎実装例集 \- buyoh\.hateblo\.jp 2020/9/27](https://buyoh.hateblo.jp/entry/2020/09/27/190144)
+  - [2020/9/22 ARMERIA: 使い方](https://betrue12.hateblo.jp/entry/2020/09/22/194541)
+  - [2020/9/23 ARMERIA: チートシート](https://betrue12.hateblo.jp/entry/2020/09/23/005940)
+  - [2020/9/27 optのブログ: ACLPC: K–Range Affine Range Sumの解説](https://opt-cp.com/cp/lazysegtree-aclpc-k/)
+  - [2020/9/27 buyoh.hateblo.jp: ACL 基礎実装例集](https://buyoh.hateblo.jp/entry/2020/09/27/190144)
 
 ## 本家ライブラリとの違い
 

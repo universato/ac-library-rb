@@ -134,7 +134,9 @@ Segtree上で二分探索をします。
   - [本家ライブラリのテストコード segtree_test.cpp(GitHub)](https://github.com/atcoder/ac-library/blob/master/test/unittest/segtree_test.cpp)
   - [本家ライブラリのサンプルコード segtree_practice.cpp(GitHub)](https://github.com/atcoder/ac-library/blob/master/test/example/segtree_practice.cpp)
 - セグメントツリーについて
-  - [セグメント木をソラで書きたいあなたに \- hogecoder](https://tsutaj.hatenablog.com/entry/2017/03/29/204841)
+  - [2017/3 hogecoder: セグメント木をソラで書きたいあなたに](https://tsutaj.hatenablog.com/entry/2017/03/29/204841)
+  - [2017/12 ei1333の日記: ちょっと変わったセグメント木の使い方](https://ei1333.hateblo.jp/entry/2017/12/14/000000)
+    スライドが二分探索について詳しい
 
 ## 本家ライブラリとの違い等
 
