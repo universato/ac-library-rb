@@ -104,7 +104,7 @@ class MinCostFlow
   def slope(s, t, flow_limit = Float::MAX)
     flow = 0
     cost = 0
-    prev_cost = -1
+    prev_cost_per_flow = -1
     result = [[flow, cost]]
 
     while flow < flow_limit
@@ -129,9 +129,9 @@ class MinCostFlow
       d = -@dual[s]
       flow += c
       cost += c * d
-      result.pop if prev_cost == d
+      result.pop if prev_cost_per_flow == d
       result << [flow, cost]
-      prev_cost = d
+      prev_cost_per_flow = d
     end
 
     result
