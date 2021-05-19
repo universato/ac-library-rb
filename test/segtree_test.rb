@@ -10,10 +10,6 @@ class SegtreeNaive
     case arg
     when Integer
       @d = Array.new(arg) { e }
-    when Array
-      @d = arg
-    else
-      raise ArgumentError
     end
 
     @n = @d.size
@@ -38,7 +34,7 @@ class SegtreeNaive
   end
 
   def all_prod
-    prod(0, n)
+    prod(0, @n)
   end
 
   def max_right(l, &f)
@@ -65,15 +61,7 @@ class SegtreeTest < Minitest::Test
 
   def test_zero
     e = '$'
-    op = proc do |a, b|
-      if a == e
-        b
-      elsif b == e
-        a
-      else
-        a + b
-      end
-    end
+    op = ->{}
 
     s = Segtree.new(0, e, &op)
     assert_equal e, s.all_prod
@@ -120,6 +108,8 @@ class SegtreeTest < Minitest::Test
       seg0 = SegtreeNaive.new(n, '$', &op)
       seg1 = Segtree.new(n, '$', &op)
 
+      assert_equal seg0.all_prod, seg1.all_prod
+
       n.times do |i|
         s = ""
         s += ("a".ord + i).chr
@@ -127,11 +117,15 @@ class SegtreeTest < Minitest::Test
         seg1.set(i, s)
       end
 
+      (0...n).each do |i|
+        assert_equal seg0.get(i), seg1.get(i)
+      end
       0.upto(n) do |l|
         l.upto(n) do |r|
           assert_equal seg0.prod(l, r), seg1.prod(l, r), "prod test failed"
         end
       end
+      assert_equal seg0.all_prod, seg1.all_prod
 
       y = ''
       leq_y = proc{ |x| x.size <= y.size }
