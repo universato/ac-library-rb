@@ -268,6 +268,26 @@ class ModIntTest < Minitest::Test
     end
   end
 
+  def test_inc!
+    ModInt.set_mod(11)
+    m = ModInt(20)
+    assert_equal 9, m
+    assert_equal 10, m.inc!
+    assert_equal 10, m
+    assert_equal 0, m.inc!
+    assert_equal 0, m
+  end
+
+  def test_dec!
+    ModInt.set_mod(11)
+    m = ModInt(12)
+    assert_equal 1, m
+    assert_equal 0, m.dec!
+    assert_equal 0, m
+    assert_equal 10, m.dec!
+    assert_equal 10, m
+  end
+
   def test_to_i
     @mods.each do |mod|
       ModInt.mod = mod
