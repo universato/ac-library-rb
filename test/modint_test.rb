@@ -288,6 +288,12 @@ class ModIntTest < Minitest::Test
     assert_equal 10, m
   end
 
+  def test_unary_operator_plus
+    ModInt.set_mod(11)
+    m = ModInt(12)
+    assert m.equal?(+m)
+  end
+
   def test_to_i
     @mods.each do |mod|
       ModInt.mod = mod
