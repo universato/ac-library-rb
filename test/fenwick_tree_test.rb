@@ -53,4 +53,8 @@ class FenwickTreeTest < Minitest::Test
 
     assert_equal fwi.data, fwa.data
   end
+
+  def test_invalid_init
+    assert_raises(ArgumentError){ FenwickTree.new(:invalid_argument) }
+  end
 end
