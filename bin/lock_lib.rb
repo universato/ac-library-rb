@@ -17,6 +17,10 @@ Dir.glob(lib_path) do |file|
 end
 
 # copy library from `lib/core_ext` to `lib_lock/ac-library-rb/core_ext`
+ac_library_rb_classes = %w[ModInt]
+replaces = ac_library_rb_classes.to_h{ |cls| ["#{cls}.new", "AcLibraryRb::#{cls}.new"] }
+pattern = Regexp.new(replaces.keys.join('|'))
+
 lib_path = File.expand_path('../lib/core_ext/**', __dir__)
 lock_dir = File.expand_path('../lib_lock/ac-library-rb/core_ext', __dir__)
 Dir.glob(lib_path) do |file|
@@ -24,6 +28,6 @@ Dir.glob(lib_path) do |file|
 
   path = Pathname.new(lock_dir) + Pathname.new(file).basename
   File.open(path, "w") do |f|
-    f.puts File.readlines(file)
+    f.puts File.readlines(file).map{ |text| text.gsub(pattern, replaces) }
   end
 end
