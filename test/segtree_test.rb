@@ -192,6 +192,57 @@ class SegtreeTest < Minitest::Test
     assert_equal 0, seg.prod(4, 4)
   end
 
+  def test_max_right
+    a = [*0..6]
+    st = Segtree.new(a, 0){ |x, y| x + y }
+
+    # [0, 1, 2, 3,  4,  5,  6] i
+    # [0, 1, 3, 6, 10, 15, 21] prod(0, i)
+    # [t, t, t, f,  f,  f,  f] prod(0, i) < 5
+    assert_equal 3, st.max_right(0){ |x| x < 5 }
+
+    # [4, 5,  6] i
+    # [4, 9, 15] prod(4, i)
+    # [t, t,  t] prod(4, i) >= 4
+    assert_equal 7, st.max_right(4){ |x| x >= 4 }
+
+    # [3, 4,  5,  6] i
+    # [3, 7, 12, 18] prod(3, i)
+    # [f, f,  f,  f] prod(3) <= 2
+    assert_equal 3, st.max_right(3){ |x| x <= 2 }
+  end
+
+  def test_min_left
+    a = [1, 2, 3, 2, 1]
+    st = Segtree.new(a, -10**18){ |x, y| [x, y].max }
+
+    # [0, 1, 2, 3, 4] i
+    # [3, 3, 3, 2, 1] prod(i, 5)
+    # [f, f, f, f, f] prod(i, 5) < 1
+    assert_equal 5, st.min_left(5){ |v| v < 1 }
+
+    # [0, 1, 2, 3, 4] i
+    # [3, 3, 3, 2, 1] prod(i, 5)
+    # [f, f, f, f, t] prod(i, 5) < 2
+    assert_equal 4, st.min_left(5){ |v| v < 2 }
+
+    # [0, 1, 2, 3, 4] i
+    # [3, 3, 3, 2, 1] prod(i, 5)
+    assert_equal 5, st.min_left(5){ |v| v < 1 }
+    assert_equal 4, st.min_left(5){ |v| v < 2 }
+    assert_equal 3, st.min_left(5){ |v| v < 3 }
+    assert_equal 0, st.min_left(5){ |v| v < 4 }
+    assert_equal 0, st.min_left(5){ |v| v < 5 }
+
+    # [0, 1, 2, 3] i
+    # [3, 3, 3, 2] prod(i, 4)
+    assert_equal 4, st.min_left(4){ |v| v < 1 }
+    assert_equal 4, st.min_left(4){ |v| v < 2 }
+    assert_equal 3, st.min_left(4){ |v| v < 3 }
+    assert_equal 0, st.min_left(4){ |v| v < 4 }
+    assert_equal 0, st.min_left(4){ |v| v < 5 }
+  end
+
   # AtCoder ABC185 F - Range Xor Query
   # https://atcoder.jp/contests/abc185/tasks/abc185_f
   def test_xor_abc185f
