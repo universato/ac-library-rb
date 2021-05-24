@@ -114,4 +114,21 @@ class UnionFindTest < Minitest::Test
     uft = UnionFind.new(2)
     assert_equal 0, uft.merge(0, 1)
   end
+
+  def test_edge_cases_error
+    assert_raises(ArgumentError){ UnionFind.new(-1) }
+
+    n = 2
+    uft = UnionFind.new(n)
+    uft.unite(0, n - 1)
+    assert uft.same?(0, n - 1)
+    assert_equal 0, uft.leader(0)
+    assert_equal 2, uft.size(0)
+    assert_raises(ArgumentError){ uft.merge(1, n) }
+    assert_raises(ArgumentError){ uft.merge(n, 1) }
+    assert_raises(ArgumentError){ uft.same?(1, n) }
+    assert_raises(ArgumentError){ uft.same?(n, 1) }
+    assert_raises(ArgumentError){ uft.leader(n) }
+    assert_raises(ArgumentError){ uft.size(n) }
+  end
 end
