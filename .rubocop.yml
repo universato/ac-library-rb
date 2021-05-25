@@ -121,6 +121,9 @@ Style/BlockDelimiters:
     - 'test/z_algorithm_test.rb'
 Style/Documentation:
   Enabled: false
+tyle/EmptyElse:
+  Exclude:
+    - 'test/segtree_test.rb'
 Style/GlobalVars:
   AutoCorrect: false
   Exclude:

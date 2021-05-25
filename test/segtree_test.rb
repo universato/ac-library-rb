@@ -61,7 +61,7 @@ class SegtreeTest < Minitest::Test
 
   def test_zero
     e = '$'
-    op = ->{}
+    op = ->{} # This is unused if Segtree size is 0.
 
     s = Segtree.new(0, e, &op)
     assert_equal e, s.all_prod
@@ -78,7 +78,7 @@ class SegtreeTest < Minitest::Test
       elsif b == e
         a
       else
-        a + b
+        # a + b  # This is unused if Segtree size is 1.
       end
     end
     s = Segtree.new(1, e, &op)
