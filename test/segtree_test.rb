@@ -150,12 +150,12 @@ class SegtreeTest < Minitest::Test
   def test_atcoder_library_practice_contest
     a = [1, 2, 3, 2, 1]
     st = Segtree.new(a, -INF) { |x, y| [x, y].max }
-    assert_equal 3, st.prod(1 - 1, 5) #[0, 5)
+    assert_equal 3, st.prod(1 - 1, 5) # [0, 5)
     assert_equal 3, st.max_right(2 - 1) { |v| v < 3 } + 1
     st.set(3 - 1, 1)
     assert_equal 2, st.get(1)
     assert_equal 2, st.all_prod
-    assert_equal 2, st.prod(2 - 1, 4) #[1, 4)
+    assert_equal 2, st.prod(2 - 1, 4) # [1, 4)
     assert_equal 6, st.max_right(1 - 1) { |v| v < 3 } + 1
   end
 
@@ -165,7 +165,7 @@ class SegtreeTest < Minitest::Test
     n = 5
     a = [1, 2, 3, 2, 1].reverse
     st = Segtree.new(a, -INF) { |x, y| [x, y].max }
-    assert_equal 3, st.prod(n - 5, n - 1 + 1) #[0, 5)
+    assert_equal 3, st.prod(n - 5, n - 1 + 1) # [0, 5)
     # [0, 1, 2, 3] i
     # [1, 2, 3, 2] a[i]
     # [3, 3, 3, 2] prod(i, 5)
@@ -173,7 +173,7 @@ class SegtreeTest < Minitest::Test
     st.set(n - 3, 1)
     assert_equal 2, st.get(n - 1 - 1)
     assert_equal 2, st.all_prod
-    assert_equal 2, st.prod(n - 4, n - 2 + 1) #[1, 4)
+    assert_equal 2, st.prod(n - 4, n - 2 + 1) # [1, 4)
     assert_equal 6, n - st.min_left(n - 1) { |v| v < 3 } + 1
   end
 
