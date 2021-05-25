@@ -128,7 +128,7 @@ module AcLibraryRb
       @d[k] = @op.call(@d[2 * k], @d[2 * k + 1])
     end
 
-    # def inspect
+    # def inspect # for debug
     #   t = 0
     #   res = "SegmentTree @e = #{@e}, @n = #{@n}, @leaf_size = #{@leaf_size} @op = #{@op}\n  "
     #   a = @d[1, @d.size - 1]
