@@ -127,19 +127,19 @@ class Segtree
     @d[k] = @op.call(@d[2 * k], @d[2 * k + 1])
   end
 
-  def inspect
-    t = 0
-    res = "SegmentTree @e = #{@e}, @n = #{@n}, @leaf_size = #{@leaf_size} @op = #{@op}\n  "
-    a = @d[1, @d.size - 1]
-    a.each_with_index do |e, i|
-      res << e.to_s << ' '
-      if t == i && i < @leaf_size
-        res << "\n  "
-        t = t * 2 + 2
-      end
-    end
-    res
-  end
+  # def inspect # for debug
+  #   t = 0
+  #   res = "SegmentTree @e = #{@e}, @n = #{@n}, @leaf_size = #{@leaf_size} @op = #{@op}\n  "
+  #   a = @d[1, @d.size - 1]
+  #   a.each_with_index do |e, i|
+  #     res << e.to_s << ' '
+  #     if t == i && i < @leaf_size
+  #       res << "\n  "
+  #       t = t * 2 + 2
+  #     end
+  #   end
+  #   res
+  # end
 end
 
 SegTree     = Segtree
