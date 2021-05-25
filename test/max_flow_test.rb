@@ -129,7 +129,8 @@ class MaxFlowTest < Minitest::Test
     assert_equal [0, 0, 100, 0], g.edge(0)
   end
 
-  def test_aizu_grl6
+  # https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/6/GRL_6_A
+  def test_aizu_grl6_a
     g = MaxFlow.new(5)
     assert_equal 0, g.add_edge(0, 1, 2)
     assert_equal 1, g.add_edge(0, 2, 1)
@@ -149,5 +150,16 @@ class MaxFlowTest < Minitest::Test
     assert_equal 5, g.add_edge(3, 2, 3)
     assert_equal 6, g.add_edge(3, 4, 8)
     assert_equal 11, g.max_flow(0, 4)
+  end
+
+  # https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/6/GRL_6_A
+  def test_push
+    g = MaxFlow.new(5)
+    assert_equal 0, g << [0, 1, 2]
+    assert_equal 1, g << [0, 2, 1]
+    assert_equal 2, g << [1, 2, 1]
+    assert_equal 3, g << [1, 3, 1]
+    assert_equal 4, g << [2, 3, 2]
+    assert_equal 3, g.max_flow(0, 4 - 1)
   end
 end
