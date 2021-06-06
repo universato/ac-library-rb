@@ -1,5 +1,5 @@
 # Strongly Connected Components
-class SCCGraph
+class SCC
   # initialize graph with n vertices
   def initialize(n = 0)
     @n, @edges = n, []
@@ -10,6 +10,7 @@ class SCCGraph
     raise "invalid params" unless (0...@n).include? from and (0...@n).include? to
 
     @edges << [from, to]
+    self
   end
 
   # returns list of strongly connected components
@@ -17,10 +18,8 @@ class SCCGraph
   # O(@n + @edges.size)
   def scc
     group_num, ids = scc_ids
-    counts = [0] * group_num
-    ids.each { |x| counts[x] += 1 }
     groups = Array.new(group_num) { [] }
-    ids.each_with_index { |x, i| groups[x] << i }
+    ids.each_with_index { |id, i| groups[id] << i }
     groups
   end
 
@@ -72,6 +71,6 @@ class SCCGraph
 end
 
 # class alias
-StronglyConnectedComponents = SCCGraph
-SCC  = SCCGraph
-SCCG = SCCGraph
+StronglyConnectedComponents = SCC
+SCCGraph = SCC
+SCCG = SCC
