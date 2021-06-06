@@ -38,19 +38,19 @@ class SegtreeNaive
   end
 
   def max_right(l, &f)
-    res = @e
+    sum = @e
     (l ... @n).each do |i|
-      res = @op.call(res, @d[i])
-      return i unless f.call(res)
+      sum = @op.call(sum, @d[i])
+      return i unless f.call(sum)
     end
     @n
   end
 
   def min_left(r, &f)
-    res = @e
+    sum = @e
     (r - 1).downto(0) do |i|
-      res = @op.call(@d[i], res)
-      return i + 1 unless f.call(res)
+      sum = @op.call(@d[i], sum)
+      return i + 1 unless f.call(sum)
     end
     0
   end
@@ -221,8 +221,8 @@ class SegtreeTest < Minitest::Test
 
     # [4, 5,  6] i
     # [4, 9, 15] prod(4, i)
-    # [t, t,  t] prod(4, i) >= 4
-    assert_equal 7, st.max_right(4){ |x| x >= 4 }
+    # [t, f,  f] prod(4, i) >= 4
+    assert_equal 5, st.max_right(4){ |x| x <= 4 }
 
     # [3, 4,  5,  6] i
     # [3, 7, 12, 18] prod(3, i)
