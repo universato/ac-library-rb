@@ -104,15 +104,22 @@ It returns `op(a[0], ..., a[n - 1])`.
 seg.max_right(l, &f)
 ```
 
+It applies binary search on the segment tree.
+
+It returns an index `r` that satisfies both of the following.
+
+- `r = l` or `f(prod(l, r)) = true`
+- `r = n` or `f(prod(l, r + 1)) = false`
+
+
 **Constraints**
 
+- `f(e) = true`
 - `0 ≦ l ≦ n`
 
 **Complexity**
 
 - `O(log n)`
-
-It applies binary search on the segment tree.
 
 ### min_left(r, &f) -> Integer
 
@@ -120,10 +127,15 @@ It applies binary search on the segment tree.
 seg.min_left(r, &f)
 ```
 
-It applies binary search on the segment tree.
+It applies binary search on the segment tree.   
+It returns an index l that satisfies both of the following.
+
+- `l = r` or `f(prod(l, r)) = true`
+- `l = 0` or `f(prod(l - 1, r)) = false`
 
 **Constraints**
 
+- `f(e) = true`
 - `0 ≦ r ≦ n`
 
 **Complexity**
@@ -133,6 +145,8 @@ It applies binary search on the segment tree.
 ## Verified
 
 - [ALPC: J \- Segment Tree](https://atcoder.jp/contests/practice2/tasks/practice2_j)
+  - [AC Code(884ms) max_right](https://atcoder.jp/contests/practice2/submissions/23196480)
+  - [AC Code(914ms) min_left](https://atcoder.jp/contests/practice2/submissions/23197311)
 - [F \- Range Xor Query](https://atcoder.jp/contests/abc185/tasks/abc185_f)
   - [AC Code(1538ms)](https://atcoder.jp/contests/abc185/submissions/18746817): Segtree(xor)
   - [AC Code(821ms)](https://atcoder.jp/contests/abc185/submissions/18769200): FenwickTree(BIT) xor

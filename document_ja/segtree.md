@@ -94,11 +94,24 @@ seg.all_prod
 seg.max_right(l, &f)
 ```
 
-Segtree上で二分探索をします。
+Segtree上で`l <= r <= n`の範囲で、`f(prod(l, r))`の結果を二分探索をして条件に当てはまる`r`を返します。
 
-**制約**  `0 ≦ l ≦ n`
+以下の条件を両方満たす `r` (`l <= r <= n`)を(いずれか一つ)返します。
 
-**計算量** `O(log n)`
+- `r = l` もしくは `f(prod(l, r))`が`true`となる`r`
+- `r = n` もしくは `f(prod(l, r + 1))`が`false`となる`r`
+
+`prod(l, r)`は半開区間`[l, r)`であることに注意。
+
+**制約**
+
+- `f`を同じ引数で呼んだとき、返り値は同じ。
+- `f(e)`が`true`
+- `0 ≦ l ≦ n`
+
+**計算量** 
+
+- `O(log n)`
 
 ### min_left(r, &f) -> Integer
 
@@ -106,15 +119,30 @@ Segtree上で二分探索をします。
 seg.min_left(r, &f)
 ```
 
-Segtree上で二分探索をします。
+Segtree上で`0 <= l <= r`の範囲で、`f(prod(l, r))`の結果を二分探索をして条件に当てはまる`l`を返します。
 
-**制約**  `0 ≦ r ≦ n`
+以下の条件を両方満たす `l` (`0 <= l <= r`)を(いずれか一つ)返します。
 
-**計算量** `O(log n)`
+- `l = r` もしくは `f(prod(l, r))`が`true`となる`l`
+- `l = 0` もしくは `f(prod(l - 1, r))`が`false`となる`l`
+
+`prod(l, r)`は半開区間`[l, r)`であることに注意。
+
+**制約**
+
+- `f`を同じ引数で呼んだとき、返り値は同じ。
+- `f(e)`が`true`
+- `0 ≦ l ≦ n`
+
+**計算量**
+
+- `O(log n)`
 
 ## Verified
 
 - [ALPC: J \- Segment Tree](https://atcoder.jp/contests/practice2/tasks/practice2_j)
+  - [AC Code(884ms) max_right](https://atcoder.jp/contests/practice2/submissions/23196480)
+  - [AC Code(914ms) min_left](https://atcoder.jp/contests/practice2/submissions/23197311)
 
 - [ABC185: F \- Range Xor Query](https://atcoder.jp/contests/abc185/tasks/abc185_f)
   - xorのセグメントツリーの基本的な典型問題です。FenwickTree(BIT)をxorに改造するだけでも解けます。
