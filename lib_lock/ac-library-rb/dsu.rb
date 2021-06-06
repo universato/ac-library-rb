@@ -11,9 +11,6 @@ module AcLibraryRb
     attr_accessor :parent_or_size
 
     def merge(a, b)
-      raise ArgumentError if a < 0 || @n <= a
-      raise ArgumentError if b < 0 || @n <= b
-
       x = leader(a)
       y = leader(b)
       return x if x == y
@@ -25,15 +22,14 @@ module AcLibraryRb
     alias unite merge
 
     def same(a, b)
-      raise ArgumentError if a < 0 || @n <= a
-      raise ArgumentError if b < 0 || @n <= b
-
       leader(a) == leader(b)
     end
     alias same? same
 
     def leader(a)
-      raise ArgumentError if a < 0 || @n <= a
+      unless 0 <= a && a < @n
+        raise ArgumentError.new, "#{a} is out of range 0 <= arg < size"
+      end
 
       @parent_or_size[a] < 0 ? a : (@parent_or_size[a] = leader(@parent_or_size[a]))
     end
@@ -41,8 +37,6 @@ module AcLibraryRb
     alias find leader
 
     def size(a)
-      raise ArgumentError if a < 0 || @n <= a
-
       -@parent_or_size[leader(a)]
     end
 
