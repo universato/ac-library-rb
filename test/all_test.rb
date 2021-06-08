@@ -1,3 +1,6 @@
+require 'simplecov'
+SimpleCov.start
+
 require_relative 'convolution_test'
 require_relative 'crt_test'
 require_relative 'dsu_test'
