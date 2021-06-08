@@ -5,16 +5,16 @@ require 'minitest/autorun'
 
 require_relative '../lib/scc.rb'
 
-class SCCGraphTest < Minitest::Test
+class SCCTest < Minitest::Test
   def test_empty
-    graph0 = SCCGraph.new
+    graph0 = SCC.new
     assert_equal [], graph0.scc
-    graph1 = SCCGraph.new(0)
+    graph1 = SCC.new(0)
     assert_equal [], graph1.scc
   end
 
   def test_simple
-    graph = SCCGraph.new(2)
+    graph = SCC.new(2)
     graph.add_edge(0, 1)
     graph.add_edge(1, 0)
     scc = graph.scc
@@ -22,7 +22,7 @@ class SCCGraphTest < Minitest::Test
   end
 
   def test_self_loop
-    graph = SCCGraph.new(2)
+    graph = SCC.new(2)
     graph.add_edge(0, 0)
     graph.add_edge(0, 0)
     graph.add_edge(1, 1)
@@ -31,7 +31,7 @@ class SCCGraphTest < Minitest::Test
   end
 
   def test_practice
-    graph = SCCGraph.new(6)
+    graph = SCC.new(6)
     edges = [[1, 4], [5, 2], [3, 0], [5, 5], [4, 1], [0, 3], [4, 2]]
     edges.each { |x, y| graph.add_edge(x, y) }
     groups = graph.scc
