@@ -45,7 +45,6 @@ module AcLibraryRb
     alias left_sum _sum
   end
 
-  FeTree            = FenwickTree
-  Fetree            = FenwickTree
-  BinaryIndexedTree = FenwickTree
+  FeTree = FenwickTree
+  Fetree = FenwickTree
 end
