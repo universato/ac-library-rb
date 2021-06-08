@@ -64,8 +64,6 @@ class TwoSATTest < Minitest::Test
   end
 
   def test_alias_satisfiable?
-    assert_raises(ArgumentError){ TwoSAT.new }
-
     ts1 = TwoSAT.new(0)
     assert_equal true, ts1.satisfiable?
     assert_equal [], ts1.answer
