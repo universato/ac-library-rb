@@ -7,8 +7,8 @@ require_relative '../lib/scc.rb'
 
 class SCCTest < Minitest::Test
   def test_empty
-    graph0 = SCC.new
-    assert_equal [], graph0.scc
+    assert_raises(ArgumentError){ SCC.new }
+
     graph1 = SCC.new(0)
     assert_equal [], graph1.scc
   end

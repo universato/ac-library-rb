@@ -162,4 +162,8 @@ class MaxFlowTest < Minitest::Test
     assert_equal 4, g << [2, 3, 2]
     assert_equal 3, g.max_flow(0, 4 - 1)
   end
+
+  def test_constructor_error
+    assert_raises(ArgumentError){ MaxFlow.new }
+  end
 end

@@ -1,7 +1,7 @@
 # Strongly Connected Components
 class SCC
   # initialize graph with n vertices
-  def initialize(n = 0)
+  def initialize(n)
     @n, @edges = n, []
   end
 

@@ -1,7 +1,7 @@
 module AcLibraryRb
   # MaxFlowGraph
   class MaxFlow
-    def initialize(n = 0)
+    def initialize(n)
       @n   = n
       @pos = []
       @g   = Array.new(n) { [] }

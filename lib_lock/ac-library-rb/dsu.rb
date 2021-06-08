@@ -1,7 +1,7 @@
 module AcLibraryRb
   # Disjoint Set Union
   class DSU
-    def initialize(n = 0)
+    def initialize(n)
       @n = n
       @parent_or_size = Array.new(n, -1)
       # root node: -1 * component size

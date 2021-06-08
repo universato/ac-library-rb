@@ -3,7 +3,7 @@ module AcLibraryRb
   class FenwickTree
     attr_reader :data, :size
 
-    def initialize(arg = 0)
+    def initialize(arg = nil)
       case arg
       when Array
         @size = arg.size
@@ -18,7 +18,7 @@ module AcLibraryRb
         @size = arg
         @data = Array.new(@size + 1, 0)
       else
-        raise ArgumentError
+        raise ArgumentError.new("wrong argument. type is Array or Integer")
       end
     end
 

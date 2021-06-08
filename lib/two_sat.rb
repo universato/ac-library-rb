@@ -3,7 +3,7 @@ require_relative './scc.rb'
 # TwoSAT
 # Reference: https://github.com/atcoder/ac-library/blob/master/atcoder/twosat.hpp
 class TwoSAT
-  def initialize(n = 0)
+  def initialize(n)
     @n = n
     @answer = Array.new(n)
     @scc = SCCGraph.new(2 * n)

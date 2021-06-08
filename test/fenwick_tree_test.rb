@@ -19,8 +19,7 @@ class FenwickTreeTest < Minitest::Test
   end
 
   def test_empty
-    fw = FenwickTree.new
-    assert_equal 0, fw.sum(0, 0)
+    assert_raises(ArgumentError){ FenwickTree.new }
   end
 
   def test_zero

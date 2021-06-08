@@ -12,8 +12,7 @@ class UnionFindTest < Minitest::Test
   end
 
   def test_empty
-    uf = DSU.new
-    assert_equal [], uf.groups
+    assert_raises(ArgumentError){ DSU.new }
   end
 
   def test_simple
