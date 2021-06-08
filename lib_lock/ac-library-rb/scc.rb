@@ -9,7 +9,8 @@ module AcLibraryRb
     # add directed edge
     def add_edge(from, to)
       unless 0 <= from && from < @n and 0 <= to && to < @n
-        raise ArgumentError.new("Invalid params: from: #{from} and to: #{to} must be in 0...#{@n}")
+        msg = "Wrong params: from=#{from} and to=#{to} must be in 0...#{@n}"
+        raise ArgumentError.new(msg)
       end
 
       @edges << [from, to]
@@ -72,9 +73,4 @@ module AcLibraryRb
       [start, elist]
     end
   end
-
-  # class alias
-  StronglyConnectedComponents = SCC
-  SCCGraph = SCC
-  SCCG = SCC
 end

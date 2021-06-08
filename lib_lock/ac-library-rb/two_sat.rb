@@ -7,7 +7,7 @@ module AcLibraryRb
     def initialize(n)
       @n = n
       @answer = Array.new(n)
-      @scc = SCCGraph.new(2 * n)
+      @scc = SCC.new(2 * n)
     end
 
     attr_reader :answer
