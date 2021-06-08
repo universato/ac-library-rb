@@ -8,7 +8,7 @@ module AcLibraryRb
       # otherwise: parent
     end
 
-    attr_accessor :parent_or_size
+    attr_reader :parent_or_size, :n
 
     def merge(a, b)
       x = leader(a)
