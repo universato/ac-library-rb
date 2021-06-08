@@ -42,4 +42,9 @@ class SCCTest < Minitest::Test
     assert_equal [2],         groups[2]
     assert_equal [3, 0].sort, groups[3].sort
   end
+
+  def test_error
+    graph = SCC.new(2)
+    assert_raises(ArgumentError){ graph.add_edge(0, 2) }
+  end
 end
