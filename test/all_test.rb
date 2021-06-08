@@ -1,5 +1,6 @@
-require 'simplecov'
-SimpleCov.start
+if Object.const_defined?(:SimpleCov)
+  SimpleCov.start
+end
 
 require_relative 'convolution_test'
 require_relative 'crt_test'
