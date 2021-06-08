@@ -13,7 +13,9 @@ module AcLibraryRb
     attr_reader :answer
 
     def add_clause(i, f, j, g)
-      raise RangeError unless (0...@n).cover?(i) && (0...@n).cover?(j)
+      unless 0 <= i && i < @n and 0 <= j && j < @n
+        raise RangeError.new
+      end
 
       @scc.add_edge(2 * i + (f ? 0 : 1), 2 * j + (g ? 1 : 0))
       @scc.add_edge(2 * j + (g ? 0 : 1), 2 * i + (f ? 1 : 0))
