@@ -56,4 +56,23 @@ class FenwickTreeTest < Minitest::Test
   def test_invalid_init
     assert_raises(ArgumentError){ FenwickTree.new(:invalid_argument) }
   end
+
+  def test_experimental_sum
+    a = [1, 2, 3, 4, 5]
+
+    ft = FenwickTree.new(a)
+    assert_equal 15, ft.sum(0...5)
+    assert_equal 15, ft.sum(0..4)
+    assert_equal 15, ft.sum(0..)
+    assert_equal 15, ft.sum(0..-1)
+    assert_equal 10, ft.sum(0...-1)
+    assert_equal 7, ft.sum(2...4)
+    assert_equal 7, ft.sum(2..3)
+
+    ft.add(3, 10)
+    assert_equal 25, ft.sum(0...5)
+    assert_equal 25, ft.sum(0..4)
+    assert_equal 25, ft.sum(5)
+    assert_equal 6, ft.sum(3)
+  end
 end

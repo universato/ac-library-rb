@@ -49,7 +49,18 @@ class LazySegtree
   end
   alias [] get
 
-  def prod(l, r)
+  def prod(l, r = nil)
+    if r.nil? # if 1st argument l is Range
+      if r = l.end
+        r += @n if r < 0
+        r += 1 unless l.exclude_end?
+      else
+        r = @n
+      end
+      l = l.begin
+      l += @n if l < 0
+    end
+
     return @e if l == r
 
     l += @size
@@ -83,9 +94,22 @@ class LazySegtree
   end
 
   # apply(pos, f)
-  # apply(l, r, f) -> range_apply(l, r, f)
+  # apply(l, r, f)  -> range_apply(l, r, f)
+  # apply(l...r, f) -> range_apply(l, r, f)  ... [Experimental]
   def apply(pos, f, fr = nil)
-    return range_apply(pos, f, fr) if fr
+    if fr
+      return range_apply(pos, f, fr)
+    elsif pos.is_a?(Range)
+      l = pos.begin
+      l += @n if l < 0
+      if r = pos.end
+        r += @n if r < 0
+        r += 1 unless pos.exclude_end?
+      else
+        r = @n
+      end
+      return range_apply(l, r, f)
+    end
 
     pos += @size
     @log.downto(1) { |i| push(pos >> i) }

@@ -38,7 +38,18 @@ module AcLibraryRb
     end
     alias [] get
 
-    def prod(l, r)
+    def prod(l, r = nil)
+      if r.nil? # if 1st argument l is Range
+        if r = l.end
+          r += @n if r < 0
+          r += 1 unless l.exclude_end?
+        else
+          r = @n
+        end
+        l = l.begin
+        l += @n if l < 0
+      end
+
       return @e if l == r
 
       sml = @e

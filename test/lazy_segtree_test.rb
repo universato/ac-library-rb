@@ -281,4 +281,33 @@ class LazySegtreeTest < Minitest::Test
     assert_equal 1, seg.prod(3, 4 + 1)
     assert_equal -1, seg.prod(0, 5 + 1)
   end
+
+  # [Experimental]
+  def test_range_prod
+    vector = [0] * 6
+    op = ->(x, y){ [x, y].min }
+    e = 1_000_000_000
+    mapping = ->(f, x){ f + x }
+    composition = ->(f, g) { f + g }
+    id = 0
+    seg = LazySegtree.new(vector, op, e, mapping, composition, id)
+
+    seg.apply(1..3, 1)
+    seg.apply(2..4, -2)
+    assert_equal -2, seg.prod(0..5)
+    assert_equal -2, seg.prod(0...6)
+    assert_equal -2, seg.prod(0..-1)
+    assert_equal -2, seg.prod(0..)
+    assert_equal -2, seg.prod(0...)
+    assert_equal 0, seg.prod(0..1)
+    assert_equal 0, seg.prod(0...2)
+    seg.apply(3..5, 3)
+    assert_equal 1, seg.prod(3..4)
+    assert_equal -1, seg.prod(0..5)
+    assert_equal -1, seg.prod(0...6)
+    seg.apply(0.., 10)
+    assert_equal 11, seg.prod(3..4)
+    assert_equal 9, seg.prod(0..5)
+    assert_equal 9, seg.prod(0...6)
+  end
 end

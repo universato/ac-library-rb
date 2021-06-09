@@ -206,6 +206,28 @@ class SegtreeTest < Minitest::Test
     assert_equal 0, seg.prod(4, 4)
   end
 
+  # [Experimental]
+  def test_experimental_range_prod
+    a = (1..10).to_a
+    seg = Segtree.new(a, 0){ |x, y| x + y }
+
+    assert_equal 55, seg.prod(0...10)
+    assert_equal 54, seg.prod(1...10)
+    assert_equal 45, seg.prod(0...9)
+    assert_equal 10, seg.prod(0...4)
+    assert_equal 15, seg.prod(3...6)
+
+    assert_equal 55, seg.prod(0..9)
+    assert_equal 54, seg.prod(1..9)
+    assert_equal 54, seg.prod(1..)
+    assert_equal 54, seg.prod(1...)
+    assert_equal 54, seg.prod(1..-1)
+    assert_equal 45, seg.prod(0..8)
+    assert_equal 45, seg.prod(-10..-2)
+    assert_equal 10, seg.prod(0..3)
+    assert_equal 15, seg.prod(3..5)
+  end
+
   def test_max_right
     a = [*0..6]
     st = Segtree.new(a, 0){ |x, y| x + y }

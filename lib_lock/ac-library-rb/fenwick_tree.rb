@@ -30,8 +30,25 @@ module AcLibraryRb
       end
     end
 
-    def sum(l, r)
-      _sum(r) - _sum(l)
+    # .sum(l, r)  # [l, r)  <- Original
+    # .sum(r)     # [0, r)  <- [Experimental]
+    # .sum(l..r)  # [l, r]  <- [Experimental]
+    def sum(a, b = nil)
+      if b
+        _sum(b) - _sum(a)
+      elsif a.is_a?(Range)
+        l = a.begin
+        l += @size if l < 0
+        if r = a.end
+          r += @size if r < 0
+          r += 1 unless a.exclude_end?
+        else
+          r = @size
+        end
+        _sum(r) - _sum(l)
+      else
+        _sum(a)
+      end
     end
 
     def _sum(i)
