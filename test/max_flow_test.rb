@@ -7,7 +7,7 @@ require_relative '../lib/max_flow.rb'
 
 class MaxFlowTest < Minitest::Test
   def test_simple
-    g = MaxFlowGraph.new(4)
+    g = MaxFlow.new(4)
     assert_equal 0, g.add_edge(0, 1, 1)
     assert_equal 1, g.add_edge(0, 2, 1)
     assert_equal 2, g.add_edge(1, 3, 1)
@@ -33,7 +33,7 @@ class MaxFlowTest < Minitest::Test
   end
 
   def test_not_simple
-    g = MaxFlowGraph.new(2)
+    g = MaxFlow.new(2)
     assert_equal 0, g.add_edge(0, 1, 1)
     assert_equal 1, g.add_edge(0, 1, 2)
     assert_equal 2, g.add_edge(0, 1, 3)
@@ -53,7 +53,7 @@ class MaxFlowTest < Minitest::Test
   end
 
   def test_cut
-    g = MaxFlowGraph.new(3)
+    g = MaxFlow.new(3)
     assert_equal 0, g.add_edge(0, 1, 2)
     assert_equal 1, g.add_edge(1, 2, 1)
 
@@ -65,7 +65,7 @@ class MaxFlowTest < Minitest::Test
   end
 
   def test_twice
-    g = MaxFlowGraph.new(3)
+    g = MaxFlow.new(3)
     assert_equal 0, g.add_edge(0, 1, 1)
     assert_equal 1, g.add_edge(0, 2, 1)
     assert_equal 2, g.add_edge(1, 2, 1)
@@ -124,7 +124,7 @@ class MaxFlowTest < Minitest::Test
   # https://github.com/atcoder/ac-library/issues/1
   # https://twitter.com/Mi_Sawa/status/1303170874938331137
   def test_self_loop
-    g = MaxFlowGraph.new(3)
+    g = MaxFlow.new(3)
     assert_equal 0, g.add_edge(0, 0, 100)
     assert_equal [0, 0, 100, 0], g.edge(0)
   end

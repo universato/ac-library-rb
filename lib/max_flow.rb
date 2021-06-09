@@ -132,6 +132,3 @@ class MaxFlow
     res
   end
 end
-
-MaxFlowGraph = MaxFlow
-MFGraph      = MaxFlow

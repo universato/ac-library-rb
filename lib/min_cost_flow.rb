@@ -138,6 +138,3 @@ class MinCostFlow
   end
   alias min_cost_slop slope
 end
-
-MCF      = MinCostFlow
-MCFGraph = MinCostFlow

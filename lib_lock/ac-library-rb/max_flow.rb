@@ -133,7 +133,4 @@ module AcLibraryRb
       res
     end
   end
-
-  MaxFlowGraph = MaxFlow
-  MFGraph      = MaxFlow
 end
