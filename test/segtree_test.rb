@@ -66,8 +66,7 @@ class SegtreeTest < Minitest::Test
     s = Segtree.new(0, e, &op)
     assert_equal e, s.all_prod
 
-    s = Segtree.new(e, &op)
-    assert_equal e, s.all_prod
+    assert_raises(ArgumentError){ Segtree.new(e, &op) }
   end
 
   def test_one
