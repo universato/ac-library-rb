@@ -4,7 +4,7 @@
 
 ## 特異メソッド
 
-### new(n = 0) -> MinCostFlow
+### new(n) -> MinCostFlow
 
 ```ruby
 graph = MinCostFlow.new(10)

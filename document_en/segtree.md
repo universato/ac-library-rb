@@ -4,7 +4,8 @@ Segment Tree
 
 ## Class Methods
 
-### new(n, e, &op) -> Segtree
+### new(n, e){ |x, y| ... } -> Segtree
+### new(n, op, e) -> Segtree
 
 ```rb
 seg = Segtree.new(n, e) { |x, y| ... }
@@ -15,7 +16,9 @@ It creates an array `a` of length `n`. All the elements are initialized to `e`.
 - `block`: returns `op(x, y)`
 - `e`: identity element.
 
-### new(ary, e, &op) -> Segtree
+
+### new(ary, e){ |x, y| ... } -> Segtree
+### new(ary, op, e) -> Segtree
 
 ```rb
 seg = Segtree.new(ary, e) { |x, y| ... }

@@ -30,7 +30,7 @@ p d.size(2)     # => 2
 
 ## 特異メソッド
 
-### new(n = 0) -> DSU
+### new(n) -> DSU
 
 ```rb
 d = DSU.new(n)

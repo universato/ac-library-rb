@@ -15,7 +15,7 @@
 
 ## 特異メソッド
 
-### new(n = 0) -> TwoSAT
+### new(n) -> TwoSAT
 
 ```ruby
 ts = TwoSAT.new(n)

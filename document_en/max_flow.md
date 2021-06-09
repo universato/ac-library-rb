@@ -5,7 +5,7 @@ Library for solving [Maximum flow problem](https://en.wikipedia.org/wiki/Maximum
 
 ## Class Methods.
 
-### new(n = 0) -> MaxFlow
+### new(n) -> MaxFlow
 
 ```ruby
 graph = Maxflow.new(10)

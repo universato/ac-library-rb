@@ -17,7 +17,7 @@ it decides whether there is a truth assignment that satisfies all clauses.
 
 ## Class Methods
 
-### new(n = 0) -> TwoSAT
+### new(n) -> TwoSAT
 
 ```ruby
 ts = TwoSAT.new(n)

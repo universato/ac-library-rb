@@ -4,7 +4,8 @@
 
 ## 特異メソッド
 
-### new(arg, e, &op) -> Segtree
+### new(arg, e){ |x, y| ... } -> Segtree
+### new(arg, op, e) -> Segtree
 
 ```rb
 seg = Segtree.new(arg, e) { |x, y| ... }

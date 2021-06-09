@@ -27,7 +27,7 @@ p d.size(2)     # => 2
 
 ## Class Method
 
-### new(n = 0) -> DSU
+### new(n) -> DSU
 
 ```rb
 d = DSU.new(n)

@@ -6,7 +6,7 @@ Strongly Connected Components
 
 ## 特異メソッド
 
-### new(n = 0) -> SCC
+### new(n) -> SCC
 
 ```ruby
 graph = SCC.new(6)

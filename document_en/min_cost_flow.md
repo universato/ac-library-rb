@@ -4,7 +4,7 @@ It solves [Minimum\-cost flow problem](https://en.wikipedia.org/wiki/Minimum-cos
 
 ## Class Methods.
 
-### new(n = 0) -> MinCostFlow
+### new(n) -> MinCostFlow
 
 ```ruby
 graph = MinCostFlow.new(10)

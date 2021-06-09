@@ -4,7 +4,7 @@
 
 ## 特異メソッド
 
-### new(n = 0) -> MaxFlow
+### new(n) -> MaxFlow
 
 ```ruby
 graph = Maxflow.new(10)
