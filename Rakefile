@@ -3,7 +3,6 @@ require "rake/testtask"
 
 Rake::TestTask.new(:test) do |t|
   require_relative "./bin/lock_lib.rb" # for copy
-  require 'simplecov'
   t.warning = false
   t.libs << "test"
   t.libs << "lib"

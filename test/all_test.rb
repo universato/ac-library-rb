@@ -1,5 +1,7 @@
-if Object.const_defined?(:SimpleCov)
+begin
+  require 'simplecov'
   SimpleCov.start
+rescue LoadError
 end
 
 require_relative 'convolution_test'
