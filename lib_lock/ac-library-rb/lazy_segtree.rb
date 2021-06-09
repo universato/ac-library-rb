@@ -219,4 +219,7 @@ module AcLibraryRb
       @lz[k] = @id
     end
   end
+
+  LazySegTree = LazySegtree
+  LazySegmentTree = LazySegtree
 end
