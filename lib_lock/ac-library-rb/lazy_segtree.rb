@@ -221,5 +221,4 @@ module AcLibraryRb
   end
 
   LazySegTree = LazySegtree
-  LazySegmentTree = LazySegtree
 end

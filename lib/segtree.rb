@@ -136,7 +136,7 @@ class Segtree
 
   # def inspect # for debug
   #   t = 0
-  #   res = "SegmentTree @e = #{@e}, @n = #{@n}, @leaf_size = #{@leaf_size} @op = #{@op}\n  "
+  #   res = "Segtree @e = #{@e}, @n = #{@n}, @leaf_size = #{@leaf_size} @op = #{@op}\n  "
   #   a = @d[1, @d.size - 1]
   #   a.each_with_index do |e, i|
   #     res << e.to_s << ' '
@@ -149,5 +149,4 @@ class Segtree
   # end
 end
 
-SegTree     = Segtree
-SegmentTree = Segtree
+SegTree = Segtree

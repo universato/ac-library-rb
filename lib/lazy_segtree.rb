@@ -220,4 +220,3 @@ class LazySegtree
 end
 
 LazySegTree = LazySegtree
-LazySegmentTree = LazySegtree
