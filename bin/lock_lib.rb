@@ -17,7 +17,7 @@ Dir.glob(lib_path) do |file|
 end
 
 # copy library from `lib/core_ext` to `lib_lock/ac-library-rb/core_ext`
-ac_library_rb_classes = %w[ModInt]
+ac_library_rb_classes = %w[ModInt FenwickTree PriorityQueue]
 replaces = ac_library_rb_classes.to_h{ |cls| ["#{cls}.new", "AcLibraryRb::#{cls}.new"] }
 pattern = Regexp.new(replaces.keys.join('|'))
 
