@@ -48,9 +48,7 @@ d = DSU.new(n)
 **エイリアス**
 
 - `DSU`
-- `DisjointSetUnion`
 - `UnionFind`
-- `UnionFindTree`
 
 ## インスタンスメソッド
 

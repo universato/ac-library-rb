@@ -45,7 +45,5 @@ module AcLibraryRb
     end
   end
 
-  UnionFind        = DSU
-  UnionFindTree    = DSU
-  DisjointSetUnion = DSU
+  UnionFind = DSU
 end

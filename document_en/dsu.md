@@ -41,7 +41,7 @@ It creates an undirected graph with `n` vertices and `0` edges.
 
 **alias**
 
-- `DSU`, `DisjointSetUnion`, `UnionFind`, `UnionFindTree`
+- `DSU`, `UnionFind`
 
 ## Instance Methods
 
