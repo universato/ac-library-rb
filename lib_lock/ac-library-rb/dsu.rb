@@ -28,7 +28,7 @@ module AcLibraryRb
 
     def leader(a)
       unless 0 <= a && a < @n
-        raise ArgumentError.new, "#{a} is out of range 0 <= arg < size"
+        raise ArgumentError.new, "#{a} is out of range (0...#{@n})"
       end
 
       @parent_or_size[a] < 0 ? a : (@parent_or_size[a] = leader(@parent_or_size[a]))
