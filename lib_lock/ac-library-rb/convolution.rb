@@ -125,20 +125,20 @@ module AcLibraryRb
   end
 
   # [EXPERIMENTAL]
-  def convolution(a, b, k: 35, mod: 998244353, z: 99, r: 3)
+  def convolution(a, b, mod: 998244353, k: 35, z: 99)
     n = a.size
     m = b.size
     return [] if n == 0 || m == 0
 
     raise ArgumentError if a.min < 0 || b.min < 0
 
-    format = "%#{k.to_s.rjust(r, '0')}x".freeze # "%024x"
+    format = "%0#{k}x" # "%024x"
     sa = ""
     sb = ""
     a.each{ |x| sa << (format % x) }
     b.each{ |x| sb << (format % x) }
 
-    zero = '0'.freeze
+    zero = '0'
     s = zero * z + ("%x" % (sa.hex * sb.hex))
     i = -(n + m - 1) * k - 1
 
