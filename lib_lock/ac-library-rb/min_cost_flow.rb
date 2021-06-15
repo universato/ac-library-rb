@@ -12,7 +12,7 @@ module AcLibraryRb
       @g_cost = Array.new(n) { [] }
       @pv     = Array.new(n)
       @pe     = Array.new(n)
-      @dual   = Array.new(n) { 0 }
+      @dual   = Array.new(n, 0)
     end
 
     def add_edge(from, to, cap, cost)
