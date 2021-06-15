@@ -21,10 +21,10 @@ module AcLibraryRb
     end
     alias unite merge
 
-    def same(a, b)
+    def same?(a, b)
       leader(a) == leader(b)
     end
-    alias same? same
+    alias same same?
 
     def leader(a)
       unless 0 <= a && a < @n

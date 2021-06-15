@@ -22,7 +22,7 @@ module AcLibraryRb
       nil
     end
 
-    def satisfiable
+    def satisfiable?
       id = @scc.send(:scc_ids)[1]
       @n.times do |i|
         return false if id[2 * i] == id[2 * i + 1]
@@ -31,7 +31,7 @@ module AcLibraryRb
       end
       true
     end
-    alias satisfiable? satisfiable
+    alias satisfiable satisfiable?
   end
 
   TwoSat = TwoSAT
