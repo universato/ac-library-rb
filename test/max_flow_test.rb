@@ -163,6 +163,17 @@ class MaxFlowTest < Minitest::Test
     assert_equal 3, g.max_flow(0, 4 - 1)
   end
 
+  def test_add_edges
+    g = MaxFlow.new(3)
+    g.add([[0, 1, 2], [1, 2, 1]])
+
+    assert_equal 1, g.flow(0, 2)
+
+    assert_equal [0, 1, 2, 1], g[0]
+    assert_equal [1, 2, 1, 1], g[1]
+    assert_equal [true, true, false], g.min_cut(0)
+  end
+
   def test_constructor_error
     assert_raises(ArgumentError){ MaxFlow.new }
   end
