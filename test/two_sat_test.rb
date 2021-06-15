@@ -71,7 +71,7 @@ class TwoSATTest < Minitest::Test
 
   def test_error
     ts1 = TwoSAT.new(2)
-    assert_raises(RangeError){ ts1.add_clause(0, true, 2, false) }
-    assert_raises(RangeError){ ts1.add_clause(2, true, 0, false) }
+    assert_raises(ArgumentError){ ts1.add_clause(0, true, 2, false) }
+    assert_raises(ArgumentError){ ts1.add_clause(2, true, 0, false) }
   end
 end

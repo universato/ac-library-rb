@@ -14,7 +14,7 @@ module AcLibraryRb
 
     def add_clause(i, f, j, g)
       unless 0 <= i && i < @n and 0 <= j && j < @n
-        raise RangeError.new
+        raise ArgumentError.new("i:#{i} and j:#{j} must be in (0...#{@n})")
       end
 
       @scc.add_edge(2 * i + (f ? 0 : 1), 2 * j + (g ? 1 : 0))
