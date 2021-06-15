@@ -3,7 +3,8 @@ module AcLibraryRb
   class SCC
     # initialize graph with n vertices
     def initialize(n)
-      @n, @edges = n, []
+      @n = n
+      @edges = []
     end
 
     # add directed edge
@@ -62,7 +63,8 @@ module AcLibraryRb
     end
 
     def csr
-      start, elist = [0] * (@n + 1), [nil] * @edges.size
+      start = [0] * (@n + 1)
+      elist = [nil] * @edges.size
       @edges.each { |(i, _)| start[i + 1] += 1 }
       @n.times { |i| start[i + 1] += start[i] }
       counter = start.dup
