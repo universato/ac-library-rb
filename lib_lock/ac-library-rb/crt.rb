@@ -1,7 +1,9 @@
 module AcLibraryRb
   # return [rem, mod] or [0, 0] (if no solution)
   def crt(r, m)
-    raise ArgumentError if r.size != m.size
+    unless r.size == m.size
+      raise ArgumentError.new("size of r and m must be equal for crt(r, m)")
+    end
 
     n = r.size
     r0, m0 = 0, 1
