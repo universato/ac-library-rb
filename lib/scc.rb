@@ -17,6 +17,15 @@ class SCC
     self
   end
 
+  def add_edges(edges)
+    edges.each{ |from, to| add_edge(from, to) }
+    self
+  end
+
+  def add(x, to = nil)
+    to ? add_edge(x, to) : add_edges(x)
+  end
+
   # returns list of strongly connected components
   # the components are sorted in topological order
   # O(@n + @edges.size)

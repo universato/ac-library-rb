@@ -36,6 +36,15 @@ class MinCostFlow
     edge_number
   end
 
+  def add_edges(edges)
+    edges.each{ |from, to, cap, cost| add_edge(from, to, cap, cost) }
+    self
+  end
+
+  def add(x, to = nil, cap = nil, cost = nil)
+    cost ? add_edge(x, to, cap, cost) : add_edges(x)
+  end
+
   def get_edge(i)
     from, id = @pos[i]
     to = @g_to[from][id]

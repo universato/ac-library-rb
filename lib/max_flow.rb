@@ -20,6 +20,15 @@ class MaxFlow
     edge_number
   end
 
+  def add_edges(edges)
+    edges.each{ |from, to, cap| add_edge(from, to, cap) }
+    self
+  end
+
+  def add(x, to = nil, cap = nil)
+    cap ? add_edge(x, to, cap) : add_edges(x)
+  end
+
   def push(edge)
     add_edge(*edge)
   end

@@ -43,6 +43,17 @@ class SCCTest < Minitest::Test
     assert_equal [3, 0].sort, groups[3].sort
   end
 
+  def test_typical90_021
+    graph = SCC.new(4)
+    edges = [[1, 2], [2, 1], [2, 3], [4, 3], [4, 1], [1, 4], [2, 3]]
+    edges.each{ |edge| edge.map!{ |e| e - 1 } }
+    graph.add(edges)
+    groups = graph.scc
+
+    assert_equal 2, groups.size
+    assert_equal [[0, 1, 3], [2]], groups
+  end
+
   def test_error
     graph = SCC.new(2)
     assert_raises(ArgumentError){ graph.add_edge(0, 2) }
