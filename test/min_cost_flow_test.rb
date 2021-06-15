@@ -60,4 +60,15 @@ class MinCostFlowTest < Minitest::Test
     g.add(edges)
     assert_equal [[0, 0], [3, 3]], g.slope(0, 2)
   end
+
+  def test_only_one_nonzero_cost_edge
+    g = MinCostFlow.new(2)
+    g.add_edge(0, 1, 1, 100)
+    assert_equal [1, 100], g.flow(0, 1, 1)
+
+    g = MinCostFlow.new(3)
+    g.add_edge(0, 1, 1, 1)
+    g.add_edge(1, 2, 1, 0)
+    assert_equal [[0, 0], [1, 1]], g.slope(0, 2)
+  end
 end
