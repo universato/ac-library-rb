@@ -3,7 +3,7 @@ module AcLibraryRb
   class FenwickTree
     attr_reader :data, :size
 
-    def initialize(arg = nil)
+    def initialize(arg)
       case arg
       when Array
         @size = arg.size
