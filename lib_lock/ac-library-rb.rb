@@ -2,7 +2,7 @@ module AcLibraryRb
 end
 include AcLibraryRb
 
-require_relative './lib_lock/ac-library-rb/all.rb'
+require_relative './ac-library-rb/core_ext/all.rb'
 
 require_relative './ac-library-rb/convolution'
 require_relative './ac-library-rb/crt'
