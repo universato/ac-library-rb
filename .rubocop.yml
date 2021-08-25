@@ -1,5 +1,6 @@
 AllCops:
   NewCops: enable
+  TargetRubyVersion: 2.7
   Exclude:
     - 'lib_lock/ac-library-rb/*.rb'
 Layout/ExtraSpacing:
@@ -31,6 +32,19 @@ Lint/AmbiguousBlockAssociation:
   Exclude:
     - 'test/convolution_test.rb'
     - 'test/crt_test.rb'
+Lint/AmbiguousRange:
+  Exclude:
+    - 'lib/convolution.rb'
+    - 'test/convolution_test.rb'
+    - 'test/crt_test.rb'
+    - 'test/lcp_array_test.rb'
+    - 'test/suffix_array_test.rb'
+    - 'test/z_algorithm_test.rb'
+Lint/AssignmentInCondition:
+  Exclude:
+    - 'lib/fenwick_tree.rb'
+    - 'lib/lazy_segtree.rb'
+    - 'lib/segtree.rb'
 Lint/BinaryOperatorWithIdenticalOperands:
   Enabled: false
 Lint/MissingSuper:
@@ -88,6 +102,7 @@ Metrics/PerceivedComplexity:
     - 'lib/suffix_array.rb'
 Naming/FileName:
   Exclude:
+    - 'lib_helpers/ac-library-rb.rb'
     - 'lib_lock/ac-library-rb.rb'
 Naming/AccessorMethodName:
   Exclude:
@@ -104,6 +119,7 @@ Naming/MethodParameterName:
 Naming/VariableNumber:
   Exclude:
     - 'test/max_flow_test.rb'
+    - 'test/scc_test.rb'
 Style/AndOr:
   Enabled: false
 Style/ArrayCoercion:
@@ -121,9 +137,12 @@ Style/BlockDelimiters:
     - 'test/z_algorithm_test.rb'
 Style/Documentation:
   Enabled: false
-tyle/EmptyElse:
+Style/EmptyElse:
   Exclude:
     - 'test/segtree_test.rb'
+Style/FormatString:
+  Exclude:
+    - 'lib/convolution.rb'
 Style/GlobalVars:
   AutoCorrect: false
   Exclude:
@@ -131,6 +150,16 @@ Style/GlobalVars:
     - 'test/lazy_segtree_test.rb'
 Style/FrozenStringLiteralComment:
   Enabled: false
+Style/GuardClause:
+  Exclude:
+    - 'lib/lazy_segtree.rb'
+Style/IdenticalConditionalBranches:
+  Enabled: false
+Style/IfUnlessModifier:
+  Exclude:
+    - 'lib/crt.rb'
+    - 'lib/dsu.rb'
+    - 'lib/two_sat.rb'
 Style/InfiniteLoop:
   Exclude:
     - 'lib/floor_sum.rb'
@@ -147,7 +176,7 @@ Style/HashSyntax:
     - 'Rakefile'
 Style/MixinUsage:
   Exclude:
-    - 'lib_lock/ac-library-rb.rb'
+    - 'lib_helpers/ac-library-rb.rb'
 Style/MultipleComparison:
   Enabled: false
 Style/NegatedIf:
@@ -167,6 +196,8 @@ Style/OptionalArguments:
 Style/ParallelAssignment:
   Enabled: false
 Style/RedundantFileExtensionInRequire:
+  Enabled: false
+Style/RaiseArgs:
   Enabled: false
 Style/RedundantReturn:
   AutoCorrect: false

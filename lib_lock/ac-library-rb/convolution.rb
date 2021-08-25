@@ -125,7 +125,7 @@ module AcLibraryRb
   end
 
   # [EXPERIMENTAL]
-  def convolution(a, b, mod: 998244353, k: 35, z: 99)
+  def convolution(a, b, mod: 998_244_353, k: 35, z: 99)
     n = a.size
     m = b.size
     return [] if n == 0 || m == 0
