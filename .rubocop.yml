@@ -30,6 +30,7 @@ Lint/AmbiguousOperator:
 Lint/AmbiguousBlockAssociation:
   AutoCorrect: false
   Exclude:
+    - 'bin/lock_lib.rb'
     - 'test/convolution_test.rb'
     - 'test/crt_test.rb'
 Lint/AmbiguousOperatorPrecedence:
