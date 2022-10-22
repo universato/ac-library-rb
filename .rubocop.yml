@@ -139,6 +139,8 @@ Style/BlockDelimiters:
     - 'test/z_algorithm_test.rb'
 Style/Documentation:
   Enabled: false
+Style/EachForSimpleLoop:
+  Enabled: false
 Style/EmptyElse:
   Exclude:
     - 'test/segtree_test.rb'
