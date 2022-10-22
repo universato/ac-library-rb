@@ -2,6 +2,7 @@ begin
   require 'simplecov'
   SimpleCov.start
 rescue LoadError
+  puts "[INFO] You can use simplecov gem for this test!"
 end
 
 require_relative 'convolution_test'
