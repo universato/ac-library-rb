@@ -50,7 +50,7 @@ bundlerをインストールしてない場合は、`gem install bundler`とい�
 
 次に、ac-library-rbを使いたいディレクトリ配下にGemfileを置きます。Gemfileという名称のファイルです。  
 このGemfileの中で、次のように書きます。
-```
+```ruby
 gem "ac-library-rb"
 ```
 そして、`budnle install`というコマンドにより、Gemfileに書かれたac-library-rbをインストールします。
