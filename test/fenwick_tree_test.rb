@@ -75,4 +75,9 @@ class FenwickTreeTest < Minitest::Test
     assert_equal 25, ft.sum(5)
     assert_equal 6, ft.sum(3)
   end
+
+  def test_to_s
+    uft = FenwickTree.new([1, 2, 4, 8])
+    assert_equal "<FenwickTree: @size=4, (1, 3, 4, 15)>", uft.to_s
+  end
 end

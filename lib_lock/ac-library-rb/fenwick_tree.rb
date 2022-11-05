@@ -60,5 +60,9 @@ module AcLibraryRb
       res
     end
     alias left_sum _sum
+
+    def to_s
+      "<#{self.class}: @size=#{@size}, (#{@data[1..].join(', ')})>"
+    end
   end
 end

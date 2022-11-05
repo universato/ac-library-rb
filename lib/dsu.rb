@@ -42,6 +42,10 @@ class DSU
   def groups
     (0 ... @parent_or_size.size).group_by{ |i| leader(i) }.values
   end
+
+  def to_s()
+    "<#{self.class}: @n=#{@n}, #{@parent_or_size}>"
+  end
 end
 
 UnionFind = DSU
