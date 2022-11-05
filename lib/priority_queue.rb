@@ -46,6 +46,10 @@ class PriorityQueue
     @heap.empty?
   end
 
+  def to_s
+    "<#{self.class}: @heap:(#{heap.join(', ')}), @comp:<#{@comp.class} #{@comp.source_location.join(':')}>>"
+  end
+
   private
 
   def heapify

@@ -35,6 +35,7 @@ class PriorityQueueTest < Minitest::Test
     q << 2
     q << 3
     q << 1
+    assert_match /<PriorityQueue: @heap:\(1, 3, 2\), @comp:<Proc .+:\d+>>/, q.to_s
     assert_equal 1, q.pop
     assert_equal 2, q.pop
     assert_equal 3, q.pop
