@@ -132,7 +132,6 @@ class UnionFindTest < Minitest::Test
   end
 
   def test_to_s
-    n = 2
     uft = UnionFind.new(2)
     assert_equal "<DSU: @n=2, [-1, -1]>", uft.to_s
   end

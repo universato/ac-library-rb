@@ -35,6 +35,9 @@ Lint/AmbiguousBlockAssociation:
     - 'test/crt_test.rb'
 Lint/AmbiguousOperatorPrecedence:
   Enabled: false
+Lint/AmbiguousRegexpLiteral:
+  Exclude:
+    - 'test/priority_queue_test.rb'
 Lint/AmbiguousRange:
   Exclude:
     - 'lib/convolution.rb'
