@@ -154,9 +154,7 @@ module AcLibraryRb
       sm = @e
 
       loop do
-        while l.even?
-          l >>= 1
-        end
+        l >>= 1 while l.even?
         unless g.call(@op.call(sm, @d[l]))
           while l < @size
             push(l)
@@ -184,9 +182,7 @@ module AcLibraryRb
 
       loop do
         r -= 1
-        while r > 1 && r.odd?
-          r /= 2
-        end
+        r /= 2 while r > 1 && r.odd?
         unless g.call(@op.call(@d[r], sm))
           while r < @size
             push(r)

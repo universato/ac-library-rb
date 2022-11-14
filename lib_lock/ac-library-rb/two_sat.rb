@@ -13,7 +13,7 @@ module AcLibraryRb
     attr_reader :answer
 
     def add_clause(i, f, j, g)
-      unless 0 <= i && i < @n and 0 <= j && j < @n
+      unless 0 <= i && i < @n && 0 <= j && j < @n
         raise ArgumentError.new("i:#{i} and j:#{j} must be in (0...#{@n})")
       end
 

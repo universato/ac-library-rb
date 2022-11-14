@@ -183,8 +183,6 @@ class ConvolutionMethodTest < Minitest::Test
       20.times{
         len_a = rand(limlen) + 1
         len_b = limlen - len_a + 1 # len_a + len_b - 1 == limlen
-        a = (0 ... len_a).map{ rand(-max_num .. max_num) }
-        b = (0 ... len_b).map{ rand(-max_num .. max_num) }
         a = (0 ... len_a).map{ rand(0 .. max_num) }
         b = (0 ... len_b).map{ rand(0 .. max_num) }
         assert_equal convolution_naive(a, b, mod), convolution(a, b, mod: mod)

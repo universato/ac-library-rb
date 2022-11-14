@@ -4,7 +4,7 @@ require_relative './core_ext/modint.rb'
 class ModInt < Numeric
   class << self
     def set_mod(mod)
-      raise ArgumentError unless mod.is_a? Integer and 1 <= mod
+      raise ArgumentError unless mod.is_a?(Integer) && (1 <= mod)
 
       $_mod = mod
       $_mod_is_prime = ModInt.prime?(mod)
@@ -26,7 +26,7 @@ class ModInt < Numeric
 
     def prime?(n)
       return false if n <= 1
-      return true if n == 2 or n == 7 or n == 61
+      return true if (n == 2) || (n == 7) || (n == 61)
       return false if (n & 1) == 0
 
       d = n - 1
@@ -34,11 +34,11 @@ class ModInt < Numeric
       [2, 7, 61].each do |a|
         t = d
         y = a.pow(t, n)
-        while t != n - 1 and y != 1 and y != n - 1
+        while (t != n - 1) && (y != 1) && (y != n - 1)
           y = y * y % n
           t <<= 1
         end
-        return false if y != n - 1 and (t & 1) == 0
+        return false if (y != n - 1) && ((t & 1) == 0)
       end
       true
     end

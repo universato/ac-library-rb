@@ -3,6 +3,14 @@ AllCops:
   TargetRubyVersion: 2.7
   Exclude:
     - 'lib_lock/ac-library-rb/*.rb'
+
+
+Gemspec/RequireMFA:
+  AutoCorrect: false
+
+
+## Layout
+
 Layout/ExtraSpacing:
   AutoCorrect: false
   Exclude:
@@ -22,6 +30,9 @@ Layout/SpaceInsideArrayLiteralBrackets:
     - 'test/convolution_test.rb'
 Layout/SpaceInsideRangeLiteral:
   Enabled: false
+
+## Lint
+
 Lint/AmbiguousOperator:
   AutoCorrect: false
   Exclude:
@@ -80,32 +91,16 @@ Lint/Void:
   AutoCorrect: false
   Exclude:
     - 'test/example/*'
-Metrics/AbcSize:
-  Max: 50
-  Exclude:
-    - 'lib/suffix_array.rb'
-    - 'test/modint_test.rb'
-Metrics/BlockLength:
-  Exclude:
-    - 'test/segtree_test.rb'
-Metrics/BlockNesting:
-  Exclude:
-    - 'lib/max_flow.rb'
-Metrics/ClassLength:
-  Max: 334
-Metrics/CyclomaticComplexity:
-  Max: 13
-  Exclude:
-    - 'lib/suffix_array.rb'
-Metrics/MethodLength:
-  Max: 120
-Metrics/ParameterLists:
-  Exclude:
-    - 'lib/lazy_segtree.rb'
-Metrics/PerceivedComplexity:
-  Max: 13
-  Exclude:
-    - 'lib/suffix_array.rb'
+
+
+## Metrics
+
+Metrics:
+  Enabled: false
+
+
+## Naming
+
 Naming/FileName:
   Exclude:
     - 'lib_helpers/ac-library-rb.rb'
@@ -126,10 +121,10 @@ Naming/VariableNumber:
   Exclude:
     - 'test/max_flow_test.rb'
     - 'test/scc_test.rb'
-Style/AndOr:
-  Enabled: false
-Style/ArrayCoercion:
-  Enabled: false
+
+
+## Style
+
 Style/BlockDelimiters:
   AutoCorrect: false
   Exclude:
@@ -238,12 +233,6 @@ Style/StringConcatenation:
   Exclude:
     - 'bin/lock_lib.rb'
 Style/StringLiterals:
-  Enabled: false
-Style/TrailingCommaInArrayLiteral:
-  Enabled: false
-Style/WordArray:
-  Enabled: false
-Style/WhileUntilModifier:
   Enabled: false
 Style/YodaCondition:
   Enabled: false

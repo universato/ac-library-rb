@@ -22,7 +22,7 @@ class MinCostFlowTest < Minitest::Test
       [0, 2, 1, 1, 1],
       [1, 3, 1, 1, 1],
       [2, 3, 1, 1, 1],
-      [1, 2, 1, 0, 1],
+      [1, 2, 1, 0, 1]
     ]
     edges.each_with_index { |edge, i| assert_equal edge, g.get_edge(i) }
     assert_equal edges, g.edges

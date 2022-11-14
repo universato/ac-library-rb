@@ -9,7 +9,7 @@ module AcLibraryRb
 
     # add directed edge
     def add_edge(from, to)
-      unless 0 <= from && from < @n and 0 <= to && to < @n
+      unless 0 <= from && from < @n && 0 <= to && to < @n
         msg = "Wrong params: from=#{from} and to=#{to} must be in 0...#{@n}"
         raise ArgumentError.new(msg)
       end
