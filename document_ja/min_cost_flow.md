@@ -86,17 +86,18 @@ graph.edges
   - [本家ライブラリの実装コード mincostflow.hpp(GitHub)](https://github.com/atcoder/ac-library/blob/master/atcoder/mincostflow.hpp)
   - [本家ライブラリのテストコード mincostflow_test.cpp(GitHub)](https://github.com/atcoder/ac-library/blob/master/test/unittest/mincostflow_test.cpp)
 
-## Q&A
+## 備考
 
 ### エイリアスの意図は
 
-本家ライブラリの最小費用流の方のメソッド名が長いので、エイリアスを持たせています。本家ライブラリの最大流の方のメソッド名は短いので、不思議です。
+本家ライブラリの最小費用流の方のメソッド名が長いので、エイリアスを持たせています。  
+本家ライブラリの最大流の方のメソッド名は短いので、不思議です。
 
 ### `Float::INFINITY`ではなく、`Float::MAX`を使う意図とは
 
 特に検証してないので、何の数値がいいのか検証したいです。
 
-`Integer`クラスでも良いよいな気がしました。
+`Integer`クラスでも良いような気がしました。
 
 ### 辺にStructは使わないの
 
