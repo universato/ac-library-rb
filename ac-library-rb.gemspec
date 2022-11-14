@@ -1,7 +1,10 @@
 require_relative 'lib/ac-library-rb/version'
 
-gem_description = "ac-library-rb is a ruby port of AtCoder Library (ACL).
-DSU(UnionFind), FenwickTree, PriorityQueue, Segtree, SCC, 2-SAT, suffix_array, lcp_array, z_algorithm, crt, inv_mod, floor_sum, max_flow, min_cost_flow......"
+gem_description = <<~DESCRIPTION
+  ac-library-rb is a ruby port of AtCoder Library (ACL).
+  DSU(UnionFind), FenwickTree, PriorityQueue, Segtree, SCC, 2-SAT,
+  suffix_array, lcp_array, z_algorithm, crt, inv_mod, floor_sum, max_flow, min_cost_flow......
+DESCRIPTION
 
 Gem::Specification.new do |spec|
   spec.name          = "ac-library-rb"

@@ -16,9 +16,6 @@ Layout/ExtraSpacing:
   Exclude:
     - 'ac-library-rb.gemspec'
     - 'test/convolution_test.rb'
-Layout/LineLength:
-  Exclude:
-    - 'ac-library-rb.gemspec'
 Layout/SpaceAroundOperators:
   Exclude:
     - 'ac-library-rb.gemspec'
@@ -83,10 +80,6 @@ Lint/ShadowingOuterLocalVariable:
     - 'test/crt_test.rb'
     - 'test/lcp_array_test.rb'
     - 'test/example/suffix_array_and_lcp_array_practice.rb'
-Lint/UnderscorePrefixedVariableName:
-  AutoCorrect: false
-  Exclude:
-    - 'lib/max_flow.rb'
 Lint/Void:
   AutoCorrect: false
   Exclude:

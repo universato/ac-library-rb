@@ -37,26 +37,26 @@ module AcLibraryRb
 
     # return edge = [from, to, cap, flow]
     def [](i)
-      _e  = @g[@pos[i][0]][@pos[i][1]]
-      _re = @g[_e[0]][_e[1]]
-      [@pos[i][0], _e[0], _e[-1] + _re[-1], _re[-1]]
+      e  = @g[@pos[i][0]][@pos[i][1]]
+      re = @g[e[0]][e[1]]
+      [@pos[i][0], e[0], e[-1] + re[-1], re[-1]]
     end
     alias get_edge []
     alias edge []
 
     def edges
       @pos.map do |(from, id)|
-        _e  = @g[from][id]
-        _re = @g[_e[0]][_e[1]]
-        [from, _e[0], _e[-1] + _re[-1], _re[-1]]
+        e  = @g[from][id]
+        re = @g[e[0]][e[1]]
+        [from, e[0], e[-1] + re[-1], re[-1]]
       end
     end
 
     def change_edge(i, new_cap, new_flow)
-      _e  = @g[@pos[i][0]][@pos[i][1]]
-      _re = @g[_e[0]][_e[1]]
-      _e[2]  = new_cap - new_flow
-      _re[2] = new_flow
+      e  = @g[@pos[i][0]][@pos[i][1]]
+      re = @g[e[0]][e[1]]
+      e[2]  = new_cap - new_flow
+      re[2] = new_flow
     end
 
     def flow(s, t, flow_limit = 1 << 64)
