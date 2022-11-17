@@ -36,23 +36,28 @@ class MaxFlow
 
   # return edge = [from, to, cap, flow]
   def [](i)
-    e  = @g[@pos[i][0]][@pos[i][1]]
-    re = @g[e[0]][e[1]]
-    [@pos[i][0], e[0], e[-1] + re[-1], re[-1]]
+    from, from_id = @pos[i]
+
+    to, to_id, cap = @g[from][from_id]      # edge
+    _from, _from_id, flow = @g[to][to_id] # reverse edge
+
+    [from, to, cap + flow, flow]
   end
   alias get_edge []
   alias edge []
 
   def edges
-    @pos.map do |(from, id)|
-      e  = @g[from][id]
-      re = @g[e[0]][e[1]]
-      [from, e[0], e[-1] + re[-1], re[-1]]
+    @pos.map do |(from, from_id)|
+      to, to_id, cap = @g[from][from_id]
+      _from, _from_id, flow = @g[to][to_id]
+      [from, to, cap + flow, flow]
     end
   end
 
   def change_edge(i, new_cap, new_flow)
-    e  = @g[@pos[i][0]][@pos[i][1]]
+    from, from_id = @pos[i]
+
+    e = @g[from][from_id]
     re = @g[e[0]][e[1]]
     e[2]  = new_cap - new_flow
     re[2] = new_flow
@@ -105,13 +110,13 @@ class MaxFlow
     que << s
 
     while (v = que.shift)
-      @g[v].each do |e|
-        next if e[2] == 0 || level[e[0]] >= 0
+      @g[v].each do |u, _, cap|
+        next if cap == 0 || level[u] >= 0
 
-        level[e[0]] = level[v] + 1
-        return nil if e[0] == t
+        level[u] = level[v] + 1
+        return nil if u == t
 
-        que << e[0]
+        que << u
       end
     end
   end
