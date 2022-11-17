@@ -1,4 +1,4 @@
-# Other language Japanese version
+### Other language Japanese version(ver. 日本語)
 
 [README 日本語バージョン(ver. Japanese)](README.ja.md)
 - [ライブラリ目次: index.md](https://github.com/universato/ac-library-rb/blob/master/document_ja/index.md)
@@ -22,7 +22,7 @@ See below for ACL.
 
 Currently, the Ruby version in AtCoder is 2.7.1.
 
-Therefore, 2.7.1 is recommended and may not work with other versions.
+Therefore, 2.7 and the latest 3.1 are tested.
 
 # Document
 
@@ -91,7 +91,7 @@ Note that the gem names are separated by hyphens, but the library names in ac-li
 In general, underscores are recommended for Ruby library names.
 However, the repository names in the original ACL are separated by a hyphen, ac-library, so ac-library-rb is also separated by a hyphen.
 
-## Development
+## Development: How to Contirubute
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 

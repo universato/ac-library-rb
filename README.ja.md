@@ -1,3 +1,9 @@
+### Other language English version(英語バージョン)
+
+This file is for Japanese to read.  
+The following files are written in English: (英語で読みたい方は次のファイルを)
+- [README.md (ver. English)](README.md)
+
 # ac-library-rb
 
 [![Gem Version](https://badge.fury.io/rb/ac-library-rb.svg)](https://badge.fury.io/rb/ac-library-rb)
@@ -105,7 +111,7 @@ ACL本家のレポジトリ名がac-libraryとハイフン区切りで、それ�
 
 現在、AtCoderのRubyバージョンは、2.7.1です。
 
-そのため、2.7.1を推奨し、それ以外のバージョンでは動かない可能性があります。
+そのため、2.7と最新の3.1でテストをしています。
 
 ただ、開発される方は2.7より古くても動かせるようNumbered parametersなどの使用は控えてもらえると嬉しいです。
 
@@ -117,16 +123,27 @@ ACL本家のレポジトリ名がac-libraryとハイフン区切りで、それ�
 
 宣伝・バグ報告などしてもらえると嬉しいです。
 
-## ac-library-rbを開発したい方向けの情報
+## ac-library-rbを開発したい方向けの情報(CONTRIBUTEING)
 
 ### コーディングスタイル
-
-Rubocop(Rubyのlintツール)の設定ファイル`.rubocop.yml`は、参考に置いています。  
-Rubocopのルールを守ることが必ずしもよくなかったり、ルールを守ることが難しかったりもするので、Rubocopの適用は必須ではないです。  
 
 推奨スタイル
 - インデントは、半角スペース2文字
 - 行末の余計なスペースは削除
+
+RuboCopを使用できる方は、使用してもらえるとありがたいです。  
+使い方のわからない方は、使う必要がないです。  
+
+```console
+$gem install rubocop
+```
+上記の方法でrubocopをインストールします。
+
+```console
+$rubocop    <- チェック
+$rubocop -a <- 安全に直せるところは自動で修正
+$rubocop -A <- 安全でない可能性のところも自動で修正
+```
 
 ### ディレクトリの説明
 
@@ -152,7 +169,7 @@ $ rake      <- 上2つのcopy & testを実行
 
 ここで、バグ報告などすると、競プロ詳しい人などが反応しやすいかもしれません。
 
-Slackに3000人、atcoderチャンネルに250人以上の登録者がいるので、お気軽に参加してください。
+Slackに4000人近く、atcoderチャンネルに350人ほどの登録者がいるので、お気軽に参加してください。
 
 ### 他言語のライブラリ
 
