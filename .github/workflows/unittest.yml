@@ -13,5 +13,9 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby }}
+      - name: insall by bundler
+        run: bundle install
       - name: run unittests
-        run: ruby test/*.rb
+        run: bundle exec ruby test/*.rb
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v3

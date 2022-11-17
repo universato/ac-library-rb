@@ -1,6 +1,8 @@
 begin
   require 'simplecov'
   SimpleCov.start
+  require 'simplecov-cobertura'
+  SimpleCov.formatter = SimpleCov::Formatter::CoberturaFormatter
 rescue LoadError
   puts "[INFO] You can use simplecov gem for this test!"
 end
