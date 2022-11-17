@@ -1,6 +1,14 @@
 name: Unittest
 
-on: [push, pull_request]
+on:
+  push:
+    paths-ignore:
+      - 'document_*/**/*'
+      - 'README.*'
+  pull_request:
+    paths-ignore:
+      - 'document_*/**/*'
+      - 'README.*'
 jobs:
   unittest:
     runs-on: ${{ matrix.os }}
