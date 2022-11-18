@@ -38,7 +38,7 @@ class MaxFlow
   def [](i)
     from, from_id = @pos[i]
 
-    to, to_id, cap = @g[from][from_id]      # edge
+    to, to_id, cap = @g[from][from_id]    # edge
     _from, _from_id, flow = @g[to][to_id] # reverse edge
 
     [from, to, cap + flow, flow]
@@ -64,16 +64,12 @@ class MaxFlow
   end
 
   def flow(s, t, flow_limit = 1 << 64)
-    level = Array.new(@n)
-    iter  = Array.new(@n)
-    que   = []
-
     flow = 0
     while flow < flow_limit
-      bfs(s, t, level, que)
+      level = bfs(s, t)
       break if level[t] == -1
 
-      iter.fill(0)
+      iter = [0] * @n
       while flow < flow_limit
         f = dfs(t, flow_limit - flow, s, level, iter)
         break if f == 0
@@ -103,22 +99,22 @@ class MaxFlow
 
   private
 
-  def bfs(s, t, level, que)
-    level.fill(-1)
+  def bfs(s, t)
+    level = Array.new(@n, -1)
     level[s] = 0
-    que.clear
-    que << s
+    que = [s]
 
     while (v = que.shift)
       @g[v].each do |u, _, cap|
         next if cap == 0 || level[u] >= 0
 
         level[u] = level[v] + 1
-        return nil if u == t
+        return level if u == t
 
         que << u
       end
     end
+    level
   end
 
   def dfs(v, up, s, level, iter)
