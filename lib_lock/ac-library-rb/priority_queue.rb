@@ -19,6 +19,7 @@ module AcLibraryRb
     end
 
     attr_reader :heap
+    alias to_a heap
 
     # Push new element to the heap.
     def push(item)
