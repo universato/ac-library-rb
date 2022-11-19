@@ -57,4 +57,24 @@ class PriorityQueueTest < Minitest::Test
     assert_equal 0, pq.size
     assert_equal true, pq.empty?
   end
+
+  def test_syntax_sugar_new
+    pq = PriorityQueue[5, 9, 2]
+    assert_equal 3, pq.size
+
+    assert_equal 9, pq.top
+    assert_equal 9, pq.pop
+    assert_equal 5, pq.pop
+    assert_equal 2, pq.pop
+  end
+
+  def test_syntax_sugar_new_with_block
+    pq = PriorityQueue[5, 9, 2] { |x, y| x < y }
+    assert_equal 3, pq.size
+
+    assert_equal 2, pq.top
+    assert_equal 2, pq.pop
+    assert_equal 5, pq.pop
+    assert_equal 9, pq.pop
+  end
 end

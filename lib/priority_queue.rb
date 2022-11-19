@@ -13,6 +13,10 @@ class PriorityQueue
     heapify
   end
 
+  def self.[](*array, &comp)
+    new(array, &comp)
+  end
+
   attr_reader :heap
 
   # Push new element to the heap.
