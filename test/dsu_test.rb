@@ -12,7 +12,8 @@ class UnionFindTest < Minitest::Test
   end
 
   def test_empty
-    assert_raises(ArgumentError){ DSU.new }
+    uf = DSU.new
+    assert_equal [], uf.groups
   end
 
   def test_simple
@@ -112,6 +113,14 @@ class UnionFindTest < Minitest::Test
   def test_merge
     uft = UnionFind.new(2)
     assert_equal 0, uft.merge(0, 1)
+  end
+
+  def test_root_with_dynamic_expansion
+    uft = UnionFind.new
+    assert_equal false, uft[0] == uft[1]
+
+    uft.unite(0, 1)
+    assert_equal true, uft[0] == uft[1]
   end
 
   def test_edge_cases_error

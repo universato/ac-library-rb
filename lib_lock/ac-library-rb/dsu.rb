@@ -1,7 +1,7 @@
 module AcLibraryRb
   # Disjoint Set Union
   class DSU
-    def initialize(n)
+    def initialize(n = 0)
       @n = n
       @parent_or_size = Array.new(n, -1)
       # root node: -1 * component size
@@ -35,6 +35,15 @@ module AcLibraryRb
     end
     alias root leader
     alias find leader
+
+    def [](a)
+      if @n <= a
+        @parent_or_size.concat([-1] * (a - @n + 1))
+        @n = @parent_or_size.size
+      end
+
+      @parent_or_size[a] < 0 ? a : (@parent_or_size[a] = self[@parent_or_size[a]])
+    end
 
     def size(a)
       -@parent_or_size[leader(a)]
