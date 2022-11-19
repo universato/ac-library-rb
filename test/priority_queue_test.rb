@@ -77,4 +77,13 @@ class PriorityQueueTest < Minitest::Test
     assert_equal 5, pq.pop
     assert_equal 9, pq.pop
   end
+
+  def test_serial_push
+    pq = PriorityQueue.new { |x, y| x < y }
+
+    pq << 2 << 3 << 1
+    assert_equal 1, pq.pop
+    assert_equal 2, pq.pop
+    assert_equal 3, pq.pop
+  end
 end

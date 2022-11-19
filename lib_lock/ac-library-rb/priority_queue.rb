@@ -23,6 +23,7 @@ module AcLibraryRb
     # Push new element to the heap.
     def push(item)
       shift_down(0, @heap.push(item).size - 1)
+      self
     end
 
     alias << push
