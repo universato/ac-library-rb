@@ -44,5 +44,17 @@ class PriorityQueueTest < Minitest::Test
   def test_initialize_without_argument
     pq = PriorityQueue.new
     assert_equal 0, pq.size
+    assert_equal true, pq.empty?
+    assert_nil pq.top
+    assert_nil pq.pop
+    assert_match /<PriorityQueue: @heap:\(\), @comp:<Proc .+:\d+>>/, pq.to_s
+
+    pq << 0
+    assert_equal 1, pq.size
+    assert_equal false, pq.empty?
+
+    pq.pop
+    assert_equal 0, pq.size
+    assert_equal true, pq.empty?
   end
 end
