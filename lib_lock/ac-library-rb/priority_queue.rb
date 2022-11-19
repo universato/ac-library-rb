@@ -47,6 +47,10 @@ module AcLibraryRb
       @heap.empty?
     end
 
+    def size
+      @heap.size
+    end
+
     def to_s
       "<#{self.class}: @heap:(#{heap.join(', ')}), @comp:<#{@comp.class} #{@comp.source_location.join(':')}>>"
     end

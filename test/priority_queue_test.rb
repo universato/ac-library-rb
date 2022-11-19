@@ -40,4 +40,9 @@ class PriorityQueueTest < Minitest::Test
     assert_equal 2, q.pop
     assert_equal 3, q.pop
   end
+
+  def test_initialize_without_argument
+    pq = PriorityQueue.new
+    assert_equal 0, pq.size
+  end
 end
