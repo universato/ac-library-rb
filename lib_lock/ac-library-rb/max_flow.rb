@@ -39,7 +39,7 @@ module AcLibraryRb
     def [](i)
       from, from_id = @pos[i]
 
-      to, to_id, cap = @g[from][from_id]      # edge
+      to, to_id, cap = @g[from][from_id]    # edge
       _from, _from_id, flow = @g[to][to_id] # reverse edge
 
       [from, to, cap + flow, flow]
