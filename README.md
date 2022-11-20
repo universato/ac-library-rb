@@ -5,10 +5,12 @@
 
 <hr>
 
-# ac-library-rb
+# ac-library-rb  
 
 [![Gem Version](https://badge.fury.io/rb/ac-library-rb.svg)](https://badge.fury.io/rb/ac-library-rb)
 [![codecov](https://codecov.io/gh/universato/ac-library-rb/branch/main/graph/badge.svg?token=NUAIDTMGBE)](https://codecov.io/gh/universato/ac-library-rb)
+
+<img width="560" src="ac-library-rb_header.jpg" alt="ac-library-rb Logo">
 
 ac-library-rb is a ruby port of AtCoder Library (ACL).
 
