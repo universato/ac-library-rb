@@ -2,7 +2,7 @@
 
 This is a lazy evaluation segment tree.
 
-## Class Methods.
+## Class Methods
 
 ### new(v, e, id, op, mapping, composition)
 
@@ -21,7 +21,7 @@ The second argument `e` is the unit source. We need to define the monoid by defi
 
 - `O(n)`
 
-## Instance methods.
+## Instance methods
 
 ## set(pos, x)
 

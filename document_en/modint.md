@@ -127,7 +127,7 @@ This is a constructor for constant-fold speedup.
 
 If `val` is guaranteed to be greater than or equal to `0` and not exceed `mod`, it is faster to generate `ModInt` here.
 
-## Instance methods.
+## Instance Methods
 
 ### val -> Integer
 

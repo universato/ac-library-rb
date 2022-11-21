@@ -2,7 +2,7 @@
 
 It solves [Minimum-cost flow problem](https://en.wikipedia.org/wiki/Minimum-cost_flow_problem).
 
-## Class Methods.
+## Class Methods
 
 ### new(n) -> MinCostFlow
 
@@ -23,7 +23,7 @@ Verticle order is the 0-based index.
 - `O(n)`
 
 
-## Instance Methods.
+## Instance Methods
 
 ### add_edge(from, to, cap, cost) -> Integer
 

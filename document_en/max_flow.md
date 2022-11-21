@@ -3,7 +3,7 @@
 Library for solving [Maximum flow problem](https://en.wikipedia.org/wiki/Maximum_flow_problem).
 
 
-## Class Methods.
+## Class Methods
 
 ### new(n) -> MaxFlow
 
@@ -17,7 +17,7 @@ It creates a graph of `n` vertices and `0` edges.
 
 - `O(n)`
 
-## Instance Methods.
+## Instance Methods
 
 ### add_edge(from, to, cap) -> Integer
 
