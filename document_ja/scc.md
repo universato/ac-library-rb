@@ -52,7 +52,7 @@ graph.scc
 
 - [ALPC: G \- SCC](https://atcoder.jp/contests/practice2/tasks/practice2_g)  
   - [2538ms 2020/9/8](https://atcoder.jp/contests/practice2/submissions/16569175)  
-- [競プロ典型 90 問: 021 - Come Back in One Piece][https://atcoder.jp/contests/typical90/tasks/typical90_u]
+- [競プロ典型 90 問: 021 - Come Back in One Piece](https://atcoder.jp/contests/typical90/tasks/typical90_u)
 
 # 参考リンク
 
