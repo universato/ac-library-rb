@@ -87,9 +87,9 @@ graph.edges
 
 ## Verified
 
-[ALPC: D \- Maxflow](https://atcoder.jp/contests/practice2/tasks/practice2_d)
+[ALPC: D - Maxflow](https://atcoder.jp/contests/practice2/tasks/practice2_d)
 - [ACコード 211ms 2020/9/17](https://atcoder.jp/contests/practice2/submissions/16789801)
-- [ALPC: D解説 \- Qiita](https://qiita.com/magurofly/items/bfaf6724418bfde86bd0)
+- [ALPC: D解説 - Qiita](https://qiita.com/magurofly/items/bfaf6724418bfde86bd0)
 
 ## 参考リンク
 

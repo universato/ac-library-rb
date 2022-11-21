@@ -199,9 +199,9 @@ p 12.to_m == 1 #=> true
 
 ## Verified
 
-- [ABC156: D \- Bouquet](https://atcoder.jp/contests/abc156/tasks/abc156_d) 2020/2/22開催
+- [ABC156: D - Bouquet](https://atcoder.jp/contests/abc156/tasks/abc156_d) 2020/2/22開催
   - [ACコード 138ms 2020/10/5](https://atcoder.jp/contests/abc156/submissions/17205940)
-- [ARC009: C \- 高橋君、24歳](https://atcoder.jp/contests/arc009/tasks/arc009_3) 2012/10/20開催
+- [ARC009: C - 高橋君、24歳](https://atcoder.jp/contests/arc009/tasks/arc009_3) 2012/10/20開催
   - [ACコード 1075ms 2020/10/5](https://atcoder.jp/contests/arc009/submissions/17206081)
   - [ACコード 901ms 2020/10/5](https://atcoder.jp/contests/arc009/submissions/17208378)
 
@@ -221,8 +221,8 @@ p 12.to_m == 1 #=> true
 - Rubyリファレンスマニュアル
   - [class Numeric \(Ruby 2\.7\.0 リファレンスマニュアル\)](https://docs.ruby-lang.org/ja/latest/class/Numeric.html)
 - その他
-  - [modint 構造体を使ってみませんか？ \(C\+\+\) \- noshi91のメモ](https://noshi91.hatenablog.com/entry/2019/03/31/174006)(2019/3/31)
-  - [Pythonでmodintを実装してみた \- Qiita](https://qiita.com/wotsushi/items/c936838df992b706084c)(2019/4/1)
+  - [modint 構造体を使ってみませんか？ \(C\+\+\) - noshi91のメモ](https://noshi91.hatenablog.com/entry/2019/03/31/174006)(2019/3/31)
+  - [Pythonでmodintを実装してみた - Qiita](https://qiita.com/wotsushi/items/c936838df992b706084c)(2019/4/1)
   - [C#版のModIntのドキュメント](https://github.com/key-moon/ac-library-cs/blob/master/document_ja/modint.md)
   
 

@@ -65,7 +65,7 @@ If there is a solution, all the solutions can be written as the form `x ≡ rem(
 ## Verified
 
 Problems
-- [No\.187 中華風 \(Hard\) \- yukicoder](https://yukicoder.me/problems/no/187)
+- [No\.187 中華風 \(Hard\) - yukicoder](https://yukicoder.me/problems/no/187)
 
 ## floor_sum(n, m, a, b)
 
@@ -79,7 +79,7 @@ It retrurns `Σ[k = 0 → n - 1] floor((a * i + b) / m)`
 
 ## Verified
 
-[ALPC: C \- Floor Sum](https://atcoder.jp/contests/practice2/tasks/practice2_c)
+[ALPC: C - Floor Sum](https://atcoder.jp/contests/practice2/tasks/practice2_c)
  - [AC Code 426ms 2020/9/14](https://atcoder.jp/contests/practice2/submissions/16735215)
 
 ## 参考リンク
@@ -101,4 +101,4 @@ It retrurns `Σ[k = 0 → n - 1] floor((a * i + b) / m)`
   - [Test math_test.cpp](https://github.com/atcoder/ac-library/blob/master/test/unittest/math_test.cpp)
   - [Document math.md](https://github.com/atcoder/ac-library/blob/master/document_ja/math.md)
   - [Document math.html](https://atcoder.github.io/ac-library/document_en/math.html)
-  - [Relax the constraints of floor\_sum? · Issue \#33 · atcoder/ac\-library](https://github.com/atcoder/ac-library/issues/33)
+  - [Relax the constraints of floor\_sum? · Issue \#33 · atcoder/ac-library](https://github.com/atcoder/ac-library/issues/33)

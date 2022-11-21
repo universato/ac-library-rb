@@ -138,8 +138,8 @@ LazySegtree上で、二分探索をします。
 - [AIZU ONLINE JUDGE DSL\_2\_I RSQ and RUQ](https://onlinejudge.u-aizu.ac.jp/problems/DSL_2_I) ([旧DSL_2_I](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_I))
 
 以下の問題は、Rubyでは実行時間が厳しくTLEになりACできてないです。
-- [ALPC: K \- Range Affine Range Sum](https://atcoder.jp/contests/practice2/tasks/practice2_k)
-- [ALPC: L \- Lazy Segment Tree](https://atcoder.jp/contests/practice2/tasks/practice2_l)
+- [ALPC: K - Range Affine Range Sum](https://atcoder.jp/contests/practice2/tasks/practice2_k)
+- [ALPC: L - Lazy Segment Tree](https://atcoder.jp/contests/practice2/tasks/practice2_l)
 
 下記は、ジャッジにだしてないが、サンプルに正解。`max_right`, `min_left`を使う問題。
 - [Quora Programming Challenge 2021: Skyscraper](https://jonathanirvin.gs/files/division2_3d16774b0423.pdf#page=5)

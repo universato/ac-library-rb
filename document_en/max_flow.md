@@ -122,7 +122,7 @@ Change the capacity and flow rate of the `i`-th changed edge to `new_cap` and `n
 
 ## Verified.
 
-- [ALPC: D \- Maxflow](https://atcoder.jp/contests/practice2/tasks/practice2_d)
+- [ALPC: D - Maxflow](https://atcoder.jp/contests/practice2/tasks/practice2_d)
   - [AC Code 211ms 2020/9/17](https://atcoder.jp/contests/practice2/submissions/16789801)
   - [ALPC: D \fnDroid Sans Fallback - Qiita](https://qiita.com/magurofly/items/bfaf6724418bfde86bd0)
 

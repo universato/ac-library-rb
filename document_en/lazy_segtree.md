@@ -136,8 +136,8 @@ This is the link in question. There is no code, but it has been Verified.
 - [AIZU ONLINE JUDGE DSL\_2\_G RSQ and RAQ](http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_G)
 
 The following problem is not AC in Ruby because the execution time is strictly TLE.
-- [ALPC: K \- Range Affine Range Sum](https://atcoder.jp/contests/practice2/tasks/practice2_k)
-- [ALPC: L \- Lazy Segment Tree](https://atcoder.jp/contests/practice2/tasks/practice2_l)
+- [ALPC: K - Range Affine Range Sum](https://atcoder.jp/contests/practice2/tasks/practice2_k)
+- [ALPC: L - Lazy Segment Tree](https://atcoder.jp/contests/practice2/tasks/practice2_l)
 
 ## Reference links
 

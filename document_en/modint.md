@@ -204,9 +204,9 @@ The `Integer` to be compared returns true or false in the range of [0, mod), but
 
 ## Verified
 
-- [ABC156: D \- Bouquet](https://atcoder.jp/contests/abc156/tasks/abc156_d) held on 2020/2/22
+- [ABC156: D - Bouquet](https://atcoder.jp/contests/abc156/tasks/abc156_d) held on 2020/2/22
   - [AC Code 138ms 2020/10/5](https://atcoder.jp/contests/abc156/submissions/17205940)
-- [ARC009: C \- Takahashi, 24 years old](https://atcoder.jp/contests/arc009/tasks/arc009_3) held on 2012/10/20
+- [ARC009: C - Takahashi, 24 years old](https://atcoder.jp/contests/arc009/tasks/arc009_3) held on 2012/10/20
   - [AC Code 1075ms 2020/10/5](https://atcoder.jp/contests/arc009/submissions/17206081)
   - [AC code 901ms 2020/10/5](https://atcoder.jp/contests/arc009/submissions/17208378)
 
@@ -227,7 +227,7 @@ The methods `+`, `-`, `*`, and `/` use the methods `add!`, `sub!`, `mul!`, and `
   - [class Numeric \(Ruby 2\.7\.0 Reference Manual\)](https://docs.ruby-lang.org/ja/latest/class/Numeric.html)
 - Others
   - [Why don't you try using the modint struct? \(C\cH000000)}Noshi91's Notes](https://noshi91.hatenablog.com/entry/2019/03/31/174006)(Mar 31, 2019)
-  - [Implementing modint in Python \- Qiita](https://qiita.com/wotsushi/items/c936838df992b706084c)(Apr 1, 2019)
+  - [Implementing modint in Python - Qiita](https://qiita.com/wotsushi/items/c936838df992b706084c)(Apr 1, 2019)
   - [Documentation of the C# version of ModInt](https://github.com/key-moon/ac-library-cs/blob/master/document_ja/modint.md)
 
 

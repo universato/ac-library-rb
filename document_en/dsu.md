@@ -120,7 +120,7 @@ More precisely, it returns the list of the "list of the vertices in a connected 
 
 ## Verified
 
-[A \- Disjoint Set Union](https://atcoder.jp/contests/practice2/tasks/practice2_a)
+[A - Disjoint Set Union](https://atcoder.jp/contests/practice2/tasks/practice2_a)
 
 ## Links & Reference
 

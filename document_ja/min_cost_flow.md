@@ -73,7 +73,7 @@ graph.edges
 
 ## Verified
 
-[ALPC: E \- MinCostFlow](https://atcoder.jp/contests/practice2/tasks/practice2_e)
+[ALPC: E - MinCostFlow](https://atcoder.jp/contests/practice2/tasks/practice2_e)
 - [1213ms 2020/9/17](https://atcoder.jp/contests/practice2/submissions/16792967)
 
 ## 参考リンク

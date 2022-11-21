@@ -70,7 +70,7 @@ Chinese remainder theorem
 ### Verified
 
 問題
-- [No\.187 中華風 \(Hard\) \- yukicoder](https://yukicoder.me/problems/no/187)
+- [No\.187 中華風 \(Hard\) - yukicoder](https://yukicoder.me/problems/no/187)
 
 ## floor_sum(n, m, a, b)
 
@@ -86,7 +86,7 @@ $\sum_{i = 0}^{n - 1} \mathrm{floor}(\frac{a \times i + b}{m})$
 
 ### Verified
 
-[ALPC: C \- Floor Sum](https://atcoder.jp/contests/practice2/tasks/practice2_c)
+[ALPC: C - Floor Sum](https://atcoder.jp/contests/practice2/tasks/practice2_c)
  - [ACコード 426ms 2020/9/14](https://atcoder.jp/contests/practice2/submissions/16735215)
 
 ## 参考リンク
@@ -107,7 +107,7 @@ $\sum_{i = 0}^{n - 1} \mathrm{floor}(\frac{a \times i + b}{m})$
   - [本家ライブラリの実装コード internal_math.hpp](https://github.com/atcoder/ac-library/blob/master/atcoder/internal_math.hpp)
   - [本家ライブラリのテストコード math_test.cpp](https://github.com/atcoder/ac-library/blob/master/test/unittest/math_test.cpp)
   - [本家ライブラリのドキュメント math.md](https://github.com/atcoder/ac-library/blob/master/document_ja/math.md)
-  - [Relax the constraints of floor\_sum? · Issue \#33 · atcoder/ac\-library](https://github.com/atcoder/ac-library/issues/33)
+  - [Relax the constraints of floor\_sum? · Issue \#33 · atcoder/ac-library](https://github.com/atcoder/ac-library/issues/33)
 
 ## Q&A
 

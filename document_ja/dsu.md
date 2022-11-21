@@ -131,7 +131,7 @@ d.groups
 
 ## Verified
 
-- [A \- Disjoint Set Union](https://atcoder.jp/contests/practice2/tasks/practice2_a)
+- [A - Disjoint Set Union](https://atcoder.jp/contests/practice2/tasks/practice2_a)
 
 ## 参考リンク
 

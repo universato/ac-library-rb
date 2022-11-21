@@ -1,6 +1,6 @@
 # MinCostFlow
 
-It solves [Minimum\-cost flow problem](https://en.wikipedia.org/wiki/Minimum-cost_flow_problem).
+It solves [Minimum-cost flow problem](https://en.wikipedia.org/wiki/Minimum-cost_flow_problem).
 
 ## Class Methods.
 
@@ -100,7 +100,7 @@ It returns an array containing information on all edges.
 
 ## Verified
 
-- [ALPC: E\- MinCostFlow](https://atcoder.jp/contests/practice2/tasks/practice2_e)
+- [ALPC: E- MinCostFlow](https://atcoder.jp/contests/practice2/tasks/practice2_e)
   - [1213ms 2020/9/17](https://atcoder.jp/contests/practice2/submissions/16792967)
 
 ## Reference links

@@ -69,9 +69,9 @@ fw._sum(pos)
 
 ## Verified
 
-- [AtCoder ALPC B \- Fenwick Tree](https://atcoder.jp/contests/practice2/tasks/practice2_b)
+- [AtCoder ALPC B - Fenwick Tree](https://atcoder.jp/contests/practice2/tasks/practice2_b)
   [ACコード(17074108)]https://atcoder.jp/contests/practice2/submissions/17074108 (1272ms)
-- [F \- Range Xor Query](https://atcoder.jp/contests/abc185/tasks/abc185_f)
+- [F - Range Xor Query](https://atcoder.jp/contests/abc185/tasks/abc185_f)
   FenwickTree(BIT)をxorに改造するだけでも解けます。
   [ACコード(821ms)](https://atcoder.jp/contests/abc185/submissions/18769200)。FenwickTree(BIT)のxor改造版です。
 

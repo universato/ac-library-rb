@@ -147,10 +147,10 @@ It returns an index l that satisfies both of the following.
 
 ## Verified
 
-- [ALPC: J \- Segment Tree](https://atcoder.jp/contests/practice2/tasks/practice2_j)
+- [ALPC: J - Segment Tree](https://atcoder.jp/contests/practice2/tasks/practice2_j)
   - [AC Code(884ms) max_right](https://atcoder.jp/contests/practice2/submissions/23196480)
   - [AC Code(914ms) min_left](https://atcoder.jp/contests/practice2/submissions/23197311)
-- [F \- Range Xor Query](https://atcoder.jp/contests/abc185/tasks/abc185_f)
+- [F - Range Xor Query](https://atcoder.jp/contests/abc185/tasks/abc185_f)
   - [AC Code(1538ms)](https://atcoder.jp/contests/abc185/submissions/18746817): Segtree(xor)
   - [AC Code(821ms)](https://atcoder.jp/contests/abc185/submissions/18769200): FenwickTree(BIT) xor
 

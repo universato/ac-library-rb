@@ -83,9 +83,9 @@ It returns `a[0] + a[1] + ... + a[pos - 1]`.
 
 ## Verified
 
-- [AtCoder ALPC B \- Fenwick Tree](https://atcoder.jp/contests/practice2/tasks/practice2_b)
+- [AtCoder ALPC B - Fenwick Tree](https://atcoder.jp/contests/practice2/tasks/practice2_b)
   -  [AC Code(1272ms)](https://atcoder.jp/contests/practice2/submissions/17074108)
-- [F \- Range Xor Query](https://atcoder.jp/contests/abc185/tasks/abc185_f)
+- [F - Range Xor Query](https://atcoder.jp/contests/abc185/tasks/abc185_f)
   - [AC Code(821ms)](https://atcoder.jp/contests/abc185/submissions/18769200)
 
 
