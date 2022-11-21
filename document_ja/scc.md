@@ -51,8 +51,9 @@ graph.scc
 ## Verified
 
 - [ALPC: G - SCC](https://atcoder.jp/contests/practice2/tasks/practice2_g)  
-  - [Ruby 2.7 1848ms 2022/11/22](https://atcoder.jp/contests/practice2/submissions/36708506)
+  - [Ruby2.7 1848ms 2022/11/22](https://atcoder.jp/contests/practice2/submissions/36708506)
 - [競プロ典型 90 問: 021 - Come Back in One Piece](https://atcoder.jp/contests/typical90/tasks/typical90_u)
+  - [Ruby2.7 471ms 2021/6/15](https://atcoder.jp/contests/typical90/submissions/23487102)
 
 # 参考リンク
 
