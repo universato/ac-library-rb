@@ -4,11 +4,6 @@ AllCops:
   Exclude:
     - 'lib_lock/ac-library-rb/*.rb'
 
-
-Gemspec/RequireMFA:
-  AutoCorrect: false
-
-
 ## Layout
 
 Layout/ExtraSpacing:

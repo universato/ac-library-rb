@@ -20,6 +20,7 @@ Gem::Specification.new do |spec|
 
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = "https://github.com/universato/ac-library-rb"
+  spec.metadata['rubygems_mfa_required'] = 'true'
 
   spec.add_dependency "prime"
 
