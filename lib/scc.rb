@@ -3,7 +3,7 @@ class SCC
   # initialize graph with n vertices
   def initialize(n)
     @n = n
-    @edges = []
+    @edges = Array.new(n) { [] }
   end
 
   # add directed edge
@@ -13,7 +13,7 @@ class SCC
       raise ArgumentError.new(msg)
     end
 
-    @edges << [from, to]
+    @edges[from] << to
     self
   end
 
@@ -28,58 +28,51 @@ class SCC
 
   # returns list of strongly connected components
   # the components are sorted in topological order
-  # O(@n + @edges.size)
+  # O(@n + @edges.sum {_1.size})
   def scc
-    group_num, ids = scc_ids
-    groups = Array.new(group_num) { [] }
-    ids.each_with_index { |id, i| groups[id] << i }
-    groups
-  end
+    now_ord = 0
 
-  private
+    visited = []
+    low = Array.new(@n, 1 << 60)
+    ord = Array.new(@n, -1)
+    groups = []
 
-  def scc_ids
-    start, elist = csr
-    now_ord = group_num = 0
-    visited, low, ord, ids = [], [], [-1] * @n, []
-    dfs = ->(v) {
-      low[v] = ord[v] = now_ord
-      now_ord += 1
-      visited << v
-      (start[v]...start[v + 1]).each do |i|
-        to = elist[i]
-        low[v] = if ord[to] == -1
-                   dfs.(to)
-                   [low[v], low[to]].min
-                 else
-                   [low[v], ord[to]].min
-                 end
-      end
-      if low[v] == ord[v]
-        loop do
-          u = visited.pop
-          ord[u] = @n
-          ids[u] = group_num
+    (0...@n).each do |v|
+      next if ord[v] != -1
+
+      stack = [[v, 0]]
+
+      while (v, i = stack.pop)
+        if i == 0
+          visited << v
+          low[v] = ord[v] = now_ord
+          now_ord += 1
+        end
+
+        while i < @edges[v].size
+          u = @edges[v][i]
+          i += 1
+
+          if ord[u] == -1
+            stack << [v, i] << [u, 0]
+            break 1
+          end
+        end and next
+
+        low[v] = [low[v], @edges[v].map { low[_1] }.min || @n].min
+        next unless low[v] == ord[v]
+
+        groups << []
+        while (u = visited.pop)
+          low[u] = @n
+          groups[-1] << u
           break if u == v
         end
-        group_num += 1
-      end
-    }
-    @n.times { |i| dfs.(i) if ord[i] == -1 }
-    ids = ids.map { |x| group_num - 1 - x }
-    [group_num, ids]
-  end
 
-  def csr
-    start = [0] * (@n + 1)
-    elist = [nil] * @edges.size
-    @edges.each { |(i, _)| start[i + 1] += 1 }
-    @n.times { |i| start[i + 1] += start[i] }
-    counter = start.dup
-    @edges.each do |(i, j)|
-      elist[counter[i]] = j
-      counter[i] += 1
+        groups[-1].reverse!
+      end
     end
-    [start, elist]
+
+    groups.reverse
   end
 end
