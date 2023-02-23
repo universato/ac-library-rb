@@ -28,14 +28,23 @@ class SCC
 
   # returns list of strongly connected components
   # the components are sorted in topological order
-  # O(@n + @edges.sum {_1.size})
+  # O(@n + @edges.sum(&:size))
   def scc
+    group_num, ids = scc_ids
+    groups = Array.new(group_num) { [] }
+    ids.each_with_index { |id, i| groups[id] << i }
+    groups
+  end
+
+  private
+
+  def scc_ids
     now_ord = 0
 
     visited = []
     low = Array.new(@n, 1 << 60)
     ord = Array.new(@n, -1)
-    groups = []
+    group_num = 0
 
     (0...@n).each do |v|
       next if ord[v] != -1
@@ -60,19 +69,19 @@ class SCC
         end and next
 
         low[v] = [low[v], @edges[v].map { low[_1] }.min || @n].min
-        next unless low[v] == ord[v]
+        next if low[v] != ord[v]
 
-        groups << []
         while (u = visited.pop)
           low[u] = @n
-          groups[-1] << u
+          ord[u] = group_num
           break if u == v
         end
+        group_num += 1
 
-        groups[-1].reverse!
       end
     end
 
-    groups.reverse
+    ord.map! { group_num - _1 - 1 }
+    [group_num, ord]
   end
 end
