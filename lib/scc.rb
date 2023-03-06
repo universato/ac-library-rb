@@ -68,7 +68,7 @@ class SCC
           end
         end and next
 
-        low[v] = [low[v], @edges[v].map { low[_1] }.min || @n].min
+        low[v] = [low[v], @edges[v].map { |e| low[e] }.min || @n].min
         next if low[v] != ord[v]
 
         while (u = visited.pop)
@@ -81,7 +81,7 @@ class SCC
       end
     end
 
-    ord.map! { group_num - _1 - 1 }
+    ord.map! { |e| group_num - e - 1 }
     [group_num, ord]
   end
 end
