@@ -129,8 +129,8 @@ Change the capacity and flow rate of the `i`-th changed edge to `new_cap` and `n
 ## Reference links
 
 - ac-library-rb
-  - [Code max_flow.rb(GitHub)](https://github.com/universato/ac-library-rb/blob/master/lib/max_flow.rb)
-  - [Test code: max_flow_test.rb(GitHub)](https://github.com/universato/ac-library-rb/blob/master/test/max_flow_test.rb)
+  - [Code max_flow.rb(GitHub)](https://github.com/universato/ac-library-rb/blob/main/lib/max_flow.rb)
+  - [Test code: max_flow_test.rb(GitHub)](https://github.com/universato/ac-library-rb/blob/main/test/max_flow_test.rb)
 - The original library AtCoder Library
   - Code of the original library
     - [Code: maxflow.hpp(GitHub)](https://github.com/atcoder/ac-library/blob/master/atcoder/maxflow.hpp)

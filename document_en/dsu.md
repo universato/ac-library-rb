@@ -125,8 +125,8 @@ More precisely, it returns the list of the "list of the vertices in a connected 
 ## Links & Reference
 
 - ac-library-rb
-  - [Code dsu.rb](https://github.com/universato/ac-library-rb/blob/master/lib/dsu.rb)
-  - [Test dsu_test.rb](https://github.com/universato/ac-library-rb/blob/master/test/dsu_test.rb)
+  - [Code dsu.rb](https://github.com/universato/ac-library-rb/blob/main/lib/dsu.rb)
+  - [Test dsu_test.rb](https://github.com/universato/ac-library-rb/blob/main/test/dsu_test.rb)
 - AtCoder Library
   - [Document](https://github.com/atcoder/ac-library/blob/master/document_en/dsu.md)
   - [Code dsu.hpp](https://github.com/atcoder/ac-library/blob/master/atcoder/dsu.hpp)

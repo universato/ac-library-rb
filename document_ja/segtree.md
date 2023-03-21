@@ -153,8 +153,8 @@ Segtree上で`0 <= l <= r`の範囲で、`f(prod(l, r))`の結果を二分探索
 ## 参考リンク
 
 - 当ライブラリ
-  - [当ライブラリの実装コード segtree.rb](https://github.com/universato/ac-library-rb/blob/master/lib/segtree.rb)
-  - [当ライブラリのテストコード segtree.rb](https://github.com/universato/ac-library-rb/blob/master/test/segtree_test.rb)
+  - [当ライブラリの実装コード segtree.rb](https://github.com/universato/ac-library-rb/blob/main/lib/segtree.rb)
+  - [当ライブラリのテストコード segtree.rb](https://github.com/universato/ac-library-rb/blob/main/test/segtree_test.rb)
     - テストコードも具体的な使い方として役に立つかもしれまん。
 - 本家ライブラリ
   - [本家ライブラリのドキュメント segtree.md(GitHub)](https://github.com/atcoder/ac-library/blob/master/document_ja/segtree.md)

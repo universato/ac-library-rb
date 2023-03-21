@@ -86,15 +86,15 @@ It retrurns `Σ[k = 0 → n - 1] floor((a * i + b) / m)`
 
 - ac-library-rb
   - codes in ac-library-rb
-    - [Code pow_mod.rb](https://github.com/universato/ac-library-rb/blob/master/lib/pow_mod.rb)
-    - [Code inv_mod.rb](https://github.com/universato/ac-library-rb/blob/master/lib/inv_mod.rb)
-    - [Code crt.rb](https://github.com/universato/ac-library-rb/blob/master/lib/crt.rb)
-    - [Code floor_sum.rb](https://github.com/universato/ac-library-rb/blob/master/lib/floor_sum.rb)
+    - [Code pow_mod.rb](https://github.com/universato/ac-library-rb/blob/main/lib/pow_mod.rb)
+    - [Code inv_mod.rb](https://github.com/universato/ac-library-rb/blob/main/lib/inv_mod.rb)
+    - [Code crt.rb](https://github.com/universato/ac-library-rb/blob/main/lib/crt.rb)
+    - [Code floor_sum.rb](https://github.com/universato/ac-library-rb/blob/main/lib/floor_sum.rb)
   - test in ac-library-rb
-    - [Test pow_mod_test.rb](https://github.com/universato/ac-library-rb/blob/master/test/pow_mod.rb)
-    - [Test inv_mod_test.rb](https://github.com/universato/ac-library-rb/blob/master/test/inv_mod.rb)
-    - [Test crt_test.rb](https://github.com/universato/ac-library-rb/blob/master/test/crt.rb)
-    - [Test floor_sum_test.rb](https://github.com/universato/ac-library-rb/test/master/lib/floor_sum.rb)
+    - [Test pow_mod_test.rb](https://github.com/universato/ac-library-rb/blob/main/test/pow_mod.rb)
+    - [Test inv_mod_test.rb](https://github.com/universato/ac-library-rb/blob/main/test/inv_mod.rb)
+    - [Test crt_test.rb](https://github.com/universato/ac-library-rb/blob/main/test/crt.rb)
+    - [Test floor_sum_test.rb](https://github.com/universato/ac-library-rb/test/main/lib/floor_sum.rb)
 - AtCoder Library
   - [Code math.hpp](https://github.com/atcoder/ac-library/blob/master/atcoder/math.hpp)
   - [Code internal_math.hpp](https://github.com/atcoder/ac-library/blob/master/atcoder/internal_math.hpp)

@@ -93,15 +93,15 @@ $\sum_{i = 0}^{n - 1} \mathrm{floor}(\frac{a \times i + b}{m})$
 
 - 当ライブラリ
   - 当ライブラリの実装コード
-    - [当ライブラリの実装コード pow_mod.rb](https://github.com/universato/ac-library-rb/blob/master/lib/pow_mod.rb)
-    - [当ライブラリの実装コード inv_mod.rb](https://github.com/universato/ac-library-rb/blob/master/lib/inv_mod.rb)
-    - [当ライブラリの実装コード crt.rb](https://github.com/universato/ac-library-rb/blob/master/lib/crt.rb)
-    - [当ライブラリの実装コード floor_sum.rb](https://github.com/universato/ac-library-rb/blob/master/lib/floor_sum.rb)
+    - [当ライブラリの実装コード pow_mod.rb](https://github.com/universato/ac-library-rb/blob/main/lib/pow_mod.rb)
+    - [当ライブラリの実装コード inv_mod.rb](https://github.com/universato/ac-library-rb/blob/main/lib/inv_mod.rb)
+    - [当ライブラリの実装コード crt.rb](https://github.com/universato/ac-library-rb/blob/main/lib/crt.rb)
+    - [当ライブラリの実装コード floor_sum.rb](https://github.com/universato/ac-library-rb/blob/main/lib/floor_sum.rb)
   - テストコード
-    - [当ライブラリのテストコード pow_mod_test.rb](https://github.com/universato/ac-library-rb/blob/master/test/pow_mod.rb)
-    - [当ライブラリのテストコード inv_mod_test.rb](https://github.com/universato/ac-library-rb/blob/master/test/inv_mod.rb)
-    - [当ライブラリのテストコード crt_test.rb](https://github.com/universato/ac-library-rb/blob/master/test/crt.rb)
-    - [当ライブラリのテストコード floor_sum_test.rb](https://github.com/universato/ac-library-rb/test/master/lib/floor_sum.rb)
+    - [当ライブラリのテストコード pow_mod_test.rb](https://github.com/universato/ac-library-rb/blob/main/test/pow_mod.rb)
+    - [当ライブラリのテストコード inv_mod_test.rb](https://github.com/universato/ac-library-rb/blob/main/test/inv_mod.rb)
+    - [当ライブラリのテストコード crt_test.rb](https://github.com/universato/ac-library-rb/blob/main/test/crt.rb)
+    - [当ライブラリのテストコード floor_sum_test.rb](https://github.com/universato/ac-library-rb/test/main/lib/floor_sum.rb)
 - 本家ライブラリ
   - [本家ライブラリの実装コード math.hpp](https://github.com/atcoder/ac-library/blob/master/atcoder/math.hpp)
   - [本家ライブラリの実装コード internal_math.hpp](https://github.com/atcoder/ac-library/blob/master/atcoder/internal_math.hpp)

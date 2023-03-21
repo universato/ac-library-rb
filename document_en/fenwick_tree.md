@@ -92,8 +92,8 @@ It returns `a[0] + a[1] + ... + a[pos - 1]`.
 ## Link
 
 - ac-library-rb
-  - [Code dsu.rb](https://github.com/universato/ac-library-rb/blob/master/lib/dsu.rb)
-  - [Test dsu_test.rb](https://github.com/universato/ac-library-rb/blob/master/test/dsu_test.rb)
+  - [Code dsu.rb](https://github.com/universato/ac-library-rb/blob/main/lib/dsu.rb)
+  - [Test dsu_test.rb](https://github.com/universato/ac-library-rb/blob/main/test/dsu_test.rb)
 - AtCoder
   - [fenwicktree.html](https://atcoder.github.io/ac-library/document_en/fenwicktree.html)
   - [Code fenwick.hpp](https://github.com/atcoder/ac-library/blob/master/atcoder/fenwick.hpp)

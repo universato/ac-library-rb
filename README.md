@@ -1,7 +1,7 @@
 ### Other language Japanese version(ver. 日本語)
 
 [README 日本語バージョン(ver. Japanese)](README.ja.md)
-- [ライブラリ目次: index.md](https://github.com/universato/ac-library-rb/blob/master/document_ja/index.md)
+- [ライブラリ目次: index.md](https://github.com/universato/ac-library-rb/blob/main/document_ja/index.md)
 
 <hr>
 
@@ -28,7 +28,7 @@ Therefore, 2.7 and the latest 3.1 are tested.
 
 # Document
 
-Please read [index.md](https://github.com/universato/ac-library-rb/blob/master/document_en/index.md).
+Please read [index.md](https://github.com/universato/ac-library-rb/blob/main/document_en/index.md).
 
 ## How to use ac-library-rb as a Gem
 
@@ -113,4 +113,4 @@ $ ruby test/fenwick_tree_test.rb
 ## Other language Japanese version
 
 [README 日本語バージョン(ver. Japanese)](README.ja.md)
-- [ライブラリ目次: index.md](https://github.com/universato/ac-library-rb/blob/master/document_ja/index.md)
+- [ライブラリ目次: index.md](https://github.com/universato/ac-library-rb/blob/main/document_ja/index.md)

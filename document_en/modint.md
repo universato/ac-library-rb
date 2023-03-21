@@ -217,8 +217,8 @@ The methods `+`, `-`, `*`, and `/` use the methods `add!`, `sub!`, `mul!`, and `
 ## Reference links
 
 - This library
-  - [The code of this library modint.rb(GitHub)](https://github.com/universato/ac-library-rb/blob/master/lib/modint.rb)
-  - Our library [Our code modint_test.rb(GitHub)](https://github.com/universato/ac-library-rb/blob/master/lib/modint.rb)
+  - [The code of this library modint.rb(GitHub)](https://github.com/universato/ac-library-rb/blob/main/lib/modint.rb)
+  - Our library [Our code modint_test.rb(GitHub)](https://github.com/universato/ac-library-rb/blob/main/lib/modint.rb)
 - The original library
   - [Our implementation code modint.hpp(GitHub)](https://github.com/atcoder/ac-library/blob/master/atcoder/modint.hpp)
   - Test code of the main library [modint_test.cpp(GitHub)](https://github.com/atcoder/ac-library/blob/master/atcoder/modint.hpp)
@@ -228,7 +228,7 @@ The methods `+`, `-`, `*`, and `/` use the methods `add!`, `sub!`, `mul!`, and `
 - Others
   - [Why don't you try using the modint struct? \(C\cH000000)}Noshi91's Notes](https://noshi91.hatenablog.com/entry/2019/03/31/174006)(Mar 31, 2019)
   - [Implementing modint in Python - Qiita](https://qiita.com/wotsushi/items/c936838df992b706084c)(Apr 1, 2019)
-  - [Documentation of the C# version of ModInt](https://github.com/key-moon/ac-library-cs/blob/master/document_ja/modint.md)
+  - [Documentation of the C# version of ModInt](https://github.com/key-moon/ac-library-cs/blob/main/document_ja/modint.md)
 
 
 ## Q&A.

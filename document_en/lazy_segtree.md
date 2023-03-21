@@ -142,8 +142,8 @@ The following problem is not AC in Ruby because the execution time is strictly T
 ## Reference links
 
 - ac-library-rb
-  - [Code: lazy_segtree.rb](https://github.com/universato/ac-library-rb/blob/master/lib/lazy_segtree.rb)
-  - [Test code: lazy_segtree_test.rb](https://github.com/universato/ac-library-rb/blob/master/test/lazy_segtree_test.rb)
+  - [Code: lazy_segtree.rb](https://github.com/universato/ac-library-rb/blob/main/lib/lazy_segtree.rb)
+  - [Test code: lazy_segtree_test.rb](https://github.com/universato/ac-library-rb/blob/main/test/lazy_segtree_test.rb)
 - AtCoder Library
   - [Document: lazysegtree.md(GitHub)](https://github.com/atcoder/ac-library/blob/master/document_en/lazysegtree.md)
   - [Documentat: appendix.md(GitHub)](https://github.com/atcoder/ac-library/blob/master/document_en/appendix.md)

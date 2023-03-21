@@ -157,8 +157,8 @@ It returns an index l that satisfies both of the following.
 ## 参考リンク
 
 - ac-library
-  - [Code segtree.rb](https://github.com/universato/ac-library-rb/blob/master/lib/segtree.rb)
-  - [Test segtree_test.rb](https://github.com/universato/ac-library-rb/blob/master/test/segtree_test.rb)
+  - [Code segtree.rb](https://github.com/universato/ac-library-rb/blob/main/lib/segtree.rb)
+  - [Test segtree_test.rb](https://github.com/universato/ac-library-rb/blob/main/test/segtree_test.rb)
 - AtCoder Library
   - [Document HTML](https://atcoder.github.io/ac-library/document_en/segtree.html)
   - [Documetn appendix.md(GitHub)](https://github.com/atcoder/ac-library/blob/master/document_en/appendix.md)

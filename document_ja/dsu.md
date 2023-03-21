@@ -136,8 +136,8 @@ d.groups
 ## 参考リンク
 
 - 当ライブラリ
-  - [当ライブラリの実装コード dsu.rb](https://github.com/universato/ac-library-rb/blob/master/lib/dsu.rb)
-  - [当ライブラリのテストコード dsu_test.rb](https://github.com/universato/ac-library-rb/blob/master/test/dsu_test.rb)
+  - [当ライブラリの実装コード dsu.rb](https://github.com/universato/ac-library-rb/blob/main/lib/dsu.rb)
+  - [当ライブラリのテストコード dsu_test.rb](https://github.com/universato/ac-library-rb/blob/main/test/dsu_test.rb)
 - 本家ライブラリ
   - [本家ACLのドキュメント dsu.md](https://github.com/atcoder/ac-library/blob/master/document_ja/dsu.md)
   - [本家ACLのコード dsu.hpp](https://github.com/atcoder/ac-library/blob/master/atcoder/dsu.hpp)

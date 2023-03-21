@@ -100,4 +100,4 @@ pq.heap
 
 ## 参考
 
-- [cpython/heapq.py at master - python/cpython](https://github.com/python/cpython/blob/master/Lib/heapq.py)
+- [cpython/heapq.py at main - python/cpython](https://github.com/python/cpython/blob/main/Lib/heapq.py)

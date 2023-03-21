@@ -1,5 +1,5 @@
 # Priority Queue
-# Reference: https://github.com/python/cpython/blob/master/Lib/heapq.py
+# Reference: https://github.com/python/cpython/blob/main/Lib/heapq.py
 class PriorityQueue
   # By default, the priority queue returns the maximum element first.
   # If a block is given, the priority between the elements is determined with it.

@@ -106,8 +106,8 @@ It returns an array containing information on all edges.
 ## Reference links
 
 - Our library: ac-library-rb
-  - [Code: min_cost_flow.rb](https://github.com/universato/ac-library-rb/blob/master/lib/min_cost_flow.rb)
-  - [Test code: min_cost_flow_test.rb](https://github.com/universato/ac-library-rb/blob/master/test/min_cost_flow_test.rb)
+  - [Code: min_cost_flow.rb](https://github.com/universato/ac-library-rb/blob/main/lib/min_cost_flow.rb)
+  - [Test code: min_cost_flow_test.rb](https://github.com/universato/ac-library-rb/blob/main/test/min_cost_flow_test.rb)
 - The original library: AtCoder Library(ACL)
   - [Documentat: mincostflow.md(GitHub)](https://github.com/atcoder/ac-library/blob/master/document_ja/mincostflow.md)
   - [Code: mincostflow.hpp(GitHub)](https://github.com/atcoder/ac-library/blob/master/atcoder/mincostflow.hpp)

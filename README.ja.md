@@ -24,7 +24,7 @@ ACLの詳細は、以下をご覧ください.
 
 ## ライブラリの使い方
 
-[ライブラリ目次: index.md](https://github.com/universato/ac-library-rb/blob/master/document_ja/index.md)
+[ライブラリ目次: index.md](https://github.com/universato/ac-library-rb/blob/main/document_ja/index.md)
 
 公式に、ac-library-rbの利用として、以下の方法を想定しています。
 - 直接コピペして使う方法
@@ -35,7 +35,7 @@ ACLの詳細は、以下をご覧ください.
 
 他に、有志作成のバンドルツール[expander-rb](https://github.com/surpace/expander-rb)(by surpaceさん)を利用する方法もあります。
 
-目次は、[index.md](https://github.com/universato/ac-library-rb/blob/master/document_ja/index.md)をご覧ください。
+目次は、[index.md](https://github.com/universato/ac-library-rb/blob/main/document_ja/index.md)をご覧ください。
 
 ## Gemとなったac-library-rbを使う方法
 

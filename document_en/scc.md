@@ -60,8 +60,8 @@ It returns the array of the "array of the vertices" that satisfies the following
 # 参考リンク
 
 - ac-library-rb
-  - [scc.rb](https://github.com/universato/ac-library-rb/blob/master/lib/scc.rb)
-  - [scc_test.rb](https://github.com/universato/ac-library-rb/blob/master/test/scc_test.rb)
+  - [scc.rb](https://github.com/universato/ac-library-rb/blob/main/lib/scc.rb)
+  - [scc_test.rb](https://github.com/universato/ac-library-rb/blob/main/test/scc_test.rb)
 - Original C++
   - [Original C++ code scc.hpp](https://github.com/atcoder/ac-library/blob/master/atcoder/scc.hpp)
   - [Original document scc.md](https://github.com/atcoder/ac-library/blob/master/document_en/scc.md)

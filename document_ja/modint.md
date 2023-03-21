@@ -212,8 +212,8 @@ p 12.to_m == 1 #=> true
 ## 参考リンク
 
 - 当ライブラリ
-  - [当ライブラリのコード modint.rb(GitHub)](https://github.com/universato/ac-library-rb/blob/master/lib/modint.rb)
-  - [当ライブラリのコード modint_test.rb(GitHub)](https://github.com/universato/ac-library-rb/blob/master/lib/modint.rb)
+  - [当ライブラリのコード modint.rb(GitHub)](https://github.com/universato/ac-library-rb/blob/main/lib/modint.rb)
+  - [当ライブラリのコード modint_test.rb(GitHub)](https://github.com/universato/ac-library-rb/blob/main/lib/modint.rb)
 - 本家ライブラリ
   - [本家の実装コード modint.hpp(GitHub)](https://github.com/atcoder/ac-library/blob/master/atcoder/modint.hpp)
   - [本家のテストコード modint_test.cpp(GitHub)](https://github.com/atcoder/ac-library/blob/master/atcoder/modint.hpp)
@@ -223,7 +223,7 @@ p 12.to_m == 1 #=> true
 - その他
   - [modint 構造体を使ってみませんか？ \(C\+\+\) - noshi91のメモ](https://noshi91.hatenablog.com/entry/2019/03/31/174006)(2019/3/31)
   - [Pythonでmodintを実装してみた - Qiita](https://qiita.com/wotsushi/items/c936838df992b706084c)(2019/4/1)
-  - [C#版のModIntのドキュメント](https://github.com/key-moon/ac-library-cs/blob/master/document_ja/modint.md)
+  - [C#版のModIntのドキュメント](https://github.com/key-moon/ac-library-cs/blob/main/document_ja/modint.md)
   
 
 ## Q&A

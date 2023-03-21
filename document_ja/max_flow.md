@@ -94,8 +94,8 @@ graph.edges
 ## 参考リンク
 
 - 当ライブラリ
-  - [当ライブラリの実装コード max_flow.rb(GitHub)](https://github.com/universato/ac-library-rb/blob/master/lib/max_flow.rb)
-  - [当ライブラリのテストコード max_flow_test.rb(GitHub)](https://github.com/universato/ac-library-rb/blob/master/test/max_flow_test.rb)
+  - [当ライブラリの実装コード max_flow.rb(GitHub)](https://github.com/universato/ac-library-rb/blob/main/lib/max_flow.rb)
+  - [当ライブラリのテストコード max_flow_test.rb(GitHub)](https://github.com/universato/ac-library-rb/blob/main/test/max_flow_test.rb)
 - 本家ライブラリ
   - 本家のコード
     - [本家の実装コード maxflow.hpp(GitHub)](https://github.com/atcoder/ac-library/blob/master/atcoder/maxflow.hpp)
