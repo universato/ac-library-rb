@@ -141,6 +141,18 @@ class ModInt < Numeric
     @val == other.to_i
   end
 
+  def pred
+    dup.add!(-1)
+  end
+
+  def succ
+    dup.add! 1
+  end
+
+  def zero?
+    @val == 0
+  end
+
   def dup
     ModInt.raw(@val)
   end

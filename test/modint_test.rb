@@ -51,6 +51,29 @@ class ModIntTest < Minitest::Test
     assert_equal 3, ModInt.raw(3) # 3 mod 11
   end
 
+  def test_method_zero?
+    ModInt.mod = 11
+    assert_equal 11, ModInt.mod
+
+    assert_equal true, ModInt.new(11).zero?
+    assert_equal true, ModInt.new(-11).zero?
+    assert_equal true, ModInt.new(0).zero?
+
+    assert_equal false, ModInt.new(12).zero?
+    assert_equal false, ModInt.new(1).zero?
+    assert_equal false, ModInt.new(-1).zero?
+  end
+
+  def test_pred
+    ModInt.mod = 11
+    assert_equal 11, ModInt.mod
+
+    m = ModInt.new(12)
+    assert_equal 2, m.succ
+    assert_equal 0, m.pred
+    assert_equal 1, m
+  end
+
   def test_usage
     ModInt.mod = 11
     assert_equal 11, ModInt.mod
