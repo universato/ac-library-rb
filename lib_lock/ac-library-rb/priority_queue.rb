@@ -55,6 +55,7 @@ module AcLibraryRb
     end
 
     alias top get
+    alias first get
 
     # Returns true if the heap is empty.
     def empty?
