@@ -9,6 +9,7 @@ end
 
 require_relative 'convolution_test'
 require_relative 'crt_test'
+require_relative 'deque_test'
 require_relative 'dsu_test'
 require_relative 'fenwick_tree_test'
 require_relative 'floor_sum_test'

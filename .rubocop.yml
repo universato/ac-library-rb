@@ -113,6 +113,9 @@ Naming/VariableNumber:
 
 ## Style
 
+Style/AccessModifierDeclarations:
+  Exclude:
+    - 'lib/deque.rb'
 Style/BlockDelimiters:
   AutoCorrect: false
   Exclude:

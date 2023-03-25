@@ -1,5 +1,6 @@
 require_relative "../../lib_lock/ac-library-rb/convolution"
 require_relative "../../lib_lock/ac-library-rb/crt"
+require_relative "../../lib_lock/ac-library-rb/deque"
 require_relative "../../lib_lock/ac-library-rb/dsu"
 require_relative "../../lib_lock/ac-library-rb/fenwick_tree"
 require_relative "../../lib_lock/ac-library-rb/floor_sum"
