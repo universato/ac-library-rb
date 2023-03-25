@@ -14,6 +14,14 @@ module AcLibraryRb
       heapify
     end
 
+    def self.max(array)
+      new(array)
+    end
+
+    def self.min(array)
+      new(array){ |x, y| x < y }
+    end
+
     def self.[](*array, &comp)
       new(array, &comp)
     end

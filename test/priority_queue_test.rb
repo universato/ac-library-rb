@@ -6,6 +6,19 @@ require 'minitest/autorun'
 require_relative '../lib/priority_queue.rb'
 
 class PriorityQueueTest < Minitest::Test
+  def test_max_initialization
+    pq = PriorityQueue.max([5, -9, 8, -4, 0, 2, -1])
+    assert_equal 8, pq.pop
+    assert_equal 5, pq.pop
+    assert_equal 2, pq.first
+  end
+
+  def test_min_initialization
+    pq = PriorityQueue.min([5, -9, 8, -4, 0, 2, -1])
+    assert_equal(-9, pq.pop)
+    assert_equal(-4, pq.pop)
+  end
+
   # https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/all/ALDS1_9_C
   def test_aizu_sample_case
     q = PriorityQueue.new([2, 7, 8])
