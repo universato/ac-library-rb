@@ -170,6 +170,22 @@ class DequeTest < Minitest::Test
     assert_equal [2, 1], d.to_a
   end
 
+  def test_to_a_with_reverse
+    d = Deque.new.reverse
+    assert_equal [], d.to_a
+    d.reverse!
+    assert_equal [], d.to_a
+
+    d.push(2, 1)
+    d.reverse!
+    d.push(3)
+    d.unshift(0)
+    assert_equal [0, 1, 2, 3], d.to_a
+
+    d.reverse!
+    assert_equal [3, 2, 1, 0], d.to_a
+  end
+
   def test_to_s
     assert_equal "Deque[]", Deque[].to_s
     assert_equal "Deque[1, 2, 3]", Deque[1, 2, 3].to_s
@@ -187,14 +203,39 @@ class DequeTest < Minitest::Test
     assert_equal Deque[2, 1], Deque[1, 2].reverse!
   end
 
-  # def test_rotate
-  #   d = Deque[ "a", "b", "c", "d" ]
-  #   assert_equal Deque["b", "c", "d", "a"], d.rotate
-  #   assert_equal Deque["a", "b", "c", "d"], d
-  #   assert_equal Deque["c", "d", "a", "b"], d.rotate(2)
-  #   assert_equal Deque["d", "a", "b", "c"], d.rotate(-1)
-  #   assert_equal Deque["b", "c", "d", "a"], d.rotate(-3)
-  # end
+  def test_rotate!
+    d = Deque[ "a", "b", "c", "d" ]
+    assert_equal Deque["b", "c", "d", "a"], d.rotate!
+    assert_equal Deque["b", "c", "d", "a"], d
+    assert_equal Deque["d", "a", "b", "c"], d.rotate!(2)
+    assert_equal Deque["a", "b", "c", "d"], d.rotate!(-3)
+  end
+
+  def test_rotate_bang_with_reverse
+    d = Deque[ "d", "c", "b", "a" ].reverse
+    assert_equal Deque["b", "c", "d", "a"], d.rotate!
+    assert_equal Deque["b", "c", "d", "a"], d
+    assert_equal Deque["d", "a", "b", "c"], d.rotate!(2)
+    assert_equal Deque["a", "b", "c", "d"], d.rotate!(-3)
+  end
+
+  def test_rotate
+    d = Deque["a", "b", "c", "d"]
+    assert_equal Deque["b", "c", "d", "a"], d.rotate
+    assert_equal Deque["a", "b", "c", "d"], d
+    assert_equal Deque["c", "d", "a", "b"], d.rotate(2)
+    assert_equal Deque["d", "a", "b", "c"], d.rotate(-1)
+    assert_equal Deque["b", "c", "d", "a"], d.rotate(-3)
+  end
+
+  def test_rotate_with_reverse
+    d = Deque[:d, :c, :b, :a].reverse
+    assert_equal Deque[:b, :c, :d, :a], d.rotate
+    assert_equal Deque[:a, :b, :c, :d], d
+    assert_equal Deque[:c, :d, :a, :b], d.rotate(2)
+    assert_equal Deque[:d, :a, :b, :c], d.rotate(-1)
+    assert_equal Deque[:b, :c, :d, :a], d.rotate(-3)
+  end
 
   def test_swap
     d = Deque["a", "b", "c", "d"]

@@ -176,6 +176,30 @@ module AcLibraryRb
       to_a.join(sep)
     end
 
+    def rc
+      @reverse_count
+    end
+
+    def rotate!(cnt = 1)
+      return self if cnt == 0
+
+      cnt %= size if cnt < 0 || size > cnt
+
+      cnt.times{ self.push(self.shift) }
+      self
+    end
+
+    def rotate(cnt = 1)
+      return self if cnt == 0
+
+      cnt %= size if cnt < 0 || size > cnt
+
+      ret = self.dup
+      @buf = @buf.dup
+      cnt.times{ ret.push(ret.shift) }
+      ret
+    end
+
     def sample
       return nil if empty?
 
@@ -218,7 +242,7 @@ module AcLibraryRb
     end
 
     def inspect
-      "Deque#{to_a}(@n=#{@n}, @buf=#{@buf}, @head=#{@head}, @tail=#{@tail}, size #{size}#{' full' if __full?})"
+      "Deque#{to_a}(@n=#{@n}, @buf=#{@buf}, @head=#{@head}, @tail=#{@tail}, size #{size}#{' full' if __full?}#{' rev' if reversed?})"
     end
 
     private def __push(x)
