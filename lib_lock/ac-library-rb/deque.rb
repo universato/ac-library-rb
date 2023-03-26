@@ -165,10 +165,11 @@ module AcLibraryRb
     end
 
     def clear
-      # sz = size
-      @reverse_count = 0
+      @n = 1
+      @buf = []
       @head = 0
       @tail = 0
+      @reverse_count = 0
       self
     end
 
