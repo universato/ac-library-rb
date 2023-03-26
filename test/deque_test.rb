@@ -206,6 +206,11 @@ class DequeTest < Minitest::Test
     assert_equal Deque["e", "c", "d", "b", "a", "f"], d.swap(0, -1)
   end
 
+  def test_sample
+    d = Deque.new([100, 2, 3])
+    assert_includes [100, 2, 3], d.sample
+  end
+
   def test_shuffle
     d = Deque.new([1, 2, 3, 4, 5])
     s = d.shuffle

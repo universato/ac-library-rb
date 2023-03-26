@@ -175,8 +175,11 @@ class Deque
     to_a.join(sep)
   end
 
-  # def sample
-  # end
+  def sample
+    return nil if empty?
+
+    self[rand(size)]
+  end
 
   def shuffle(_n = nil)
     Deque.new(to_a.shuffle)
