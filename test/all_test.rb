@@ -1,8 +1,10 @@
 begin
   require 'simplecov'
-  require 'simplecov-cobertura'
   SimpleCov.start
-  SimpleCov.formatter = SimpleCov::Formatter::CoberturaFormatter
+  if ENV['GITHUB_ACTIONS'] == 'true'
+    require 'simplecov-cobertura'
+    SimpleCov.formatter = SimpleCov::Formatter::CoberturaFormatter
+  end
 rescue LoadError
   puts "[INFO] You can use simplecov gem for this test!"
 end
