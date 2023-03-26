@@ -287,7 +287,7 @@ class DequeTest < Minitest::Test
     assert_equal Deque[:b, :a], d[-2, 2]
   end
 
-  def test_each_
+  def test_each_when_head_is_bigger_than_tail
     d = Deque.new([1, 2])
     d.unshift(0)
 
@@ -321,12 +321,12 @@ class DequeTest < Minitest::Test
   def test_hash
     assert_equal Deque[].hash, Deque[].hash
     assert_equal Deque[1].hash, Deque[1].hash
-    assert_equal Deque[1,2].hash, Deque[1,2].hash
-    assert_equal Deque[1,2,3].hash, Deque[1,2,3].hash
+    assert_equal Deque[1, 2].hash, Deque[1, 2].hash
+    assert_equal Deque[1, 2, 3].hash, Deque[1, 2, 3].hash
 
     refute_equal Deque[1].hash, Deque[2].hash
-    refute_equal Deque[1,2].hash, Deque[2,1].hash
-    refute_equal Deque[1,2,3].hash, Deque[3,2,1].hash
+    refute_equal Deque[1, 2].hash, Deque[2, 1].hash
+    refute_equal Deque[1, 2, 3].hash, Deque[3, 2, 1].hash
   end
 
   def test_clear
