@@ -176,10 +176,6 @@ class Deque
     to_a.join(sep)
   end
 
-  def rc
-    @reverse_count
-  end
-
   def rotate!(cnt = 1)
     return self if cnt == 0
 
