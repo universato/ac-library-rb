@@ -181,7 +181,7 @@ class Deque
 
     cnt %= size if cnt < 0 || size > cnt
 
-    cnt.times{ self.push(self.shift) }
+    cnt.times{ push(shift) }
     self
   end
 
@@ -190,7 +190,7 @@ class Deque
 
     cnt %= size if cnt < 0 || size > cnt
 
-    ret = self.dup
+    ret = dup
     @buf = @buf.dup
     cnt.times{ ret.push(ret.shift) }
     ret
@@ -202,7 +202,7 @@ class Deque
     self[rand(size)]
   end
 
-  def shuffle(_n = nil)
+  def shuffle
     Deque.new(to_a.shuffle)
   end
 
@@ -238,7 +238,9 @@ class Deque
   end
 
   def inspect
-    "Deque#{to_a}(@n=#{@n}, @buf=#{@buf}, @head=#{@head}, @tail=#{@tail}, size #{size}#{' full' if __full?}#{' rev' if reversed?})"
+    "Deque#{to_a}(@n=#{@n}, @buf=#{@buf}, @head=#{@head}, @tail=#{@tail}, size #{size}#{if __full?
+                                                                                          ' full'
+                                                                                        end}#{' rev' if reversed?})"
   end
 
   private def __push(x)

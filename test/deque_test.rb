@@ -204,7 +204,7 @@ class DequeTest < Minitest::Test
   end
 
   def test_rotate!
-    d = Deque[ "a", "b", "c", "d" ]
+    d = Deque["a", "b", "c", "d"]
     assert_equal Deque["b", "c", "d", "a"], d.rotate!
     assert_equal Deque["b", "c", "d", "a"], d
     assert_equal Deque["d", "a", "b", "c"], d.rotate!(2)
@@ -212,7 +212,7 @@ class DequeTest < Minitest::Test
   end
 
   def test_rotate_bang_with_reverse
-    d = Deque[ "d", "c", "b", "a" ].reverse
+    d = Deque["d", "c", "b", "a"].reverse
     assert_equal Deque["b", "c", "d", "a"], d.rotate!
     assert_equal Deque["b", "c", "d", "a"], d
     assert_equal Deque["d", "a", "b", "c"], d.rotate!(2)

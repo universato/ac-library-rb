@@ -203,7 +203,7 @@ module AcLibraryRb
       self[rand(size)]
     end
 
-    def shuffle(_n = nil)
+    def shuffle
       Deque.new(to_a.shuffle)
     end
 
