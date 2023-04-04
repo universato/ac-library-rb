@@ -182,7 +182,7 @@ module AcLibraryRb
 
       cnt %= size if cnt < 0 || size > cnt
 
-      cnt.times{ self.push(self.shift) }
+      cnt.times{ push(shift) }
       self
     end
 
@@ -191,7 +191,7 @@ module AcLibraryRb
 
       cnt %= size if cnt < 0 || size > cnt
 
-      ret = self.dup
+      ret = dup
       @buf = @buf.dup
       cnt.times{ ret.push(ret.shift) }
       ret
@@ -239,7 +239,9 @@ module AcLibraryRb
     end
 
     def inspect
-      "Deque#{to_a}(@n=#{@n}, @buf=#{@buf}, @head=#{@head}, @tail=#{@tail}, size #{size}#{' full' if __full?}#{' rev' if reversed?})"
+      "Deque#{to_a}(@n=#{@n}, @buf=#{@buf}, @head=#{@head}, @tail=#{@tail}, size #{size}#{if __full?
+                                                                                            ' full'
+                                                                                          end}#{' rev' if reversed?})"
     end
 
     private def __push(x)
