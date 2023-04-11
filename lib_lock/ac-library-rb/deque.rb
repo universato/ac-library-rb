@@ -239,9 +239,9 @@ module AcLibraryRb
     end
 
     def inspect
-      "Deque#{to_a}(@n=#{@n}, @buf=#{@buf}, @head=#{@head}, @tail=#{@tail}, size #{size}#{if __full?
-                                                                                            ' full'
-                                                                                          end}#{' rev' if reversed?})"
+      "Deque#{to_a}"
+      # "Deque#{to_a}(@n=#{@n}, @buf=#{@buf}, @head=#{@head}, @tail=#{@tail}, "\
+      # "size #{size}#{' full' if __full?}#{' rev' if reversed?})"
     end
 
     private def __push(x)

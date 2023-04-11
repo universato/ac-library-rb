@@ -156,7 +156,7 @@ class DequeTest < Minitest::Test
 
   def test_inspect
     deque = Deque.new([1, 2, 3])
-    assert_equal "Deque[1, 2, 3](@n=4, @buf=[1, 2, 3, nil], @head=0, @tail=3, size 3 full)", deque.inspect
+    assert_equal "Deque[1, 2, 3]", deque.inspect
   end
 
   def test_to_a
