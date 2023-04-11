@@ -1,3 +1,5 @@
+require "prime"
+
 class Integer
   # Returns the positive divisors of +self+ if +self+ is positive.
   #
