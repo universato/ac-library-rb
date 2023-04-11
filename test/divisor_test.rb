@@ -18,14 +18,14 @@ class IntegerTest < Minitest::Test
     assert_equal [1, 2, 4, 5, 10, 20, 25, 50, 100], 100.divisors
 
     # large prime number
-    assert_equal [1, 2**31-1], (2**31-1).divisors
+    assert_equal [1, 2**31 - 1], (2**31 - 1).divisors
     assert_equal [1, 1_000_000_007], 1_000_000_007.divisors
     assert_equal [1, 1_000_000_009], 1_000_000_009.divisors
     assert_equal [1, 67_280_421_310_721], 67_280_421_310_721.divisors
 
     # large composite number
-    p1 = 2**13-1
-    p2 = 2**17-1
+    p1 = 2**13 - 1
+    p2 = 2**17 - 1
     assert_equal [1, p1, p2, p1 * p2], (p1 * p2).divisors
 
     assert_raises(ZeroDivisionError){ 0.divisors }
