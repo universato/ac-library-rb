@@ -24,6 +24,6 @@ jobs:
       - name: insall by bundler
         run: bundle install
       - name: run unittests
-        run: bundle exec ruby test/*.rb
+        run: bundle exec ruby --jit test/*.rb
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
