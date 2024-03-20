@@ -31,7 +31,7 @@ class PriorityQueueTest < Minitest::Test
     q.append(8)
     assert_equal 8, q.pop
     assert_equal 7, q.pop
-    q.<< 3
+    q << 3
     q.push(4)
     q.push(1)
     assert_equal 4, q.pop

@@ -36,7 +36,7 @@ class Deque
 
   def unshift(*args)
     if reversed?
-      args.reverse_each{ |e|  __push(e) }
+      args.reverse_each{ |e| __push(e) }
     else
       args.reverse_each{ |e| __unshift(e) }
     end
