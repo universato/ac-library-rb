@@ -89,6 +89,8 @@ Metrics:
 
 ## Naming
 
+Naming/BlockForwarding:
+  Enabled: false
 Naming/FileName:
   Exclude:
     - 'lib_helpers/ac-library-rb.rb'
@@ -116,6 +118,8 @@ Naming/VariableNumber:
 Style/AccessModifierDeclarations:
   Exclude:
     - 'lib/deque.rb'
+Style/ArgumentsForwarding:
+  Enabled: false
 Style/BlockDelimiters:
   AutoCorrect: false
   Exclude:
@@ -166,8 +170,7 @@ Style/Lambda:
 Style/LambdaCall:
   Enabled: false
 Style/HashSyntax:
-  Exclude:
-    - 'Rakefile'
+  Enabled: false
 Style/MixinUsage:
   Exclude:
     - 'lib_helpers/ac-library-rb.rb'
